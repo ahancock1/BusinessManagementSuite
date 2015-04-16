@@ -1,0 +1,1 @@
+c:\users\adam\Development\Visual Studio 2013\Projects\RestaurantServer\RestaurantServer\bin\Debug\RestaurantServer.exe.config
