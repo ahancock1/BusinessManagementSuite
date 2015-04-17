@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using RestaurantServer.Data;
@@ -11,6 +12,7 @@ namespace RestaurantServer
     {
         static void Main(string[] args)
         {
+            Console.Title = String.Format("Restaurant Server v{0}", Assembly.GetEntryAssembly().GetName().Version);
 
             using (var context = new RestaurantDbContext())
             {

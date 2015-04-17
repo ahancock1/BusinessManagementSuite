@@ -11,7 +11,7 @@ namespace RestaurantServer.Data
     {
 
         public RestaurantDbContext()
-            : base("RestaurantDbConnectionString")
+            : base("RestaurantContext")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RestaurantDbContext>());
 
