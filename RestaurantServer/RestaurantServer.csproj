@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantServer.Common\RestaurantServer.Common.csproj">
+      <Project>{25f4d8a2-5060-4589-94bf-37cb27199187}</Project>
+      <Name>RestaurantServer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.DataAccess\RestaurantServer.DataAccess.csproj">
+      <Project>{22a36640-8015-4d05-8025-5df8664f16c9}</Project>
+      <Name>RestaurantServer.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Data\RestaurantServer.Data.csproj">
+      <Project>{0a002303-6bef-4d6b-a000-8662b80796b8}</Project>
+      <Name>RestaurantServer.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

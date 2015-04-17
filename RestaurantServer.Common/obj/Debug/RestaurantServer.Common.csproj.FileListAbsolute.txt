@@ -1,0 +1,5 @@
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Common\bin\Debug\RestaurantServer.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Common\bin\Debug\RestaurantServer.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Common\obj\Debug\RestaurantServer.Common.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Common\obj\Debug\RestaurantServer.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Common\obj\Debug\RestaurantServer.Common.pdb

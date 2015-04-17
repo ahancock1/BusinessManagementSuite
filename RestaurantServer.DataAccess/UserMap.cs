@@ -8,5 +8,6 @@ namespace RestaurantServer.DataAccess
 {
     class UserMap
     {
+
     }
 }
