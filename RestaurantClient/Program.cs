@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using RestaurantServer.Common;
+using RestaurantServer.Data;
 
 namespace RestaurantClient
 {
@@ -14,16 +15,16 @@ namespace RestaurantClient
         static void Main(string[] args)
         {
             // Run client
-            ChannelFactory<IService> channel = new ChannelFactory<IService>(new NetTcpBinding(), "net.tcp://localhost:8000");
+            ChannelFactory<ILoginService> channel = new ChannelFactory<ILoginService>(new NetTcpBinding(), "net.tcp://localhost:8000");
 
-            IService service = channel.CreateChannel();
+            ILoginService service = channel.CreateChannel();
             Console.WriteLine("CLIENT - Running...");
 
             Console.WriteLine("Press any key to terminate");
-            while (Console.ReadKey() != new ConsoleKeyInfo())
+            while (true)
             {
-                string response = service.Ping("client");
-                Console.WriteLine("CLIENT - Response from service: {0}", response);
+                User user = service.GetUser(0);
+                Console.WriteLine("CLIENT - Response from service: {0}", user);
 
                 Thread.Sleep(200);
             }
