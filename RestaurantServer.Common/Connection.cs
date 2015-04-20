@@ -22,7 +22,7 @@ namespace RestaurantServer.Common
 
         private NetworkStream stream;
 
-        public int ConnectionID { get; private set; }
+        public int ID { get; private set; }
 
         public string Name { get; set; }
 
