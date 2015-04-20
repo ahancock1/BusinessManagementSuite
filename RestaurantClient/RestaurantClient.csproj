@@ -57,6 +57,10 @@
       <Project>{0A002303-6BEF-4D6B-A000-8662B80796B8}</Project>
       <Name>RestaurantServer.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Service\RestaurantServer.Service.csproj">
+      <Project>{568F7BFD-A752-45AD-877C-D5264EBD5606}</Project>
+      <Name>RestaurantServer.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

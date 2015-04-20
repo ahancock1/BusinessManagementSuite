@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestaurantServer.Common;
+using RestaurantServer.Service;
 using RestaurantServer.Data;
 
 namespace RestaurantClient

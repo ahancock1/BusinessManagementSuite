@@ -31,10 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -74,6 +70,10 @@
     <ProjectReference Include="..\RestaurantServer.Data\RestaurantServer.Data.csproj">
       <Project>{0a002303-6bef-4d6b-a000-8662b80796b8}</Project>
       <Name>RestaurantServer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Service\RestaurantServer.Service.csproj">
+      <Project>{568F7BFD-A752-45AD-877C-D5264EBD5606}</Project>
+      <Name>RestaurantServer.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

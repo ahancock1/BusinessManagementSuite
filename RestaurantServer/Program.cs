@@ -6,8 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestaurantServer.Common;
 using RestaurantServer.Data;
+using RestaurantServer.Service;
 
 namespace RestaurantServer
 {
