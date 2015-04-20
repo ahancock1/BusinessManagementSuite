@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.ServiceModel.Dispatcher;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RestaurantServer.Common
@@ -10,7 +13,7 @@ namespace RestaurantServer.Common
     {
         void Start();
 
-        void Received(Connection connection, object o);
+        void Stop();
         
         void SendToAll(object o);
 
@@ -24,34 +27,83 @@ namespace RestaurantServer.Common
         public List<Connection> Connections { get; set; }
 
         public Listener Listener { get; set; }
+        
+        public int Port { get; set; }
 
         public int Timeout { get; set; }
 
-        
+        private int nextConnectionID = 0;
 
-        public Server(int port)
+        private bool shutdown;
+
+
+        public Server(int port = 8000, int timeout = 250)
         {
-            Timeout = 250;
+            Port = port;
+            Timeout = timeout;
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Starts the server in a separate thread.
+        /// </summary>
         public void Start()
         {
-            if (Listener != null)
+            new Thread(Run)
             {
-                Listener.Start();
+                Name = "Server"
+            }.Start();
+        }
+
+        public void Stop()
+        {
+            if (shutdown) return;
+
+            Close();
+            Console.WriteLine("Server stopping");
+            shutdown = true;
+        }
+
+        public void Close()
+        {
+            foreach (Connection connection in Connections)
+            {
+                connection.Close();
+            }
+            Connections = new List<Connection>();
+
+
+        }
+
+        /// <summary>
+        /// Starts the server in the same thread.
+        /// </summary>
+        public void Run()
+        {
+            Console.WriteLine("Server started");
+            shutdown = false;
+            while (!shutdown)
+            {
+                try
+                {
+                    Update(Timeout);
+                }
+                catch (IOException e)
+                {
+                    Close();
+                }
             }
         }
 
-        public void Received(Connection connection, object o)
+        private void Update(int timeout)
         {
-
+            
         }
 
+        private void Accept()
+        {
+            
+        }
+        
         public void SendToAll(object o)
         {
             foreach (Connection connection in Connections)
@@ -73,5 +125,9 @@ namespace RestaurantServer.Common
             throw new NotImplementedException();
         }
 
+        public void Dispose()
+        {
+            Close();
+        }
     }
 }
