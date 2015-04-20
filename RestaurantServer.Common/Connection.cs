@@ -9,46 +9,80 @@ using System.Threading.Tasks;
 
 namespace RestaurantServer.Common
 {
-    public interface IConnection
+    public interface IConnection : IDisposable
     {
         void Send(object data);
 
         void Close();
+
+        bool Connected { get; }
     }
 
     public class Connection : IConnection
     {
-        private TcpClient client;
+        public TcpClient Client;
 
-        private NetworkStream stream;
+        public NetworkStream Stream;
 
-        public int ID { get; private set; }
+        public Listener Listener { get; set; }
+
+        public int ID { get; set; }
 
         public string Name { get; set; }
 
+        public Connection()
+        {
+            
+        }
 
         public Connection(string hostName, int port)
         {
-            client = new TcpClient(hostName, port);
-            stream = client.GetStream();
+            Client = new TcpClient(hostName, port);
+            Stream = Client.GetStream();
         }
 
         public void Send(object o)
         {
-            if (stream.CanWrite)
+            if (o == null) throw new Exception("object cannot be null.");
+
+            if (Stream == null) throw new Exception("Stream cannot be null.");
+
+            if (Stream.CanWrite)
             {
                 using (var memoryStream = new MemoryStream())
                 {
                     (new BinaryFormatter()).Serialize(memoryStream, o);
-                    stream.Write(memoryStream.ToArray(),0,(int)memoryStream.Length);
+                    Stream.Write(memoryStream.ToArray(), 0, (int)memoryStream.Length);
                 }
+
+                Console.WriteLine("Sent: {0}", o.GetType().Name);
             }
+        }
+
+        public void Read()
+        {
+            
         }
 
         public void Close()
         {
-            stream.Close();
-            client.Close();
+            Stream.Close();
+            Client.Close();
+        }
+
+        public bool Connected
+        {
+            get { return Client.Connected; }
+        }
+
+        public override string ToString()
+        {
+            return Name ?? "Connection " + ID;
+        }
+
+        public void Dispose()
+        {
+            Close();
         }
     }
 }
