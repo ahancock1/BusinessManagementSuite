@@ -14,6 +14,8 @@ namespace RestaurantServer.Common
         void Start();
 
         void Stop();
+
+        bool Running { get; }
         
         void SendToAll(object o);
 
@@ -63,6 +65,11 @@ namespace RestaurantServer.Common
             shutdown = true;
         }
 
+        public bool Running
+        {
+            get {   }
+        }
+
         public void Close()
         {
             foreach (Connection connection in Connections)
@@ -96,7 +103,7 @@ namespace RestaurantServer.Common
 
         private void Update(int timeout)
         {
-            
+            Console.WriteLine("running");
         }
 
         private void Accept()
@@ -106,7 +113,7 @@ namespace RestaurantServer.Common
         
         public void SendToAll(object o)
         {
-            foreach (Connection connection in Connections)
+            foreach (IConnection connection in Connections)
             {
                 connection.Send(o);
             }
@@ -114,15 +121,23 @@ namespace RestaurantServer.Common
 
         public void SendToAllExcept(object o, int id)
         {
-            foreach (Connection connection in Connections.Where(c => c.ID != id))
+            foreach (IConnection connection in Connections.Where(c => c.ID != id))
             {
                 connection.Send(o);
             }
         }
 
-        public void SendToAllExcept(object o, params int[] id)
+        public void SendToAllExcept(object o, params int[] ids)
         {
-            throw new NotImplementedException();
+            foreach (IConnection connection in Connections.Where(connection => !ids.Any(id => connection.ID == id)))
+            {
+                connection.Send(o);
+            }
+        }
+
+        public void SendToAllExcept(object o, List<int> ids)
+        {
+            SendToAllExcept(o, ids.ToArray());
         }
 
         public void Dispose()
