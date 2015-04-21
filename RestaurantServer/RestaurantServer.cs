@@ -41,5 +41,10 @@ namespace RestaurantServer
         {
             Console.WriteLine("SERVER - Client disconnected: {0}", connection.ID);
         }
+
+        public override void Received(Connection connection, object o)
+        {
+            Console.WriteLine("SERVER - Data received: {0}", o.GetType().Name);
+        }
     }
 }

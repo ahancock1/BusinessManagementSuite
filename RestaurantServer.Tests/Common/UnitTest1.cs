@@ -14,16 +14,7 @@ namespace RestaurantServer.Tests.Common
         {
             server = new Server();
         }
-
-        [TestMethod]
-        public void RunTest()
-        {
-            server.Run();
-
-            Assert.AreEqual(true, server.Running);
-
-        }
-
+        
         [TestMethod]
         public void StartTest()
         {

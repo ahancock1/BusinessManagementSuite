@@ -108,7 +108,7 @@ namespace RestaurantServer.Common
 
         public override string ToString()
         {
-            return Name ?? "Connection " + ID;
+            return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
         }
 
         public void Dispose()

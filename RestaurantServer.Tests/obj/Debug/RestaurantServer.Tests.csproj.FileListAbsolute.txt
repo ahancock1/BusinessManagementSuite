@@ -1,1 +1,7 @@
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.pdb

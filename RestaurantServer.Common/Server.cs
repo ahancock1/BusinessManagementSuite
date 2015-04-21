@@ -40,7 +40,7 @@ namespace RestaurantServer.Common
         private TcpListener clientListener;
 
 
-        public Server(int bufferSize)
+        public Server(int bufferSize = 1024)
         {
             this.bufferSize = bufferSize;
             buffer = new byte[bufferSize];
@@ -83,7 +83,7 @@ namespace RestaurantServer.Common
             TcpClient client = ((TcpListener)result.AsyncState).EndAcceptTcpClient(result);
             
             // Create a connection
-            Connection connection = new Connection
+            Connection connection = new Connection(bufferSize)
             {
                 Client = client,
                 Stream = client.GetStream(),
@@ -156,6 +156,11 @@ namespace RestaurantServer.Common
         public int ConnectionID { get; set; }
 
         public string ConnectionName { get; set; }
+
+        public NetRegisterConnection()
+        {
+            ConnectionName = String.Empty;
+        }
     }
 
     public class NetPing : INetMessage

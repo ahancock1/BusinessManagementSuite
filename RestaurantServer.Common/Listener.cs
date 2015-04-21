@@ -42,9 +42,6 @@ namespace RestaurantServer.Common
 
         public abstract void Disconnected(Connection connection);
 
-        public void Received(Connection connection, object o)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Received(Connection connection, object o);
     }
 }
