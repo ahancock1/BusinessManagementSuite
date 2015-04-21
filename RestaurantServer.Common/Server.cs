@@ -10,7 +10,7 @@ namespace RestaurantServer.Common
     public interface IServer : IDisposable
     {
         void Start();
-
+        
         void Stop();
         
         void SendToAll(object o);
@@ -73,16 +73,20 @@ namespace RestaurantServer.Common
             }
             Connections = new List<Connection>();
 
+            // Release thread and close listener
+            clientConnectedReset.Set();
             clientListener.Stop();
 
             Console.WriteLine("Server stopping");
         }
-
+        
         private void AcceptCallBack(IAsyncResult result)
         {
             // Get the socket that handles the client request
             TcpClient client = ((TcpListener)result.AsyncState).EndAcceptTcpClient(result);
-            
+
+            clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
+
             // Create a connection
             Connection connection = new Connection(bufferSize)
             {
@@ -98,14 +102,13 @@ namespace RestaurantServer.Common
                 ConnectionID = connection.ID
             });
 
+            // TODO move this until the handshake is confirmed
             // Notify connection
             connection.Listener.Connected(connection);
             Connections.Add(connection);
 
             // Signal the calling thread to continue
             clientConnectedReset.Set();
-
-            clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
         }
         
         public void SendToAll(object o)
@@ -142,6 +145,8 @@ namespace RestaurantServer.Common
             Stop();
         }
     }
+    
+    #region Framework Messages
 
     public interface INetMessage
     {
@@ -180,4 +185,10 @@ namespace RestaurantServer.Common
         public int ConnectionID { get; set; }    
     }
 
+    public class NetCloseConnection : INetMessage
+    {
+        public int ConnectionID { get; set; }
+    }
+
+    #endregion
 }

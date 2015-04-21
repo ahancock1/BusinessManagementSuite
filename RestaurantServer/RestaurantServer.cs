@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using RestaurantServer.Common;
 
@@ -23,7 +24,8 @@ namespace RestaurantServer
 
         public void Start()
         {
-            server.Start();
+            new Thread(server.Start) { Name = "Server" }.Start();
+//            server.Start();
         }
 
         public void Stop()

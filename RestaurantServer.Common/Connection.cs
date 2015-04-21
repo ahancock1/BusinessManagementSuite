@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -20,15 +21,17 @@ namespace RestaurantServer.Common
 
         private int bufferSize;
 
-        public TcpClient Client;
+        public TcpClient Client { get; set; }
 
-        public NetworkStream Stream;
+        public NetworkStream Stream { get; set; }
 
         public Listener Listener { get; set; }
 
         public int ID { get; set; }
 
         public string Name { get; set; }
+
+        private bool shutdown;
 
         public Connection(int bufferSize)
         {
@@ -76,6 +79,14 @@ namespace RestaurantServer.Common
                                 ID = response.ConnectionID;
                                 Name = response.ConnectionName;
                             }
+                            if (o is NetAcceptConnection)
+                            {
+                                
+                            }
+                            if (o is NetCloseConnection)
+                            {
+                                Listener.Disconnected(this);
+                            }
                         }
                         else
                         {
@@ -97,8 +108,22 @@ namespace RestaurantServer.Common
 
         public void Close()
         {
+            if (!Connected) return;
+            
+            Send(new NetCloseConnection { ConnectionID = ID });
+
             Stream.Close();
             Client.Close();
+        }
+
+        public IPEndPoint IpEndPoint
+        {
+            get { return ((IPEndPoint) Client.Client.RemoteEndPoint); }
+        }
+
+        public IPAddress IpAddress
+        {
+            get { return IpEndPoint.Address; }
         }
 
         public bool Connected
