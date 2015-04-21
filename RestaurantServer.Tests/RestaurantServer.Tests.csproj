@@ -58,6 +58,10 @@
       <Project>{25f4d8a2-5060-4589-94bf-37cb27199187}</Project>
       <Name>RestaurantServer.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Network\RestaurantServer.Network.csproj">
+      <Project>{1699F9B6-C984-45D7-835B-4413EBA0E961}</Project>
+      <Name>RestaurantServer.Network</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

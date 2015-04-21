@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25F4D8A2-5060-4589-94BF-37CB27199187}</ProjectGuid>
+    <ProjectGuid>{1699F9B6-C984-45D7-835B-4413EBA0E961}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RestaurantServer.Common</RootNamespace>
-    <AssemblyName>RestaurantServer.Common</AssemblyName>
+    <RootNamespace>RestaurantServer.Network</RootNamespace>
+    <AssemblyName>RestaurantServer.Network</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,13 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Listener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RestaurantServer.Data\RestaurantServer.Data.csproj">
-      <Project>{0A002303-6BEF-4D6B-A000-8662B80796B8}</Project>
-      <Name>RestaurantServer.Data</Name>
-    </ProjectReference>
+    <Compile Include="Server.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

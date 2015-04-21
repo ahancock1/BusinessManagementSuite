@@ -72,6 +72,10 @@
       <Project>{0a002303-6bef-4d6b-a000-8662b80796b8}</Project>
       <Name>RestaurantServer.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Network\RestaurantServer.Network.csproj">
+      <Project>{1699F9B6-C984-45D7-835B-4413EBA0E961}</Project>
+      <Name>RestaurantServer.Network</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantServer.Service\RestaurantServer.Service.csproj">
       <Project>{568F7BFD-A752-45AD-877C-D5264EBD5606}</Project>
       <Name>RestaurantServer.Service</Name>

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RestaurantServer.Common;
+using RestaurantServer.Network;
 
 namespace RestaurantServer.Tests.Common
 {
@@ -12,7 +12,7 @@ namespace RestaurantServer.Tests.Common
         [TestInitialize]
         public void Initialise()
         {
-            server = new Server();
+            server = new Server(8001);
         }
         
         [TestMethod]

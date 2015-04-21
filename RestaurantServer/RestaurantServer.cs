@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestaurantServer.Common;
+using RestaurantServer.Network;
 
 namespace RestaurantServer
 {
@@ -24,8 +24,8 @@ namespace RestaurantServer
 
         public void Start()
         {
+            // Start server in separate thread
             new Thread(server.Start) { Name = "Server" }.Start();
-//            server.Start();
         }
 
         public void Stop()

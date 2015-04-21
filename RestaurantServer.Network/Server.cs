@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace RestaurantServer.Common
+namespace RestaurantServer.Network
 {
     public interface IServer : IDisposable
     {
@@ -148,12 +148,12 @@ namespace RestaurantServer.Common
     
     #region Framework Messages
 
-    public interface INetMessage
+    internal interface INetMessage
     {
         
     }
 
-    public class NetResponse : INetMessage
+    internal class NetResponse : INetMessage
     {
         public string Message { get; set; }
 
@@ -163,7 +163,7 @@ namespace RestaurantServer.Common
         }
     }
 
-    public class NetRegisterConnection : INetMessage
+    internal class NetRegisterConnection : INetMessage
     {
         public int ConnectionID { get; set; }
 
@@ -175,17 +175,17 @@ namespace RestaurantServer.Common
         }
     }
 
-    public class NetPing : INetMessage
+    internal class NetPing : INetMessage
     {
         
     }
 
-    public class NetAcceptConnection : INetMessage
+    internal class NetAcceptConnection : INetMessage
     {
         public int ConnectionID { get; set; }    
     }
 
-    public class NetCloseConnection : INetMessage
+    internal class NetCloseConnection : INetMessage
     {
         public int ConnectionID { get; set; }
     }

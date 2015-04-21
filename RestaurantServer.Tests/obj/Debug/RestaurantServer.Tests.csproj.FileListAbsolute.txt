@@ -5,3 +5,5 @@ C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Deb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Common.pdb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.dll
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Network.pdb
