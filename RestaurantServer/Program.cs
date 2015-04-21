@@ -15,7 +15,7 @@ namespace RestaurantServer
         {
             Console.Title = String.Format("Restaurant Server v{0}", Assembly.GetEntryAssembly().GetName().Version);
 
-            RestaurantServer server =new RestaurantServer(8001);
+            RestaurantServer server =new RestaurantServer(7777);
             server.Start();
 
 

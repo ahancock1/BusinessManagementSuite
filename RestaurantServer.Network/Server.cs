@@ -28,9 +28,7 @@ namespace RestaurantServer.Network
             new ManualResetEvent(false);
 
         private readonly byte[] buffer;
-
-        private readonly int bufferSize;
-
+        
         public List<Connection> Connections { get; set; }
 
         public Listener Listener { get; set; }
@@ -46,7 +44,7 @@ namespace RestaurantServer.Network
 
         public Server(int port, int bufferSize = 1024)
         {
-            this.bufferSize = bufferSize;
+            Port = port;
             buffer = new byte[bufferSize];
 
             Connections = new List<Connection>();
@@ -54,10 +52,10 @@ namespace RestaurantServer.Network
 
         public void Start()
         {
-            Console.WriteLine("Server started");
-
             clientListener = new TcpListener(IPAddress.Any, Port);
             clientListener.Start();
+
+            Console.WriteLine("Server started on: {0}", Port);
 
             clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
 
@@ -88,13 +86,14 @@ namespace RestaurantServer.Network
             clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
 
             // Create a connection
-            Connection connection = new Connection(bufferSize)
+            Connection connection = new Connection(buffer.Length)
             {
                 Client = client,
                 Stream = client.GetStream(),
                 ID = nextConnectionID++,
                 Listener = Listener
             };
+            connection.Stream.BeginRead(connection.Buffer, 0, connection.Buffer.Length, connection.ReadCallBack, connection.Stream);
 
             // Let the client know its ID
             connection.Send(new NetAcceptConnection
@@ -102,9 +101,7 @@ namespace RestaurantServer.Network
                 ConnectionID = connection.ID
             });
 
-            // TODO move this until the handshake is confirmed
-            // Notify connection
-            connection.Listener.Connected(connection);
+            // Add connection
             Connections.Add(connection);
 
             // Signal the calling thread to continue
@@ -153,6 +150,7 @@ namespace RestaurantServer.Network
         
     }
 
+    [Serializable]
     internal class NetResponse : INetMessage
     {
         public string Message { get; set; }
@@ -163,6 +161,7 @@ namespace RestaurantServer.Network
         }
     }
 
+    [Serializable]
     internal class NetRegisterConnection : INetMessage
     {
         public int ConnectionID { get; set; }
@@ -175,16 +174,19 @@ namespace RestaurantServer.Network
         }
     }
 
+    [Serializable]
     internal class NetPing : INetMessage
     {
         
     }
 
+    [Serializable]
     internal class NetAcceptConnection : INetMessage
     {
         public int ConnectionID { get; set; }    
     }
 
+    [Serializable]
     internal class NetCloseConnection : INetMessage
     {
         public int ConnectionID { get; set; }

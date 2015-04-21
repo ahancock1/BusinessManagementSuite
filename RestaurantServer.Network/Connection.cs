@@ -17,7 +17,7 @@ namespace RestaurantServer.Network
 
     public class Connection : IConnection
     {
-        protected readonly byte[] Buffer;
+        public readonly byte[] Buffer;
         
         public TcpClient Client { get; set; }
 
@@ -80,6 +80,7 @@ namespace RestaurantServer.Network
                             }
                             if (packet is NetRegisterConnection)
                             {
+                                Name = ((NetRegisterConnection) packet).ConnectionName;
                                 Listener.Connected(this);
                             }
                             if (packet is NetCloseConnection)
