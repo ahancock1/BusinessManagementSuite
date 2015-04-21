@@ -43,7 +43,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,10 +74,6 @@
     <ProjectReference Include="..\RestaurantServer.Network\RestaurantServer.Network.csproj">
       <Project>{1699F9B6-C984-45D7-835B-4413EBA0E961}</Project>
       <Name>RestaurantServer.Network</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RestaurantServer.Service\RestaurantServer.Service.csproj">
-      <Project>{568F7BFD-A752-45AD-877C-D5264EBD5606}</Project>
-      <Name>RestaurantServer.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
