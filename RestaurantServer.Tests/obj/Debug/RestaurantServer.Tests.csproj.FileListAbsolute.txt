@@ -7,3 +7,9 @@ C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Deb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\obj\Debug\RestaurantServer.Tests.pdb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Network.dll
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.exe
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\RestaurantServer.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Tests\bin\Debug\EntityFramework.xml

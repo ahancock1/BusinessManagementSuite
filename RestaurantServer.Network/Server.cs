@@ -97,7 +97,7 @@ namespace RestaurantServer.Network
             };
 
             // Let the client know its ID
-            connection.Send(new NetRegisterConnection
+            connection.Send(new NetAcceptConnection
             {
                 ConnectionID = connection.ID
             });

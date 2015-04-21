@@ -3,4 +3,4 @@
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=6DBBC908DA9046CB87A03C0C4F330C20/@KeyIndexDefined">True</s:Boolean>
 	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=6DBBC908DA9046CB87A03C0C4F330C20/GroupingIndex/@EntryValue">4</s:Int64>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=6DBBC908DA9046CB87A03C0C4F330C20/Name/@EntryValue">RunTest</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=6DBBC908DA9046CB87A03C0C4F330C20/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;/Session&gt;</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=6DBBC908DA9046CB87A03C0C4F330C20/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="RestaurantServer.Tests.ServerTests.ServerTest" Project="7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1" Provider="MSTest" /&gt;&lt;e Id="RestaurantServer.Tests.ServerTests" Project="7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String></wpf:ResourceDictionary>

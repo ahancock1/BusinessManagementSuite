@@ -2,3 +2,4 @@ C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Network\bin\D
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Network\bin\Debug\RestaurantServer.Network.pdb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Network\obj\Debug\RestaurantServer.Network.dll
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Network\obj\Debug\RestaurantServer.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Network\obj\Debug\RestaurantServer.Network.csprojResolveAssemblyReference.cache

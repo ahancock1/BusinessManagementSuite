@@ -52,15 +52,24 @@
   <ItemGroup>
     <Compile Include="Common\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantServer.Common\RestaurantServer.Common.csproj">
       <Project>{25f4d8a2-5060-4589-94bf-37cb27199187}</Project>
       <Name>RestaurantServer.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer.Data\RestaurantServer.Data.csproj">
+      <Project>{0a002303-6bef-4d6b-a000-8662b80796b8}</Project>
+      <Name>RestaurantServer.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantServer.Network\RestaurantServer.Network.csproj">
       <Project>{1699F9B6-C984-45D7-835B-4413EBA0E961}</Project>
       <Name>RestaurantServer.Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantServer\RestaurantServer.csproj">
+      <Project>{277866e3-5885-4b86-a739-c598d21c09f0}</Project>
+      <Name>RestaurantServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

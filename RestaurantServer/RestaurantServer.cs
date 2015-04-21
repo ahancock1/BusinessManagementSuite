@@ -12,6 +12,8 @@ namespace RestaurantServer
     {
         private readonly Server server;
 
+        public bool Running { get; private set; }
+
 
         public RestaurantServer(int port)
         {
@@ -26,11 +28,13 @@ namespace RestaurantServer
         {
             // Start server in separate thread
             new Thread(server.Start) { Name = "Server" }.Start();
+            Running = true;
         }
 
         public void Stop()
         {
             server.Stop();
+            Running = false;
         }
 
         public override void Connected(Connection connection)

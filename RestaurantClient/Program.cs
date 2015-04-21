@@ -5,7 +5,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestaurantServer.Service;
+using RestaurantServer.Data;
+using RestaurantServer.Network;
 using RestaurantServer.Data;
 
 namespace RestaurantClient
@@ -14,25 +15,15 @@ namespace RestaurantClient
     {
         static void Main(string[] args)
         {
-            // Run client
-            ChannelFactory<ILoginService> channel = new ChannelFactory<ILoginService>(new NetTcpBinding(), "net.tcp://localhost:8000");
+            RestaurantClient client = new RestaurantClient();
+            client.Connect("localhost", 8001);
 
-            ILoginService service = channel.CreateChannel();
-            Console.WriteLine("CLIENT - Running...");
 
             Console.WriteLine("Press any key to terminate");
-            while (true)
-            {
-                User user = service.GetUser(0);
-                Console.WriteLine("CLIENT - Response from service: {0}", user);
+            Console.ReadKey();
 
-                Thread.Sleep(200);
-            }
+            client.Client.Close();
 
-            Console.WriteLine("\nCLIENT - Shut down");
-            (service as ICommunicationObject).Close();
-
-            Thread.Sleep(250);
         }
     }
 }

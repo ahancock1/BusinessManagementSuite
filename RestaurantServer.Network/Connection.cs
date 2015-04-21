@@ -17,10 +17,8 @@ namespace RestaurantServer.Network
 
     public class Connection : IConnection
     {
-        protected readonly byte[] buffer;
-
-        private int bufferSize;
-
+        protected readonly byte[] Buffer;
+        
         public TcpClient Client { get; set; }
 
         public NetworkStream Stream { get; set; }
@@ -30,13 +28,11 @@ namespace RestaurantServer.Network
         public int ID { get; set; }
 
         public string Name { get; set; }
-
-        private bool shutdown;
+        
 
         public Connection(int bufferSize)
         {
-            this.bufferSize = bufferSize;
-            buffer = new byte[bufferSize];
+            Buffer = new byte[bufferSize];
             Client = new TcpClient();
         }
 
@@ -65,25 +61,28 @@ namespace RestaurantServer.Network
                 int length = Stream.EndRead(result);
                 if (length > 0)
                 {
-                    using (var memoryStream = new MemoryStream(buffer))
+                    using (var memoryStream = new MemoryStream(Buffer))
                     {
                         memoryStream.Seek(0, SeekOrigin.Begin);
-                        object o = (new BinaryFormatter()).Deserialize(memoryStream);
+                        object packet = (new BinaryFormatter()).Deserialize(memoryStream);
 
-                        if (o is INetMessage)
+                        if (packet is INetMessage)
                         {
                             // TODO handle framework messages here
-                            if (o is NetRegisterConnection)
+                            if (packet is NetAcceptConnection)
                             {
-                                NetRegisterConnection response = (NetRegisterConnection) o;
-                                ID = response.ConnectionID;
-                                Name = response.ConnectionName;
+                                ID = ((NetAcceptConnection) packet).ConnectionID;
+                                Send(new NetRegisterConnection
+                                {
+                                    ConnectionID = ID,
+                                    ConnectionName = Name
+                                });
                             }
-                            if (o is NetAcceptConnection)
+                            if (packet is NetRegisterConnection)
                             {
-                                
+                                Listener.Connected(this);
                             }
-                            if (o is NetCloseConnection)
+                            if (packet is NetCloseConnection)
                             {
                                 Listener.Disconnected(this);
                             }
@@ -92,12 +91,12 @@ namespace RestaurantServer.Network
                         {
                             if (Listener != null)
                             {
-                                Listener.Received(this, o);
+                                Listener.Received(this, packet);
                             }
                         }
                     }
                 }
-                Stream.BeginRead(buffer, 0, buffer.Length, ReadCallBack, Stream);
+                Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
             }
             catch (Exception e)
             {
