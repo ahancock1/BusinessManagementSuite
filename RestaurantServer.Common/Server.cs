@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace RestaurantServer.Common
 {
     public interface IServer : IDisposable
     {
-        void Bind(int port);
-
         void Start();
 
         void Stop();
@@ -18,14 +17,19 @@ namespace RestaurantServer.Common
 
         void SendToAllExcept(object o, int id);
 
-        void SendToAllExcept(object o, params int[] id);
+        void SendToAllExcept(object o, params int[] ids);
+
+        void SendToAllExcept(object o, IEnumerable<int> ids);
     }
 
     public class Server : IServer
     {
+        private readonly ManualResetEvent clientConnectedReset =
+            new ManualResetEvent(false);
+
         private readonly byte[] buffer;
 
-        private int bufferSize;
+        private readonly int bufferSize;
 
         public List<Connection> Connections { get; set; }
 
@@ -38,9 +42,9 @@ namespace RestaurantServer.Common
         private int nextConnectionID;
         
         private TcpListener clientListener;
+        
 
-
-        public Server(int bufferSize = 1024)
+        public Server(int port, int bufferSize = 1024)
         {
             this.bufferSize = bufferSize;
             buffer = new byte[bufferSize];
@@ -56,13 +60,10 @@ namespace RestaurantServer.Common
             clientListener.Start();
 
             clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
-        }
 
-        public void Bind(int port)
-        {
-            Port = port;
+            clientConnectedReset.WaitOne();
         }
-
+        
         public void Stop()
         {
             // Close all connections
@@ -91,14 +92,20 @@ namespace RestaurantServer.Common
                 Listener = Listener
             };
 
+            // Let the client know its ID
             connection.Send(new NetRegisterConnection
             {
                 ConnectionID = connection.ID
             });
+
+            // Notify connection
             connection.Listener.Connected(connection);
-            
             Connections.Add(connection);
 
+            // Signal the calling thread to continue
+            clientConnectedReset.Set();
+
+            clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
         }
         
         public void SendToAll(object o)
@@ -125,7 +132,7 @@ namespace RestaurantServer.Common
             }
         }
 
-        public void SendToAllExcept(object o, List<int> ids)
+        public void SendToAllExcept(object o, IEnumerable<int> ids)
         {
             SendToAllExcept(o, ids.ToArray());
         }
@@ -167,4 +174,10 @@ namespace RestaurantServer.Common
     {
         
     }
+
+    public class NetAcceptConnection : INetMessage
+    {
+        public int ConnectionID { get; set; }    
+    }
+
 }

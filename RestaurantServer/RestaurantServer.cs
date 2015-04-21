@@ -9,27 +9,26 @@ namespace RestaurantServer
 {
     public class RestaurantServer : Listener
     {
-        public Server Server;
+        private readonly Server server;
 
 
         public RestaurantServer(int port)
         {
-            Server = new Server(port)
+            server = new Server(port)
             {
                 Listener = this,
                 Timeout = 1000
             };
         }
 
-        public override void Start()
+        public void Start()
         {
-//            base.Start();
-            Server.Start();
+            server.Start();
         }
 
         public void Stop()
         {
-            Server.Stop();
+            server.Stop();
         }
 
         public override void Connected(Connection connection)

@@ -9,8 +9,6 @@ namespace RestaurantServer.Common
 {
     public interface IListener
     {
-        bool Running { get; }
-        
         void Connected(Connection connection);
 
         void Disconnected(Connection connection);
@@ -20,24 +18,6 @@ namespace RestaurantServer.Common
 
     public abstract class Listener : IListener
     {
-        private Thread thread;
-
-        public bool Running
-        {
-            get { return thread != null && thread.IsAlive; }
-        }
-
-        public virtual void Start()
-        {
-            thread = new Thread(() =>
-            {
-                // TODO implement listening logic
-   
-
-            });
-            thread.Start();
-        }
-
         public abstract void Connected(Connection connection);
 
         public abstract void Disconnected(Connection connection);
