@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantServer.Common
 {
@@ -20,6 +16,10 @@ namespace RestaurantServer.Common
 
     public class Connection : IConnection
     {
+        protected readonly byte[] buffer;
+
+        private int bufferSize;
+
         public TcpClient Client;
 
         public NetworkStream Stream;
@@ -30,15 +30,11 @@ namespace RestaurantServer.Common
 
         public string Name { get; set; }
 
-        public Connection()
+        public Connection(int bufferSize)
         {
-            
-        }
-
-        public Connection(string hostName, int port)
-        {
-            Client = new TcpClient(hostName, port);
-            Stream = Client.GetStream();
+            this.bufferSize = bufferSize;
+            buffer = new byte[bufferSize];
+            Client = new TcpClient();
         }
 
         public void Send(object o)
@@ -59,9 +55,44 @@ namespace RestaurantServer.Common
             }
         }
 
-        public void Read()
+        public void ReadCallBack(IAsyncResult result)
         {
-            
+            try
+            {
+                int length = Stream.EndRead(result);
+                if (length > 0)
+                {
+                    using (var memoryStream = new MemoryStream(buffer))
+                    {
+                        memoryStream.Seek(0, SeekOrigin.Begin);
+                        object o = (new BinaryFormatter()).Deserialize(memoryStream);
+
+                        if (o is INetMessage)
+                        {
+                            // TODO handle framework messages here
+                            if (o is NetRegisterConnection)
+                            {
+                                NetRegisterConnection response = (NetRegisterConnection) o;
+                                ID = response.ConnectionID;
+                                Name = response.ConnectionName;
+                            }
+                        }
+                        else
+                        {
+                            if (Listener != null)
+                            {
+                                Listener.Received(this, o);
+                            }
+                        }
+                    }
+                }
+                Stream.BeginRead(buffer, 0, buffer.Length, ReadCallBack, Stream);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading data: {0}", "");
+                Close();
+            }
         }
 
         public void Close()

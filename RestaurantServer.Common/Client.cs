@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,22 +9,30 @@ namespace RestaurantServer.Common
 {
     public interface IClient
     {
-        void Start();
-
-        void Connect(int bufferSize, string hostName, int port);
-
-        void Send(object o);
+        void Connect(string hostName, int port);
     }
 
-    public class Client
+    public class Client : Connection, IClient
     {
-
-
-
-        public Client()
+        public Client(int bufferSize = 1024) : base(bufferSize)
         {
-            
         }
+        
+        public void Connect(string hostName, int port)
+        {
+            if (Connected) return;
 
+            try
+            {
+                Client.Connect(hostName, port);
+                Stream = Client.GetStream();
+
+                Stream.BeginRead(buffer, 0, buffer.Length, ReadCallBack, Stream);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error establishing connection to server: {0}", e.Message);
+            }
+        }
     }
 }

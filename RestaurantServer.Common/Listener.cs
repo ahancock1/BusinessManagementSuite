@@ -9,12 +9,8 @@ namespace RestaurantServer.Common
 {
     public interface IListener
     {
-        void Stop();
-
         bool Running { get; }
-
-        void Start();
-
+        
         void Connected(Connection connection);
 
         void Disconnected(Connection connection);
@@ -26,22 +22,12 @@ namespace RestaurantServer.Common
     {
         private Thread thread;
 
-        public void Stop()
-        {
-            if (thread == null) return;
-
-            if (thread.IsAlive)
-            {
-                thread.Abort();
-            }
-        }
-
         public bool Running
         {
             get { return thread != null && thread.IsAlive; }
         }
 
-        public void Start()
+        public virtual void Start()
         {
             thread = new Thread(() =>
             {

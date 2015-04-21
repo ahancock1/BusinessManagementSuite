@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RestaurantServer.Common;
 using RestaurantServer.Data;
 using RestaurantServer.Service;
 
@@ -17,11 +18,11 @@ namespace RestaurantServer
         {
             Console.Title = String.Format("Restaurant Server v{0}", Assembly.GetEntryAssembly().GetName().Version);
 
-            // WCF Service code
-            ServiceHost service = new ServiceHost(typeof(LoginService));
-            service.AddServiceEndpoint(typeof(ILoginService), new NetTcpBinding(), "net.tcp://localhost:8000");
-            service.Open();
-            Console.WriteLine("SERVER - Running...");
+            RestaurantServer server =new RestaurantServer(8001);
+            server.Start();
+
+
+
 
 //            // Entity code
 //            using (var context = new RestaurantDbContext())
@@ -41,10 +42,10 @@ namespace RestaurantServer
 //            }
 
             Console.WriteLine("Press any key to terminate");
-            Console.Read();
-            service.Close();
-            Console.WriteLine("\nSERVER - Shut down");
-            Thread.Sleep(250);
+            Console.ReadKey();
+
+            server.Stop();
+
         }
     }
 }

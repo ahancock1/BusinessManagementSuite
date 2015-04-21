@@ -21,9 +21,15 @@ namespace RestaurantServer
             };
         }
 
-        public void Run()
+        public override void Start()
         {
+//            base.Start();
             Server.Start();
+        }
+
+        public void Stop()
+        {
+            Server.Stop();
         }
 
         public override void Connected(Connection connection)

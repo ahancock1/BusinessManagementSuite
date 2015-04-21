@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Mime;
 using System.Net.Sockets;
-using System.ServiceModel.Dispatcher;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace RestaurantServer.Common
 {
     public interface IServer : IDisposable
     {
+        void Bind(int port);
+
         void Start();
 
         void Stop();
@@ -27,7 +23,9 @@ namespace RestaurantServer.Common
 
     public class Server : IServer
     {
-        private byte[] buffer = new byte[1024];
+        private readonly byte[] buffer;
+
+        private int bufferSize;
 
         public List<Connection> Connections { get; set; }
 
@@ -42,10 +40,11 @@ namespace RestaurantServer.Common
         private TcpListener clientListener;
 
 
-        public Server(int port = 8000, int timeout = 250)
+        public Server(int bufferSize)
         {
-            Port = port;
-            Timeout = timeout;
+            this.bufferSize = bufferSize;
+            buffer = new byte[bufferSize];
+
             Connections = new List<Connection>();
         }
 
@@ -57,6 +56,11 @@ namespace RestaurantServer.Common
             clientListener.Start();
 
             clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
+        }
+
+        public void Bind(int port)
+        {
+            Port = port;
         }
 
         public void Stop()
@@ -73,10 +77,10 @@ namespace RestaurantServer.Common
             Console.WriteLine("Server stopping");
         }
 
-        private void AcceptCallBack(IAsyncResult ar)
+        private void AcceptCallBack(IAsyncResult result)
         {
             // Get the socket that handles the client request
-            TcpClient client = ((TcpListener) ar.AsyncState).EndAcceptTcpClient(ar);
+            TcpClient client = ((TcpListener)result.AsyncState).EndAcceptTcpClient(result);
             
             // Create a connection
             Connection connection = new Connection
@@ -150,5 +154,12 @@ namespace RestaurantServer.Common
     public class NetRegisterConnection : INetMessage
     {
         public int ConnectionID { get; set; }
+
+        public string ConnectionName { get; set; }
+    }
+
+    public class NetPing : INetMessage
+    {
+        
     }
 }
