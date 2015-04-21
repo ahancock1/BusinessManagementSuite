@@ -39,12 +39,12 @@ namespace RestaurantServer
 
         public override void Connected(Connection connection)
         {
-            Console.WriteLine("SERVER - Client connected: {0}", connection.Name);
+            Console.WriteLine("SERVER - Client connected: {0}", connection);
         }
 
         public override void Disconnected(Connection connection)
         {
-            Console.WriteLine("SERVER - Client disconnected: {0}", connection.ID);
+            Console.WriteLine("SERVER - Client disconnected: {0}", connection);
         }
 
         public override void Received(Connection connection, object o)

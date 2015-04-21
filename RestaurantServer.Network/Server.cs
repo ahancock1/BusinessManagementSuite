@@ -64,6 +64,8 @@ namespace RestaurantServer.Network
         
         public void Stop()
         {
+            Console.WriteLine("Server stopping");
+
             // Close all connections
             foreach (Connection connection in Connections)
             {
@@ -74,8 +76,6 @@ namespace RestaurantServer.Network
             // Release thread and close listener
             clientConnectedReset.Set();
             clientListener.Stop();
-
-            Console.WriteLine("Server stopping");
         }
         
         private void AcceptCallBack(IAsyncResult result)

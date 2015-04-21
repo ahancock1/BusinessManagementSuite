@@ -18,7 +18,7 @@ namespace RestaurantServer.Network
     public class Connection : IConnection
     {
         public readonly byte[] Buffer;
-        
+
         public TcpClient Client { get; set; }
 
         public NetworkStream Stream { get; set; }
@@ -28,7 +28,7 @@ namespace RestaurantServer.Network
         public int ID { get; set; }
 
         public string Name { get; set; }
-        
+
 
         public Connection(int bufferSize)
         {
@@ -71,7 +71,7 @@ namespace RestaurantServer.Network
                             // TODO handle framework messages here
                             if (packet is NetAcceptConnection)
                             {
-                                ID = ((NetAcceptConnection) packet).ConnectionID;
+                                ID = ((NetAcceptConnection)packet).ConnectionID;
                                 Send(new NetRegisterConnection
                                 {
                                     ConnectionID = ID,
@@ -80,7 +80,7 @@ namespace RestaurantServer.Network
                             }
                             if (packet is NetRegisterConnection)
                             {
-                                Name = ((NetRegisterConnection) packet).ConnectionName;
+                                Name = ((NetRegisterConnection)packet).ConnectionName;
                                 Listener.Connected(this);
                             }
                             if (packet is NetCloseConnection)
@@ -101,7 +101,7 @@ namespace RestaurantServer.Network
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error reading data: {0}", "");
+                Console.WriteLine("Error reading data: {0}", e.Message);
                 Close();
             }
         }
@@ -109,7 +109,7 @@ namespace RestaurantServer.Network
         public void Close()
         {
             if (!Connected) return;
-            
+
             Send(new NetCloseConnection { ConnectionID = ID });
 
             Stream.Close();
@@ -118,7 +118,7 @@ namespace RestaurantServer.Network
 
         public IPEndPoint IpEndPoint
         {
-            get { return ((IPEndPoint) Client.Client.RemoteEndPoint); }
+            get { return ((IPEndPoint)Client.Client.RemoteEndPoint); }
         }
 
         public IPAddress IpAddress

@@ -27,6 +27,8 @@ namespace RestaurantServer.Network
                 Client.Connect(hostName, port);
                 Stream = Client.GetStream();
 
+                Console.WriteLine("Connected to: {0}", IpAddress);
+
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
             }
             catch (Exception e)
