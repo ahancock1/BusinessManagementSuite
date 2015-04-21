@@ -4,3 +4,4 @@ C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Data\obj\Debu
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Data\obj\Debug\RestaurantServer.Data.pdb
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Data\bin\Debug\EntityFramework.dll
 C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Data\bin\Debug\EntityFramework.xml
+C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.Data\obj\Debug\RestaurantServer.Data.csprojResolveAssemblyReference.cache

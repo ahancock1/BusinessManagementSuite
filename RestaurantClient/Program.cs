@@ -17,13 +17,13 @@ namespace RestaurantClient
         {
             Console.Title = String.Format("Restaurant Client v{0}", Assembly.GetEntryAssembly().GetName().Version);
 
-            Console.WriteLine("Press any key to terminate");
+            Console.WriteLine("Enter client name:");
+            RestaurantClient client = new RestaurantClient(Console.ReadLine());
 
-            RestaurantClient client = new RestaurantClient();
+            Console.WriteLine("Press any key to terminate");
             client.Connect("localhost", 7777);
 
             Console.ReadKey();
-
             client.Client.Close();
 
         }

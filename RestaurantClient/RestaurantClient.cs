@@ -12,9 +12,9 @@ namespace RestaurantClient
         public Client Client { get; set; }
 
 
-        public RestaurantClient()
+        public RestaurantClient(string name)
         {
-            Client = new Client { Listener = this, Name = "Adam-Spectre"};
+            Client = new Client { Listener = this, Name = name};
         }
         
         public void Connect(string hostName, int port)

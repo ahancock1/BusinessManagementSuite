@@ -20,5 +20,11 @@ namespace RestaurantServer.Data
 
         public DbSet<User> Users { get; set; }
 
+
+        public void Add(User user)
+        {
+            Users.Add(user);
+            SaveChanges();
+        }
     }
 }

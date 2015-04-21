@@ -27,7 +27,7 @@ namespace RestaurantServer.Network
                 Client.Connect(hostName, port);
                 Stream = Client.GetStream();
 
-                Console.WriteLine("Connected to: {0}", IpAddress);
+                Console.WriteLine("Connected to: {0} as: {1}", IpAddress, Name);
 
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
             }

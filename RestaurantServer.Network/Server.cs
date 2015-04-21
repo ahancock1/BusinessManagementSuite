@@ -102,7 +102,10 @@ namespace RestaurantServer.Network
             });
 
             // Add connection
-            Connections.Add(connection);
+            lock (Connections)
+            {
+                Connections.Add(connection);
+            }
 
             // Signal the calling thread to continue
             clientConnectedReset.Set();
@@ -177,7 +180,9 @@ namespace RestaurantServer.Network
     [Serializable]
     internal class NetPing : INetMessage
     {
-        
+        public int PingID { get; set; }
+
+        public bool IsReply { get; set; }
     }
 
     [Serializable]

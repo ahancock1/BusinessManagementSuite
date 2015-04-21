@@ -7,7 +7,6 @@ namespace RestaurantServer.Data
     [DataContract]
     public class User
     {
-
         public int UserID { get; set; }
 
         public string FirstName { get; set; }
