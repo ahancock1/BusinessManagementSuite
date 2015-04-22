@@ -11,8 +11,23 @@ namespace RestaurantServer.Data.Packets
        
     }
 
+    [Serializable]
     public class NetAddUser : INetUser
     {
-       
+        public User User { get; set; }
+    }
+
+    [Serializable]
+    public class NetRequestUser : INetUser
+    {
+        public int UserID { get; set; }
+
+        public int UserName { get; set; }
+    }
+
+    [Serializable]
+    public class NetResponseUser : INetUser
+    {
+        public User User { get; set; }
     }
 }

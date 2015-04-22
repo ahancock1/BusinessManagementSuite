@@ -6,6 +6,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RestaurantServer.Network
 {
+    public delegate void OnConnected(Connection connection);
+
+    public delegate void OnDisconnected(Connection connection);
+
+    public delegate void OnPacketReceived(Connection connection, object packet);
+
     public interface IConnection : IDisposable
     {
         void Send(object data);
@@ -15,29 +21,22 @@ namespace RestaurantServer.Network
         bool Connected { get; }
     }
 
-    public class Ping
-    {
-        public int PingID { get; set; }
-
-        public long ElapsedTime { get; set; }
-
-        public int TripTime { get; set; }
-    }
-
     public class Connection : IConnection
     {
+        public event OnPacketReceived PacketReceived;
+
         public readonly byte[] Buffer;
 
         public TcpClient Client { get; set; }
 
         public NetworkStream Stream { get; set; }
 
-        public Listener Listener { get; set; }
+        public IListener Listener { get; set; }
 
         public int ID { get; set; }
 
         public string Name { get; set; }
-        
+
         private int lastPingID;
 
         private long lastPingTime;
@@ -157,7 +156,6 @@ namespace RestaurantServer.Network
         {
             if (packet is INetMessage)
             {
-                // TODO handle framework messages here
                 if (packet is NetAcceptConnection)
                 {
                     ID = ((NetAcceptConnection)packet).ConnectionID;
@@ -170,21 +168,21 @@ namespace RestaurantServer.Network
                 else if (packet is NetRegisterConnection)
                 {
                     Name = ((NetRegisterConnection)packet).ConnectionName;
-                    Listener.Connected(this);
+                    NotifyConnected();
                 }
                 else if (packet is NetCloseConnection)
                 {
-                    Listener.Disconnected(this);
+                    NotifyDisconnected();
                 }
                 else if (packet is NetPing)
                 {
-                    NetPing response = (NetPing) packet;
+                    NetPing response = (NetPing)packet;
                     if (response.IsReply)
                     {
-                        if (response.PingID == lastPingID -1)
+                        if (response.PingID == lastPingID - 1)
                         {
-                            int tripTime = (int) (DateTime.Now.Millisecond - lastPingTime);
-                            Console.WriteLine("Ping {0}:{1} - time = {2}", IpEndPoint.Address, IpEndPoint.Port, tripTime);
+                            int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
+                            Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address, IpEndPoint.Port, tripTime);
                         }
                     }
                     else
@@ -196,7 +194,7 @@ namespace RestaurantServer.Network
             }
             else
             {
-               Listener.Received(this, packet);
+                Listener.Received(this, packet);
             }
         }
     }

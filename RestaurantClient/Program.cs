@@ -23,9 +23,14 @@ namespace RestaurantClient
             Console.WriteLine("Press any key to terminate");
             client.Connect("localhost", 7777);
 
-            Console.ReadKey();
-            client.Client.Close();
+            // Constantly ping server every 2 seconds
+            while (!Console.KeyAvailable)
+            {
+                Thread.Sleep(2000);
+                client.Client.Ping();
+            }
 
+            client.Client.Close();
         }
     }
 }
