@@ -15,6 +15,7 @@ namespace RestaurantClient
         public RestaurantClient(string name)
         {
             Client = new Client { Listener = this, Name = name};
+//            Client.AddListener(this);
         }
         
         public void Connect(string hostName, int port)
@@ -22,19 +23,9 @@ namespace RestaurantClient
             Client.Connect(hostName, port);
         }
 
-        public override void Connected(Connection connection)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Disconnected(Connection connection)
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Received(Connection connection, object o)
         {
-            throw new NotImplementedException();
+            base.Received(connection, o);
         }
     }
 }

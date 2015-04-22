@@ -17,11 +17,9 @@ namespace RestaurantServer
 
         public RestaurantServer(int port)
         {
-            server = new Server(port)
-            {
-                Listener = this,
-                Timeout = 1000
-            };
+            server = new Server(port);
+            server.AddListener(this);
+            server.AddListener(new UserListener());
         }
 
         public void Start()
@@ -37,19 +35,5 @@ namespace RestaurantServer
             Running = false;
         }
 
-        public override void Connected(Connection connection)
-        {
-            Console.WriteLine("SERVER - Client connected: {0}", connection);
-        }
-
-        public override void Disconnected(Connection connection)
-        {
-            Console.WriteLine("SERVER - Client disconnected: {0}", connection);
-        }
-
-        public override void Received(Connection connection, object o)
-        {
-            Console.WriteLine("SERVER - Data received: {0}", o.GetType().Name);
-        }
     }
 }

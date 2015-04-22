@@ -28,6 +28,7 @@ namespace RestaurantClient
             {
                 Thread.Sleep(2000);
                 client.Client.Ping();
+                client.Client.Send(new NetUserRequest { UserID = 1});
             }
 
             client.Client.Close();

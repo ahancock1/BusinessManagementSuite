@@ -22,7 +22,7 @@ namespace RestaurantServer.Network
         void SendToAllExcept(object o, IEnumerable<int> ids);
     }
 
-    public class Server : IServer
+    public class Server : IServer, IListener
     {
         private readonly ManualResetEvent clientConnectedReset =
             new ManualResetEvent(false);
@@ -31,12 +31,10 @@ namespace RestaurantServer.Network
         
         public List<Connection> Connections { get; set; }
 
-        public Listener Listener { get; set; }
+        public List<IListener> Listeners { get; set; }
         
         public int Port { get; set; }
-
-        public int Timeout { get; set; }
-
+        
         private int nextConnectionID;
         
         private TcpListener clientListener;
@@ -48,6 +46,7 @@ namespace RestaurantServer.Network
             buffer = new byte[bufferSize];
 
             Connections = new List<Connection>();
+            Listeners = new List<IListener>();
         }
 
         public void Start()
@@ -91,7 +90,7 @@ namespace RestaurantServer.Network
                 Client = client,
                 Stream = client.GetStream(),
                 ID = nextConnectionID++,
-                Listener = Listener
+                Listener = this
             };
             connection.Stream.BeginRead(connection.Buffer, 0, connection.Buffer.Length, connection.ReadCallBack, connection.Stream);
 
@@ -140,62 +139,44 @@ namespace RestaurantServer.Network
             SendToAllExcept(o, ids.ToArray());
         }
 
+        public void AddListener(IListener listener)
+        {
+            Listeners.Add(listener);
+        }
+
+        public void Connected(Connection connection)
+        {
+            foreach (IListener listener in Listeners)
+            {
+                listener.Connected(connection);
+            }
+        }
+
+        public void Disconnected(Connection connection)
+        {
+            Console.WriteLine("Connection removed: {0}", connection);
+            lock (Connections)
+            {
+                Connections.Remove(connection);
+            }
+
+            foreach (IListener listener in Listeners)
+            {
+                listener.Disconnected(connection);
+            }
+        }
+
+        public void Received(Connection connection, object o)
+        {
+            foreach (IListener listener in Listeners)
+            {
+                listener.Received(connection, o);
+            }
+        }
+
         public void Dispose()
         {
             Stop();
         }
     }
-    
-    #region Framework Messages
-
-    internal interface INetMessage
-    {
-        
-    }
-
-    [Serializable]
-    internal class NetResponse : INetMessage
-    {
-        public string Message { get; set; }
-
-        public NetResponse()
-        {
-            Message = String.Empty;
-        }
-    }
-
-    [Serializable]
-    internal class NetRegisterConnection : INetMessage
-    {
-        public int ConnectionID { get; set; }
-
-        public string ConnectionName { get; set; }
-
-        public NetRegisterConnection()
-        {
-            ConnectionName = String.Empty;
-        }
-    }
-
-    [Serializable]
-    internal class NetPing : INetMessage
-    {
-        public int PingID { get; set; }
-
-        public bool IsReply { get; set; }
-    }
-
-    [Serializable]
-    internal class NetAcceptConnection : INetMessage
-    {
-        public int ConnectionID { get; set; }    
-    }
-
-    [Serializable]
-    internal class NetCloseConnection : INetMessage
-    {
-        public int ConnectionID { get; set; }
-    }
-
-    #endregion
 }

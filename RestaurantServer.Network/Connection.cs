@@ -6,12 +6,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RestaurantServer.Network
 {
-    public delegate void OnConnected(Connection connection);
-
-    public delegate void OnDisconnected(Connection connection);
-
-    public delegate void OnPacketReceived(Connection connection, object packet);
-
     public interface IConnection : IDisposable
     {
         void Send(object data);
@@ -23,8 +17,6 @@ namespace RestaurantServer.Network
 
     public class Connection : IConnection
     {
-        public event OnPacketReceived PacketReceived;
-
         public readonly byte[] Buffer;
 
         public TcpClient Client { get; set; }
@@ -194,6 +186,7 @@ namespace RestaurantServer.Network
             }
             else
             {
+                // Trigger server packet listener to trigger all attached packet listeners
                 Listener.Received(this, packet);
             }
         }
