@@ -18,8 +18,10 @@ namespace RestaurantServer
         public RestaurantServer(int port)
         {
             server = new Server(port);
-            server.AddListener(this);
+
+            // Add packet listeners to server
             server.AddListener(new UserListener());
+
         }
 
         public void Start()

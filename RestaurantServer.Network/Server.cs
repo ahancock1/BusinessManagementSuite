@@ -154,7 +154,6 @@ namespace RestaurantServer.Network
 
         public void Disconnected(Connection connection)
         {
-            Console.WriteLine("Connection removed: {0}", connection);
             lock (Connections)
             {
                 Connections.Remove(connection);

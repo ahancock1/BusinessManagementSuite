@@ -86,10 +86,16 @@ namespace RestaurantServer.Network
                 }
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
             }
+            catch (IOException e)
+            {
+                Close();
+                NotifyDisconnected();
+            }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading data: {0}", e.Message);
                 Close();
+                NotifyDisconnected();
             }
         }
 
