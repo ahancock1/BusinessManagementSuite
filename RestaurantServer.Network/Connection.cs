@@ -43,6 +43,7 @@ namespace RestaurantServer.Network
         {
             Buffer = new byte[bufferSize];
             Client = new TcpClient();
+            Listeners = new List<IListener>();
         }
 
         public void Ping()
