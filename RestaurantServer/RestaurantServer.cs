@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestaurantServer.Network;
+using RestaurantServer.Data.Network;
 
 namespace RestaurantServer
 {
@@ -37,5 +37,13 @@ namespace RestaurantServer
             Running = false;
         }
 
+        public override void Received(Connection connection, object o)
+        {
+            base.Received(connection, o);
+            if (o is INetKitchenMessage)
+            {
+                server.SendToAllExcept(o, server.Connections.Where(c => c.Name.ToLower() != "kitchen").Select(c => c.ID));
+            }
+        }
     }
 }

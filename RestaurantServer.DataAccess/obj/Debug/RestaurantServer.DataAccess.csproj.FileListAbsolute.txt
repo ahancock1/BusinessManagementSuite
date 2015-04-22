@@ -1,9 +1,0 @@
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\RestaurantServer.DataAccess.dll
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\RestaurantServer.DataAccess.pdb
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\EntityFramework.dll
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\RestaurantServer.Data.dll
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\RestaurantServer.Data.pdb
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\bin\Debug\EntityFramework.xml
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\obj\Debug\RestaurantServer.DataAccess.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\obj\Debug\RestaurantServer.DataAccess.dll
-C:\Users\Adam\Development\GitHub\RestaurantServer\RestaurantServer.DataAccess\obj\Debug\RestaurantServer.DataAccess.pdb

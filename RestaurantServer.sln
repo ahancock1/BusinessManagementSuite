@@ -7,15 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer", "Restaur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer.Data", "RestaurantServer.Data\RestaurantServer.Data.csproj", "{0A002303-6BEF-4D6B-A000-8662B80796B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer.DataAccess", "RestaurantServer.DataAccess\RestaurantServer.DataAccess.csproj", "{22A36640-8015-4D05-8025-5DF8664F16C9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer.Common", "RestaurantServer.Common\RestaurantServer.Common.csproj", "{25F4D8A2-5060-4589-94BF-37CB27199187}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantClient", "RestaurantClient\RestaurantClient.csproj", "{2D97E300-4499-4874-8066-261F18220F61}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer.Tests", "RestaurantServer.Tests\RestaurantServer.Tests.csproj", "{7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServer.Network", "RestaurantServer.Network\RestaurantServer.Network.csproj", "{1699F9B6-C984-45D7-835B-4413EBA0E961}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,26 +23,10 @@ Global
 		{0A002303-6BEF-4D6B-A000-8662B80796B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A002303-6BEF-4D6B-A000-8662B80796B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A002303-6BEF-4D6B-A000-8662B80796B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22A36640-8015-4D05-8025-5DF8664F16C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22A36640-8015-4D05-8025-5DF8664F16C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22A36640-8015-4D05-8025-5DF8664F16C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22A36640-8015-4D05-8025-5DF8664F16C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25F4D8A2-5060-4589-94BF-37CB27199187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25F4D8A2-5060-4589-94BF-37CB27199187}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25F4D8A2-5060-4589-94BF-37CB27199187}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25F4D8A2-5060-4589-94BF-37CB27199187}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D97E300-4499-4874-8066-261F18220F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D97E300-4499-4874-8066-261F18220F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D97E300-4499-4874-8066-261F18220F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D97E300-4499-4874-8066-261F18220F61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D2DBA05-E95C-442E-BFE5-D0E2CFB023C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1699F9B6-C984-45D7-835B-4413EBA0E961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1699F9B6-C984-45D7-835B-4413EBA0E961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1699F9B6-C984-45D7-835B-4413EBA0E961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1699F9B6-C984-45D7-835B-4413EBA0E961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
