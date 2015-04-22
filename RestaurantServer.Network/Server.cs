@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace RestaurantServer.Network
 {
-    public interface IServer : IDisposable
+    public interface IServer : IListener, IDisposable
     {
         void Start();
         
@@ -22,7 +22,7 @@ namespace RestaurantServer.Network
         void SendToAllExcept(object o, IEnumerable<int> ids);
     }
 
-    public class Server : IServer, IListener
+    public class Server : IServer
     {
         private readonly ManualResetEvent clientConnectedReset =
             new ManualResetEvent(false);

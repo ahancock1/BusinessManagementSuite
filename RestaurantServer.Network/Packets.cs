@@ -23,6 +23,21 @@ namespace RestaurantServer.Network
 
     }
 
+    public interface INetKitchenMessage
+    {
+        
+    }
+
+    public class NetFoodOrder : INetKitchenMessage
+    {
+        
+    }
+
+    public class NetDrinkOrder : INetBarMessage
+    {
+        
+    }
+
 
 
     #region Framework Messages

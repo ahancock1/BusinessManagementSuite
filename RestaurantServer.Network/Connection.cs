@@ -7,14 +7,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RestaurantServer.Network
 {
-    public interface IConnection : IDisposable
+    public interface IConnection : IListener
     {
         void Send(object data);
 
         void Close();
-
-        bool Connected { get; }
-
+        
         void AddListener(IListener listener);
 
         void RemoveListener(IListener listener);
@@ -28,7 +26,7 @@ namespace RestaurantServer.Network
 
         public NetworkStream Stream { get; set; }
 
-        public List<IListener> Listeners { get; set; }
+        private readonly List<IListener> listeners;
 
         public int ID { get; set; }
 
@@ -43,7 +41,7 @@ namespace RestaurantServer.Network
         {
             Buffer = new byte[bufferSize];
             Client = new TcpClient();
-            Listeners = new List<IListener>();
+            listeners = new List<IListener>();
         }
 
         public void Ping()
@@ -63,13 +61,19 @@ namespace RestaurantServer.Network
 
             if (Stream.CanWrite)
             {
-                using (var memoryStream = new MemoryStream())
+                try
                 {
-                    (new BinaryFormatter()).Serialize(memoryStream, o);
-                    Stream.Write(memoryStream.ToArray(), 0, (int)memoryStream.Length);
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        (new BinaryFormatter()).Serialize(memoryStream, o);
+                        Stream.Write(memoryStream.ToArray(), 0, (int) memoryStream.Length);
+                    }
+                    Console.WriteLine("Sent: {0}", o.GetType().Name);
                 }
-
-                Console.WriteLine("Sent: {0}", o.GetType().Name);
+                catch (IOException e)
+                {
+                    Close();
+                }
             }
         }
 
@@ -100,17 +104,14 @@ namespace RestaurantServer.Network
                             else if (packet is NetRegisterConnection)
                             {
                                 Name = ((NetRegisterConnection) packet).ConnectionName;
-                                NotifyConnected();
+                                Connected(this);
                             }
                             else if (packet is NetCloseConnection)
                             {
-                                NotifyDisconnected();
+                                Disconnected(this);
                             }
                         }
-                        else
-                        {
-                            NotifyReceived(packet);
-                        }
+                        Received(this, packet);
                     }
                 }
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
@@ -118,19 +119,19 @@ namespace RestaurantServer.Network
             catch (IOException e)
             {
                 Close();
-                NotifyDisconnected();
+                Disconnected(this);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading data: {0}", e.Message);
                 Close();
-                NotifyDisconnected();
+                Disconnected(this);
             }
         }
 
         public void Close()
         {
-            if (!Connected) return;
+            if (!Client.Connected) return;
 
             Send(new NetCloseConnection { ConnectionID = ID });
 
@@ -153,53 +154,39 @@ namespace RestaurantServer.Network
         {
             get { return IpEndPoint.Address; }
         }
-
-        public bool Connected
-        {
-            get { return Client.Connected; }
-        }
-
+        
         public void AddListener(IListener listener)
         {
-            Listeners.Add(listener);
+            listeners.Add(listener);
         }
 
         public void RemoveListener(IListener listener)
         {
-            Listeners.Remove(listener);
+            listeners.Remove(listener);
         }
 
-        public override string ToString()
-        {
-            return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
-        }
 
-        public void Dispose()
+        public virtual void Connected(Connection connection)
         {
-            Close();
-        }
-
-        private void NotifyConnected()
-        {
-            foreach (IListener listener in Listeners)
+            foreach (IListener listener in listeners)
             {
-                listener.Connected(this);
+                listener.Connected(connection);
             }
         }
 
-        private void NotifyDisconnected()
+        public virtual void Disconnected(Connection connection)
         {
-            foreach (IListener listener in Listeners)
+            foreach (IListener listener in listeners)
             {
-                listener.Disconnected(this);
+                listener.Disconnected(connection);
             }
         }
 
-        private void NotifyReceived(object packet)
+        public virtual void Received(Connection connection, object o)
         {
-            if (packet is NetPing)
+            if (o is NetPing)
             {
-                NetPing response = (NetPing)packet;
+                NetPing response = (NetPing)o;
                 if (response.IsReply)
                 {
                     if (response.PingID == lastPingID - 1)
@@ -215,10 +202,15 @@ namespace RestaurantServer.Network
                 }
             }
 
-            foreach (IListener listener in Listeners)
+            foreach (IListener listener in listeners)
             {
-                listener.Received(this, packet);
+                listener.Received(connection, o);
             }
+        }
+
+        public override string ToString()
+        {
+            return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
         }
     }
 }

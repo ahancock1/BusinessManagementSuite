@@ -7,7 +7,7 @@ using RestaurantServer.Network;
 
 namespace RestaurantClient
 {
-    public class RestaurantClient : Listener, IClient
+    public class RestaurantClient : Listener
     {
         public Client Client { get; set; }
 
