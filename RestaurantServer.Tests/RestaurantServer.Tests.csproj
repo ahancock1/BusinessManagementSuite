@@ -53,6 +53,7 @@
     <Compile Include="Common\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerTests.cs" />
+    <Compile Include="ClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantServer.Common\RestaurantServer.Common.csproj">

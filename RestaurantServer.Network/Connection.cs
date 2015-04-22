@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -13,6 +14,10 @@ namespace RestaurantServer.Network
         void Close();
 
         bool Connected { get; }
+
+        void AddListener(IListener listener);
+
+        void RemoveListener(IListener listener);
     }
 
     public class Connection : IConnection
@@ -23,7 +28,7 @@ namespace RestaurantServer.Network
 
         public NetworkStream Stream { get; set; }
 
-        public IListener Listener { get; set; }
+        public List<IListener> Listeners { get; set; }
 
         public int ID { get; set; }
 
@@ -80,8 +85,31 @@ namespace RestaurantServer.Network
                         memoryStream.Seek(0, SeekOrigin.Begin);
                         object packet = (new BinaryFormatter()).Deserialize(memoryStream);
 
-                        NotifyReceived(packet);
-
+                        if (packet is INetMessage)
+                        {
+                            if (packet is NetAcceptConnection)
+                            {
+                                ID = ((NetAcceptConnection) packet).ConnectionID;
+                                Send(new NetRegisterConnection
+                                {
+                                    ConnectionID = ID,
+                                    ConnectionName = Name
+                                });
+                            }
+                            else if (packet is NetRegisterConnection)
+                            {
+                                Name = ((NetRegisterConnection) packet).ConnectionName;
+                                NotifyConnected();
+                            }
+                            else if (packet is NetCloseConnection)
+                            {
+                                NotifyDisconnected();
+                            }
+                        }
+                        else
+                        {
+                            NotifyReceived(packet);
+                        }
                     }
                 }
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
@@ -130,6 +158,16 @@ namespace RestaurantServer.Network
             get { return Client.Connected; }
         }
 
+        public void AddListener(IListener listener)
+        {
+            Listeners.Add(listener);
+        }
+
+        public void RemoveListener(IListener listener)
+        {
+            Listeners.Remove(listener);
+        }
+
         public override string ToString()
         {
             return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
@@ -142,58 +180,43 @@ namespace RestaurantServer.Network
 
         private void NotifyConnected()
         {
-            Listener.Connected(this);
+            foreach (IListener listener in Listeners)
+            {
+                listener.Connected(this);
+            }
         }
 
         private void NotifyDisconnected()
         {
-            Listener.Disconnected(this);
+            foreach (IListener listener in Listeners)
+            {
+                listener.Disconnected(this);
+            }
         }
 
         private void NotifyReceived(object packet)
         {
-            if (packet is INetMessage)
+            if (packet is NetPing)
             {
-                if (packet is NetAcceptConnection)
+                NetPing response = (NetPing)packet;
+                if (response.IsReply)
                 {
-                    ID = ((NetAcceptConnection)packet).ConnectionID;
-                    Send(new NetRegisterConnection
+                    if (response.PingID == lastPingID - 1)
                     {
-                        ConnectionID = ID,
-                        ConnectionName = Name
-                    });
-                }
-                else if (packet is NetRegisterConnection)
-                {
-                    Name = ((NetRegisterConnection)packet).ConnectionName;
-                    NotifyConnected();
-                }
-                else if (packet is NetCloseConnection)
-                {
-                    NotifyDisconnected();
-                }
-                else if (packet is NetPing)
-                {
-                    NetPing response = (NetPing)packet;
-                    if (response.IsReply)
-                    {
-                        if (response.PingID == lastPingID - 1)
-                        {
-                            int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
-                            Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address, IpEndPoint.Port, tripTime);
-                        }
+                        int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
+                        Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address, IpEndPoint.Port, tripTime);
                     }
-                    else
-                    {
-                        response.IsReply = true;
-                        Send(response);
-                    }
+                }
+                else
+                {
+                    response.IsReply = true;
+                    Send(response);
                 }
             }
-            else
+
+            foreach (IListener listener in Listeners)
             {
-                // Trigger server packet listener to trigger all attached packet listeners
-                Listener.Received(this, packet);
+                listener.Received(this, packet);
             }
         }
     }

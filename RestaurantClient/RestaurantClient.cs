@@ -14,7 +14,10 @@ namespace RestaurantClient
 
         public RestaurantClient(string name)
         {
-            Client = new Client { Listener = this, Name = name};
+            Client = new Client { Name = name};
+
+            Client.AddListener(this);
+            Client.AddListener(new UserListener());
 
             // Add packet listeners to client
 

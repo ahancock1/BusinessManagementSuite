@@ -27,7 +27,7 @@ namespace RestaurantServer.Network
 
     #region Framework Messages
 
-    internal interface INetMessage
+    public interface INetMessage
     {
 
     }
@@ -57,7 +57,7 @@ namespace RestaurantServer.Network
     }
 
     [Serializable]
-    internal sealed class NetPing : INetMessage
+    public sealed class NetPing : INetMessage
     {
         public int PingID { get; set; }
 

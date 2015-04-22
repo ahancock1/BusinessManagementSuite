@@ -89,9 +89,9 @@ namespace RestaurantServer.Network
             {
                 Client = client,
                 Stream = client.GetStream(),
-                ID = nextConnectionID++,
-                Listener = this
+                ID = nextConnectionID++
             };
+            connection.AddListener(this);
             connection.Stream.BeginRead(connection.Buffer, 0, connection.Buffer.Length, connection.ReadCallBack, connection.Stream);
 
             // Let the client know its ID
