@@ -1,29 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Runtime.Serialization;
-using RestaurantServer.Data.DataAccess;
 
 namespace RestaurantServer.Data.DataModel
 {
-    public interface IUserService
-    {
-        User GetById(int id);
-
-        IEnumerable<User> GetAll();
-
-        IEnumerable<User> Search(string username, string firstName, string lastName);
-
-        bool Create(User user);
-
-        bool Update(User user);
-
-        bool Delete(int id);
-    }
-
-    [DataContract]
-    public class User : IUserService
+    public class User 
     {
         public int UserID { get; set; }
 
@@ -51,138 +30,9 @@ namespace RestaurantServer.Data.DataModel
             Password = String.Empty;
         }
 
-        public User GetById(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.Users.SingleOrDefault(u => u.UserID == id);
-            }
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.Users;
-            }
-        }
-
-        public IEnumerable<User> Search(string username, string firstName, string lastName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Create(User user)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.Users.Add(user);
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Update(User user)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.Users.Attach(user);
-                context.Entry(user).State = EntityState.Modified;
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Delete(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                User user = context.Users.Find(id);
-                context.Users.Remove(user);
-                return context.SaveChanges() > 0;
-            }
-        }
-
         public override string ToString()
         {
             return String.Format("User: {0} {1}", FirstName, LastName);
-        }
-    }
-
-    public interface IUserTypeService
-    {
-        UserType GetById(int id);
-
-        IEnumerable<UserType> GetAll();
-
-        bool Create(UserType userType);
-
-        bool Update(UserType userType);
-
-        bool Delete(int id);
-    }
-
-    [DataContract]
-    public class UserType : IUserTypeService
-    {
-
-        public int UserTypeID { get; set; }
-
-        public string Name { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
-
-        public UserType()
-        {
-            Name = String.Empty;
-        }
-
-        public UserType GetById(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.UserTypes.SingleOrDefault(u => u.UserTypeID == id);
-            }
-        }
-
-        public IEnumerable<UserType> GetAll()
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.UserTypes;
-            }
-        }
-    
-        public bool Create(UserType userType)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.UserTypes.Add(userType);
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Update(UserType userType)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.UserTypes.Attach(userType);
-                context.Entry(userType).State = EntityState.Modified;
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Delete(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                UserType userType = context.UserTypes.Find(id);
-                context.UserTypes.Remove(userType);
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("UserType: {0}", Name);
         }
     }
 }

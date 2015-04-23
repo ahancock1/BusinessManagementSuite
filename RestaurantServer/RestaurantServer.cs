@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using RestaurantServer.Data.Network;
+using RestaurantServer.Data.Network.Listeners;
 
 namespace RestaurantServer
 {
@@ -18,10 +15,11 @@ namespace RestaurantServer
         public RestaurantServer(int port)
         {
             server = new Server(port);
-            server.AddListener(this);
-            // Add packet listeners to server
-//            server.AddListener(new UserListener());
 
+            // Add packet listeners to server
+            server.AddListener(this);
+            server.AddListener(new UserListener());
+            
         }
 
         public void Start()
