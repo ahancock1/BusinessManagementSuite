@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace RestaurantServer.Data.DataModel
 {
+    [Serializable]
     public class UserType 
     {
         public int UserTypeID { get; set; }

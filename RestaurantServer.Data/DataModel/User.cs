@@ -2,6 +2,7 @@
 
 namespace RestaurantServer.Data.DataModel
 {
+    [Serializable]
     public class User 
     {
         public int UserID { get; set; }

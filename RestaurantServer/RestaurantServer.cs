@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using RestaurantServer.Data.Network;
-using RestaurantServer.Data.Network.Listeners;
+using RestaurantServer.Data.Listeners;
 
 namespace RestaurantServer
 {
