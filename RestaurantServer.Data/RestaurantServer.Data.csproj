@@ -48,19 +48,22 @@
     <Compile Include="DataAccess\UserMap.cs" />
     <Compile Include="DataAccess\UserTypeMap.cs" />
     <Compile Include="DataModel\Item.cs" />
+    <Compile Include="DataModel\UserType.cs" />
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\Connection.cs" />
     <Compile Include="Network\Listeners.cs" />
+    <Compile Include="Network\Listeners\UserListener.cs" />
     <Compile Include="Network\Packets.cs" />
     <Compile Include="Packets\UserPackets.cs" />
     <Compile Include="Network\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataModel\User.cs" />
     <Compile Include="DataAccess\RestaurantDbContext.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserTypeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />
-    <Folder Include="Services\" />
     <Folder Include="Sql\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

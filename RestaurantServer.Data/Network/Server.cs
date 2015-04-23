@@ -144,6 +144,14 @@ namespace RestaurantServer.Data.Network
             Listeners.Add(listener);
         }
 
+        public void AddListeners(IEnumerable<IListener> listeners)
+        {
+            foreach (IListener listener in listeners)
+            {
+                AddListener(listener);
+            }
+        }
+
         public void Connected(Connection connection)
         {
             foreach (IListener listener in Listeners)

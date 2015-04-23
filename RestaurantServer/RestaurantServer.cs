@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using RestaurantServer.Data.Network;
 using RestaurantServer.Data.Network.Listeners;
@@ -8,7 +9,7 @@ namespace RestaurantServer
     public class RestaurantServer : Listener
     {
         private readonly Server server;
-
+        
         public bool Running { get; private set; }
 
 
@@ -37,7 +38,6 @@ namespace RestaurantServer
 
         public override void Received(Connection connection, object o)
         {
-            base.Received(connection, o);
             if (o is INetKitchenMessage)
             {
                 server.SendToAllExcept(o, server.Connections.Where(c => c.Name.ToLower() != "kitchen").Select(c => c.ID));

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 
 namespace RestaurantServer.Data.Network
 {
@@ -12,8 +11,21 @@ namespace RestaurantServer.Data.Network
         void Received(Connection connection, object o);
     }
 
+    // TODO make class abstract - used for logging at the moment
     public class Listener : IListener
     {
+        protected readonly Server Server;
+
+        public Listener(Server server = null)
+        {
+            Server = server;
+        }
+
+        public bool Host
+        {
+            get { return Server != null; }
+        }
+
         public virtual void Connected(Connection connection)
         {
             Console.WriteLine("Connected: {0}", connection);
@@ -27,44 +39,6 @@ namespace RestaurantServer.Data.Network
         public virtual void Received(Connection connection, object o)
         {
             Console.WriteLine("Data received: {0}", o.GetType().Name);
-        }
-    }
-    
-    public class UserListener : Listener
-    {
-        public override void Received(Connection connection, object o)
-        {
-            if (o is IUserMessage)
-            {
-                Console.WriteLine("User data received: {0}", o.GetType().Name);
-            }
-        }
-    }
-
-    public class KitchenListener : Listener
-    {
-        public override void Received(Connection connection, object o)
-        {
-            if (o is INetKitchenMessage)
-            {
-                
-            }
-        }
-    }
-
-    public class FloorListener : Listener
-    {
-        
-    }
-
-    public class BarListener : Listener
-    {
-        public override void Received(Connection connection, object o)
-        {
-            if (o is INetBarMessage)
-            {
-
-            }
         }
     }
  }

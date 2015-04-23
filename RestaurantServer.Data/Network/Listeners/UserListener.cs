@@ -7,7 +7,12 @@ namespace RestaurantServer.Data.Network.Listeners
 {
     public class UserListener : Listener
     {
-        public UserService Service = new UserService();
+        private readonly UserService service;
+
+        public UserListener()
+        {
+            service = new UserService();
+        }
         
         public override void Received(Connection connection, object o)
         {
@@ -18,7 +23,7 @@ namespace RestaurantServer.Data.Network.Listeners
                 {
                     connection.Send(new NetResponseUser
                     {
-                        User = Service.GetById(((NetRequestUser)o).UserID)
+                        User = service.GetById(((NetRequestUser)o).UserID)
                     });
                     return;
                 }
@@ -29,7 +34,7 @@ namespace RestaurantServer.Data.Network.Listeners
                     {
                         connection.Send(new NetResponseUsers
                         {
-                            Users = Service.GetAll()
+                            Users = service.GetAll()
                         });
                     }
                     else
@@ -41,17 +46,17 @@ namespace RestaurantServer.Data.Network.Listeners
                 }
                 if (o is NetAddUser)
                 {
-                    Service.Create(((NetAddUser) o).User);
+                    service.Create(((NetAddUser) o).User);
                     return;
                 }
                 if (o is NetUpdateUser)
                 {
-                    Service.Update(((NetUpdateUser)o).User);
+                    service.Update(((NetUpdateUser)o).User);
                     return;
                 }
                 if (o is NetDeleteUser)
                 {
-                    Service.Delete(((NetDeleteUser) o).UserID);
+                    service.Delete(((NetDeleteUser) o).UserID);
                     return;
                 }
             }
