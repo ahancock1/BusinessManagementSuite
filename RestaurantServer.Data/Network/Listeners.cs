@@ -12,7 +12,7 @@ namespace RestaurantServer.Data.Network
         void Received(Connection connection, object o);
     }
 
-    public abstract class Listener : IListener
+    public class Listener : IListener
     {
         public virtual void Connected(Connection connection)
         {

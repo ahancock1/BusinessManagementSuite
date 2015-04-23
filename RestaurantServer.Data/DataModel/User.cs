@@ -112,14 +112,15 @@ namespace RestaurantServer.Data.DataModel
         UserType GetById(int id);
 
         IEnumerable<UserType> GetAll();
-        
-        bool Create(UserType user);
 
-        bool Update(UserType user);
+        bool Create(UserType userType);
+
+        bool Update(UserType userType);
 
         bool Delete(int id);
     }
 
+    [DataContract]
     public class UserType : IUserTypeService
     {
 
@@ -136,26 +137,52 @@ namespace RestaurantServer.Data.DataModel
 
         public UserType GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new RestaurantDbContext())
+            {
+                return context.UserTypes.SingleOrDefault(u => u.UserTypeID == id);
+            }
         }
 
         public IEnumerable<UserType> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = new RestaurantDbContext())
+            {
+                return context.UserTypes;
+            }
         }
-        public bool Create(UserType user)
+    
+        public bool Create(UserType userType)
         {
-            throw new NotImplementedException();
+            using (var context = new RestaurantDbContext())
+            {
+                context.UserTypes.Add(userType);
+                return context.SaveChanges() > 0;
+            }
         }
 
-        public bool Update(UserType user)
+        public bool Update(UserType userType)
         {
-            throw new NotImplementedException();
+            using (var context = new RestaurantDbContext())
+            {
+                context.UserTypes.Attach(userType);
+                context.Entry(userType).State = EntityState.Modified;
+                return context.SaveChanges() > 0;
+            }
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new RestaurantDbContext())
+            {
+                UserType userType = context.UserTypes.Find(id);
+                context.UserTypes.Remove(userType);
+                return context.SaveChanges() > 0;
+            }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("UserType: {0}", Name);
         }
     }
 }

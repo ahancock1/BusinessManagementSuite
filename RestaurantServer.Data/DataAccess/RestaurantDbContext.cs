@@ -19,7 +19,7 @@ namespace RestaurantServer.Data.DataAccess
         public DbSet<UserType> UserTypes { get; set; }
     }
 
-    public class RestaurantInitialiser : DropCreateDatabaseIfModelChanges<RestaurantDbContext>
+    public class RestaurantInitialiser : DropCreateDatabaseAlways<RestaurantDbContext>
     {
         protected override void Seed(RestaurantDbContext context)
         {
