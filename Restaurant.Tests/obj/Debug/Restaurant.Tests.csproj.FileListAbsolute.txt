@@ -1,0 +1,5 @@
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Tests\bin\Debug\Restaurant.Tests.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Tests\bin\Debug\Restaurant.Tests.pdb
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.pdb

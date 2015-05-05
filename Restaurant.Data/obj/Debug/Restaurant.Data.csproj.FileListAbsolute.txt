@@ -1,0 +1,9 @@
+C:\Users\Adam\Development\Visual Studio 2013\Projects\Restaurant\Restaurant.Data\bin\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\Restaurant\Restaurant.Data\bin\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\Visual Studio 2013\Projects\Restaurant\Restaurant.Data\obj\Debug\Restaurant.Data.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\Visual Studio 2013\Projects\Restaurant\Restaurant.Data\obj\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\Restaurant\Restaurant.Data\obj\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.Data.pdb
