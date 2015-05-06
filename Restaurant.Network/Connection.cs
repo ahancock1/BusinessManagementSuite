@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 
+using Restaurant.Network.Packets;
+
 namespace Restaurant.Network
 {
     public interface IConnection : IListener
@@ -72,6 +74,7 @@ namespace Restaurant.Network
                 }
                 catch (IOException e)
                 {
+                    Console.WriteLine("Error sending {0} to {1}:{2}, {3}", o.GetType().Name, IpEndPoint.Address, IpEndPoint.Port, e.Message); 
                     Close();
                 }
             }
@@ -125,6 +128,7 @@ namespace Restaurant.Network
             }
             catch (IOException e)
             {
+                Console.WriteLine("Error reading data: {0}", e.Message);
                 Close();
                 Disconnected(this);
             }

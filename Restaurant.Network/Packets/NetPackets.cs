@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Restaurant.Network
+namespace Restaurant.Network.Packets
 {
     #if DEBUG
     [Serializable]
@@ -29,13 +29,13 @@ namespace Restaurant.Network
         
     }
 
-    internal interface INetMessage
+    public interface INetMessage
     {
 
     }
 
     [Serializable]
-    internal class NetResponse : INetMessage
+    public class NetResponse : INetMessage
     {
         public string Message { get; set; }
 
@@ -46,7 +46,7 @@ namespace Restaurant.Network
     }
 
     [Serializable]
-    internal sealed class NetRegisterConnection : INetMessage
+    public sealed class NetRegisterConnection : INetMessage
     {
         public int ConnectionID { get; set; }
 
@@ -67,13 +67,13 @@ namespace Restaurant.Network
     }
 
     [Serializable]
-    internal sealed class NetAcceptConnection : INetMessage
+    public sealed class NetAcceptConnection : INetMessage
     {
         public int ConnectionID { get; set; }
     }
 
     [Serializable]
-    internal sealed class NetCloseConnection : INetMessage
+    public sealed class NetCloseConnection : INetMessage
     {
         public int ConnectionID { get; set; }
     }

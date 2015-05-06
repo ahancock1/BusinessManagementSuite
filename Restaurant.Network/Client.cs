@@ -40,7 +40,7 @@ namespace Restaurant.Network
             }
             catch (Exception e)
             {
-                Console.WriteLine("Couldn't establishing connection to: {0}:{1}", hostName, port);
+                Console.WriteLine("Couldn't establishing connection to: {0}:{1}, {2}", hostName, port, e.Message);
             }
 
             return Client.Connected;
