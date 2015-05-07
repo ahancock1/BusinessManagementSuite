@@ -124,6 +124,7 @@ namespace Restaurant.Network
                     Close();
                 }
 
+                // TODO i dont really want to begin read after the connection has been removed
                 Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
             }
             catch (IOException e)

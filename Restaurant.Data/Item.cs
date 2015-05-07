@@ -40,4 +40,30 @@ namespace Restaurant.Data
             Code = String.Empty;
         }
     }
+
+    public enum DrinkType
+    {
+        None,
+        Mixer,
+        Spirit,
+        Liquer,
+        Juice,
+        Wine,
+        Beer
+    }
+    
+    public class DrinkItem : Item
+    {
+        public DrinkType DrinkType { get; set; }
+
+        public float AlcoholVolume { get; set; }
+
+        public string Description { get; set; }
+
+
+
+    }
+
+
+
 }

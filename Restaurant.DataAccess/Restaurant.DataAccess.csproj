@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantDbContext.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\TableService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,8 @@ namespace Restaurant.DataAccess
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserType> UserTypes { get; set; }
+
+        public DbSet<Table> Tables { get; set; }
     }
 
     public class RestaurantInitialiser : DropCreateDatabaseAlways<RestaurantDbContext>
@@ -47,6 +49,20 @@ namespace Restaurant.DataAccess
                 }
             };
             userTypes.ForEach(u => context.UserTypes.Add(u));
+
+            // Seed the database with tables
+            List<Table> tables = new List<Table>
+            {
+                new Table
+                {
+                    Number = 1,
+                    Section = new Section
+                    {
+                        Name = "Bar"
+                    }
+                }
+            };
+            tables.ForEach(t => context.Tables.Add(t));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Restaurant.Data;
@@ -49,10 +48,10 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public IEnumerable<User> Search(string username, string firstName, string lastName)
-        {
-            throw new NotImplementedException();
-        }
+//        public IEnumerable<User> Search(string username, string firstName, string lastName)
+//        {
+//            throw new NotImplementedException();
+//        }
 
         public bool Create(User user)
         {
