@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data
 {
+    [Serializable]
     public class Table
     {
         public int TableID { get; set; }
 
         [Required]
-        public int Number { get; set; }
+        public byte Number { get; set; }
 
         [Required]
         public int Seats { get; set; }
@@ -21,22 +22,23 @@ namespace Restaurant.Data
 
         public Table()
         {
-            
+            Section = new Section();
         }
     }
 
-
+    [Serializable]
     public class Section
     {
         public int SectionID { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public virtual ICollection<Table> Tables { get; set; }
 
         public Section()
         {
-            
+            Name = String.Empty;
         }
     }
 
@@ -58,21 +60,45 @@ namespace Restaurant.Data
         }
     }
 
+    [Serializable]
     public class Guest
     {
-        
+        public int GuestID { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        public Guest()
+        {
+            Name = String.Empty;
+            PhoneNumber = String.Empty;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Guest: {0}, {1}", Name, PhoneNumber);
+        }
     }
 
+    [Serializable]
     public class Reservation
     {
         public int ReservationID { get; set; }
 
+        [Required]
         public Table Table { get; set; }
-        
+
+        [Required]
         public DateTime ArriveTime { get; set; }
 
+        [Required]
         public DateTime DepartTime { get; set; }
-
+        
+        [Required]
+        public byte GuestCount { get; set; }
 
         public Reservation()
         {

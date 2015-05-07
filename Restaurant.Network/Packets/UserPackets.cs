@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Restaurant.Data;
 
 namespace Restaurant.Network.Packets
@@ -13,7 +12,7 @@ namespace Restaurant.Network.Packets
     [Serializable]
     public class NetUserDelete : INetPacket
     {
-        public User User { get; set; }
+        public int ID { get; set; }
     }
 
     [Serializable]
@@ -25,7 +24,7 @@ namespace Restaurant.Network.Packets
     [Serializable]
     public class NetUserRequest : INetPacket
     {
-        public User User { get; set; }
+        public string Username { get; set; }
     }
 
     [Serializable]

@@ -19,6 +19,10 @@ namespace Restaurant.DataAccess
         public DbSet<UserType> UserTypes { get; set; }
 
         public DbSet<Table> Tables { get; set; }
+
+        public DbSet<Guest> Guests { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
     }
 
     public class RestaurantInitialiser : DropCreateDatabaseAlways<RestaurantDbContext>
