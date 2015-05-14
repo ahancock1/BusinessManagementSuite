@@ -139,24 +139,21 @@ namespace Restaurant.Network
         {
             get
             {
-                // TODO extends NetworkStream to access socket connected
-                if (!Client.Connected) return false;
+                // TODO extend NetworkStream to access socket connected
+                if (!Client.Connected || Stream == null) return false;
 
-                if (Stream != null)
+                try
                 {
-                    try
-                    {
-                        // Write 0 bytes to test connection
-                        Stream.Write(new byte[0], 0, 0);
-                        Stream.FlushAsync();
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                    return true;
+                    // Write 0 bytes to test connection
+                    Stream.Write(new byte[0], 0, 0);
+                    Stream.FlushAsync();
                 }
-                return false;
+                catch (Exception)
+                {
+                    return false;
+                }
+
+                return true;
             }
         }
 
