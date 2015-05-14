@@ -35,7 +35,7 @@ namespace Restaurant.Listeners
         public void RequestUser(Connection connection, INetPacket packet)
         {
             // TODO refine this
-            if (((NetUserRequest)packet).User == null)
+            if (((NetUserRequest)packet).Username == null)
             {
                 connection.Send(new NetUsersResponse
                 {
@@ -46,7 +46,7 @@ namespace Restaurant.Listeners
             {
                 connection.Send(new NetUserResponse
                 {
-                    User = service.GetByUsername(((NetUserRequest)packet).User.Username)
+                    User = service.GetByUsername(((NetUserRequest)packet).Username)
                 });
             }
         }

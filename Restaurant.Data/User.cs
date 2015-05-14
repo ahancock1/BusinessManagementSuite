@@ -31,6 +31,11 @@ namespace Restaurant.Data
             Password = String.Empty;
         }
 
+        public string FullName
+        {
+            get { return String.Format("{0} {1}", FirstName, LastName); }
+        }
+
         public override string ToString()
         {
             return String.Format("User: {0} {1}", FirstName, LastName);

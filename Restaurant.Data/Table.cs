@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Restaurant.Data
 {
@@ -42,11 +44,45 @@ namespace Restaurant.Data
         }
     }
 
-    public class Privilege
+    public class Privilege : IEnumerable<PrivilegeType>
     {
         public int PriveligeID { get; set; }
 
+        public string Name { get; set; }
 
+        public int Level { get; set; }
+
+        public PrivilegeType[] Privileges { get; set; }
+
+
+        public Privilege()
+        {
+            Name = String.Empty;
+        }
+
+        public string Message
+        {
+            get { return String.Format("Grants access to: {0}", Privileges); }
+        }
+
+        public IEnumerator<PrivilegeType> GetEnumerator()
+        {
+            return Privileges.ToList().GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+
+    public enum PrivilegeType
+    {
+        Floor = 1,
+        Bar,
+        Kitchen,
+        Management,
+        Administration
     }
     
     public class Shift
@@ -92,19 +128,23 @@ namespace Restaurant.Data
         public Table Table { get; set; }
 
         [Required]
-        public DateTime ArriveTime { get; set; }
+        public DateTime Arrive { get; set; }
 
         [Required]
-        public DateTime DepartTime { get; set; }
+        public DateTime Depart { get; set; }
         
         [Required]
         public byte GuestCount { get; set; }
 
+        [Required]
+        public Guest Guest { get; set; }
+
         public Reservation()
         {
             Table = new Table();
-            ArriveTime = new DateTime();
-            DepartTime = new DateTime();
+            Arrive = new DateTime();
+            Depart = new DateTime();
+            Guest = new Guest();
         }
 
         /// <summary>
@@ -112,7 +152,7 @@ namespace Restaurant.Data
         /// </summary>
         public int AllocatedTime
         {
-            get { return (DepartTime - ArriveTime).Minutes; }
+            get { return (Depart - Arrive).Minutes; }
         }
     }
 }

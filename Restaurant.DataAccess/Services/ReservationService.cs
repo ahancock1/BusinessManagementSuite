@@ -46,7 +46,7 @@ namespace Restaurant.DataAccess.Services
         {
             using (var context = new RestaurantDbContext())
             {
-                return context.Reservations.Where(r => r.ArriveTime.Date.Equals(date.Date)).ToList();
+                return context.Reservations.Where(r => r.Arrive.Date.Equals(date.Date)).ToList();
             }
         }
 

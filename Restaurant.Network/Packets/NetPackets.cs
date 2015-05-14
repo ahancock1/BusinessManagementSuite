@@ -4,24 +4,6 @@ using System.Linq;
 
 namespace Restaurant.Network.Packets
 {
-    #if DEBUG
-    [Serializable]
-    public abstract class NetMessage : INetPacket
-    {
-        public string Message { get; set; }
-    }
-
-    [Serializable]
-    public class ClientMessage : NetMessage
-    {
-    }
-
-    [Serializable]
-    public class ServerMessage : NetMessage
-    {
-    }
-    #endif
-    
     #region Framework Messages
 
     public interface INetPacket
@@ -68,12 +50,6 @@ namespace Restaurant.Network.Packets
 
     [Serializable]
     public sealed class NetAcceptConnection : INetMessage
-    {
-        public int ConnectionID { get; set; }
-    }
-
-    [Serializable]
-    public sealed class NetCloseConnection : INetMessage
     {
         public int ConnectionID { get; set; }
     }

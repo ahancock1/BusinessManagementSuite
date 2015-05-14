@@ -63,7 +63,8 @@ namespace Restaurant.DataAccess
                     Section = new Section
                     {
                         Name = "Bar"
-                    }
+                    },
+                    Seats = 4
                 }
             };
             tables.ForEach(t => context.Tables.Add(t));

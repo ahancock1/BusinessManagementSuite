@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Restaurant.Data
 {
+    [Serializable]
     public class ItemType
     {
         public int ItemTypeID { get; set; }
@@ -19,6 +20,7 @@ namespace Restaurant.Data
         }
     }
 
+    [Serializable]
     public abstract class Item
     {
         public int ItemID { get; set; }
@@ -41,6 +43,7 @@ namespace Restaurant.Data
         }
     }
 
+    [Serializable]
     public enum DrinkType
     {
         None,
@@ -51,7 +54,8 @@ namespace Restaurant.Data
         Wine,
         Beer
     }
-    
+
+    [Serializable]
     public class DrinkItem : Item
     {
         public DrinkType DrinkType { get; set; }
@@ -61,9 +65,9 @@ namespace Restaurant.Data
         public string Description { get; set; }
 
 
-
+        public DrinkItem()
+        {
+            
+        }
     }
-
-
-
 }

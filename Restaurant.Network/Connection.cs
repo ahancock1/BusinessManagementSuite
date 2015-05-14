@@ -37,7 +37,7 @@ namespace Restaurant.Network
         private int lastPingID;
 
         private long lastPingTime;
-
+        
         public Connection(int bufferSize)
         {
             Buffer = new byte[bufferSize];
@@ -56,7 +56,9 @@ namespace Restaurant.Network
 
         public void Send(object o)
         {
-            if (o == null) throw new Exception("object cannot be null.");
+            if (!IsConnected) throw new Exception("Connection is not open");
+
+            if (o == null) throw new Exception("Object cannot be null.");
 
             if (Stream == null) throw new Exception("Stream cannot be null.");
 
@@ -84,54 +86,46 @@ namespace Restaurant.Network
         {
             try
             {
-                int length = Stream.EndRead(result);
-                if (length != 0)
+                if (IsConnected)
                 {
-                    object packet;
-                    using (var memoryStream = new MemoryStream(Buffer))
+                    if (Stream.EndRead(result) != 0)
                     {
-                        memoryStream.Seek(0, SeekOrigin.Begin);
-                        memoryStream.Position = 0;
-                        packet = (new BinaryFormatter()).Deserialize(memoryStream);
-                    }
-
-                    if (packet is INetMessage)
-                    {
-                        if (packet is NetAcceptConnection)
+                        object packet;
+                        using (var memoryStream = new MemoryStream(Buffer))
                         {
-                            ID = ((NetAcceptConnection)packet).ConnectionID;
-                            Send(new NetRegisterConnection
+                            memoryStream.Seek(0, SeekOrigin.Begin);
+                            memoryStream.Position = 0;
+                            packet = (new BinaryFormatter()).Deserialize(memoryStream);
+                        }
+
+                        if (packet is INetMessage)
+                        {
+                            if (packet is NetAcceptConnection)
                             {
-                                ConnectionID = ID,
-                                ConnectionName = Name
-                            });
+                                ID = ((NetAcceptConnection)packet).ConnectionID;
+                                Send(new NetRegisterConnection
+                                {
+                                    ConnectionID = ID,
+                                    ConnectionName = Name
+                                });
+                            }
+                            else if (packet is NetRegisterConnection)
+                            {
+                                Name = ((NetRegisterConnection)packet).ConnectionName;
+                                Connected(this);
+                            }
                         }
-                        else if (packet is NetRegisterConnection)
-                        {
-                            Name = ((NetRegisterConnection)packet).ConnectionName;
-                            Connected(this);
-                        }
-                        else if (packet is NetCloseConnection)
-                        {
-                            Disconnected(this);
-                        }
+
+                        Received(this, packet);
                     }
 
-                    Received(this, packet);
+                    Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
                 }
                 else
                 {
                     Close();
+                    Disconnected(this);
                 }
-
-                // TODO i dont really want to begin read after the connection has been removed
-                Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine("Error reading data: {0}", e.Message);
-                Close();
-                Disconnected(this);
             }
             catch (Exception e)
             {
@@ -141,12 +135,33 @@ namespace Restaurant.Network
             }
         }
 
+        public bool IsConnected
+        {
+            get
+            {
+                // TODO extends NetworkStream to access socket connected
+                if (!Client.Connected) return false;
+
+                if (Stream != null)
+                {
+                    try
+                    {
+                        // Write 0 bytes to test connection
+                        Stream.Write(new byte[0], 0, 0);
+                        Stream.FlushAsync();
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+
         public virtual void Close()
         {
-            if (!Client.Connected) return;
-
-            Send(new NetCloseConnection { ConnectionID = ID });
-
             Stream.Close();
             Client.Close();
         }
@@ -225,5 +240,4 @@ namespace Restaurant.Network
             return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
         }
     }
-
-    }
+}
