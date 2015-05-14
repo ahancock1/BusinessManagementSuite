@@ -16,7 +16,7 @@ namespace Restaurant.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<UserType> UserTypes { get; set; }
+//        public DbSet<UserType> UserTypes { get; set; }
 
         public DbSet<Table> Tables { get; set; }
 
@@ -34,25 +34,26 @@ namespace Restaurant.DataAccess
             {
                 new User
                 {
-                    FirstName = "Adam",
-                    LastName = "Hancock",
-                    EmailAddress = "a.hancock@hotmail.co.uk",
+                    FirstName = "admin",
+                    LastName = "user",
+                    EmailAddress = "",
                     Password = "password",
-                    PhoneNumber = "07891599243",
-                    Username = "ahancock1"
+                    PhoneNumber = "",
+                    Username = "admin",
+                    ConnectionType = 1 << 5
                 }
             };
             users.ForEach(u => context.Users.Add(u));
 
-            // Seed the database with user types
-            List<UserType> userTypes = new List<UserType>
-            {
-                new UserType
-                {
-                    Name = "Administrator"
-                }
-            };
-            userTypes.ForEach(u => context.UserTypes.Add(u));
+//            // Seed the database with user types
+//            List<UserType> userTypes = new List<UserType>
+//            {
+//                new UserType
+//                {
+//                    Name = "Administrator"
+//                }
+//            };
+//            userTypes.ForEach(u => context.UserTypes.Add(u));
 
             // Seed the database with tables
             List<Table> tables = new List<Table>

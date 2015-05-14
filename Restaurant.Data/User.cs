@@ -14,12 +14,12 @@ namespace Restaurant.Data
         public string PhoneNumber { get; set; }
 
         public string EmailAddress { get; set; }
-
-        public UserType UserType { get; set; }
-
+        
         public string Username { get; set; }
 
         public string Password { get; set; }
+
+        public int ConnectionType { get; set; }
 
         public User()
         {

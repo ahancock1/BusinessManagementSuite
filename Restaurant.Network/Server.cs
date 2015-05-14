@@ -16,11 +16,9 @@ namespace Restaurant.Network
 
         void SendToAll(object o);
 
-        void SendToAllExcept(object o, int id);
+        void SendToAll(object o, ConnectionType connectionType);
 
-        void SendToAllExcept(object o, params int[] ids);
-
-        void SendToAllExcept(object o, IEnumerable<int> ids);
+        void SendToAllExcept(object o, ConnectionType connectionType);
     }
 
     public class Server : IServer
@@ -119,25 +117,20 @@ namespace Restaurant.Network
             }
         }
 
-        public void SendToAllExcept(object o, int id)
+        public void SendToAll(object o, ConnectionType connectionType)
         {
-            foreach (IConnection connection in Connections.Where(c => c.ID != id))
+            foreach (IConnection connection in Connections.Where(c => c.ConnectionType.HasFlag(connectionType)))
             {
                 connection.Send(o);
             }
         }
 
-        public void SendToAllExcept(object o, params int[] ids)
+        public void SendToAllExcept(object o, ConnectionType connectionType)
         {
-            foreach (IConnection connection in Connections.Where(connection => !ids.Any(id => connection.ID == id)))
+            foreach (IConnection connection in Connections.Where(c => c.ConnectionType.HasFlag(connectionType)))
             {
                 connection.Send(o);
             }
-        }
-
-        public void SendToAllExcept(object o, IEnumerable<int> ids)
-        {
-            SendToAllExcept(o, ids.ToArray());
         }
 
         public void AddListener(IListener listener)
@@ -147,18 +140,17 @@ namespace Restaurant.Network
 
         public void AddListeners(IEnumerable<IListener> listeners)
         {
-            foreach (IListener listener in listeners)
-            {
-                AddListener(listener);
-            }
+            listeners.ToList().ForEach(AddListener);
+        }
+
+        public void AddListeners(params IListener[] listeners)
+        {
+            AddListeners(listeners.ToList());
         }
 
         public void Connected(Connection connection)
         {
-            foreach (IListener listener in Listeners)
-            {
-                listener.Connected(connection);
-            }
+            Listeners.ForEach(l => l.Connected(connection));
         }
 
         public void Disconnected(Connection connection)
@@ -168,18 +160,12 @@ namespace Restaurant.Network
                 Connections.Remove(connection);
             }
 
-            foreach (IListener listener in Listeners)
-            {
-                listener.Disconnected(connection);
-            }
+            Listeners.ForEach(l => l.Disconnected(connection));
         }
 
         public void Received(Connection connection, object o)
         {
-            foreach (IListener listener in Listeners)
-            {
-                listener.Received(connection, o);
-            }
+            Listeners.ForEach(l => l.Received(connection, o));
         }
 
         public void Dispose()

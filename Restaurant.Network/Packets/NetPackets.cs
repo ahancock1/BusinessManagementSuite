@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 
 namespace Restaurant.Network.Packets
@@ -38,6 +39,12 @@ namespace Restaurant.Network.Packets
         {
             ConnectionName = String.Empty;
         }
+    }
+
+    [Serializable]
+    public sealed class NetConnectionType : INetMessage
+    {
+        public int ConnectionType { get; set; }
     }
 
     [Serializable]

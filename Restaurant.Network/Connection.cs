@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using Restaurant.Data;
 using Restaurant.Network.Packets;
 
 namespace Restaurant.Network
 {
+    [Flags]
+    public enum ConnectionType : byte
+    {
+        None = 1,
+        Floor = 1 << 1,
+        Bar = 1 << 2,
+        Kitchen = 1 << 3,
+        Management = 1 << 4,
+        Administration = 1 << 5
+    }
+
     public interface IConnection : IListener
     {
         void Send(object data);
@@ -34,6 +46,8 @@ namespace Restaurant.Network
 
         public string Name { get; set; }
 
+        public ConnectionType ConnectionType { get; set; }
+
         private int lastPingID;
 
         private long lastPingTime;
@@ -43,6 +57,7 @@ namespace Restaurant.Network
             Buffer = new byte[bufferSize];
             Client = new TcpClient();
             listeners = new List<IListener>();
+            ConnectionType = 0x0;
         }
 
         public void Ping()
@@ -102,7 +117,7 @@ namespace Restaurant.Network
                         {
                             if (packet is NetAcceptConnection)
                             {
-                                ID = ((NetAcceptConnection)packet).ConnectionID;
+                                ID = ((NetAcceptConnection) packet).ConnectionID;
                                 Send(new NetRegisterConnection
                                 {
                                     ConnectionID = ID,
@@ -111,8 +126,12 @@ namespace Restaurant.Network
                             }
                             else if (packet is NetRegisterConnection)
                             {
-                                Name = ((NetRegisterConnection)packet).ConnectionName;
+                                Name = ((NetRegisterConnection) packet).ConnectionName;
                                 Connected(this);
+                            }
+                            else if (packet is NetConnectionType)
+                            {
+                                ConnectionType = (ConnectionType) ((NetConnectionType) packet).ConnectionType;
                             }
                         }
 
@@ -188,8 +207,7 @@ namespace Restaurant.Network
         {
             listeners.Remove(listener);
         }
-
-
+        
         public virtual void Connected(Connection connection)
         {
             foreach (IListener listener in listeners)

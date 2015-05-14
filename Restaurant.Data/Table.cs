@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Restaurant.Data
 {
@@ -15,7 +16,7 @@ namespace Restaurant.Data
         public byte Number { get; set; }
 
         [Required]
-        public int Seats { get; set; }
+        public byte Seats { get; set; }
         
         public Section Section { get; set; }
 
@@ -38,51 +39,28 @@ namespace Restaurant.Data
 
         public virtual ICollection<Table> Tables { get; set; }
 
+
         public Section()
         {
             Name = String.Empty;
         }
     }
 
-    public class Privilege : IEnumerable<PrivilegeType>
+    public class Privilege
     {
         public int PriveligeID { get; set; }
 
         public string Name { get; set; }
 
-        public int Level { get; set; }
+        public int ConnectionType { get; set; }
 
-        public PrivilegeType[] Privileges { get; set; }
+        public virtual ICollection<User> Users { get; set; } 
 
 
         public Privilege()
         {
             Name = String.Empty;
         }
-
-        public string Message
-        {
-            get { return String.Format("Grants access to: {0}", Privileges); }
-        }
-
-        public IEnumerator<PrivilegeType> GetEnumerator()
-        {
-            return Privileges.ToList().GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-    }
-
-    public enum PrivilegeType
-    {
-        Floor = 1,
-        Bar,
-        Kitchen,
-        Management,
-        Administration
     }
     
     public class Shift
@@ -106,6 +84,7 @@ namespace Restaurant.Data
 
         [Required]
         public string PhoneNumber { get; set; }
+
 
         public Guest()
         {
@@ -138,6 +117,7 @@ namespace Restaurant.Data
 
         [Required]
         public Guest Guest { get; set; }
+
 
         public Reservation()
         {
