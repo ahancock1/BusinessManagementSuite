@@ -49,7 +49,7 @@ namespace Restaurant.Network
         private int lastPingID;
 
         private long lastPingTime;
-        
+
         public Connection(int bufferSize)
         {
             Buffer = new byte[bufferSize];
@@ -82,14 +82,14 @@ namespace Restaurant.Network
                     using (var memoryStream = new MemoryStream())
                     {
                         (new BinaryFormatter()).Serialize(memoryStream, o);
-                        Stream.Write(memoryStream.ToArray(), 0, (int) memoryStream.Length);
+                        Stream.Write(memoryStream.ToArray(), 0, (int)memoryStream.Length);
                         Stream.FlushAsync();
                     }
                     Console.WriteLine("Sent: {0}", o.GetType().Name);
                 }
                 catch (IOException e)
                 {
-                    Console.WriteLine("Error sending {0} to {1}:{2}, {3}", o.GetType().Name, IpEndPoint.Address, IpEndPoint.Port, e.Message); 
+                    Console.WriteLine("Error sending {0} to {1}:{2}, {3}", o.GetType().Name, IpEndPoint.Address, IpEndPoint.Port, e.Message);
                     Close();
                 }
             }
@@ -99,69 +99,61 @@ namespace Restaurant.Network
         {
             try
             {
-                if (IsConnected)
+                if (IsConnected && Stream.EndRead(result) != 0)
                 {
-                    if (Stream.EndRead(result) != 0)
+                    object packet;
+                    using (var memoryStream = new MemoryStream(Buffer))
                     {
-                        object packet;
-                        using (var memoryStream = new MemoryStream(Buffer))
-                        {
-                            memoryStream.Seek(0, SeekOrigin.Begin);
-                            memoryStream.Position = 0;
-                            packet = (new BinaryFormatter()).Deserialize(memoryStream);
-                        }
+                        memoryStream.Seek(0, SeekOrigin.Begin);
+                        memoryStream.Position = 0;
+                        packet = (new BinaryFormatter()).Deserialize(memoryStream);
+                    }
 
-                        if (packet is INetMessage)
+                    if (packet is INetMessage)
+                    {
+                        if (packet is NetAcceptConnection)
                         {
-                            if (packet is NetAcceptConnection)
+                            ID = ((NetAcceptConnection)packet).ConnectionID;
+                            Send(new NetRegisterConnection
                             {
-                                ID = ((NetAcceptConnection) packet).ConnectionID;
-                                Send(new NetRegisterConnection
+                                ConnectionID = ID,
+                                ConnectionName = Name
+                            });
+                        }
+                        else if (packet is NetRegisterConnection)
+                        {
+                            Name = ((NetRegisterConnection)packet).ConnectionName;
+                            Connected(this);
+                        }
+                        else if (packet is NetConnectionType)
+                        {
+                            ConnectionType = (ConnectionType)((NetConnectionType)packet).ConnectionType;
+                        }
+                        else if (packet is NetPing)
+                        {
+                            NetPing response = (NetPing)packet;
+                            if (response.IsReply)
+                            {
+                                if (response.PingID == lastPingID - 1)
                                 {
-                                    ConnectionID = ID,
-                                    ConnectionName = Name
-                                });
-                            }
-                            else if (packet is NetRegisterConnection)
-                            {
-                                Name = ((NetRegisterConnection) packet).ConnectionName;
-                                Connected(this);
-                            }
-                            else if (packet is NetConnectionType)
-                            {
-                                ConnectionType = (ConnectionType) ((NetConnectionType) packet).ConnectionType;
-                            }
-                            else if (packet is NetPing)
-                            {
-                                NetPing response = (NetPing) packet;
-                                if (response.IsReply)
-                                {
-                                    if (response.PingID == lastPingID - 1)
-                                    {
-                                        int tripTime = (int) (DateTime.Now.Millisecond - lastPingTime);
-                                        Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address,
-                                            IpEndPoint.Port, tripTime);
-                                    }
-                                }
-                                else
-                                {
-                                    response.IsReply = true;
-                                    Send(response);
+                                    int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
+                                    Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address,
+                                        IpEndPoint.Port, tripTime);
                                 }
                             }
+                            else
+                            {
+                                response.IsReply = true;
+                                Send(response);
+                            }
                         }
-                        else
-                        {
-                            Received(this, packet);
-                        }
-
-                        Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
                     }
                     else
                     {
-                        Close();
-                        Disconnected(this);
+                        Received(this, packet);
                     }
+
+                    Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
                 }
                 else
                 {
@@ -220,7 +212,7 @@ namespace Restaurant.Network
         {
             get { return IpEndPoint.Address; }
         }
-        
+
         public void AddListener(IListener listener)
         {
             listeners.Add(listener);
@@ -230,7 +222,7 @@ namespace Restaurant.Network
         {
             listeners.Remove(listener);
         }
-        
+
         public virtual void Connected(Connection connection)
         {
             listeners.ForEach(l => l.Connected(connection));
