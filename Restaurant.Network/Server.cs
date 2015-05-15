@@ -65,10 +65,7 @@ namespace Restaurant.Network
             Console.WriteLine("Server stopping");
 
             // Close all connections
-            foreach (Connection connection in Connections)
-            {
-                connection.Close();
-            }
+            Connections.ForEach(c => c.Close());
             Connections = new List<Connection>();
 
             // Release thread and close listener
@@ -111,26 +108,29 @@ namespace Restaurant.Network
 
         public void SendToAll(object o)
         {
-            foreach (IConnection connection in Connections)
-            {
-                connection.Send(o);
-            }
+            Connections.ForEach(c => c.Send(o));
         }
 
         public void SendToAll(object o, ConnectionType connectionType)
         {
-            foreach (IConnection connection in Connections.Where(c => c.ConnectionType.HasFlag(connectionType)))
+            Connections.ForEach(c =>
             {
-                connection.Send(o);
-            }
+                if (c.ConnectionType.HasFlag(connectionType))
+                {
+                    c.Send(o);
+                }
+            });
         }
 
         public void SendToAllExcept(object o, ConnectionType connectionType)
         {
-            foreach (IConnection connection in Connections.Where(c => c.ConnectionType.HasFlag(connectionType)))
+            Connections.ForEach(c =>
             {
-                connection.Send(o);
-            }
+                if (!c.ConnectionType.HasFlag(connectionType))
+                {
+                    c.Send(o);
+                }
+            });
         }
 
         public void AddListener(IListener listener)
@@ -159,7 +159,7 @@ namespace Restaurant.Network
             {
                 Connections.Remove(connection);
             }
-
+            
             Listeners.ForEach(l => l.Disconnected(connection));
         }
 

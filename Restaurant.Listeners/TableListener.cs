@@ -35,12 +35,12 @@ namespace Restaurant.Listeners
             {
                 connection.Send(new NetTableResponse
                 {
-                    Table = service.GetByNumber(p.Number.Value)
+                    Tables = new [] { service.GetByNumber(p.Number.Value) }
                 });
             }
             else
             {
-                connection.Send(new NetTablesResponse
+                connection.Send(new NetTableResponse
                 {
                     Tables = service.GetAll().ToArray()
                 });

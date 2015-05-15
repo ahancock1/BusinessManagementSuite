@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization.Formatters.Binary;
-using Restaurant.Data;
 using Restaurant.Network.Packets;
 
 namespace Restaurant.Network
@@ -18,7 +16,7 @@ namespace Restaurant.Network
         Bar = 1 << 2,
         Kitchen = 1 << 3,
         Management = 1 << 4,
-        Administration = 1 << 5
+        Administrator = 1 << 5 //TODO remove - this is pointless but useful for testing
     }
 
     public interface IConnection : IListener
@@ -133,12 +131,37 @@ namespace Restaurant.Network
                             {
                                 ConnectionType = (ConnectionType) ((NetConnectionType) packet).ConnectionType;
                             }
+                            else if (packet is NetPing)
+                            {
+                                NetPing response = (NetPing) packet;
+                                if (response.IsReply)
+                                {
+                                    if (response.PingID == lastPingID - 1)
+                                    {
+                                        int tripTime = (int) (DateTime.Now.Millisecond - lastPingTime);
+                                        Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address,
+                                            IpEndPoint.Port, tripTime);
+                                    }
+                                }
+                                else
+                                {
+                                    response.IsReply = true;
+                                    Send(response);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Received(this, packet);
                         }
 
-                        Received(this, packet);
+                        Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
                     }
-
-                    Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
+                    else
+                    {
+                        Close();
+                        Disconnected(this);
+                    }
                 }
                 else
                 {
@@ -210,44 +233,17 @@ namespace Restaurant.Network
         
         public virtual void Connected(Connection connection)
         {
-            foreach (IListener listener in listeners)
-            {
-                listener.Connected(connection);
-            }
+            listeners.ForEach(l => l.Connected(connection));
         }
 
         public virtual void Disconnected(Connection connection)
         {
-            foreach (IListener listener in listeners)
-            {
-                listener.Disconnected(connection);
-            }
+            listeners.ForEach(l => l.Disconnected(connection));
         }
 
         public virtual void Received(Connection connection, object o)
         {
-            if (o is NetPing)
-            {
-                NetPing response = (NetPing)o;
-                if (response.IsReply)
-                {
-                    if (response.PingID == lastPingID - 1)
-                    {
-                        int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
-                        Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address, IpEndPoint.Port, tripTime);
-                    }
-                }
-                else
-                {
-                    response.IsReply = true;
-                    Send(response);
-                }
-            }
-
-            foreach (IListener listener in listeners)
-            {
-                listener.Received(connection, o);
-            }
+            listeners.ForEach(l => l.Received(connection, o));
         }
 
         public override string ToString()

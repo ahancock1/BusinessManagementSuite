@@ -37,15 +37,9 @@ namespace Restaurant.Network.Packets
     {
         public int ID { get; set; }
     }
-
+    
     [Serializable]
     public class NetTableResponse : INetPacket
-    {
-        public Table Table { get; set;}
-    }
-
-    [Serializable]
-    public class NetTablesResponse : INetPacket
     {
         public Table[] Tables { get; set; }
     }
