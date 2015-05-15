@@ -44,6 +44,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Listener.cs" />
+    <Compile Include="Packets\MenuPackets.cs" />
     <Compile Include="Packets\NetPackets.cs" />
     <Compile Include="Packets\BarPackets.cs" />
     <Compile Include="Packets\OrderPackets.cs" />

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.Entity;
 using Restaurant.Data;
 
@@ -15,14 +16,16 @@ namespace Restaurant.DataAccess
         }
 
         public DbSet<User> Users { get; set; }
-
-//        public DbSet<UserType> UserTypes { get; set; }
-
+        
         public DbSet<Table> Tables { get; set; }
 
         public DbSet<Guest> Guests { get; set; }
 
         public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
     }
 
     public class RestaurantInitialiser : DropCreateDatabaseAlways<RestaurantDbContext>
@@ -44,17 +47,7 @@ namespace Restaurant.DataAccess
                 }
             };
             users.ForEach(u => context.Users.Add(u));
-
-//            // Seed the database with user types
-//            List<UserType> userTypes = new List<UserType>
-//            {
-//                new UserType
-//                {
-//                    Name = "Administrator"
-//                }
-//            };
-//            userTypes.ForEach(u => context.UserTypes.Add(u));
-
+            
             // Seed the database with tables
             List<Table> tables = new List<Table>
             {
@@ -69,6 +62,12 @@ namespace Restaurant.DataAccess
                 }
             };
             tables.ForEach(t => context.Tables.Add(t));
+
+            List<Menu> menus = new List<Menu>
+            {
+                new Menu()
+            };
+            menus.ForEach(m => context.Menus.Add(m));
         }
     }
 }

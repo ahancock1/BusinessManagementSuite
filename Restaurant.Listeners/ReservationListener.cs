@@ -5,18 +5,7 @@ using Restaurant.Network.Packets;
 
 namespace Restaurant.Listeners
 {
-    public interface IReservationListener
-    {
-        void RequestReservations(Connection connection, INetPacket packet);
-
-        void CreateReservation(Connection connection, INetPacket packet);
-
-        void UpdateReservation(Connection connection, INetPacket packet);
-
-        void DeleteReservation(Connection connection, INetPacket packet);
-    }
-
-    public class ReservationListener : PacketHandler, IReservationListener
+    public class ReservationListener : PacketHandler
     {
         private readonly IReservationService service;
 

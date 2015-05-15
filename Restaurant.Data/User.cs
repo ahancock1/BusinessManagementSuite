@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace Restaurant.Data
 {
@@ -7,18 +9,25 @@ namespace Restaurant.Data
     {
         public int UserID { get; set; }
 
+        [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string LastName { get; set; }
 
+        [Required]
         public string PhoneNumber { get; set; }
 
+        [Required]
         public string EmailAddress { get; set; }
-        
+
+        [Required]
         public string Username { get; set; }
 
+        [Required]
         public string Password { get; set; }
 
+        [Required]
         public int ConnectionType { get; set; }
 
         public User()
@@ -34,6 +43,16 @@ namespace Restaurant.Data
         public string FullName
         {
             get { return String.Format("{0} {1}", FirstName, LastName); }
+        }
+
+        public void RemovePermision(int connectionType)
+        {
+            ConnectionType -= connectionType;
+        }
+
+        public void AddPermision(int connectionType)
+        {
+            ConnectionType += connectionType;
         }
 
         public override string ToString()

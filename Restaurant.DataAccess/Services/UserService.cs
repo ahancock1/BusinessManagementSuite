@@ -7,13 +7,9 @@ namespace Restaurant.DataAccess.Services
 {
     public interface IUserService
     {
-//        User GetById(int id);
-
         User GetByUsername(string username);
 
         IEnumerable<User> GetAll();
-
-//        IEnumerable<User> Search(string username, string firstName, string lastName);
 
         bool Create(User user);
 
@@ -24,14 +20,6 @@ namespace Restaurant.DataAccess.Services
 
     public class UserService : IUserService
     {
-//        public User GetById(int id)
-//        {
-//            using (var context = new RestaurantDbContext())
-//            {
-//                return context.Users.SingleOrDefault(u => u.UserID == id);
-//            }
-//        }
-
         public User GetByUsername(string username)
         {
             using (var context = new RestaurantDbContext())
@@ -47,12 +35,7 @@ namespace Restaurant.DataAccess.Services
                 return context.Users.ToList();
             }
         }
-
-//        public IEnumerable<User> Search(string username, string firstName, string lastName)
-//        {
-//            throw new NotImplementedException();
-//        }
-
+        
         public bool Create(User user)
         {
             using (var context = new RestaurantDbContext())

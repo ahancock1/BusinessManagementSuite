@@ -5,18 +5,7 @@ using Restaurant.Network.Packets;
 
 namespace Restaurant.Listeners
 {
-    public interface IUserListener
-    {
-        void RequestUser(Connection connection, INetPacket packet);
-
-        void DeleteUser(Connection connection, INetPacket packet);
-
-        void CreateUser(Connection connection, INetPacket packet);
-
-        void UpdateUser(Connection connection, INetPacket packet);
-    }
-
-    public class UserListener : PacketHandler, IUserListener
+    public class UserListener : PacketHandler
     {
         private readonly IUserService service;
 

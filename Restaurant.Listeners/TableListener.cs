@@ -5,18 +5,7 @@ using Restaurant.Network.Packets;
 
 namespace Restaurant.Listeners
 {
-    public interface ITableListener
-    {
-        void RequestTable(Connection connection, INetPacket packet);
-
-        void DeleteTable(Connection connection, INetPacket packet);
-
-        void CreateTable(Connection connection, INetPacket packet);
-
-        void UpdateTable(Connection connection, INetPacket packet);
-    }
-
-    public class TableListener : PacketHandler, ITableListener
+    public class TableListener : PacketHandler
     {
         private readonly ITableService service;
 

@@ -1,9 +1,37 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Restaurant.Data
 {
+    [Serializable]
+    public abstract class ItemList : IEnumerable<Item>
+    {
+        public List<Item> Items { get; set; }
+
+        protected ItemList()
+        {
+            Items = new List<Item>();
+        }
+
+        public IEnumerable<T> GetItems<T>() where T : Item
+        {
+            return Items.Where(i => i.GetType() == typeof(T)).Cast<T>().ToList();
+        }
+
+        public IEnumerator<Item> GetEnumerator()
+        {
+            return Items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+
     [Serializable]
     public class ItemType
     {
@@ -64,10 +92,25 @@ namespace Restaurant.Data
 
         public string Description { get; set; }
 
+        public virtual ICollection<Menu> Menus { get; set; }
 
         public DrinkItem()
         {
-            
+
         }
+
+        public bool IsAlcoholic
+        {
+            get { return Math.Abs(AlcoholVolume) <= 0; }
+        }
+    }
+
+    [Serializable]
+    public class FoodItem : Item
+    {
+        public int FoodItemID { get; set; }
+
+
+        public virtual ICollection<Menu> Menus { get; set; }
     }
 }
