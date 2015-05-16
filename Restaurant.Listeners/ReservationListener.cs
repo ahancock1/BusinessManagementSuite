@@ -13,12 +13,8 @@ namespace Restaurant.Listeners
         {
             // Create data access
             service = new ReservationService();
-
-            // Register packets to listen for
-            Register<NetReservationRequest>(RequestReservations);
-            Register<NetReservationCreate>(CreateReservation);
+            
             Register<NetReservationUpdate>(UpdateReservation);
-            Register<NetReservationDelete>(DeleteReservation);
         }
 
         public void RequestReservations(Connection connection, INetPacket packet)
@@ -26,19 +22,10 @@ namespace Restaurant.Listeners
             throw new NotImplementedException();
         }
 
-        public void CreateReservation(Connection connection, INetPacket packet)
-        {
-            service.Create(((NetReservationCreate) packet).Reservation);
-        }
-
         public void UpdateReservation(Connection connection, INetPacket packet)
         {
             service.Update(((NetReservationUpdate)packet).Reservation);
         }
 
-        public void DeleteReservation(Connection connection, INetPacket packet)
-        {
-            service.Delete(((NetReservationDelete) packet).ID);
-        }
     }
 }

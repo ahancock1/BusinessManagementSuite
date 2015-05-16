@@ -13,8 +13,7 @@ namespace Restaurant.Listeners
         {
             service = new TableService();
 
-            Register<NetTableCreate>(CreateTable);
-            Register<NetTableDelete>(DeleteTable);
+            Register<NetTableUpdate>(UpdateTable);
         }
 
         public void RequestTable(Connection connection, INetPacket packet)
@@ -36,19 +35,9 @@ namespace Restaurant.Listeners
             }
         }
 
-        public void DeleteTable(Connection connection, INetPacket packet)
-        {
-            service.Delete(((NetTableDelete) packet).ID);
-        }
-
-        public void CreateTable(Connection connection, INetPacket packet)
-        {
-            service.Create(((NetTableCreate) packet).Table);
-        }
-
         public void UpdateTable(Connection connection, INetPacket packet)
         {
-            service.Update(((NetTableUpdate) packet).Table);
+            service.Update(((NetTableUpdate) packet).Tables);
         }
     }
 }

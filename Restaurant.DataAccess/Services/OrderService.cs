@@ -1,40 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using Restaurant.Data;
 
 namespace Restaurant.DataAccess.Services
 {
-    public interface IOrderService
+    public interface IOrderService : IGenericService<Order>
     {
-        bool Create(Order order);
-
-        bool Delete(int id);
+        IList<Order> GetByMember(Member member);
     }
 
-    public class OrderService : IOrderService
+    public class OrderService : GenericService<Order>, IOrderService
     {
-        public bool Create(Order order)
+        public IList<Order> GetByMember(Member member)
         {
-            using (var context = new RestaurantDbContext())
-            {
-                context.Orders.Add(order);
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Delete(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                Order order = context.Orders.Find(id);
-                context.Orders.Remove(order);
-                return context.SaveChanges() > 0;
-            }
+            return GetAll(o => o.Member.MemberID == member.MemberID);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Restaurant.Listeners
 
             if (order == null) return;
 
-            bool result = service.Create(order);
+            bool result = service.Update(order);
 
             Server.SendToAll(order.GetItems<FoodItem>(), ConnectionType.Kitchen | ConnectionType.Management);
 

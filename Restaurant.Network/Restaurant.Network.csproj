@@ -50,7 +50,7 @@
     <Compile Include="Packets\OrderPackets.cs" />
     <Compile Include="Packets\ReservationPackets.cs" />
     <Compile Include="Packets\TablePackets.cs" />
-    <Compile Include="Packets\UserPackets.cs" />
+    <Compile Include="Packets\MemberPackets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
   </ItemGroup>

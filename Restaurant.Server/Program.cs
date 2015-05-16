@@ -16,7 +16,7 @@ namespace Restaurant.Server
         {
             // Initiate and start the server
             server = new Network.Server(7777);
-            server.AddListener(new UserListener());
+            server.AddListener(new MemberListener());
             server.AddListener(new OrderListener(server));
             new Thread(server.Start) { Name = "Server" }.Start();
 

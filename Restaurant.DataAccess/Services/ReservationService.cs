@@ -1,90 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 
 using Restaurant.Data;
 
 namespace Restaurant.DataAccess.Services
 {
-    public interface IReservationService
+    public interface IReservationService : IGenericService<Reservation>
     {
-        Reservation GetByGuest(Guest guest);
+        IList<Reservation> GetByMember(Member member);
 
-        IEnumerable<Reservation> GetAll();
+        IList<Reservation> GetByDate(DateTime date);
 
-        IEnumerable<Reservation> GetAllByDate(DateTime date);
-
-        IEnumerable<Reservation> GetAllByTable(int id); 
-
-        bool Create(Reservation reservation);
-
-        bool Update(Reservation reservation);
-
-        bool Delete(int id);
+        IList<Reservation> GetByTable(Table id);
     }
 
-    public class ReservationService : IReservationService
+    public class ReservationService : GenericService<Reservation>, IReservationService
     {
-        public Reservation GetByGuest(Guest guest)
+        public IList<Reservation> GetByMember(Member member)
         {
-            using (var context = new RestaurantDbContext())
-            {
-                throw new NotImplementedException();
-            }
+            return GetAll(r => r.Member.MemberID == member.MemberID);
         }
 
-        public IEnumerable<Reservation> GetAll()
+        public IList<Reservation> GetByDate(DateTime date)
         {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.Reservations.ToList();
-            }
+            return GetAll(r => r.Arrive.Date.Equals(date.Date));
         }
 
-        public IEnumerable<Reservation> GetAllByDate(DateTime date)
+        public IList<Reservation> GetByTable(Table table)
         {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.Reservations.Where(r => r.Arrive.Date.Equals(date.Date)).ToList();
-            }
-        }
-
-        public IEnumerable<Reservation> GetAllByTable(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                return context.Reservations.Where(r => r.Table.TableID == id).ToList();
-            }
-        }
-
-        public bool Create(Reservation reservation)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.Reservations.Add(reservation);
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Update(Reservation reservation)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                context.Reservations.Attach(reservation);
-                context.Entry(reservation).State = EntityState.Modified;
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool Delete(int id)
-        {
-            using (var context = new RestaurantDbContext())
-            {
-                Reservation reservation = context.Reservations.Find(id);
-                context.Reservations.Remove(reservation);
-                return context.SaveChanges() > 0;
-            }
+            return GetAll(r => r.Table.TableID == table.TableID);
         }
     }
 }

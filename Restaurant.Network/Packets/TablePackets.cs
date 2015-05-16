@@ -21,21 +21,9 @@ namespace Restaurant.Network.Packets
     }
 
     [Serializable]
-    public class NetTableCreate : INetPacket
-    {
-        public Table Table { get; set; }
-    }
-
-    [Serializable]
     public class NetTableUpdate : INetPacket
     {
-        public Table Table { get; set; }
-    }
-
-    [Serializable]
-    public class NetTableDelete : INetPacket
-    {
-        public int ID { get; set; }
+        public Table[] Tables { get; set; }
     }
     
     [Serializable]
