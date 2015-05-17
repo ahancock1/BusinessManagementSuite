@@ -61,7 +61,7 @@ namespace Restaurant.DataAccess.Services
                         entry.State = GetEntityState(entry.Entity.EntityState);
                     }
                 }
-                return context.SaveChanges() > 0;
+                return context.SaveChanges() == items.Length;
             }
         }
 
