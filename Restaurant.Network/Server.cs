@@ -34,7 +34,7 @@ namespace Restaurant.Network
 
         public int Port { get; set; }
 
-        private int nextConnectionID;
+        private int nextConnectionId;
 
         private TcpListener clientListener;
 
@@ -85,15 +85,15 @@ namespace Restaurant.Network
             {
                 Client = client,
                 Stream = client.GetStream(),
-                ID = nextConnectionID++
+                ConnectionID = nextConnectionId++
             };
             connection.AddListener(this);
             connection.Stream.BeginRead(connection.Buffer, 0, connection.Buffer.Length, connection.ReadCallBack, connection.Stream);
 
-            // Let the client know its ID
+            // Let the client know its Id
             connection.Send(new NetAcceptConnection
             {
-                ConnectionID = connection.ID
+                ConnectionID = connection.ConnectionID
             });
 
             // Add connection

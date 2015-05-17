@@ -75,6 +75,18 @@ namespace Restaurant.DataAccess
                     LastName = "user",
                     PhoneNumber = "0",
                     Email = "0"
+                },
+                new StaffMember
+                {
+                    Username = "kitchen",
+                    Password = "password",
+                    DateHired = DateTime.Now,
+                    ConnectionType = 1 << 3,
+
+                    FirstName = "kitchen",
+                    LastName = "user",
+                    PhoneNumber = "0",
+                    Email = "0"
                 }
             };
             members.ForEach(u => context.StaffMembers.Add(u));

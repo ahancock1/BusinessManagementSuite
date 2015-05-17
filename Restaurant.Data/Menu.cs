@@ -38,12 +38,14 @@ namespace Restaurant.Data
         public string Title { get; set; }
 
         [Required]
-        public MenuType MenuType { get; set; }
+        public virtual MenuType MenuType { get; set; }
 
 
         public Menu()
         {
             Season = String.Empty;
+            Description = String.Empty;
+            Title = String.Empty;
         }
     }
 }

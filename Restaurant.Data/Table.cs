@@ -45,7 +45,7 @@ namespace Restaurant.Data
 
     public class Privilege
     {
-        public int PriveligeID { get; set; }
+        public int PrivilegeID { get; set; }
 
         public string Name { get; set; }
 

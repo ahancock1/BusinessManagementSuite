@@ -32,6 +32,8 @@ namespace Restaurant.Network
 
     public class Connection : IConnection
     {
+        public int ConnectionID { get; set; }
+
         public readonly byte[] Buffer;
 
         public TcpClient Client { get; set; }
@@ -39,9 +41,7 @@ namespace Restaurant.Network
         public NetworkStream Stream { get; set; }
 
         private readonly List<IListener> listeners;
-
-        public int ID { get; set; }
-
+        
         public string Name { get; set; }
 
         public ConnectionType ConnectionType { get; set; }
@@ -113,10 +113,10 @@ namespace Restaurant.Network
                     {
                         if (packet is NetAcceptConnection)
                         {
-                            ID = ((NetAcceptConnection)packet).ConnectionID;
+                            ConnectionID = ((NetAcceptConnection)packet).ConnectionID;
                             Send(new NetRegisterConnection
                             {
-                                ConnectionID = ID,
+                                ConnectionID = ConnectionID,
                                 ConnectionName = Name
                             });
                         }
@@ -243,7 +243,7 @@ namespace Restaurant.Network
 
         public override string ToString()
         {
-            return String.IsNullOrEmpty(Name) ? "Connection " + ID : Name;
+            return String.IsNullOrEmpty(Name) ? "Connection " + ConnectionID : Name;
         }
     }
 }

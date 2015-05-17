@@ -49,6 +49,7 @@
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="StaffMember.cs" />
     <Compile Include="Table.cs" />

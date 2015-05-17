@@ -11,3 +11,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\R
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.Data.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.Data.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.Data.csprojResolveAssemblyReference.cache

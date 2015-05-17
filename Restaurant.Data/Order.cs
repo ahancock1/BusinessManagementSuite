@@ -5,7 +5,7 @@ namespace Restaurant.Data
     [Serializable]
     public class Order : ItemList
     {
-        public int OrderID { get; set; }
+        public int ID { get; set; }
 
         public StaffMember Member { get; set; }
 
