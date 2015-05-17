@@ -30,7 +30,7 @@ namespace Restaurant.Data
     }
 
     [Serializable]
-    public class Shift : IEntity
+    public class Shift : Entity
     {
         public int ShiftID { get; set; }
 
@@ -42,8 +42,6 @@ namespace Restaurant.Data
 
         [Required]
         public virtual StaffMember Member { get; set; }
-
-        public EntityState EntityState { get; set; }
         
 
         public Shift()

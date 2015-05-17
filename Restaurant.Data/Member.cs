@@ -7,7 +7,7 @@ namespace Restaurant.Data
 {
     [Serializable]
     [Table("Members")]
-    public class Member : IEntity
+    public class Member : Entity
     {
         public int MemberID { get; set; }
 
@@ -25,9 +25,7 @@ namespace Restaurant.Data
 
         // Useful relationship
         public virtual ICollection<Reservation> Reservations { get; set; }
-
-        public EntityState EntityState { get; set; }
-
+        
 
         public Member()
         {

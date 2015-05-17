@@ -3,7 +3,7 @@
 namespace Restaurant.Data
 {
     [Serializable]
-    public class Order : ItemList, IEntity
+    public class Order : ItemList
     {
         public int OrderID { get; set; }
 
@@ -11,9 +11,7 @@ namespace Restaurant.Data
 
         public Table Table { get; set; }
 
-        public EntityState EntityState { get; set; }
-
-
+        
         public Order()
         {
         }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Restaurant.Data
 {
     [Serializable]
-    public class Reservation : IEntity
+    public class Reservation : Entity
     {
         public int ReservationID { get; set; }
         
@@ -23,8 +23,6 @@ namespace Restaurant.Data
         [Required]
         public virtual Member Member { get; set; }
         
-        public EntityState EntityState { get; set; }
-
         
         public Reservation()
         {

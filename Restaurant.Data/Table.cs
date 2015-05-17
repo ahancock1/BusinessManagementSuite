@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Restaurant.Data
 {
     [Serializable]
-    public class Table : IEntity
+    public class Table : Entity
     {
         public int TableID { get; set; }
 
@@ -18,9 +18,7 @@ namespace Restaurant.Data
         public Section Section { get; set; }
 
         public virtual ICollection<Reservation> Reservations { get; set; }
-
-        public EntityState EntityState { get; set; }
-
+        
 
         public Table()
         {

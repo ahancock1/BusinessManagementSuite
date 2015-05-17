@@ -7,11 +7,10 @@ using System.Linq;
 namespace Restaurant.Data
 {
     [Serializable]
-    public abstract class ItemList : IEnumerable<Item>, IEntity
+    public abstract class ItemList : Entity, IEnumerable<Item>
     {
         public List<Item> Items { get; set; }
 
-        public EntityState EntityState { get; set; }
 
         protected ItemList()
         {
@@ -35,7 +34,7 @@ namespace Restaurant.Data
     }
 
     [Serializable]
-    public class ItemType : IEntity
+    public class ItemType : Entity
     {
         public int ItemTypeID { get; set; }
 
@@ -43,9 +42,7 @@ namespace Restaurant.Data
         public string Name { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
-
-        public EntityState EntityState { get; set; }
-
+        
 
         public ItemType()
         {
@@ -54,7 +51,7 @@ namespace Restaurant.Data
     }
 
     [Serializable]
-    public abstract class Item : IEntity
+    public abstract class Item : Entity
     {
         public int ItemID { get; set; }
 
@@ -68,9 +65,7 @@ namespace Restaurant.Data
         public string Code { get; set; }
 
         public int Quantity { get; set; }
-
-        public EntityState EntityState { get; set; }
-
+        
 
         public Item()
         {
