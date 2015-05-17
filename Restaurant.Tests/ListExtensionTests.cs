@@ -21,10 +21,10 @@ namespace Restaurant.Tests
                 "test2"
             };
 
-            Assert.AreEqual(2, items.GetType<string>().ToList().Count);
-            Assert.AreEqual(1, items.GetType<int>().ToList().Count);
-            Assert.AreEqual(2, items.GetType<float>().ToList().Count);
-            Assert.AreEqual(1, items.GetType<double>().ToList().Count);
+            Assert.AreEqual(2, items.GetTypes<string>().ToList().Count);
+            Assert.AreEqual(1, items.GetTypes<int>().ToList().Count);
+            Assert.AreEqual(2, items.GetTypes<float>().ToList().Count);
+            Assert.AreEqual(1, items.GetTypes<double>().ToList().Count);
             Assert.AreEqual(6, items.Count);
         }
     }

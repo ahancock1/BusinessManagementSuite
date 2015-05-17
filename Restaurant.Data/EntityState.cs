@@ -19,7 +19,18 @@ namespace Restaurant.Data
     [Serializable]
     public abstract class Entity : IEntity
     {
+        public DateTime LastUpdated { get; set; }
+
         [NotMapped]
-        public EntityState EntityState { get; set; }
+        private EntityState entityState;
+        public EntityState EntityState
+        {
+            get { return entityState; }
+            set
+            {
+                entityState = value;
+                LastUpdated = DateTime.Now;
+            }
+        }
     }
 }

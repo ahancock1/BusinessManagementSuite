@@ -28,9 +28,9 @@ namespace Restaurant.Listeners
 
             foreach (Ticket ticket in tickets)
             {
-                Server.SendToAll(ticket.Items.GetType<FoodItem>(), ConnectionType.Kitchen | ConnectionType.Management);
+                Server.SendToAll(ticket.Items.GetTypes<FoodItem>(), ConnectionType.Kitchen | ConnectionType.Management);
 
-                Server.SendToAll(ticket.Items.GetType<DrinkItem>(), ConnectionType.Bar | ConnectionType.Management);
+                Server.SendToAll(ticket.Items.GetTypes<DrinkItem>(), ConnectionType.Bar | ConnectionType.Management);
             }
 
             connection.Send(new NetResponseCode<Ticket> { Response = result ? NetResponseCode.Accepted : NetResponseCode.Error });

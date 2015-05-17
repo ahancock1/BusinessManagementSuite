@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Restaurant.Data
 {
     [Serializable]
@@ -34,14 +33,7 @@ namespace Restaurant.Data
         [Required(ErrorMessage = "An Item Name is required")]
         [StringLength(160)]
         public string Name { get; set; }
-
-        [Required]
-        public string Code { get; set; }
-
-        public int Quantity { get; set; }
-
-        public DateTime LastUpdted { get; set; }
-
+        
         public virtual ItemType ItemType { get; set; }
 
         public virtual ICollection<Menu> Menus { get; set; }
@@ -51,22 +43,19 @@ namespace Restaurant.Data
 
         public Item()
         {
-            LastUpdted = DateTime.Now;
             Name = String.Empty;
-            Code = String.Empty;
         }
     }
-
+    
     [Serializable]
-    public enum DrinkType
+    public class DrinkType : Entity
     {
-        None,
-        Mixer,
-        Spirit,
-        Liquer,
-        Juice,
-        Wine,
-        Beer
+        public int DrinkTypeID { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        public virtual ICollection<DrinkItem> Drinks { get; set; } 
     }
 
     [Serializable]
