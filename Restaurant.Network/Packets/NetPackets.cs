@@ -6,27 +6,11 @@ namespace Restaurant.Network.Packets
 
     public interface INetPacket
     {
-        
-    }
-
-    public interface INetMessage
-    {
 
     }
-
+    
     [Serializable]
-    public class NetResponse : INetMessage
-    {
-        public string Message { get; set; }
-
-        public NetResponse()
-        {
-            Message = String.Empty;
-        }
-    }
-
-    [Serializable]
-    public sealed class NetRegisterConnection : INetMessage
+    internal sealed class NetRegisterConnection 
     {
         public int ConnectionID { get; set; }
 
@@ -39,13 +23,13 @@ namespace Restaurant.Network.Packets
     }
 
     [Serializable]
-    public sealed class NetConnectionType : INetMessage
+    internal sealed class NetConnectionType
     {
         public int ConnectionType { get; set; }
     }
 
     [Serializable]
-    public sealed class NetPing : INetMessage
+    internal sealed class NetPing
     {
         public int PingID { get; set; }
 
@@ -53,7 +37,7 @@ namespace Restaurant.Network.Packets
     }
 
     [Serializable]
-    public sealed class NetAcceptConnection : INetMessage
+    internal sealed class NetAcceptConnection
     {
         public int ConnectionID { get; set; }
     }

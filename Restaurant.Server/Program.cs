@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
+using Restaurant.Data;
 using Restaurant.Listeners;
-using Restaurant.Network;
 
 namespace Restaurant.Server
 {
@@ -16,8 +15,13 @@ namespace Restaurant.Server
         {
             // Initiate and start the server
             server = new Network.Server(7777);
-            server.AddListener(new MemberListener());
-            server.AddListener(new OrderListener(server));
+            
+            // New listener
+            server.AddListener(new GenericPacketHandler<StaffMember>());
+            
+//            server.AddListener(new MemberListener());
+//            server.AddListener(new OrderListener(server));
+            
             new Thread(server.Start) { Name = "Server" }.Start();
 
             Console.ReadKey();

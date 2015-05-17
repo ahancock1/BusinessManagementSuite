@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Restaurant.Network.Packets;
 
 namespace Restaurant.Network
 {
@@ -13,6 +11,10 @@ namespace Restaurant.Network
         void Received(Connection connection, object o);
     }
 
+    /// <summary>
+    /// Class that listens for connection, packets and disconnections.
+    /// Can be attached to server or client
+    /// </summary>
     public class Listener : IListener
     {
         protected readonly Server Server;
@@ -40,70 +42,6 @@ namespace Restaurant.Network
         public virtual void Received(Connection connection, object o)
         {
             Console.WriteLine("Data received: {0}", o.GetType().Name);
-        }
-    }
-
-    public class PacketHandler : Listener
-    {
-        private Dictionary<Type, PacketListener<INetPacket>> listeners; 
-
-        public PacketHandler(Server server = null) : base (server)
-        {
-            listeners = new Dictionary<Type, PacketListener<INetPacket>>();
-        }
-
-        public void Register<T>(PacketListener<INetPacket>.OnPacketReceived packetReceived) where T : INetPacket
-        {
-            if (!listeners.ContainsKey(typeof(T)))
-            {
-                listeners.Add(typeof(T), new PacketListener<INetPacket>(packetReceived));
-            }
-        }
-        
-        public void Remove<T>()
-        {
-            Remove(typeof(T));
-        }
-
-        public void Remove(Type type)
-        {
-            if (listeners.ContainsKey(type))
-            {
-                listeners.Remove(type);
-            }
-        }
-
-        public override void Received(Connection connection, object o)
-        {
-            if (listeners.ContainsKey(o.GetType()))
-            {
-                listeners[o.GetType()].Received(connection, o);
-            }
-        }
-    }
-
-    public class PacketListener<T> : Listener where T : INetPacket
-    {
-        public delegate void OnPacketReceived(Connection connection, T packet);
-
-        private event OnPacketReceived PacketReceived;
-
-        public PacketListener(OnPacketReceived packetReceived)
-        {
-            PacketReceived = packetReceived;
-        }
-
-        public override void Received(Connection connection, object o)
-        {
-            // Log packet
-            base.Received(connection, o);
-
-            if (!(o is T)) return;
-
-            if (PacketReceived != null)
-            {
-                PacketReceived(connection, (T)o);
-            }
         }
     }
 }

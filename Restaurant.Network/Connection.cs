@@ -109,7 +109,7 @@ namespace Restaurant.Network
                         packet = (new BinaryFormatter()).Deserialize(memoryStream);
                     }
 
-                    if (packet is INetMessage)
+                    if (!(packet is INetPacket))
                     {
                         if (packet is NetAcceptConnection)
                         {

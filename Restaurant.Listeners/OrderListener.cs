@@ -5,7 +5,7 @@ using Restaurant.Network.Packets;
 
 namespace Restaurant.Listeners
 {
-    public class OrderListener : PacketHandler
+    public class OrderListener : GenericPacketHandler<Order>
     {
         private readonly IGenericService<Order> service;
 
@@ -14,12 +14,11 @@ namespace Restaurant.Listeners
         {
             service = new GenericService<Order>();
 
-            Register<NetOrderUpdate>(UpdateOrder);
         }
 
-        private void UpdateOrder(Connection connection, INetPacket packet)
+        public override void UpdatePacketReceived(Connection connection, NetUpdate<Order> packet)
         {
-            Order[] orders = ((NetOrderUpdate)packet).Orders;
+            Order[] orders = packet.Items;
 
             if (orders == null) return;
 
@@ -32,7 +31,7 @@ namespace Restaurant.Listeners
                 Server.SendToAll(order.GetItems<DrinkItem>(), ConnectionType.Bar | ConnectionType.Management);
             }
 
-            connection.Send(new NetOrderResponseCode { Response = result ? OrderResponse.Accepted : OrderResponse.Error });
+            connection.Send(new NetResponseCode<Order> { Response = result ? NetResponseCode.Accepted : NetResponseCode.Error });
         }
     }
 }

@@ -41,11 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericPacketHandler.cs" />
     <Compile Include="OrderListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReservationListener.cs" />
-    <Compile Include="TableListener.cs" />
-    <Compile Include="MemberListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Restaurant.DataAccess\Restaurant.DataAccess.csproj">
