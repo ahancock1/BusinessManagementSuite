@@ -225,16 +225,19 @@ namespace Restaurant.Network
 
         public virtual void Connected(Connection connection)
         {
+            Console.WriteLine("Connected: {0}", connection);
             listeners.ForEach(l => l.Connected(connection));
         }
 
         public virtual void Disconnected(Connection connection)
         {
+            Console.WriteLine("Disconnected: {0}", connection);
             listeners.ForEach(l => l.Disconnected(connection));
         }
 
         public virtual void Received(Connection connection, object o)
         {
+            Console.WriteLine("Data received: {0}", o.GetType().Name);
             listeners.ForEach(l => l.Received(connection, o));
         }
 

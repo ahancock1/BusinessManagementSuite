@@ -159,7 +159,7 @@ namespace Restaurant.Network
             {
                 Connections.Remove(connection);
             }
-            
+
             Listeners.ForEach(l => l.Disconnected(connection));
         }
 

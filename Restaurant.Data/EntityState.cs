@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant.Data
 {
@@ -15,7 +16,8 @@ namespace Restaurant.Data
         EntityState EntityState { get; set; }
     }
 
-    public abstract class Entity
+    [Serializable]
+    public abstract class Entity : IEntity
     {
         [NotMapped]
         public EntityState EntityState { get; set; }
