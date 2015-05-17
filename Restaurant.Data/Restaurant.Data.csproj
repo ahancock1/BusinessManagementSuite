@@ -52,7 +52,6 @@
     <Compile Include="Shift.cs" />
     <Compile Include="StaffMember.cs" />
     <Compile Include="Table.cs" />
-    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurant.Data
 {
     [Serializable]
-    public class MenuType
+    public class MenuType : IEntity
     {
         public int MenuTypeID { get; set; }
 
@@ -17,6 +13,8 @@ namespace Restaurant.Data
         public string Name { get; set; }
 
         public virtual ICollection<Menu> Menus { get; set; }
+
+        public EntityState EntityState { get; set; }
 
 
         public MenuType()

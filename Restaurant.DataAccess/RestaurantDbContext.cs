@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using Restaurant.Data;
 
 namespace Restaurant.DataAccess
@@ -7,6 +10,8 @@ namespace Restaurant.DataAccess
     public class RestaurantDbContext : DbContext
     {
         public DbSet<Member> Members { get; set; }
+
+        public DbSet<StaffMember> StaffMembers { get; set; }
 
         public DbSet<Table> Tables { get; set; }
 
@@ -27,6 +32,29 @@ namespace Restaurant.DataAccess
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
         }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Class: {0}, Property: {1}, Error: {2}",
+                            validationErrors.Entry.Entity.GetType().FullName,
+                            validationError.PropertyName,
+                            validationError.ErrorMessage);
+                    }
+                }
+
+                throw; 
+            }
+        }
     }
 
     public class RestaurantInitialiser : DropCreateDatabaseAlways<RestaurantDbContext>
@@ -38,37 +66,39 @@ namespace Restaurant.DataAccess
             {
                 new StaffMember
                 {
+                    Username = "admin",
+                    Password = "password",
+                    DateHired = DateTime.Now,
+                    ConnectionType = 1 << 5,
+
                     FirstName = "admin",
                     LastName = "user",
-                    Email = "",
-                    Password = "password",
-                    PhoneNumber = "",
-                    Username = "admin",
-                    ConnectionType = 1 << 5
+                    PhoneNumber = "0",
+                    Email = "0"
                 }
             };
-            members.ForEach(u => context.Members.Add(u));
-            
-            // Seed the database with tables
-            List<Table> tables = new List<Table>
-            {
-                new Table
-                {
-                    Number = 1,
-                    Section = new Section
-                    {
-                        Name = "Bar"
-                    },
-                    Seats = 4
-                }
-            };
-            tables.ForEach(t => context.Tables.Add(t));
-
-            List<Menu> menus = new List<Menu>
-            {
-                new Menu()
-            };
-            menus.ForEach(m => context.Menus.Add(m));
+            members.ForEach(u => context.StaffMembers.Add(u));
+//            
+//            // Seed the database with tables
+//            List<Table> tables = new List<Table>
+//            {
+//                new Table
+//                {
+//                    Number = 1,
+//                    Section = new Section
+//                    {
+//                        Name = "Bar"
+//                    },
+//                    Seats = 4
+//                }
+//            };
+//            tables.ForEach(t => context.Tables.Add(t));
+//
+//            List<Menu> menus = new List<Menu>
+//            {
+//                new Menu()
+//            };
+//            menus.ForEach(m => context.Menus.Add(m));
         }
     }
 }

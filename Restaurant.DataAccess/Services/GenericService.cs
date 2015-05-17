@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Linq.Expressions;
@@ -42,9 +43,20 @@ namespace Restaurant.DataAccess.Services
         
         public virtual T Get(string where, params Expression<Func<T, object>>[] navigationProperties)
         {
-            using (var context = new RestaurantDbContext())
+            try
             {
-                return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
+                using (var context = new RestaurantDbContext())
+                {
+                    return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
+                }
+            }
+            catch (DbEntityValidationException e)
+            {
+                return default(T);
+            }
+            catch (Exception e)
+            {
+                return default(T);
             }
         }
 

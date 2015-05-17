@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurant.Data
 {
@@ -33,7 +30,7 @@ namespace Restaurant.Data
     }
 
     [Serializable]
-    public class Shift
+    public class Shift : IEntity
     {
         public int ShiftID { get; set; }
 
@@ -44,8 +41,10 @@ namespace Restaurant.Data
         public DateTime End { get; set; }
 
         [Required]
-        public StaffMember Member { get; set; }
- 
+        public virtual StaffMember Member { get; set; }
+
+        public EntityState EntityState { get; set; }
+        
 
         public Shift()
         {

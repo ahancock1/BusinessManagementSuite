@@ -18,6 +18,10 @@ namespace Restaurant.Server
             
             // New listener
             server.AddListener(new GenericPacketHandler<StaffMember>());
+            server.AddListener(new GenericPacketHandler<Member>());
+            server.AddListener(new GenericPacketHandler<Reservation>());
+            server.AddListener(new GenericPacketHandler<Shift>());
+
             
 //            server.AddListener(new MemberListener());
 //            server.AddListener(new OrderListener(server));

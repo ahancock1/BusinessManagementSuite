@@ -54,6 +54,11 @@ namespace Restaurant.Network
             }
         }
 
+        public override void Connected(Connection connection)
+        {
+            
+        }
+
         public override void Received(Connection connection, object o)
         {
             Delegate listener;
@@ -61,6 +66,11 @@ namespace Restaurant.Network
             {
                 listener.DynamicInvoke(connection, o);
             }
+        }
+
+        public override void Disconnected(Connection connection)
+        {
+
         }
     }
 }

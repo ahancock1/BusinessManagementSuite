@@ -9,16 +9,16 @@ namespace Restaurant.Data
     [Table("StaffMembers")]
     public class StaffMember : Member
     {
-        [Required]
+        [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Date hired is required")]
         public DateTime DateHired { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Connection type is required")]
         public int ConnectionType { get; set; }
 
         public virtual ICollection<Shift> Shifts { get; set; }
