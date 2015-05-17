@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 using Restaurant.Data;
 
 namespace Restaurant.Network.Packets
@@ -11,20 +10,26 @@ namespace Restaurant.Network.Packets
     }
 
     [Serializable]
-    public class NetMemberResponse : INetPacket
+    public class NetMembersResponse : INetPacket
     {
         public Member[] Members { get; set; }
     }
-    
+
     [Serializable]
-    public class NetMembersRequest : INetPacket
+    public class NetMemberResponse : INetPacket
     {
-        public Expression<Func<Member, object>>[] Where { get; set; }
+        public Member Member { get; set; }
     }
 
     [Serializable]
-    public class NetMemberRequestByUsername : INetPacket
+    public class NetMemberRequest : INetPacket
     {
-        public string Email { get; set; }
+        public string Where { get; set; }
+    }
+
+    [Serializable]
+    public class NetMembersRequest : INetPacket
+    {
+        public string Where { get; set; }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Restaurant.Data;
+﻿using Restaurant.Data;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;
@@ -12,35 +7,32 @@ namespace Restaurant.Listeners
 {
     public class OrderListener : PacketHandler
     {
-        private OrderService service;
+        private readonly IGenericService<Order> service;
 
         public OrderListener(Server server)
             : base(server)
         {
-            service = new OrderService();
+            service = new GenericService<Order>();
 
-            Register<NetOrderCreate>(CreateOrder);
-            Register<NetOrderDelete>(DeleteOrder);
+            Register<NetOrderUpdate>(UpdateOrder);
         }
 
-        public void CreateOrder(Connection connection, INetPacket packet)
+        private void UpdateOrder(Connection connection, INetPacket packet)
         {
-            Order order = ((NetOrderCreate)packet).Order;
+            Order[] orders = ((NetOrderUpdate)packet).Orders;
 
-            if (order == null) return;
+            if (orders == null) return;
 
-            bool result = service.Update(order);
+            bool result = service.Update(orders);
 
-            Server.SendToAll(order.GetItems<FoodItem>(), ConnectionType.Kitchen | ConnectionType.Management);
+            foreach (Order order in orders)
+            {
+                Server.SendToAll(order.GetItems<FoodItem>(), ConnectionType.Kitchen | ConnectionType.Management);
 
-            Server.SendToAll(order.GetItems<DrinkItem>(), ConnectionType.Bar | ConnectionType.Management);
+                Server.SendToAll(order.GetItems<DrinkItem>(), ConnectionType.Bar | ConnectionType.Management);
+            }
 
-            connection.Send(new NetOrderResponse { Response = result ? OrderResponse.Accepted : OrderResponse.Error });
-        }
-
-        public void DeleteOrder(Connection connection, INetPacket packet)
-        {
-            
+            connection.Send(new NetOrderResponseCode { Response = result ? OrderResponse.Accepted : OrderResponse.Error });
         }
     }
 }

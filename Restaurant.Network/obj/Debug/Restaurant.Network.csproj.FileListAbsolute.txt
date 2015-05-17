@@ -36,3 +36,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debu
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debug\System.Linq.Dynamic.dll

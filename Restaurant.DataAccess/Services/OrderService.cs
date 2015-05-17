@@ -15,5 +15,10 @@ namespace Restaurant.DataAccess.Services
         {
             return GetAll(o => o.Member.MemberID == member.MemberID);
         }
+
+        public IList<Order> GetByTable(Table table)
+        {
+            return GetAll(o => o.Table.TableID == table.TableID);
+        } 
     }
 }

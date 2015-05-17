@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Linq.Expressions;
 
 using DataEntityState = Restaurant.Data.EntityState;
@@ -13,16 +14,12 @@ namespace Restaurant.DataAccess.Services
     public interface IGenericService<T> where T : class, IEntity
     {
         IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties);
-
-        IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
-
-        T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
-
-//        bool Create(params T[] items);
-
+        
+        IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties);
+        
+        T Get(string where, params Expression<Func<T, object>>[] navigationProperties);
+        
         bool Update(params T[] items);
-
-//        bool Delete(params T[] items);
     }
 
     public class GenericService<T> : IGenericService<T> where T : class, IEntity
@@ -35,26 +32,21 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual IList<T> GetAll(Func<T, bool> @where, params Expression<Func<T, object>>[] navigationProperties)
+        public virtual IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties)
         {
             using (var context = new RestaurantDbContext())
             {
                 return GetQuery(context, navigationProperties).AsNoTracking().Where(where).ToList();
             }
         }
-
-        public virtual T Get(Func<T, bool> @where, params Expression<Func<T, object>>[] navigationProperties)
+        
+        public virtual T Get(string where, params Expression<Func<T, object>>[] navigationProperties)
         {
             using (var context = new RestaurantDbContext())
             {
-                return GetQuery(context, navigationProperties).AsNoTracking().FirstOrDefault(where);
+                return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
             }
         }
-//
-//        public virtual bool Create(params T[] items)
-//        {
-//            return Update(items);
-//        }
 
         public virtual bool Update(params T[] items)
         {
@@ -72,11 +64,6 @@ namespace Restaurant.DataAccess.Services
                 return context.SaveChanges() > 0;
             }
         }
-//
-//        public virtual bool Delete(params T[] items)
-//        {
-//            return Update(items);
-//        }
 
         protected static IQueryable<T> GetQuery(DbContext context, params Expression<Func<T, object>>[] navigationProperties)
         {

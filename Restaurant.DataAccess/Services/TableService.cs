@@ -2,16 +2,7 @@
 
 namespace Restaurant.DataAccess.Services
 {
-    public interface ITableService : IGenericService<Table>
+    public class TableService : GenericService<Table>
     {
-        Table GetByNumber(int number);
-    }
-
-    public class TableService : GenericService<Table>, ITableService
-    {
-        public Table GetByNumber(int number)
-        {
-            return Get(t => t.Number == number);
-        }
     }
 }

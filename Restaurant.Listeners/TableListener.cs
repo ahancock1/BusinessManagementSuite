@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Restaurant.Data;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;
@@ -7,35 +8,44 @@ namespace Restaurant.Listeners
 {
     public class TableListener : PacketHandler
     {
-        private readonly ITableService service;
+        private readonly IGenericService<Table> service;
 
         public TableListener(Server server = null) : base(server)
         {
-            service = new TableService();
+            service = new GenericService<Table>();
 
+            Register<NetTableRequest>(RequestTable);
+            Register<NetTablesRequest>(RequestTables);
             Register<NetTableUpdate>(UpdateTable);
         }
 
-        public void RequestTable(Connection connection, INetPacket packet)
+        private void RequestTable(Connection connection, INetPacket packet)
         {
-            NetTableRequest p = (NetTableRequest) packet;
-            if (p.Number.HasValue)
+            connection.Send(new NetTableResponse
             {
-                connection.Send(new NetTableResponse
+                Table = service.Get(((NetTableRequest)packet).Where)
+            });
+        }
+
+        private void RequestTables(Connection connection, INetPacket packet)
+        {
+            if (((NetTableRequest)packet).Where != null)
+            {
+                connection.Send(new NetTablesResponse
                 {
-                    Tables = new [] { service.GetByNumber(p.Number.Value) }
+                    Tables = service.GetAll(((NetTableRequest)packet).Where).ToArray()
                 });
             }
             else
             {
-                connection.Send(new NetTableResponse
+                connection.Send(new NetTablesResponse
                 {
                     Tables = service.GetAll().ToArray()
                 });
             }
         }
 
-        public void UpdateTable(Connection connection, INetPacket packet)
+        private void UpdateTable(Connection connection, INetPacket packet)
         {
             service.Update(((NetTableUpdate) packet).Tables);
         }

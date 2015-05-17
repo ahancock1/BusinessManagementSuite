@@ -1,4 +1,5 @@
 ﻿using System;
+using Restaurant.Data;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;
@@ -7,24 +8,25 @@ namespace Restaurant.Listeners
 {
     public class ReservationListener : PacketHandler
     {
-        private readonly IReservationService service;
+        private readonly IGenericService<Reservation> service;
 
         public ReservationListener(Server server = null) : base(server)
         {
             // Create data access
-            service = new ReservationService();
+            service = new GenericService<Reservation>();
             
             Register<NetReservationUpdate>(UpdateReservation);
         }
 
-        public void RequestReservations(Connection connection, INetPacket packet)
+        private void RequestReservations(Connection connection, INetPacket packet)
         {
+            // TODO implement
             throw new NotImplementedException();
         }
 
-        public void UpdateReservation(Connection connection, INetPacket packet)
+        private void UpdateReservation(Connection connection, INetPacket packet)
         {
-            service.Update(((NetReservationUpdate)packet).Reservation);
+            service.Update(((NetReservationUpdate)packet).Reservations);
         }
 
     }

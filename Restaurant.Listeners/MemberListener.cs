@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Restaurant.Data;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;
@@ -7,51 +8,48 @@ namespace Restaurant.Listeners
 {
     public class MemberListener : PacketHandler
     {
-        private readonly IMemberService  service;
+        private readonly IGenericService<Member> service;
 
         public MemberListener()
         {
             // Create data access
-            service = new MemberService();
+            service = new GenericService<Member>();
 
             // Register packets to listen for
-            Register<NetMembersRequest>(RequestMember);
+            Register<NetMemberRequest>(RequestMember);
+            Register<NetMembersRequest>(RequestMembers);
             Register<NetMemberUpdate>(UpdateMember);
-            Register<NetMemberRequestByUsername>(RequestMemberByEmail);
         }
 
-        public void RequestMember(Connection connection, INetPacket packet)
+        private void RequestMembers(Connection connection, INetPacket packet)
         {
-            if (((NetMembersRequest)packet).Where != null)
+            if (((NetMembersRequest) packet).Where != null)
             {
-                connection.Send(new NetMemberResponse
+                connection.Send(new NetMembersResponse
                 {
-                    Members = service.GetAll(((NetMembersRequest)packet).Where).ToArray()
+                    Members = service.GetAll(((NetMembersRequest) packet).Where).ToArray()
                 });
             }
             else
             {
-                connection.Send(new NetMemberResponse
+                connection.Send(new NetMembersResponse
                 {
                     Members = service.GetAll().ToArray()
                 });
             }
         }
 
-        public void RequestMemberByEmail(Connection connection, INetPacket packet)
+        private void RequestMember(Connection connection, INetPacket packet)
         {
             connection.Send(new NetMemberResponse
             {
-                Members = new []
-                {
-                    service.GetByEmail(((NetMemberRequestByUsername)packet).Email)
-                }
+                Member = service.Get(((NetMemberRequest) packet).Where)
             });
         }
 
-        public void UpdateMember(Connection connection, INetPacket packet)
+        private void UpdateMember(Connection connection, INetPacket packet)
         {
-            service.Update(((NetMemberUpdate)packet).Members);
+            service.Update(((NetMemberUpdate) packet).Members);
         }
     }
 }

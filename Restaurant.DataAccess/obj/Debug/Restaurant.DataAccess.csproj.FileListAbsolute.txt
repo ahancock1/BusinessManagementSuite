@@ -34,3 +34,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\D
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Debug\Restaurant.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Debug\Restaurant.DataAccess.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Debug\Restaurant.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\System.Linq.Dynamic.dll
