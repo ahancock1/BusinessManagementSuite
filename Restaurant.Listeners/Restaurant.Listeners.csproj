@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericPacketHandler.cs" />
-    <Compile Include="OrderListener.cs" />
+    <Compile Include="TicketListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Common\Restaurant.Common.csproj">
+      <Project>{6068e093-de21-42ad-8e87-26bf4761c202}</Project>
+      <Name>Restaurant.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Restaurant.DataAccess\Restaurant.DataAccess.csproj">
       <Project>{aa76aeed-e6ce-4afc-bffb-3d0855f11ee8}</Project>
       <Name>Restaurant.DataAccess</Name>

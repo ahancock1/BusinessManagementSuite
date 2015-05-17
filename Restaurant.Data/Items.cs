@@ -1,38 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+
 
 namespace Restaurant.Data
 {
-    [Serializable]
-    public abstract class ItemList : Entity, IEnumerable<Item>
-    {
-        public List<Item> Items { get; set; }
-
-
-        protected ItemList()
-        {
-            Items = new List<Item>();
-        }
-
-        public IEnumerable<T> GetItems<T>() where T : Item
-        {
-            return Items.Where(i => i.GetType() == typeof(T)).Cast<T>().ToList();
-        }
-
-        public IEnumerator<Item> GetEnumerator()
-        {
-            return Items.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-    }
-
     [Serializable]
     public class ItemType : Entity
     {
@@ -68,15 +40,18 @@ namespace Restaurant.Data
 
         public int Quantity { get; set; }
 
+        public DateTime LastUpdted { get; set; }
+
         public virtual ItemType ItemType { get; set; }
 
         public virtual ICollection<Menu> Menus { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; } 
+        public virtual ICollection<Ticket> Tickets { get; set; } 
         
 
         public Item()
         {
+            LastUpdted = DateTime.Now;
             Name = String.Empty;
             Code = String.Empty;
         }
@@ -106,7 +81,6 @@ namespace Restaurant.Data
 
         public DrinkItem()
         {
-
         }
 
         public bool IsAlcoholic
@@ -121,5 +95,10 @@ namespace Restaurant.Data
 
 
         public virtual ICollection<Menu> Menus { get; set; }
+
+        public FoodItem()
+        {
+            
+        }
     }
 }

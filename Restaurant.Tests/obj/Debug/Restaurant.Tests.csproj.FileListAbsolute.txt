@@ -8,3 +8,5 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\bin\Debug\
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\obj\Debug\Restaurant.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\bin\Debug\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Tests\bin\Debug\Restaurant.Common.pdb

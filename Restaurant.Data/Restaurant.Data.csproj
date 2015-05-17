@@ -46,15 +46,25 @@
     <Compile Include="Items.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Promotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="StaffMember.cs" />
     <Compile Include="Table.cs" />
+    <Compile Include="Ticket.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Inventory\" />
+    <Folder Include="Management\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Common\Restaurant.Common.csproj">
+      <Project>{6068e093-de21-42ad-8e87-26bf4761c202}</Project>
+      <Name>Restaurant.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

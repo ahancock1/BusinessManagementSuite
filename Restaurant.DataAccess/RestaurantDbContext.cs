@@ -19,7 +19,7 @@ namespace Restaurant.DataAccess
 
         public DbSet<Menu> Menus { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
         public DbSet<Shift> Shifts { get; set; } 
 

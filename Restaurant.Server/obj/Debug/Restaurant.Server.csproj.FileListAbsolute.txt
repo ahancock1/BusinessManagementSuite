@@ -35,3 +35,5 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.xml
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.exe
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Common.pdb

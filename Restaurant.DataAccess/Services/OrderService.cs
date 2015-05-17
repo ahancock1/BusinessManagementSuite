@@ -4,21 +4,21 @@ using Restaurant.Data;
 
 namespace Restaurant.DataAccess.Services
 {
-    public interface IOrderService : IGenericService<Order>
+    public interface ITicketService : IGenericService<Ticket>
     {
-        IList<Order> GetByMember(Member member);
+        IList<Ticket> GetByMember(Member member);
     }
 
-    public class OrderService : GenericService<Order>, IOrderService
+    public class TicketService : GenericService<Ticket>, ITicketService
     {
-        public IList<Order> GetByMember(Member member)
+        public IList<Ticket> GetByMember(Member member)
         {
-            return GetAll(o => o.Member.MemberID == member.MemberID);
+            return GetAll(t => t.Member.MemberID == member.MemberID);
         }
 
-        public IList<Order> GetByTable(Table table)
+        public IList<Ticket> GetByTable(Table table)
         {
-            return GetAll(o => o.Table.TableID == table.TableID);
+            return GetAll(t => t.Table.TableID == table.TableID);
         } 
     }
 }

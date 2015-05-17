@@ -25,3 +25,5 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\bin\De
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\bin\Debug\EntityFramework.xml
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\obj\Debug\Restaurant.Listeners.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\obj\Debug\Restaurant.Listeners.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\bin\Debug\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Listeners\bin\Debug\Restaurant.Common.pdb

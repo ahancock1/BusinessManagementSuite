@@ -22,7 +22,7 @@ namespace Restaurant.Data
     }
 
     [Serializable]
-    public class Menu : ItemList
+    public class Menu : Entity
     {
         public int MenuID { get; set; }
         
@@ -36,6 +36,8 @@ namespace Restaurant.Data
 
         [Required]
         public string Title { get; set; }
+
+        public List<Item> Items { get; set; }
 
         [Required]
         public virtual MenuType MenuType { get; set; }

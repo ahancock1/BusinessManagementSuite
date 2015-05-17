@@ -23,8 +23,6 @@ namespace Restaurant.Server
             server.AddListener(new GenericPacketHandler<Shift>());
 
             
-//            server.AddListener(new MemberListener());
-//            server.AddListener(new OrderListener(server));
             
             new Thread(server.Start) { Name = "Server" }.Start();
 

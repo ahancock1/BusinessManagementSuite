@@ -25,7 +25,7 @@ namespace Restaurant.Data
 
         public double TotalHours
         {
-            get { return Shifts.Sum(s => s.Hours); }
+            get { return Shifts.Sum(s => s.TotalHours); }
         }
     }
 
@@ -53,7 +53,7 @@ namespace Restaurant.Data
             return Start != DateTime.MinValue && End != DateTime.MinValue;
         }
 
-        public double Hours
+        public double TotalHours
         {
             get { return TimeSpan.TotalHours; }
         }
