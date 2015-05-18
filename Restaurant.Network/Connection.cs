@@ -109,6 +109,8 @@ namespace Restaurant.Network
                         packet = (new BinaryFormatter()).Deserialize(memoryStream);
                     }
 
+                    Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
+
                     if (!(packet is INetPacket))
                     {
                         if (packet is NetAcceptConnection)
@@ -152,8 +154,6 @@ namespace Restaurant.Network
                     {
                         Received(this, packet);
                     }
-
-                    Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
                 }
                 else
                 {
