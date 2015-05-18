@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Restaurant.Data
+namespace Restaurant.DataModels
 {
     public enum EntityState
     {

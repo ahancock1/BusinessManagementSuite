@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Restaurant.Data
+namespace Restaurant.DataModels
 {
     [Serializable]
     public class Table : Entity
@@ -23,40 +23,6 @@ namespace Restaurant.Data
         public Table()
         {
             Section = new Section();
-        }
-    }
-
-    [Serializable]
-    public class Section
-    {
-        public int SectionID { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
-        public virtual ICollection<Table> Tables { get; set; }
-
-
-        public Section()
-        {
-            Name = String.Empty;
-        }
-    }
-
-    public class Privilege
-    {
-        public int PrivilegeID { get; set; }
-
-        public string Name { get; set; }
-
-        public int ConnectionType { get; set; }
-
-        public virtual ICollection<StaffMember> Members { get; set; } 
-
-
-        public Privilege()
-        {
-            Name = String.Empty;
         }
     }
 }

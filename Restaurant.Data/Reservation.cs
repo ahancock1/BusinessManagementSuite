@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Restaurant.Data
+namespace Restaurant.DataModels
 {
     [Serializable]
     public class Reservation : Entity

@@ -1,0 +1,7 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.DataModels.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.DataModels.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\bin\Debug\Restaurant.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data\obj\Debug\Restaurant.DataModels.pdb

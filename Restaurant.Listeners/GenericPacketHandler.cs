@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Restaurant.Data;
+using Restaurant.DataModels;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;

@@ -28,10 +28,10 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\D
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\Restaurant.DataAccess.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\EntityFramework.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\Restaurant.Data.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\System.Linq.Dynamic.dll
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\Restaurant.Data.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Debug\Restaurant.DataAccess.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Debug\Restaurant.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Debug\Restaurant.DataModels.pdb

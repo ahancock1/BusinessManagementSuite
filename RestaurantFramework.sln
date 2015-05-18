@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Network", "Restaurant.Network\Restaurant.Network.csproj", "{0574D09A-8AC9-47F1-9E3E-EC7462E137EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Data", "Restaurant.Data\Restaurant.Data.csproj", "{2B090585-B19D-4DC4-B55C-C5344EB4DD63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.DataModels", "Restaurant.Data\Restaurant.DataModels.csproj", "{2B090585-B19D-4DC4-B55C-C5344EB4DD63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.DataAccess", "Restaurant.DataAccess\Restaurant.DataAccess.csproj", "{AA76AEED-E6CE-4AFC-BFFB-3D0855F11EE8}"
 EndProject

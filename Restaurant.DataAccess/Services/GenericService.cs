@@ -7,8 +7,8 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Linq.Expressions;
 
-using DataEntityState = Restaurant.Data.EntityState;
-using IEntity = Restaurant.Data.IEntity;
+using DataEntityState = Restaurant.DataModels.EntityState;
+using IEntity = Restaurant.DataModels.IEntity;
 
 namespace Restaurant.DataAccess.Services
 {

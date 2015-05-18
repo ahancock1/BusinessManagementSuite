@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Restaurant.Data;
+using Restaurant.DataModels;
 
 namespace Restaurant.DataAccess.Services
 {

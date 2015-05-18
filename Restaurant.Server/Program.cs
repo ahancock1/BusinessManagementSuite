@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Restaurant.Data;
+using Restaurant.DataModels;
 using Restaurant.Listeners;
 
 namespace Restaurant.Server

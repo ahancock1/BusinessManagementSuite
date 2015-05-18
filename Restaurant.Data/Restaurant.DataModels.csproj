@@ -7,8 +7,8 @@
     <ProjectGuid>{2B090585-B19D-4DC4-B55C-C5344EB4DD63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Restaurant.Data</RootNamespace>
-    <AssemblyName>Restaurant.Data</AssemblyName>
+    <RootNamespace>Restaurant.DataModels</RootNamespace>
+    <AssemblyName>Restaurant.DataModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -42,8 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="DrinkItem.cs" />
+    <Compile Include="DrinkType.cs" />
     <Compile Include="EntityState.cs" />
-    <Compile Include="Items.cs" />
+    <Compile Include="FoodItem.cs" />
+    <Compile Include="FoodType.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="InventoryItem.cs" />
+    <Compile Include="Privilege.cs" />
+    <Compile Include="Rota.cs" />
+    <Compile Include="Section.cs" />
+    <Compile Include="StockItem.cs" />
+    <Compile Include="ItemType.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Promotion.cs" />
@@ -56,8 +67,14 @@
     <Compile Include="Ticket.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Inventory\" />
+    <Folder Include="Accounting\" />
+    <Folder Include="Items\Drink\" />
+    <Folder Include="Items\Food\" />
+    <Folder Include="Items\Inventory\" />
+    <Folder Include="Items\Stock\" />
     <Folder Include="Management\" />
+    <Folder Include="Menu\" />
+    <Folder Include="Tickets\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Restaurant.Common\Restaurant.Common.csproj">

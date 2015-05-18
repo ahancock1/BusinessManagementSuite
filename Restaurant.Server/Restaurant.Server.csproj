@@ -50,9 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Restaurant.Data\Restaurant.Data.csproj">
+    <ProjectReference Include="..\Restaurant.Data\Restaurant.DataModels.csproj">
       <Project>{2b090585-b19d-4dc4-b55c-c5344eb4dd63}</Project>
-      <Name>Restaurant.Data</Name>
+      <Name>Restaurant.DataModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Restaurant.Listeners\Restaurant.Listeners.csproj">
       <Project>{a99adad7-11ac-44fb-b221-1c64e72dc5d1}</Project>

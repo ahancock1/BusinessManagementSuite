@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using Restaurant.Data;
+using Restaurant.DataModels;
 
 namespace Restaurant.DataAccess
 {
