@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Restaurant.DataModels.Management;
-using Restaurant.DataModels.Management.Floor;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management.Floor
 {
     [Serializable]
     public class Section : Entity

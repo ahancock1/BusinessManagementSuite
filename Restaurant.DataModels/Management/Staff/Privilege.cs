@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels.Management
+namespace Restaurant.DataModels.Management.Staff
 {
     public class Privilege : Entity
     {

@@ -4,20 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant.DataModels.Tickets
+namespace Restaurant.DataModels.Accounting
 {
-    public class Order
+    class Account
     {
-
-
-
-    }
-
-
-    public class OrderItem
-    {
-
-
-
     }
 }

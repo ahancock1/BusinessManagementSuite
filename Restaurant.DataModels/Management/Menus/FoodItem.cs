@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Restaurant.DataModels.Menus;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management.Menus
 {
     [Serializable]
     public class Allergy

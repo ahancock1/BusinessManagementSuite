@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace Restaurant.DataModels.Management
+namespace Restaurant.DataModels.Management.Staff
 {
     public class Rota
     {

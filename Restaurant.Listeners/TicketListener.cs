@@ -4,6 +4,8 @@ using Restaurant.Network;
 using Restaurant.Network.Packets;
 
 using Restaurant.Common.Extensions;
+using Restaurant.DataModels.Management;
+using Restaurant.DataModels.Management.Menus;
 
 namespace Restaurant.Listeners
 {

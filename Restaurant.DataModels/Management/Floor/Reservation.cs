@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Restaurant.DataModels.Management.Floor;
 using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels.Management
+namespace Restaurant.DataModels.Management.Floor
 {
     [Serializable]
     public class Reservation : Entity

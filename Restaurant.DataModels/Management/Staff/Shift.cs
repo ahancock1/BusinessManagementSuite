@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels.Management
+namespace Restaurant.DataModels.Management.Staff
 {
     [Serializable]
     public class Shift : Entity

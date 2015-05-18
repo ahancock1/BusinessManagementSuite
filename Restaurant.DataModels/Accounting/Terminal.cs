@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Restaurant.DataModels.Misc
+namespace Restaurant.DataModels.Accounting
 {
     [Serializable]
     public class Terminal : Entity

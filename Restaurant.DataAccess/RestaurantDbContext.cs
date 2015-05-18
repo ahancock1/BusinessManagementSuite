@@ -4,6 +4,10 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using Restaurant.DataModels;
+using Restaurant.DataModels.Management;
+using Restaurant.DataModels.Management.Floor;
+using Restaurant.DataModels.Management.Menus;
+using Restaurant.DataModels.Management.Staff;
 
 namespace Restaurant.DataAccess
 {

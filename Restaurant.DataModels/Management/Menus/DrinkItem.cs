@@ -1,7 +1,7 @@
 using System;
-using Restaurant.DataModels.Menus;
+using System.Collections.Generic;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management.Menus
 {
     [Serializable]
     public class DrinkItem : MenuItem
@@ -10,8 +10,8 @@ namespace Restaurant.DataModels
 
         public float AlcoholVolume { get; set; }
 
-        public string Description { get; set; }
-
+        // Cocktails and drinks that require mixers
+        public List<Item> Items { get; set; } 
 
         public DrinkItem()
         {
