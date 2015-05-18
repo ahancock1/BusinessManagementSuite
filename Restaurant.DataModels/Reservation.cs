@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Restaurant.DataModels.Management.Floor;
+using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management
 {
     [Serializable]
     public class Reservation : Entity
@@ -15,13 +17,14 @@ namespace Restaurant.DataModels
         public DateTime Depart { get; set; }
 
         [Required]
-        public byte MemberCount { get; set; }
+        public int GuestCount { get; set; }
+
 
         [Required]
         public virtual Table Table { get; set; }
 
         [Required]
-        public virtual Member Member { get; set; }
+        public virtual StaffMember Member { get; set; }
         
         
         public Reservation()

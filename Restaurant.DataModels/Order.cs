@@ -4,10 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Tickets
 {
-    public class StockItem : Entity
+    public class Order
     {
+
+
+
+    }
+
+
+    public class OrderItem
+    {
+
+
 
     }
 }

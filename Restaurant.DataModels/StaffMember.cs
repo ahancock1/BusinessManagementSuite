@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management.Staff
 {
     [Serializable]
     [Table("StaffMembers")]
@@ -22,7 +22,8 @@ namespace Restaurant.DataModels
         public int ConnectionType { get; set; }
 
         public virtual ICollection<Shift> Shifts { get; set; }
-        
+
+        public virtual ICollection<Reservation> Reservations { get; set; } 
 
         public StaffMember()
         {

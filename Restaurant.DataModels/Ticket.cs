@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Restaurant.DataModels.Management.Floor;
+using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management
 {
     [Serializable]
     public class Ticket: Entity

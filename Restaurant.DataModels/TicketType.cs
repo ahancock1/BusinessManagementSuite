@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Tickets
 {
-    public class StockItem : Entity
+    public class TicketType
     {
+        public int TicketTypeID { get; set; }
+
+
+
+
 
     }
 }

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Restaurant.DataModels.Management.Staff;
 
-namespace Restaurant.DataModels
+namespace Restaurant.DataModels.Management
 {
-    public class Privilege
+    public class Privilege : Entity
     {
         public int PrivilegeID { get; set; }
 

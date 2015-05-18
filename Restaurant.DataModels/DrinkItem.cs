@@ -1,9 +1,10 @@
 using System;
+using Restaurant.DataModels.Menus;
 
 namespace Restaurant.DataModels
 {
     [Serializable]
-    public class DrinkItem : Item
+    public class DrinkItem : MenuItem
     {
         public DrinkType DrinkType { get; set; }
 
