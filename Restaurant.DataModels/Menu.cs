@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Restaurant.Common.Extensions;
 
 namespace Restaurant.DataModels
 {
@@ -34,8 +36,6 @@ namespace Restaurant.DataModels
 
         [Required]
         public string Title { get; set; }
-
-        public List<Item> Items { get; set; }
         
         [Required]
         public DateTime Start { get; set; }
@@ -48,12 +48,15 @@ namespace Restaurant.DataModels
 
         public virtual SeasonType SeasonType { get; set; }
 
+        public virtual ICollection<MenuItem> MenuItems { get; set; } 
 
         public Menu()
         {
             Description = String.Empty;
             Title = String.Empty;
         }
+
+
     }
 
     [Serializable]
@@ -70,17 +73,21 @@ namespace Restaurant.DataModels
         {
         }
     }
-
+    
     [Serializable]
-    public class MenuItem : Item
+    public class MenuItem : Entity
     {
         public int MenuItemID { get; set; }
-        
+
         public int Quantity { get; set; }
 
         public string Description { get; set; }
 
-        public virtual Item Item { get; set; }
+
+        public virtual Item Item { get; set; } 
+
+        public virtual ICollection<Menu> Menus { get; set; } 
+
 
         public MenuItem()
         {

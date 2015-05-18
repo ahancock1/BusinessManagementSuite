@@ -19,11 +19,9 @@ namespace Restaurant.DataModels
         
         public virtual ItemType ItemType { get; set; }
 
-        public virtual ICollection<Menu> Menus { get; set; }
+        public virtual ICollection<MenuItem> MenuItems { get; set; } 
 
-        public virtual ICollection<Ticket> Tickets { get; set; } 
         
-
         public Item()
         {
             Name = String.Empty;

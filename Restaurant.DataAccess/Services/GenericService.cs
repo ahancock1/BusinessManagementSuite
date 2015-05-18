@@ -15,9 +15,13 @@ namespace Restaurant.DataAccess.Services
     public interface IGenericService<T> where T : class, IEntity
     {
         IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties);
-        
+
+        IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
+
         IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties);
-        
+
+        T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
+
         T Get(string where, params Expression<Func<T, object>>[] navigationProperties);
         
         bool Update(params T[] items);
@@ -33,11 +37,38 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
+        public virtual IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
+        {
+            using (var context = new RestaurantDbContext())
+            {
+                return GetQuery(context, navigationProperties).AsNoTracking().Where(where).ToList();
+            }
+        }
+
         public virtual IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties)
         {
             using (var context = new RestaurantDbContext())
             {
                 return GetQuery(context, navigationProperties).AsNoTracking().Where(where).ToList();
+            }
+        }
+
+        public virtual T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
+        {
+            try
+            {
+                using (var context = new RestaurantDbContext())
+                {
+                    return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
+                }
+            }
+            catch (DbEntityValidationException e)
+            {
+                return default(T);
+            }
+            catch (Exception e)
+            {
+                return default(T);
             }
         }
         

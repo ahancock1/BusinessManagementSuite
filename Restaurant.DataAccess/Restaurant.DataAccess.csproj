@@ -65,7 +65,7 @@
     <Folder Include="Mapping\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Restaurant.Data\Restaurant.DataModels.csproj">
+    <ProjectReference Include="..\Restaurant.DataModels\Restaurant.DataModels.csproj">
       <Project>{2b090585-b19d-4dc4-b55c-c5344eb4dd63}</Project>
       <Name>Restaurant.DataModels</Name>
     </ProjectReference>

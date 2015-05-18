@@ -21,6 +21,11 @@ namespace Restaurant.DataModels
     {
         public DateTime LastUpdated { get; set; }
 
+        protected Entity()
+        {
+            LastUpdated = DateTime.Now;
+        }
+
         [NotMapped]
         private EntityState entityState;
         public EntityState EntityState

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Restaurant.DataModels;
 using Restaurant.Listeners;
@@ -22,7 +20,6 @@ namespace Restaurant.Server
             server.AddListener(new GenericPacketHandler<Reservation>());
             server.AddListener(new GenericPacketHandler<Shift>());
 
-            
             
             new Thread(server.Start) { Name = "Server" }.Start();
 
