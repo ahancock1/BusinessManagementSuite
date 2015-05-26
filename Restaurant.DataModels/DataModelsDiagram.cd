@@ -1,35 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Restaurant.DataModels.Accounting.Account" Collapsed="true">
-    <Position X="46.75" Y="1.5" Width="1.5" />
+    <Position X="43.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Accounting\Account.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Accounting.RestaurantType" Collapsed="true">
-    <Position X="46.75" Y="3.5" Width="1.5" />
+    <Position X="47.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Accounting\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Accounting.Restaurant" Collapsed="true">
-    <Position X="52" Y="2.5" Width="1.5" />
+    <Position X="45.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAABAEAAAAEAAAAAAA=</HashCode>
       <FileName>Accounting\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Accounting.Terminal">
-    <Position X="30.75" Y="4.5" Width="1.5" />
+    <Position X="23.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQABACAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAEAAAAQABACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Accounting\Terminal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Entity">
-    <Position X="27.5" Y="1.5" Width="1.5" />
+    <Position X="21" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>EntityState.cs</FileName>
@@ -37,210 +37,210 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Restaurant.DataModels.Promotion" Collapsed="true">
-    <Position X="50.25" Y="2.5" Width="1.5" />
+    <Position X="43.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAACACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Promotion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Requirement">
-    <Position X="35.25" Y="4.5" Width="1.5" />
+    <Position X="27.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Requirement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Floor.Reservation">
-    <Position X="39.75" Y="4.5" Width="1.5" />
+    <Position X="34.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAAAAAAQAAAAIQIAAAAAEAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAACAAAAQAAAAIQIAAAAAEAQAAAAAAA=</HashCode>
       <FileName>Management\Floor\Reservation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Floor.Section">
-    <Position X="44.25" Y="4.5" Width="1.5" />
+    <Position X="41.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Management\Floor\Section.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Floor.Table">
-    <Position X="10.5" Y="4.5" Width="1.5" />
+    <Position X="39" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEkAAAAAAAAAEAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Management\Floor\Table.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Inventory.InventoryItem" Collapsed="true">
-    <Position X="50.25" Y="1.5" Width="1.5" />
+    <Position X="47.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\InventoryItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Restaurant.DataModels.Management.Inventory.Order" Collapsed="true">
-    <Position X="48.5" Y="2.5" Width="1.5" />
+  <Class Name="Restaurant.DataModels.Management.Inventory.Order">
+    <Position X="30" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAgQAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Inventory.OrderItem">
-    <Position X="12.75" Y="7.25" Width="1.5" />
+    <Position X="0.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\OrderItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Inventory.Stock" Collapsed="true">
-    <Position X="50.25" Y="3.5" Width="1.5" />
+    <Position X="45.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\Stock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Inventory.StockItem">
-    <Position X="15" Y="7.25" Width="1.5" />
+    <Position X="3" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\StockItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Item">
-    <Position X="16.25" Y="4.5" Width="1.5" />
+    <Position X="4" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAABQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAABQAAAAAAAAAAAAAgAAAAgA=</HashCode>
       <FileName>Management\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.ItemType">
-    <Position X="26.25" Y="4.5" Width="1.5" />
+    <Position X="9.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\ItemType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Member">
-    <Position X="28.5" Y="4.5" Width="1.5" />
+    <Position X="21" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAACAAAIAAEAAAQAAAAAAAAAAAAAAAAAABAAg=</HashCode>
       <FileName>Management\Member.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Ticket">
-    <Position X="37.5" Y="4.5" Width="1.5" />
+    <Position X="32.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAEAAAAAEAAACAAAAAAAQAEAAAAIAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAEAAAAAEAAASAAAAAgAQAAAAQAAAgQAAAAAAAAQAAA=</HashCode>
       <FileName>Management\Ticket.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.TicketItem">
-    <Position X="42" Y="4.5" Width="1.5" />
+    <Position X="36.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABCAAAAAAAEAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Ticket.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.TicketType" Collapsed="true">
-    <Position X="52" Y="3.5" Width="1.5" />
+    <Position X="47.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\TicketType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.DrinkItem">
-    <Position X="17.25" Y="9.5" Width="1.5" />
+    <Position X="5.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAACAAAAAAAAAABBAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\DrinkItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.DrinkType">
-    <Position X="21.75" Y="4.5" Width="1.5" />
+    <Position X="12" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\DrinkType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.Allergy" Collapsed="true">
-    <Position X="48.5" Y="1.5" Width="1.5" />
+    <Position X="45.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\FoodItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.FoodItem">
-    <Position X="19.5" Y="9.5" Width="1.5" />
+    <Position X="7.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\FoodItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Restaurant.DataModels.Management.Menus.Menu" Collapsed="true">
-    <Position X="52" Y="1.5" Width="1.5" />
+  <Class Name="Restaurant.DataModels.Management.Menus.Menu">
+    <Position X="14.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgCAAAAAAAAAQAAAAABgAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAIAAAAAACAgCAAAAAAAAARAAAAABgQAAAAAAAQAAAA=</HashCode>
       <FileName>Management\Menus\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.MenuItem">
-    <Position X="18.5" Y="7.25" Width="1.5" />
+    <Position X="6.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\MenuItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Restaurant.DataModels.Management.Menus.MenuType" Collapsed="true">
-    <Position X="46.75" Y="2.5" Width="1.5" />
+  <Class Name="Restaurant.DataModels.Management.Menus.MenuType">
+    <Position X="16.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\MenuType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Staff.Privilege">
-    <Position X="24" Y="4.5" Width="1.5" />
+    <Position X="18.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAQAAAAQIAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Management\Staff\Privilege.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Staff.Rota" Collapsed="true">
-    <Position X="48.5" Y="3.5" Width="1.5" />
+    <Position X="43.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAACAAACAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Staff\Rota.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Staff.Shift">
-    <Position X="33" Y="4.5" Width="1.5" />
+    <Position X="25.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAACCACAAAAAACAAAAAAAIAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Management\Staff\Shift.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Staff.StaffMember">
-    <Position X="28.5" Y="8" Width="1.5" />
+    <Position X="21" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAEQAAAAgIAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Management\Staff\StaffMember.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Restaurant.DataModels.IEntity" Collapsed="true">
-    <Position X="46.75" Y="4.75" Width="1.5" />
+    <Position X="43.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EntityState.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Restaurant.DataModels.EntityState" Collapsed="true">
-    <Position X="46.75" Y="5.75" Width="1.5" />
+    <Position X="43.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAABAAEEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EntityState.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Restaurant.DataModels.Occurrence" Collapsed="true">
-    <Position X="48.5" Y="5.75" Width="1.5" />
+    <Position X="45.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAgAAAEAAAA=</HashCode>
       <FileName>Promotion.cs</FileName>

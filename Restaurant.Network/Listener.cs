@@ -15,7 +15,7 @@ namespace Restaurant.Network
     /// Class that listens for connection, packets and disconnections.
     /// Can be attached to server or client
     /// </summary>
-    public class Listener : IListener
+    public abstract class Listener : IListener
     {
         protected readonly Server Server;
 
@@ -29,16 +29,10 @@ namespace Restaurant.Network
             get { return Server != null; }
         }
 
-        public virtual void Connected(Connection connection)
-        {
-        }
+        public abstract void Connected(Connection connection);
 
-        public virtual void Disconnected(Connection connection)
-        {
-        }
+        public abstract void Disconnected(Connection connection);
 
-        public virtual void Received(Connection connection, object o)
-        {
-        }
+        public abstract void Received(Connection connection, object o);
     }
 }

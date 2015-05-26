@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using Restaurant.DataModels;
 using Restaurant.DataModels.Management;
 using Restaurant.DataModels.Management.Floor;
 using Restaurant.DataModels.Management.Menus;
@@ -22,6 +21,8 @@ namespace Restaurant.DataAccess
         public DbSet<Reservation> Reservations { get; set; }
 
         public DbSet<Menu> Menus { get; set; }
+
+        public DbSet<MenuType> MenuTypes { get; set; }
 
         public DbSet<Ticket> Tickets { get; set; }
 
@@ -82,7 +83,40 @@ namespace Restaurant.DataAccess
                 }
             };
             members.ForEach(u => context.StaffMembers.Add(u));
-//            
+  
+            List<MenuType> menuTypes = new List<MenuType>
+            {
+                new MenuType
+                {
+                    Name = "Breakfast"
+                },
+                new MenuType
+                {
+                    Name = "Lunch"
+                },
+                new MenuType
+                {
+                    Name = "Daytime"
+                },
+                new MenuType
+                {
+                    Name = "Drinks"
+                },
+                new MenuType
+                {
+                    Name = "Dessert"
+                }
+            };
+            menuTypes.ForEach(m => context.MenuTypes.Add(m));
+
+            List<FoodItem> foodItems = new List<FoodItem>
+            {
+                new FoodItem
+                {
+                    
+                }
+            };
+
 //            // Seed the database with tables
 //            List<Table> tables = new List<Table>
 //            {

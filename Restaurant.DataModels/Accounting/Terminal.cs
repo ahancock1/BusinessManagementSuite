@@ -1,4 +1,5 @@
 ﻿using System;
+using Restaurant.DataModels.Management.Staff;
 
 namespace Restaurant.DataModels.Accounting
 {
@@ -13,6 +14,7 @@ namespace Restaurant.DataModels.Accounting
 
         public bool IsOnline { get; set; }
 
+        public StaffMember StaffMember { get; set; }
 
         public Terminal()
         {

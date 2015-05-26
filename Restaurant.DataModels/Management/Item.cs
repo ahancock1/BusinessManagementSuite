@@ -15,7 +15,11 @@ namespace Restaurant.DataModels.Management
         [Required(ErrorMessage = "An Item Name is required")]
         [StringLength(160)]
         public string Name { get; set; }
-        
+
+        public int Quantity { get; set; }
+
+        [Required]
+        public ItemType ItemType { get; set; }
 
         
         public Item()

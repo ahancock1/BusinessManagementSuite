@@ -24,6 +24,8 @@ namespace Restaurant.DataModels.Management.Floor
 
         [Required]
         public virtual StaffMember Member { get; set; }
+
+        public virtual Ticket Ticket { get; set; }
         
         
         public Reservation()

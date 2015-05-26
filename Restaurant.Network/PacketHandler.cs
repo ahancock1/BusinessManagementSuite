@@ -7,7 +7,7 @@ namespace Restaurant.Network
     public delegate void OnPacketReceived<in T>(Connection connection, T packet) where T : INetPacket;
 
     /// <summary>
-    /// Class that listens for a single type of packet
+    /// Class that listens for a single type of INetPacket packet
     /// </summary>
     /// <typeparam name="T">Packet type</typeparam>
     public class PacketListener<T> : Listener where T : INetPacket
@@ -19,17 +19,31 @@ namespace Restaurant.Network
             PacketReceived = packetReceived;
         }
 
+        /// <summary>
+        /// Fired when a packet is received
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="o"></param>
         public override void Received(Connection connection, object o)
         {
-            // Log packet
-            base.Received(connection, o);
-
+            // Check packet is the type it should be listening for, otherwise return to process other listeners
             if (!(o is T)) return;
 
             if (PacketReceived != null)
             {
+                // Fire event for this type of packet
                 PacketReceived(connection, (T)o);
             }
+        }
+
+        public override void Connected(Connection connection)
+        {
+            // Ignore this method
+        }
+
+        public override void Disconnected(Connection connection)
+        {
+            // Ignore this method
         }
     }
 
@@ -48,19 +62,16 @@ namespace Restaurant.Network
 
         public void Register<T>(OnPacketReceived<T> packetReceived) where T : INetPacket
         {
+            // Check the packet and event hasn't already been added
             if (!listeners.ContainsKey(typeof(T)))
             {
                 listeners.Add(typeof(T), packetReceived);
             }
         }
-
-        public override void Connected(Connection connection)
-        {
-            
-        }
-
+        
         public override void Received(Connection connection, object o)
         {
+            // if listening for this type of packet, invoke event
             Delegate listener;
             if (listeners.TryGetValue(o.GetType(), out listener))
             {
@@ -68,9 +79,14 @@ namespace Restaurant.Network
             }
         }
 
+        public override void Connected(Connection connection)
+        {
+            // Ignore this method
+        }
+
         public override void Disconnected(Connection connection)
         {
-
+            // Ignore this method
         }
     }
 }

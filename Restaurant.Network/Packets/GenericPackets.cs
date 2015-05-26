@@ -11,16 +11,38 @@ namespace Restaurant.Network.Packets
         Refused
     }
 
+    /// <summary>
+    /// Serialisable packet for requesting multiple types of data specified by
+    /// T and a where clause. Will return a NetResponse containing a list of data
+    /// matching the where clause.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetRequest<T> : INetPacket where T : class, IEntity
     {
         public string Where { get; set; }
+        
+        public NetRequest(string where = "")
+        {
+            Where = where;
+        } 
     }
 
+    /// <summary>
+    /// Serialisable packet for requesting a single instance of data specified
+    /// by T and a where clause. Will return a NetResponseSingle packet with a
+    /// matching first or default value.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetRequestSingle<T> : INetPacket where T : class, IEntity
     {
         public string Where { get; set; }
+
+        public NetRequestSingle(string where = "")
+        {
+            Where = where;
+        } 
     }
 
     [Serializable]
@@ -46,5 +68,4 @@ namespace Restaurant.Network.Packets
     {
         public NetResponseCode Response { get; set; }
     }
-
 }

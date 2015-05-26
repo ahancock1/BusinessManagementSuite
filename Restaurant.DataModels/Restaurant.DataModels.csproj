@@ -56,6 +56,7 @@
     <Compile Include="Management\Menus\Menu.cs" />
     <Compile Include="Management\Menus\MenuItem.cs" />
     <Compile Include="Management\Menus\MenuType.cs" />
+    <Compile Include="Management\Menus\PortionItem.cs" />
     <Compile Include="Management\Staff\Privilege.cs" />
     <Compile Include="Management\Staff\Rota.cs" />
     <Compile Include="Accounting\Terminal.cs" />

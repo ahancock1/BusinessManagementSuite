@@ -22,6 +22,12 @@ namespace Restaurant.Network
         {
         }
 
+        /// <summary>
+        /// Connect to host via name and port
+        /// </summary>
+        /// <param name="hostName"></param>
+        /// <param name="port"></param>
+        /// <returns></returns>
         public bool Connect(string hostName, int port)
         {
             if (Client.Connected) return true;

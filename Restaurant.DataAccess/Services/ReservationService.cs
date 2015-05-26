@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Restaurant.DataModels;
 using Restaurant.DataModels.Management;
 using Restaurant.DataModels.Management.Floor;
 

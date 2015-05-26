@@ -67,6 +67,10 @@ namespace Restaurant.Network
             lastPingTime = DateTime.Now.Millisecond;
         }
 
+        /// <summary>
+        /// Write object to stream
+        /// </summary>
+        /// <param name="o"></param>
         public void Send(object o)
         {
             if (!IsConnected) throw new Exception("Connection is not open");
@@ -81,6 +85,7 @@ namespace Restaurant.Network
                 {
                     using (var memoryStream = new MemoryStream())
                     {
+                        // Serialise object and write to stream
                         (new BinaryFormatter()).Serialize(memoryStream, o);
                         Stream.Write(memoryStream.ToArray(), 0, (int)memoryStream.Length);
                         Stream.FlushAsync();
@@ -95,10 +100,15 @@ namespace Restaurant.Network
             }
         }
 
+        /// <summary>
+        /// ASync read data
+        /// </summary>
+        /// <param name="result"></param>
         public void ReadCallBack(IAsyncResult result)
         {
             try
             {
+                // Check connection is still open
                 if (IsConnected && Stream.EndRead(result) != 0)
                 {
                     object packet;
@@ -111,10 +121,12 @@ namespace Restaurant.Network
 
                     Stream.BeginRead(Buffer, 0, Buffer.Length, ReadCallBack, Stream);
 
+                    // Framework packets
                     if (!(packet is INetPacket))
                     {
                         if (packet is NetAcceptConnection)
                         {
+                            // Clients connection has been accepted, let the server know the type of connection and ID
                             ConnectionID = ((NetAcceptConnection)packet).ConnectionID;
                             Send(new NetRegisterConnection
                             {
@@ -124,15 +136,18 @@ namespace Restaurant.Network
                         }
                         else if (packet is NetRegisterConnection)
                         {
+                            // Server received clients connection name
                             Name = ((NetRegisterConnection)packet).ConnectionName;
                             Connected(this);
                         }
                         else if (packet is NetConnectionType)
                         {
+                            // Set connection type
                             ConnectionType = (ConnectionType)((NetConnectionType)packet).ConnectionType;
                         }
                         else if (packet is NetPing)
                         {
+                            // Process ping
                             NetPing response = (NetPing)packet;
                             if (response.IsReply)
                             {
@@ -152,6 +167,7 @@ namespace Restaurant.Network
                     }
                     else
                     {
+                        // Non-framework packet so process it through listeners
                         Received(this, packet);
                     }
                 }
@@ -169,6 +185,9 @@ namespace Restaurant.Network
             }
         }
 
+        /// <summary>
+        /// Check the connection is open
+        /// </summary>
         public bool IsConnected
         {
             get
@@ -178,7 +197,7 @@ namespace Restaurant.Network
 
                 try
                 {
-                    // Write 0 bytes to test connection
+                    // Write 0 bytes to test connection is still open
                     Stream.Write(new byte[0], 0, 0);
                     Stream.FlushAsync();
                 }
@@ -191,6 +210,9 @@ namespace Restaurant.Network
             }
         }
 
+        /// <summary>
+        /// Close connection
+        /// </summary>
         public virtual void Close()
         {
             Stream.Close();
@@ -213,11 +235,19 @@ namespace Restaurant.Network
             get { return IpEndPoint.Address; }
         }
 
+        /// <summary>
+        /// Attach a listener to the connection
+        /// </summary>
+        /// <param name="listener"></param>
         public void AddListener(IListener listener)
         {
             listeners.Add(listener);
         }
 
+        /// <summary>
+        /// Remove a listener from the connection
+        /// </summary>
+        /// <param name="listener"></param>
         public void RemoveListener(IListener listener)
         {
             listeners.Remove(listener);
@@ -226,18 +256,21 @@ namespace Restaurant.Network
         public virtual void Connected(Connection connection)
         {
             Console.WriteLine("Connected: {0}", connection);
+            // Fire each listener attached to the connection
             listeners.ForEach(l => l.Connected(connection));
         }
 
         public virtual void Disconnected(Connection connection)
         {
             Console.WriteLine("Disconnected: {0}", connection);
+            // Fire each listener attached to the connection
             listeners.ForEach(l => l.Disconnected(connection));
         }
 
         public virtual void Received(Connection connection, object o)
         {
             Console.WriteLine("Data received: {0}", o.GetType().Name);
+            // Fire each listener attached to the connection
             listeners.ForEach(l => l.Received(connection, o));
         }
 
