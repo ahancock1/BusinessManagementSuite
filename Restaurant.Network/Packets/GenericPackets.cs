@@ -45,24 +45,43 @@ namespace Restaurant.Network.Packets
         } 
     }
 
+    /// <summary>
+    /// Serialisable packet for a response to a NetRequest packet. Returns an 
+    /// array of items specified by T.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetResponse<T> : INetPacket where T : class, IEntity
     {
         public T[] Items { get; set; }
     }
 
+    /// <summary>
+    /// Serialisable packet for a single response to a NetRequestSinle packet.
+    /// Returns a single instance of T.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetResponseSingle<T> : INetPacket where T : class, IEntity
     {
         public T Item { get; set; }
     }
 
+    /// <summary>
+    /// Serialisable packet for an update request to insert, update or delete
+    /// data specified by T.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetUpdate<T> : INetPacket where T : class, IEntity
     {
         public T[] Items { get; set; }
     }
 
+    /// <summary>
+    /// Serialisable packet for a reponse code to an NetUpdate packet.
+    /// </summary>
+    /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
     public class NetResponseCode<T> : INetPacket where T : class, IEntity
     {

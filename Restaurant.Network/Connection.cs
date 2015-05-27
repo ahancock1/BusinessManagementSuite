@@ -30,6 +30,9 @@ namespace Restaurant.Network
         void RemoveListener(IListener listener);
     }
 
+    /// <summary>
+    /// Class for maintaining an active connection to a host or client.
+    /// </summary>
     public class Connection : IConnection
     {
         public int ConnectionID { get; set; }
@@ -68,7 +71,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Write object to stream
+        /// Write object to stream.
         /// </summary>
         /// <param name="o"></param>
         public void Send(object o)
@@ -101,7 +104,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// ASync read data
+        /// ASync read data.
         /// </summary>
         /// <param name="result"></param>
         public void ReadCallBack(IAsyncResult result)
@@ -171,7 +174,7 @@ namespace Restaurant.Network
                     }
                     else
                     {
-                        // Non-framework packet so process it through listeners
+                        // Non-framework packet so process it through attached listeners
                         Received(this, packet);
                     }
                 }
@@ -190,7 +193,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Check the connection is open
+        /// Check the connection is open.
         /// </summary>
         public bool IsConnected
         {
@@ -215,7 +218,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Close connection
+        /// Close connection.
         /// </summary>
         public virtual void Close()
         {
@@ -232,7 +235,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Returns the IP Address of the remote end of the connection
+        /// Returns the IP Address of the remote end of the connection.
         /// </summary>
         public IPAddress IpAddress
         {
@@ -240,7 +243,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Attach a listener to the connection
+        /// Attach a listener to the connection.
         /// </summary>
         /// <param name="listener"></param>
         public void AddListener(IListener listener)
@@ -249,7 +252,7 @@ namespace Restaurant.Network
         }
 
         /// <summary>
-        /// Remove a listener from the connection
+        /// Remove a listener from the connection.
         /// </summary>
         /// <param name="listener"></param>
         public void RemoveListener(IListener listener)
