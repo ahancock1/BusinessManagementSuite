@@ -74,11 +74,11 @@ namespace Restaurant.Tests.DataModelsTests.ManagementTests
             Assert.AreEqual(2, ticket.PaidItems.Count);
             Assert.AreEqual(3, ticket.UnpaidItems.Count);
 
-            Assert.AreEqual(2, ticket.GetTicketsByType<FoodItem>().Count);
-            Assert.AreEqual(3, ticket.GetTicketsByType<DrinkItem>().Count);
+            Assert.AreEqual(2, ticket.GetTicketsItems<FoodItem>().Count);
+            Assert.AreEqual(3, ticket.GetTicketsItems<DrinkItem>().Count);
 
-            Assert.AreEqual(2, ticket.GetItemsByType<FoodItem>().Count);
-            Assert.AreEqual(3, ticket.GetItemsByType<DrinkItem>().Count);
+//            Assert.AreEqual(2, ticket.GetItemsByType<FoodItem>().Count);
+//            Assert.AreEqual(3, ticket.GetItemsByType<DrinkItem>().Count);
         }
 
         [TestMethod]

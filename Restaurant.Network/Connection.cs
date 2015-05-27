@@ -148,12 +148,12 @@ namespace Restaurant.Network
                         else if (packet is NetPing)
                         {
                             // Process ping
-                            NetPing response = (NetPing)packet;
+                            NetPing response = (NetPing) packet;
                             if (response.IsReply)
                             {
                                 if (response.PingID == lastPingID - 1)
                                 {
-                                    int tripTime = (int)(DateTime.Now.Millisecond - lastPingTime);
+                                    int tripTime = (int) (DateTime.Now.Millisecond - lastPingTime);
                                     Console.WriteLine("Ping reply from {0}:{1} time = {2} ms", IpEndPoint.Address,
                                         IpEndPoint.Port, tripTime);
                                 }
@@ -163,6 +163,10 @@ namespace Restaurant.Network
                                 response.IsReply = true;
                                 Send(response);
                             }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid packet: {0}", packet);
                         }
                     }
                     else

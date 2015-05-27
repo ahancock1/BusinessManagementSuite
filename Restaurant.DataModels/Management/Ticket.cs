@@ -42,15 +42,15 @@ namespace Restaurant.DataModels.Management
             get { return Items.Where(i => !i.IsPaid).ToList(); }
         }
 
-        public IList<TicketItem> GetTicketsByType<T>() where T : MenuItem
+        public IList<TicketItem> GetTicketsItems<T>() where T : MenuItem
         {
             return Items.Where(i => i.Item.GetType() == typeof (T)).ToList();
         }
-
-        public IList<T> GetItemsByType<T>() where T : MenuItem
-        {
-            return Items.Where(i => i.Item.GetType() == typeof(T)).Select(i => i.Item).Cast<T>().ToList();
-        }
+//
+//        public IList<T> GetItemsByType<T>() where T : MenuItem
+//        {
+//            return Items.Where(i => i.Item.GetType() == typeof(T)).Select(i => i.Item).Cast<T>().ToList();
+//        }
 
         public float Balance
         {

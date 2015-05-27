@@ -62,11 +62,11 @@ namespace Restaurant.DataAccess.Services
                     return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
-            catch (DbEntityValidationException e)
+            catch (DbEntityValidationException)
             {
                 return default(T);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return default(T);
             }
@@ -81,11 +81,11 @@ namespace Restaurant.DataAccess.Services
                     return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
-            catch (DbEntityValidationException e)
+            catch (DbEntityValidationException)
             {
                 return default(T);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return default(T);
             }
@@ -98,7 +98,9 @@ namespace Restaurant.DataAccess.Services
                 DbSet<T> dbSet = context.Set<T>();
                 foreach (T item in items)
                 {
+                    Console.WriteLine("{0}: {1}", item.EntityState, item);
                     dbSet.Add(item);
+
                     foreach (DbEntityEntry<IEntity> entry in context.ChangeTracker.Entries<IEntity>())
                     {
                         entry.State = GetEntityState(entry.Entity.EntityState);

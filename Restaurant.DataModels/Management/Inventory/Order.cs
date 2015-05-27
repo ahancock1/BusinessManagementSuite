@@ -18,7 +18,7 @@ namespace Restaurant.DataModels.Management.Inventory
             Items = new List<OrderItem>();
         }
 
-        public IList<T> GetItems<T>() where T : OrderItem
+        public IList<T> GetOrderItems<T>() where T : OrderItem
         {
             return Items.Where(i => i.GetType() == typeof (T)).Cast<T>().ToList();
         } 
