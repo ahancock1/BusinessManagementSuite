@@ -65,6 +65,40 @@ namespace Restaurant.Common.Handlers
             return default(T);
         }
 
+        public static T ReadFile<T>(string filePath) where T : class
+        {
+            if (!(Attribute.IsDefined(typeof(T), typeof(DataContractAttribute))
+                || Attribute.IsDefined(typeof(T), typeof(SerializableAttribute))))
+                return default(T);
+
+            try
+            {
+                if (String.IsNullOrEmpty(Path.GetFileName(filePath)))
+                {
+                    return default(T);
+                }
+                if (String.IsNullOrEmpty(Path.GetExtension(filePath)))
+                {
+                    filePath += ".xml";
+                }
+                if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                {
+                    return default(T);
+                }
+
+                var serializer = new DataContractSerializer(typeof(T));
+                
+                using (var reader = XmlReader.Create(new StreamReader(filePath)))
+                {
+                    return (T) serializer.ReadObject(reader);                    
+                }          
+            }
+            catch (Exception e)
+            {
+                return default(T);
+            }
+        }
+
         public static bool WriteToFile<T>(this T data, string filePath)
         {
             if (!(Attribute.IsDefined(typeof(T), typeof(DataContractAttribute))
@@ -94,20 +128,10 @@ namespace Restaurant.Common.Handlers
                 {
                     serializer.WriteObject(writer, data);
                     return true;
-                }
-
-                //using (var fs = new FileStream(filePath, FileMode.Create))
-                //{
-                //    using (var writer = XmlDictionaryWriter.CreateTextWriter(fs))
-                //    {
-                //        new DataContractSerializer(typeof(T)).WriteObject(writer, data);
-                //        return true;
-                //    }
-                //}                
+                }               
             }
             catch (Exception e)
             {
-                // Couldn't create directory or serialise file
                 return false;
             }
         }
