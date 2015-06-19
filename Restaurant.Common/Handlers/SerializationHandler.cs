@@ -67,7 +67,6 @@ namespace Restaurant.Common.Handlers
 
         public static bool WriteToFile<T>(this T data, string filePath)
         {
-            
             if (!(Attribute.IsDefined(typeof(T), typeof(DataContractAttribute))
                 || Attribute.IsDefined(typeof(T), typeof(SerializableAttribute))))
                 return false;
@@ -82,37 +81,35 @@ namespace Restaurant.Common.Handlers
                 {
                     filePath += ".xml";
                 }
-                if (!Directory.Exists(filePath))
+                if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                 {
-                    try
-                    {
-                        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                    }
-                    catch (Exception e)
-                    {
-                        // Couldn't create directory
-                        return false;
-                    }
+                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
                 }
 
-                using (FileStream fs = new FileStream(filePath, FileMode.Create))
+                var serializer = new DataContractSerializer(typeof(T));
+
+                var settings = new XmlWriterSettings { Indent = true };
+
+                using (var writer = XmlWriter.Create(filePath, settings))
                 {
-                    using (XmlDictionaryWriter writer = XmlDictionaryWriter.CreateTextWriter(fs))
-                    {
-                        DataContractSerializer serializer =
-                            new DataContractSerializer(typeof(T));
-                        serializer.WriteObject(writer, data);
-                        return true;
-                    }
+                    serializer.WriteObject(writer, data);
+                    return true;
                 }
+
+                //using (var fs = new FileStream(filePath, FileMode.Create))
+                //{
+                //    using (var writer = XmlDictionaryWriter.CreateTextWriter(fs))
+                //    {
+                //        new DataContractSerializer(typeof(T)).WriteObject(writer, data);
+                //        return true;
+                //    }
+                //}                
             }
             catch (Exception e)
             {
-                // Something in the class is not serializable
-
+                // Couldn't create directory or serialise file
+                return false;
             }
-
-            return false;
         }
     }
 }
