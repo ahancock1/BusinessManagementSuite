@@ -1,0 +1,7 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\bin\Debug\Restaurant.DataModels.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\bin\Debug\Restaurant.DataModels.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\bin\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\bin\Debug\Restaurant.DataModels.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\obj\Debug\Restaurant.DataModels.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\obj\Debug\Restaurant.DataModels.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataModels.Tests\obj\Debug\Restaurant.DataModels.Tests.pdb
