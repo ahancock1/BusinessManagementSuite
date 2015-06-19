@@ -81,7 +81,7 @@
   <Class Name="Restaurant.DataModels.Management.Inventory.Order">
     <Position X="30" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAgQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAQBAAAAAAAAAAA=</HashCode>
       <FileName>Management\Inventory\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -109,7 +109,7 @@
   <Class Name="Restaurant.DataModels.Management.Item">
     <Position X="4" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAABQAAAAAAAAAAAAAgAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Management\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -130,7 +130,7 @@
   <Class Name="Restaurant.DataModels.Management.Ticket">
     <Position X="32.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAEAAASAAAAAgAQAAAAQAAAgQAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAEAAAAAGAAASAAAAAgAQAAAAQAAAAQAAAAAAAAQAAA=</HashCode>
       <FileName>Management\Ticket.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -149,7 +149,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.DrinkItem">
-    <Position X="5.25" Y="9" Width="1.5" />
+    <Position X="5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAACAAAAAAAAAABBAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\DrinkItem.cs</FileName>
@@ -170,7 +170,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Restaurant.DataModels.Management.Menus.FoodItem">
-    <Position X="7.5" Y="9" Width="1.5" />
+    <Position X="8" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\FoodItem.cs</FileName>
@@ -186,7 +186,7 @@
   <Class Name="Restaurant.DataModels.Management.Menus.MenuItem">
     <Position X="6.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAgAEAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Management\Menus\MenuItem.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -52,10 +52,10 @@ namespace Restaurant.DataModels.Management
 //            return Items.Where(i => i.Item.GetType() == typeof(T)).Select(i => i.Item).Cast<T>().ToList();
 //        }
 
-        public float Balance
-        {
-            get { return Items.Sum(i => i.Item.Cost); }
-        }
+//        public float Balance
+//        {
+//            get { return Items.Sum(i => i.Item.Cost); }
+//        }
     }
 
     [Serializable]

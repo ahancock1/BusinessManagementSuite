@@ -8,15 +8,15 @@ namespace Restaurant.DataModels.Management
     {
         public int ItemID { get; set; }
 
-        [Required(ErrorMessage = "Price is required")]
-        [Range(0.0, 999.99, ErrorMessage = "Price must be between 0 and 999.99")]
-        public float Cost { get; set; }
+//        [Required(ErrorMessage = "Price is required")]
+//        [Range(0.0, 999.99, ErrorMessage = "Price must be between 0 and 999.99")]
+//        public float Cost { get; set; }
 
         [Required(ErrorMessage = "An Item Name is required")]
         [StringLength(160)]
         public string Name { get; set; }
 
-        public int Quantity { get; set; }
+//        public int Quantity { get; set; }
 
         [Required]
         public ItemType ItemType { get; set; }
