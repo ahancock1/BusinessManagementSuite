@@ -6,24 +6,31 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Linq.Expressions;
-
+using System.ServiceModel;
 using DataEntityState = Restaurant.DataModels.EntityState;
 using IEntity = Restaurant.DataModels.IEntity;
 
 namespace Restaurant.DataAccess.Services
 {
+    [ServiceContract]
     public interface IGenericService<T> where T : class, IEntity
     {
+        [OperationContract]
         IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties);
 
+        [OperationContract]
         IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
 
+        [OperationContract]
         IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties);
 
+        [OperationContract]
         T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
 
+        [OperationContract]
         T Get(string where, params Expression<Func<T, object>>[] navigationProperties);
-        
+
+        [OperationContract]
         bool Update(params T[] items);
     }
 

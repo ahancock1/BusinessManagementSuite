@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
-
+using System.ServiceModel;
 using Restaurant.DataModels.Management;
 using Restaurant.DataModels.Management.Floor;
 using Restaurant.DataModels.Management.Staff;
 
 namespace Restaurant.DataAccess.Services
 {
+    [ServiceContract]
     public interface ITicketService : IGenericService<Ticket>
     {
+        [OperationContract]
         IList<Ticket> GetByStaffMember(StaffMember member);
     }
 

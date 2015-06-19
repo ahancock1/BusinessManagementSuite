@@ -16,3 +16,24 @@ C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restau
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.xml
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.exe.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.exe
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Listeners.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.DataAccess.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.DataModels.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Listeners.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.exe
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.pdb

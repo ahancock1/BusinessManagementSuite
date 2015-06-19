@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ServiceModel;
 using Restaurant.DataModels.Management;
 using Restaurant.DataModels.Management.Floor;
 
 namespace Restaurant.DataAccess.Services
 {
+    [ServiceContract]
     public interface IReservationService : IGenericService<Reservation>
     {
+        [OperationContract]
         IList<Reservation> GetByMember(Member member);
 
+        [OperationContract]
         IList<Reservation> GetByDate(DateTime date);
 
+        [OperationContract]
         IList<Reservation> GetByTable(Table id);
     }
 
