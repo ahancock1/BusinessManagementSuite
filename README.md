@@ -16,13 +16,13 @@ Service - provides access to the data used by the web site and server
 
 Network - provides applications with access to the framework through serialiazable packets
 
-Web - Website
+Web - ASP.NET Web site
 
 Android - Android application
 
-iOS - Apple application
+iOS - iPhone/iPad application
 
-Windows - 
+Windows - Windows phone/tablet application
 
 Common - A library of helpers classes and extensions
 
