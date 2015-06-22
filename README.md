@@ -30,7 +30,7 @@ Common - A library of helpers classes and extensions
 
 Use ServiceHost to host the web services in the server, example:
 
-```
+``` C#
 // Host the service within this EXE console application. 
 public static void Main()
 {
