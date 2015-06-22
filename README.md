@@ -62,6 +62,6 @@ public static void Main()
   }
 }
 ```
-The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.
+The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted. http://stackoverflow.com/questions/334472/run-wcf-servicehost-with-multiple-contracts
 
 File Service http://www.codeproject.com/Articles/33825/WCF-TCP-based-File-Server
