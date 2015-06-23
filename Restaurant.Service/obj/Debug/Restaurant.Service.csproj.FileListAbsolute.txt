@@ -1,0 +1,13 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.Service.dll.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.Service.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.Service.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.DataAccess.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\EntityFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Debug\EntityFramework.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Debug\Restaurant.Service.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Debug\Restaurant.Service.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Debug\Restaurant.Service.pdb

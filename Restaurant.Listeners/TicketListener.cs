@@ -4,19 +4,19 @@ using Restaurant.Network;
 using Restaurant.Network.Packets;
 
 using Restaurant.Common.Extensions;
-using Restaurant.DataModels.Management;
-using Restaurant.DataModels.Management.Menus;
+using Restaurant.Data.Management;
+using Restaurant.Data.Management.Menus;
 
 namespace Restaurant.Listeners
 {
     public class TicketListener : GenericPacketHandler<Ticket>
     {
-        private readonly IGenericService<Ticket> service;
+        private readonly IGenericService service;
 
         public TicketListener(Server server)
             : base(server)
         {
-            service = new GenericService<Ticket>();
+            service = new GenericService();
 
             Register<NetUpdate<Ticket>>(UpdatePacketReceived);
         }

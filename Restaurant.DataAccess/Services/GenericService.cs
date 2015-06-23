@@ -7,66 +7,77 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Linq.Expressions;
 using System.ServiceModel;
-using DataEntityState = Restaurant.DataModels.EntityState;
-using IEntity = Restaurant.DataModels.IEntity;
+using DataEntityState = Restaurant.Data.EntityState;
+using IEntity = Restaurant.Data.IEntity;
 
 namespace Restaurant.DataAccess.Services
 {
     [ServiceContract]
-    public interface IGenericService<T> where T : class, IEntity
+    public interface IGenericService
     {
         [OperationContract]
-        IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties);
+        IList<T> All<T>() where T : class, IEntity;
 
         [OperationContract]
-        IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
+        IList<T> All<T>(params Expression<Func<T, object>>[] include)where T : class, IEntity;
 
         [OperationContract]
-        IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties);
+        IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
 
         [OperationContract]
-        T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
+        IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
 
         [OperationContract]
-        T Get(string where, params Expression<Func<T, object>>[] navigationProperties);
+        T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
 
         [OperationContract]
-        bool Update(params T[] items);
+        T Get<T>(string where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
+
+        [OperationContract]
+        bool Update<T>(params T[] items)where T : class, IEntity;
     }
 
-    public class GenericService<T> : IGenericService<T> where T : class, IEntity
+    public class GenericService : IGenericService
     {
-        public virtual IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties)
+        public virtual IList<T> All<T>() where T : class, IEntity
         {
-            using (var context = new RestaurantDbContext())
+            using (var context = new RestaurantContext())
             {
-                return GetQuery(context, navigationProperties).AsNoTracking().ToList();
+                return context.Set<T>().ToList();
             }
         }
 
-        public virtual IList<T> GetAll(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
+        public virtual IList<T> All<T>(params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
-            using (var context = new RestaurantDbContext())
+            using (var context = new RestaurantContext())
             {
-                return GetQuery(context, navigationProperties).AsNoTracking().Where(where).ToList();
+                return Query(context, include).AsNoTracking().ToList();
             }
         }
 
-        public virtual IList<T> GetAll(string where, params Expression<Func<T, object>>[] navigationProperties)
+        public virtual IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
-            using (var context = new RestaurantDbContext())
+            using (var context = new RestaurantContext())
             {
-                return GetQuery(context, navigationProperties).AsNoTracking().Where(where).ToList();
+                return Query(context, include).AsNoTracking().Where(where).ToList();
             }
         }
 
-        public virtual T Get(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
+        public virtual IList<T> All<T>(string where, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        {
+            using (var context = new RestaurantContext())
+            {
+                return Query(context, include).AsNoTracking().Where(where).ToList();
+            }
+        }
+
+        public virtual T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
             try
             {
-                using (var context = new RestaurantDbContext())
+                using (var context = new RestaurantContext())
                 {
-                    return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
+                    return Query(context, include).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
             catch (DbEntityValidationException)
@@ -78,14 +89,14 @@ namespace Restaurant.DataAccess.Services
                 return default(T);
             }
         }
-        
-        public virtual T Get(string where, params Expression<Func<T, object>>[] navigationProperties)
+
+        public virtual T Get<T>(string where, params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
             try
             {
-                using (var context = new RestaurantDbContext())
+                using (var context = new RestaurantContext())
                 {
-                    return GetQuery(context, navigationProperties).AsNoTracking().Where(where).FirstOrDefault();
+                    return Query(context, include).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
             catch (DbEntityValidationException)
@@ -98,9 +109,9 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual bool Update(params T[] items)
+        public virtual bool Update<T>(params T[] items) where T : class, IEntity
         {
-            using (var context = new RestaurantDbContext())
+            using (var context = new RestaurantContext())
             {
                 DbSet<T> dbSet = context.Set<T>();
                 foreach (T item in items)
@@ -117,19 +128,19 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        protected static IQueryable<T> GetQuery(DbContext context, params Expression<Func<T, object>>[] navigationProperties)
+        protected static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
             IQueryable<T> query = context.Set<T>();
 
             // Apply eager loading
-            foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
+            foreach (Expression<Func<T, object>> navigationProperty in include)
             {
                 query = query.Include(navigationProperty);
             }
 
             return query;
         }
-        
+
         protected static EntityState GetEntityState(DataEntityState entityState)
         {
             switch (entityState)

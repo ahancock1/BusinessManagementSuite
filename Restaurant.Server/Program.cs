@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-using Restaurant.DataModels;
-using Restaurant.DataModels.Management;
-using Restaurant.DataModels.Management.Floor;
-using Restaurant.DataModels.Management.Staff;
+using Restaurant.Data;
+using Restaurant.Data.Management;
+using Restaurant.Data.Management.Floor;
+using Restaurant.Data.Management.Staff;
 using Restaurant.Listeners;
 
 namespace Restaurant.Server

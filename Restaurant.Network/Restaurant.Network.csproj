@@ -47,13 +47,13 @@
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Restaurant.DataModels\Restaurant.DataModels.csproj">
-      <Project>{2b090585-b19d-4dc4-b55c-c5344eb4dd63}</Project>
-      <Name>Restaurant.DataModels</Name>
-    </ProjectReference>
+    <None Include="NetworkDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NetworkDiagram.cd" />
+    <ProjectReference Include="..\Restaurant.Data\Restaurant.Data.csproj">
+      <Project>{2b090585-b19d-4dc4-b55c-c5344eb4dd63}</Project>
+      <Name>Restaurant.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

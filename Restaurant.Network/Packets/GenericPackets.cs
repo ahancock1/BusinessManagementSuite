@@ -1,5 +1,5 @@
 ﻿using System;
-using Restaurant.DataModels;
+using Restaurant.Data;
 
 namespace Restaurant.Network.Packets
 {

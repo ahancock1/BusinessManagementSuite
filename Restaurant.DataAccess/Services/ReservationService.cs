@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Dynamic;
 using System.ServiceModel;
-using Restaurant.DataModels.Management;
-using Restaurant.DataModels.Management.Floor;
+using Restaurant.Data.Management;
+using Restaurant.Data.Management.Floor;
 
 namespace Restaurant.DataAccess.Services
 {
     [ServiceContract]
-    public interface IReservationService : IGenericService<Reservation>
+    public interface IReservationService : IGenericService
     {
         [OperationContract]
         IList<Reservation> GetByMember(Member member);
@@ -19,21 +21,26 @@ namespace Restaurant.DataAccess.Services
         IList<Reservation> GetByTable(Table id);
     }
 
-    public class ReservationService : GenericService<Reservation>, IReservationService
+    public class ReservationService : GenericService, IReservationService
     {
         public IList<Reservation> GetByMember(Member member)
         {
-            return GetAll(r => r.Member.MemberID == member.MemberID);
+            return All<Reservation>(r => r.Member.MemberID == member.MemberID).ToList();
         }
 
         public IList<Reservation> GetByDate(DateTime date)
         {
-            return GetAll(r => r.Arrive.Date.Equals(date.Date));
+            return All<Reservation>(r => r.Arrive.Date.Equals(date.Date));
         }
 
+        public object GetByTableAndTime(DateTime date, Table table)
+        {
+            return All<Reservation>().Select(r => new {r.Arrive, r.Depart}).ToList();
+        }
+        
         public IList<Reservation> GetByTable(Table table)
         {
-            return GetAll(r => r.Table.TableID == table.TableID);
+            return All<Reservation>(r => r.Table.TableID == table.TableID);
         }
     }
 }

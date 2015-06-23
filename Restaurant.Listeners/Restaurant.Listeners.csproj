@@ -54,9 +54,9 @@
       <Project>{aa76aeed-e6ce-4afc-bffb-3d0855f11ee8}</Project>
       <Name>Restaurant.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Restaurant.DataModels\Restaurant.DataModels.csproj">
+    <ProjectReference Include="..\Restaurant.Data\Restaurant.Data.csproj">
       <Project>{2b090585-b19d-4dc4-b55c-c5344eb4dd63}</Project>
-      <Name>Restaurant.DataModels</Name>
+      <Name>Restaurant.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Restaurant.Network\Restaurant.Network.csproj">
       <Project>{0574d09a-8ac9-47f1-9e3e-ec7462e137ee}</Project>

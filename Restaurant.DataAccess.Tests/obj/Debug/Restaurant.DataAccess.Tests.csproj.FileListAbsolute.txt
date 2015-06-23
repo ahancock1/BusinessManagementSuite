@@ -2,11 +2,11 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.DataAccess.Tests.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.DataAccess.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.DataModels.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.Data.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\System.Linq.Dynamic.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.DataAccess.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.DataModels.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\bin\Debug\Restaurant.Data.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\obj\Debug\Restaurant.DataAccess.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\obj\Debug\Restaurant.DataAccess.Tests.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess.Tests\obj\Debug\Restaurant.DataAccess.Tests.pdb

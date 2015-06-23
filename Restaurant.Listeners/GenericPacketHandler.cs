@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Restaurant.DataModels;
+using Restaurant.Data;
 using Restaurant.DataAccess.Services;
 using Restaurant.Network;
 using Restaurant.Network.Packets;
@@ -18,11 +18,11 @@ namespace Restaurant.Listeners
 
     public class GenericPacketHandler<T> : PacketHandler, IGenericPacketHandler<T> where T : class, IEntity
     {
-        private readonly IGenericService<T> service;
+        private readonly IGenericService service;
 
         public GenericPacketHandler(Server server = null) : base (server)
         {
-            service = new GenericService<T>();
+            service = new GenericService();
 
             // Register packets
             Register<NetRequest<T>>(RequestPacketReceived);
@@ -42,7 +42,7 @@ namespace Restaurant.Listeners
                 // No search critera so send all data
                 connection.Send(new NetResponse<T>
                 {
-                    Items = service.GetAll().ToArray()
+                    Items = service.All<T>().ToArray()
                 });
             }
             else
@@ -50,7 +50,7 @@ namespace Restaurant.Listeners
                 // Send data by using where criteria
                 connection.Send(new NetResponse<T>
                 {
-                    Items = service.GetAll(packet.Where).ToArray()
+                    Items = service.All<T>(packet.Where).ToArray()
                 });
             }
         }
@@ -64,7 +64,7 @@ namespace Restaurant.Listeners
         {
             connection.Send(new NetResponseSingle<T>
             {
-                Item = service.Get(packet.Where)
+                Item = service.Get<T>(packet.Where)
             });
         }
 
