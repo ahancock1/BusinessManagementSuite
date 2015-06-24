@@ -69,3 +69,49 @@ Servcice: http://www.codeproject.com/Articles/653493/WCF-Hosting-with-Windows-Se
 File Service: http://www.codeproject.com/Articles/33825/WCF-TCP-based-File-Server
 
 Licence generation: http://www.codeproject.com/Articles/11012/License-Key-Generation
+
+Ensure only one version of the server is running (Program)
+``` C#
+static class Program
+    {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(Program));
+
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            try
+            {
+                string proc = Process.GetCurrentProcess().ProcessName;
+                Process[] processes = Process.GetProcessesByName(proc);
+                if (processes.Length == 1)
+                {
+                        logger.Warn();
+                        XmlConfigurator.Configure();
+
+                        //logger.Info("App started");
+                        //Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
+                        Application.Run(new Form1());
+                }
+                else
+                {
+            
+                    XmlConfigurator.Configure();
+
+                    //logger.Info("App started");
+                    //Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Form1());
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(@"There was an error at Sport Player entry point: " + e.Message);
+            }
+        }
+        
+    }
+    ```
