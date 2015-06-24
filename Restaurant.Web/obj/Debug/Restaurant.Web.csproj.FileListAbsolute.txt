@@ -60,3 +60,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\bin\Microsof
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.csprojResolveAssemblyReference.cache

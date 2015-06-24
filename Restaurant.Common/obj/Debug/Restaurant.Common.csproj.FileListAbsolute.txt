@@ -2,3 +2,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\bin\Debug
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\bin\Debug\Restaurant.Common.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\obj\Debug\Restaurant.Common.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\obj\Debug\Restaurant.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\obj\Debug\Restaurant.Common.csprojResolveAssemblyReference.cache

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Server", "Restau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Common", "Restaurant.Common\Restaurant.Common.csproj", "{6068E093-DE21-42AD-8E87-26BF4761C202}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestaurantFramework", "RestaurantFramework", "{03544892-161D-4E96-A72E-A878D05323E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{03544892-161D-4E96-A72E-A878D05323E7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{98F98250-AED1-4D69-9C40-19BC6E7E380C}"
 EndProject
@@ -56,6 +56,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Data", "Restaurant.Data\Restaurant.Data.csproj", "{2B090585-B19D-4DC4-B55C-C5344EB4DD63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.DataModels.Tests", "Restaurant.Data.Tests\Restaurant.DataModels.Tests.csproj", "{1BAF7C2B-FEFC-4D0D-A9DE-E62FCA40C54D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{EEFEAA38-6D62-40F6-9FF8-9F160F257773}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{FACABA67-CBF4-42E0-A475-EF2AE5204AB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{846F0A2F-0C60-4D6B-8F66-0FC762D91138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{437E1D70-F918-48C4-8D4A-31417168FB54}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
