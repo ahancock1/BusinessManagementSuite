@@ -63,6 +63,7 @@ public static void Main()
 }
 ```
 The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted. 
+
 Program: http://stackoverflow.com/questions/334472/run-wcf-servicehost-with-multiple-contracts
 Servcice: http://www.codeproject.com/Articles/653493/WCF-Hosting-with-Windows-Service
 
@@ -98,3 +99,6 @@ static class Program
             }
         }
     }
+```
+
+IIS Hosting: http://www.codeproject.com/Articles/550796/A-Beginners-Tutorial-on-How-to-Host-a-WCF-Service
