@@ -74,6 +74,7 @@ Ensure only one version of the server is running (Program)
 ``` C#
 static class Program
     {
+        // Logging
         private static readonly ILog logger = LogManager.GetLogger(typeof(Program));
 
         /// <summary>
@@ -88,30 +89,12 @@ static class Program
                 Process[] processes = Process.GetProcessesByName(proc);
                 if (processes.Length == 1)
                 {
-                        logger.Warn();
-                        XmlConfigurator.Configure();
-
-                        //logger.Info("App started");
-                        //Application.EnableVisualStyles();
-                        Application.SetCompatibleTextRenderingDefault(false);
-                        Application.Run(new Form1());
-                }
-                else
-                {
-            
-                    XmlConfigurator.Configure();
-
-                    //logger.Info("App started");
-                    //Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Form1());
+                    // Run
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(@"There was an error at Sport Player entry point: " + e.Message);
+                MessageBox.Show(@"General failure: " + e.Message);
             }
         }
-        
     }
-    ```
