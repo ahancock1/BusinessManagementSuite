@@ -3,18 +3,23 @@ Framework for the restaurant application and server using .NET 4.5 C# and Entity
 
 Restaurant Management Application Framework
 
-# Notes
-Remove DataAccess library and replace it with the Restaurant.Service library. 
-This library will be used by the server and as a web service. The generic library is used by the listeners which send and receive data. Anything other than the generic service wil be used as a web service. The restaurantDbContext will be renamed to RestarurantContext and put in the data library. DataModels library to be renamed to Data.
-
+## Notes
 
 ## Libraries
 
-Data - contains the data models and is used by every application
+Data - Contains the data models and is used by every application
+
+DataAccess - Contains mapping for Entity Framework and Data context
+
+Listeners - Packet listeners for the TCP side of the server
 
 Service - provides access to the data used by the web site and server
 
 Network - provides applications with access to the framework through serialiazable packets
+
+Server - Main application for hosting, can be installed as a console application or a web service
+
+ServiceHost - Used for hosting web services with IIS (Doesn't allow TCP)
 
 Web - ASP.NET Web site
 
@@ -62,43 +67,16 @@ public static void Main()
   }
 }
 ```
-The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted. 
+~~The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.~~
 
 Program: http://stackoverflow.com/questions/334472/run-wcf-servicehost-with-multiple-contracts
-Servcice: http://www.codeproject.com/Articles/653493/WCF-Hosting-with-Windows-Service
+
+~~Servcice: http://www.codeproject.com/Articles/653493/WCF-Hosting-with-Windows-Service~~
 
 File Service: http://www.codeproject.com/Articles/33825/WCF-TCP-based-File-Server
 
 Licence generation: http://www.codeproject.com/Articles/11012/License-Key-Generation
 
-Ensure only one version of the server is running (Program)
-``` C#
-static class Program
-    {
-        // Logging
-        private static readonly ILog logger = LogManager.GetLogger(typeof(Program));
-
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            try
-            {
-                string proc = Process.GetCurrentProcess().ProcessName;
-                Process[] processes = Process.GetProcessesByName(proc);
-                if (processes.Length == 1)
-                {
-                    // Run
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(@"General failure: " + e.Message);
-            }
-        }
-    }
-```
+~~Ensure only one version of the server is running (Program)~~
 
 IIS Hosting: http://www.codeproject.com/Articles/550796/A-Beginners-Tutorial-on-How-to-Host-a-WCF-Service
