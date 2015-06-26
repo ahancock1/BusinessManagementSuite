@@ -5,6 +5,8 @@ Restaurant Management Application Framework
 
 ## Notes
 
+Look into using iPod touch as a touch screen device
+
 ## Libraries
 
 Data - Contains the data models and is used by every application
