@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Linq.Expressions;
 using System.ServiceModel;
+
 using DataEntityState = Restaurant.Data.EntityState;
 using IEntity = Restaurant.Data.IEntity;
 
@@ -19,22 +20,27 @@ namespace Restaurant.DataAccess.Services
         IList<T> All<T>() where T : class, IEntity;
 
         [OperationContract]
-        IList<T> All<T>(params Expression<Func<T, object>>[] include)where T : class, IEntity;
+        IList<T> All<T>(params Expression<Func<T, object>>[] include)
+            where T : class, IEntity;
 
         [OperationContract]
-        IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
+        IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity;
 
         [OperationContract]
-        IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
+        IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity;
 
         [OperationContract]
-        T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
+        T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity;
 
         [OperationContract]
-        T Get<T>(string where, params Expression<Func<T, object>>[] include)where T : class, IEntity;
+        T Get<T>(string where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity;
 
         [OperationContract]
-        bool Update<T>(params T[] items)where T : class, IEntity;
+        bool Update<T>(params T[] items) where T : class, IEntity;
     }
 
     public class GenericService : IGenericService
@@ -47,7 +53,8 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual IList<T> All<T>(params Expression<Func<T, object>>[] include) where T : class, IEntity
+        public virtual IList<T> All<T>(params Expression<Func<T, object>>[] include)
+            where T : class, IEntity
         {
             using (var context = new RestaurantContext())
             {
@@ -55,7 +62,8 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        public virtual IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity
         {
             using (var context = new RestaurantContext())
             {
@@ -63,7 +71,8 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual IList<T> All<T>(string where, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        public virtual IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity
         {
             using (var context = new RestaurantContext())
             {
@@ -71,7 +80,8 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        public virtual T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity
         {
             try
             {
@@ -90,7 +100,8 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual T Get<T>(string where, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        public virtual T Get<T>(string where, params Expression<Func<T, object>>[] include)
+            where T : class, IEntity
         {
             try
             {

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
+using System.ServiceModel;
 using System.ServiceProcess;
 using System.Threading;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
 using Restaurant.Data.Management.Staff;
 using Restaurant.Listeners;
+using Restaurant.Service;
 
 namespace Restaurant.Server
 {
@@ -66,20 +68,24 @@ namespace Restaurant.Server
             }
         }
 
-
         private static void Start(string[] args)
         {
-            // Initiate and start the server
+            // Initiate and run the server
             server = new Network.Server(7777);
 
-            // New listener
+            // New listeners
             server.AddListener(new GenericPacketHandler<StaffMember>());
             server.AddListener(new GenericPacketHandler<Member>());
             server.AddListener(new GenericPacketHandler<Reservation>());
             server.AddListener(new GenericPacketHandler<Shift>());
 
-
             new Thread(server.Start) { Name = "Server" }.Start();
+
+            // Initiate and host the web services
+            
+
+            // The service can be be accessed
+            Console.WriteLine("Services Hosted");
 
         }
 
@@ -91,7 +97,7 @@ namespace Restaurant.Server
                 server.Stop();
             }
 
-            Environment.Exit(1);  //console app
+            Environment.Exit(1);
         }
     }
 }

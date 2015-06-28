@@ -4,6 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Restaurant.Data.Management;
+using Restaurant.Data.Management.Floor;
+using Restaurant.DataAccess.Services;
 
 namespace Restaurant.Service
 {
@@ -11,14 +14,43 @@ namespace Restaurant.Service
     public interface IReservationService
     {
         [OperationContract]
-        void DoWork();
+        IList<Reservation> GetByMember(Member member);
+
+        [OperationContract]
+        IList<Reservation> GetByDate(DateTime date);
+
+        [OperationContract]
+        IList<Reservation> GetByTable(Table id);
     }
 
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ReservationService" in both code and config file together.
     public class ReservationService : IReservationService
     {
-        public void DoWork()
+        public GenericService service;
+
+        public IList<Reservation> All()
         {
+            
+        } 
+
+
+        public IList<Reservation> GetByMember(Member member)
+        {
+            return All<Reservation>(r => r.Member.MemberID == member.MemberID).ToList();
+        }
+
+        public IList<Reservation> GetByDate(DateTime date)
+        {
+            return All<Reservation>(r => r.Arrive.Date.Equals(date.Date));
+        }
+
+        public object GetByTableAndTime(DateTime date, Table table)
+        {
+            return All<Reservation>().Select(r => new { r.Arrive, r.Depart }).ToList();
+        }
+
+        public IList<Reservation> GetByTable(Table table)
+        {
+            return All<Reservation>(r => r.Table.TableID == table.TableID);
         }
     }
 }

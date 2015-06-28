@@ -55,7 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantContext.cs" />
     <Compile Include="Services\GenericService.cs" />
-    <Compile Include="Services\ReservationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
