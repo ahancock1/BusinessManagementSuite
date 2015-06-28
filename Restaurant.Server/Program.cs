@@ -1,6 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Configuration.Install;
 using System.Diagnostics;
-using System.ServiceModel;
 using System.ServiceProcess;
 using System.Threading;
 using Restaurant.Data.Management;
@@ -14,15 +15,26 @@ namespace Restaurant.Server
     public static class Program
     {
         #region Nested classes to support running as service
-        private const string ServiceName = "Restaurant Service";
-
-        private static Network.Server server;
-
-        private class Service : ServiceBase
+        /// <summary>
+        /// ServiceHost handler for self-hosting web services
+        /// http://blog.thijssen.ch/2009/08/hosting-multiple-wcf-services-under.html
+        /// </summary>
+        [System.ComponentModel.DesignerCategory("Code")]
+        private class WindowsService : ServiceBase
         {
-            public Service()
+            public static string Name = "Restaurant Service";
+
+            public static string Description = "Windows service for hosting TCP server and WCF services";
+
+            public static string Username = @".\username";
+
+            public static string Password = "password";
+
+
+            public WindowsService()
             {
-                ServiceName = Program.ServiceName;
+                ServiceName = Name;
+                CanStop = true;
             }
 
             protected override void OnStart(string[] args)
@@ -35,14 +47,48 @@ namespace Restaurant.Server
                 Program.Stop();
             }
         }
+
+        [RunInstaller(true)]
+        [System.ComponentModel.DesignerCategory("Code")]
+        public class ServiceHostInstaller : Installer
+        {
+            /// <summary>
+            /// Enables application to be installed as a windows service by running
+            /// InstallUtil
+            /// </summary>
+            public ServiceHostInstaller()
+            {
+                Installers.Add(new ServiceInstaller
+                {
+                    StartType = ServiceStartMode.Automatic,
+                    ServiceName = WindowsService.Name,
+                    Description = WindowsService.Description
+                });
+
+                Installers.Add(new ServiceProcessInstaller
+                {
+                    Account = ServiceAccount.User,
+                    Username = WindowsService.Username,
+                    Password = WindowsService.Password
+                });
+            }
+        }
         #endregion
+
+        private static Network.Server server;
+
+        private static ServiceManager services;
 
         static void Main(string[] args)
         {
             if (!Environment.UserInteractive)
+            {
                 // running as windows service
-                using (var service = new Service())
+                using (var service = new WindowsService())
+                {
                     ServiceBase.Run(service);
+                }
+            }
             else
             {
                 try
@@ -82,7 +128,8 @@ namespace Restaurant.Server
             new Thread(server.Start) { Name = "Server" }.Start();
 
             // Initiate and host the web services
-            
+            services = new ServiceManager();
+            services.OpenHost<LoginService>();
 
             // The service can be be accessed
             Console.WriteLine("Services Hosted");
@@ -95,6 +142,10 @@ namespace Restaurant.Server
             if (server != null)
             {
                 server.Stop();
+            }
+            if (services != null)
+            {
+                services.Close();
             }
 
             Environment.Exit(1);

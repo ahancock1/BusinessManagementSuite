@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using Restaurant.Data;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
 using Restaurant.Data.Management.Menus;
@@ -12,9 +13,17 @@ namespace Restaurant.DataAccess
 {
     public class RestaurantContext : DbContext
     {
+        // TODO: remove
         public DbSet<Member> Members { get; set; }
 
+        // TODO: remove
         public DbSet<StaffMember> StaffMembers { get; set; }
+
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<UserCredentials> UserCredentials { get; set; }
+
 
         public DbSet<Table> Tables { get; set; }
 

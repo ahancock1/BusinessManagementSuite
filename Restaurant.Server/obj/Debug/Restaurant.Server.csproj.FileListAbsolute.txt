@@ -37,3 +37,5 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.exe
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Service.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Service.pdb

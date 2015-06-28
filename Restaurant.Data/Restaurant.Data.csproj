@@ -75,6 +75,8 @@
     <Compile Include="Management\Inventory\Order.cs" />
     <Compile Include="Management\Ticket.cs" />
     <Compile Include="Management\TicketType.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserCredentials.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

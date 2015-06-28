@@ -71,6 +71,52 @@ public static void Main()
 ```
 ~~The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.~~
 
+Butcher this in the App.Config to set up the service correctly
+
+``` XML
+<system.serviceModel>
+  <services>
+    <service behaviorConfiguration="DefaultBehavior" name="Namespace.Service1">
+      <endpoint address="" binding="netTcpBinding" bindingConfiguration="TCPBindingConfig" name="TCPEndpoint" contract="Namespace.IService1" />
+      <endpoint address="mex" binding="mexTcpBinding" bindingConfiguration="" name="TcpMetaData" contract="IMetadataExchange" />
+      <host>
+        <baseAddresses>
+          <add baseAddress="net.tcp://localhost:8001/Namespace/Service1" />
+        </baseAddresses>
+      </host>
+    </service>
+    <service behaviorConfiguration="DefaultBehavior" name="Namespace.Service2">
+      <endpoint address="" binding="netTcpBinding" bindingConfiguration="TCPBindingConfig" name="TCPEndpoint" contract="Namespace.IService2" />
+      <endpoint address="mex" binding="mexTcpBinding" bindingConfiguration="" name="TcpMetaData" contract="IMetadataExchange" />
+      <host>
+        <baseAddresses>
+          <add baseAddress="net.tcp://localhost:8002/Namespace/Service2" />
+        </baseAddresses>
+      </host>
+    </service>
+    ...
+  </services>
+  <bindings>
+    <netTcpBinding>
+      <binding name="TCPBindingConfig" maxBufferSize="5242880" maxReceivedMessageSize="5242880">
+        <readerQuotas maxStringContentLength="5242880" />
+        <security mode="None" />
+      </binding>
+    </netTcpBinding>
+  </bindings>
+  <behaviors>
+    <serviceBehaviors>
+      <behavior name="DefaultBehavior">
+        <serviceMetadata httpGetEnabled="false" />
+        <serviceDebug includeExceptionDetailInFaults="true" />
+        <serviceThrottling maxConcurrentCalls="21" maxConcurrentSessions="50" />
+      </behavior>
+    </serviceBehaviors>
+  </behaviors>
+</system.serviceModel>
+```
+
+
 Program: http://stackoverflow.com/questions/334472/run-wcf-servicehost-with-multiple-contracts
 
 ~~Servcice: http://www.codeproject.com/Articles/653493/WCF-Hosting-with-Windows-Service~~
@@ -82,3 +128,4 @@ Licence generation: http://www.codeproject.com/Articles/11012/License-Key-Genera
 ~~Ensure only one version of the server is running (Program)~~
 
 IIS Hosting: http://www.codeproject.com/Articles/550796/A-Beginners-Tutorial-on-How-to-Host-a-WCF-Service
+

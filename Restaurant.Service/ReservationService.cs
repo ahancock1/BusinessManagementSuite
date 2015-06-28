@@ -25,32 +25,27 @@ namespace Restaurant.Service
 
     public class ReservationService : IReservationService
     {
-        public GenericService service;
-
-        public IList<Reservation> All()
-        {
-            
-        } 
-
+        private IGenericService service = new GenericService();
+        
 
         public IList<Reservation> GetByMember(Member member)
         {
-            return All<Reservation>(r => r.Member.MemberID == member.MemberID).ToList();
+            return service.All<Reservation>(r => r.Member.MemberID == member.MemberID).ToList();
         }
 
         public IList<Reservation> GetByDate(DateTime date)
         {
-            return All<Reservation>(r => r.Arrive.Date.Equals(date.Date));
+            return service.All<Reservation>(r => r.Arrive.Date.Equals(date.Date));
         }
 
         public object GetByTableAndTime(DateTime date, Table table)
         {
-            return All<Reservation>().Select(r => new { r.Arrive, r.Depart }).ToList();
+            return service.All<Reservation>().Select(r => new { r.Arrive, r.Depart }).ToList();
         }
 
         public IList<Reservation> GetByTable(Table table)
         {
-            return All<Reservation>(r => r.Table.TableID == table.TableID);
+            return service.All<Reservation>(r => r.Table.TableID == table.TableID);
         }
     }
 }
