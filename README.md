@@ -68,7 +68,35 @@ public static void Main()
     }
   }
 }
+
+
+// Create the ServiceHost.
+using (ServiceHost host = new ServiceHost(typeof(HelloWorldService), baseAddress))
+{
+    // Enable metadata publishing.
+    ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
+    smb.HttpGetEnabled = true;
+    smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
+    host.Description.Behaviors.Add(smb);
+
+    // Open the ServiceHost to start listening for messages. Since
+    // no endpoints are explicitly configured, the runtime will create
+    // one endpoint per base address for each service contract implemented
+    // by the service.
+    host.Open();
+
+    Console.WriteLine("The service is ready at {0}", baseAddress);
+    Console.WriteLine("Press <Enter> to stop the service.");
+    Console.ReadLine();
+
+    // Close the ServiceHost.
+    host.Close();
+}
+
 ```
+
+Fix this error: The communication object, System.ServiceModel.ServiceHost, cannot be used for communication because it is in the Faulted state.
+
 ~~The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.~~
 
 Butcher this in the App.Config to set up the service correctly
