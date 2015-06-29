@@ -95,7 +95,7 @@ using (ServiceHost host = new ServiceHost(typeof(HelloWorldService), baseAddress
 
 ```
 
-Fix this error: The communication object, System.ServiceModel.ServiceHost, cannot be used for communication because it is in the Faulted state.
+Fix this error: The communication object, System.ServiceModel.ServiceHost, cannot be used for communication because it is in the Faulted state. Run as a fucking admin... update the manifest
 
 ~~The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.~~
 
