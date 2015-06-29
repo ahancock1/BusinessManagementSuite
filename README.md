@@ -69,7 +69,7 @@ public static void Main()
   }
 }
 
-
+//http://www.codeproject.com/Articles/650869/Creating-a-Self-Hosted-WCF-Service
 // Create the ServiceHost.
 using (ServiceHost host = new ServiceHost(typeof(HelloWorldService), baseAddress))
 {
