@@ -4,9 +4,9 @@ using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data
 {
-    [Table("UserCredentials")]
-    public class UserCredentials : Entity
+    public class UserCredential : Entity
     {
+        [Key, ForeignKey("User")]
         public int UserCredentialID { get; set; }
 
         // Hash the fuck out of this
@@ -16,13 +16,13 @@ namespace Restaurant.Data
         [Required(ErrorMessage = "Password salt is required")]
         public string PasswordSalt { get; set; }
 
-        [Required(ErrorMessage = "Privilege is required")]
+//        [Required(ErrorMessage = "Privilege is required")]
         public Privilege Privilege { get; set; }
 
         public virtual User User { get; set; }
 
 
-        public UserCredentials()
+        public UserCredential()
         {
             // Calculate password salt here
 

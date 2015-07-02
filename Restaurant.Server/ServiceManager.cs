@@ -16,11 +16,12 @@ namespace Restaurant.Server
         public void OpenHost<T>()
         {
             Type type = typeof(T);
-            using (ServiceHost serviceHost = new ServiceHost(type))
+            ServiceHost serviceHost = new ServiceHost(type);
             {
                 try
                 {
                     serviceHost.Open();
+                    
                     serviceHosts.Add(serviceHost);
                     Console.WriteLine("Service hosted: {0}", type.Name);
                 }

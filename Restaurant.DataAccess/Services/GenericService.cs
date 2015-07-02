@@ -94,7 +94,7 @@ namespace Restaurant.DataAccess.Services
             {
                 return default(T);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return default(T);
             }

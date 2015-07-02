@@ -6,7 +6,6 @@ using System.Runtime.Serialization;
 namespace Restaurant.Data
 {
     [DataContract]
-    [Table("Users")]
     public class User : Entity
     {
         public int UserID { get; set; }
@@ -35,7 +34,7 @@ namespace Restaurant.Data
         [Required(ErrorMessage = "Email address is required")]
         public string Email { get; set; }
 
-        public virtual UserCredentials Credentials { get; set; }
+        public virtual UserCredential Credential { get; set; }
 
         public User()
         {

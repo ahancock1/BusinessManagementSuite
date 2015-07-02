@@ -16,7 +16,6 @@ C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restau
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.xml
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.exe.config
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.exe
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\EntityFramework.SqlServer.dll
@@ -39,3 +38,4 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\obj\Debug\Restaurant.Server.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Service.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Service.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Server\bin\Debug\Restaurant.Server.exe.config

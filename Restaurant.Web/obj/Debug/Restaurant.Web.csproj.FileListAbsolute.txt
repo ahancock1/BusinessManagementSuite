@@ -61,3 +61,5 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\bin\Microsof
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\obj\Debug\Restaurant.Web.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\bin\Restaurant.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Web\bin\Restaurant.Data.pdb

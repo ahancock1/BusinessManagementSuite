@@ -5,7 +5,7 @@ using Restaurant.DataAccess.Services;
 namespace Restaurant.Service
 {
     [ServiceContract]
-    public interface ILoginService
+    public interface tILoginService
     {
         [OperationContract]
         bool Register(User member);
@@ -17,7 +17,7 @@ namespace Restaurant.Service
         User GetUser(string username, string password);
     }
 
-    public class LoginService : ILoginService
+    public class LoginServicet : tILoginService
     {
         private readonly IGenericService service = new GenericService();
 
@@ -31,12 +31,12 @@ namespace Restaurant.Service
         {
             // De-hash the password here
 
-            return service.Get<UserCredentials>(u => u.User.Username == username && u.Password == password) != null;
+            return service.Get<UserCredential>(u => u.User.Username == username && u.Password == password) != null;
         }
 
         public User GetUser(string username, string password)
         {
-            return service.Get<UserCredentials>(u => u.User.Username == username && u.Password == password).User;
+            return service.Get<UserCredential>(u => u.User.Username == username && u.Password == password).User;
         }
     }
 }

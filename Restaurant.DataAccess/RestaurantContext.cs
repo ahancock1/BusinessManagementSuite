@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.ServiceModel.Security;
 using Restaurant.Data;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
@@ -22,7 +23,7 @@ namespace Restaurant.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<UserCredentials> UserCredentials { get; set; }
+        public DbSet<UserCredential> UserCredentials { get; set; }
 
 
         public DbSet<Table> Tables { get; set; }
@@ -75,6 +76,25 @@ namespace Restaurant.DataAccess
     {
         protected override void Seed(RestaurantContext context)
         {
+            List<User> users = new List<User>
+            {
+                new User
+                {
+                    Credential = new UserCredential
+                    {
+                        Password = "password",
+                        PasswordSalt = "passwordsalt"
+                    },
+                    DateHired = DateTime.Now,
+                    Email = "test.email@testemail.co.uk",
+                    FirstName = "firstname",
+                    LastName = "lastname",
+                    Username = "username",
+                    PhoneNumber = "01234567890"
+                }
+            };
+            users.ForEach(u => context.Users.Add(u));
+
             // Seed the database with users
             List<StaffMember> members = new List<StaffMember>
             {

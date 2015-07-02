@@ -129,11 +129,17 @@ namespace Restaurant.Server
 
             // Initiate and host the web services
             services = new ServiceManager();
-            services.OpenHost<LoginService>();
+            services.OpenHost<LoginServicet>();
 
             // The service can be be accessed
             Console.WriteLine("Services Hosted");
 
+            bool result = new LoginServicet().Login("admin", "password");
+
+            if (result)
+            {
+                Console.WriteLine("success");
+            }
         }
 
         private static void Stop()
