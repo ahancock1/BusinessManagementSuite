@@ -16,9 +16,7 @@ namespace Restaurant.Data.Management
 
         public List<TicketItem> Items { get; set; }  
         
-
-
-
+        
         public virtual StaffMember StaffMember { get; set; }
 
         public virtual Table Table { get; set; }

@@ -157,3 +157,29 @@ Licence generation: http://www.codeproject.com/Articles/11012/License-Key-Genera
 
 IIS Hosting: http://www.codeproject.com/Articles/550796/A-Beginners-Tutorial-on-How-to-Host-a-WCF-Service
 
+## Assumptions
+
+### Accounts
+
+An account has one or more restaurants
+
+An account has one or more users (managers)
+
+A Restaurant has one or more users (staff)
+
+### Tables
+
+A table has one or more guests
+
+A table has one or more reservations
+
+A guest has one or more reservations
+
+A section has one or more tables
+
+
+
+### Orders
+
+A table has one or more tickets
+

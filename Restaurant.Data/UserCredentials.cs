@@ -7,7 +7,7 @@ namespace Restaurant.Data
     public class UserCredential : Entity
     {
         [Key, ForeignKey("User")]
-        public int UserCredentialID { get; set; }
+        public int UserID { get; set; }
 
         // Hash the fuck out of this
         [Required(ErrorMessage = "Password is required")]

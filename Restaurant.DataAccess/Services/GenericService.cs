@@ -11,6 +11,7 @@ using System.ServiceModel;
 using DataEntityState = Restaurant.Data.EntityState;
 using IEntity = Restaurant.Data.IEntity;
 
+
 namespace Restaurant.DataAccess.Services
 {
     [ServiceContract]
@@ -97,6 +98,7 @@ namespace Restaurant.DataAccess.Services
             catch (Exception e)
             {
                 return default(T);
+                //                return null;
             }
         }
 
@@ -144,9 +146,9 @@ namespace Restaurant.DataAccess.Services
             IQueryable<T> query = context.Set<T>();
 
             // Apply eager loading
-            foreach (Expression<Func<T, object>> navigationProperty in include)
+            foreach (Expression<Func<T, object>> item in include)
             {
-                query = query.Include(navigationProperty);
+                query = query.Include(item);
             }
 
             return query;

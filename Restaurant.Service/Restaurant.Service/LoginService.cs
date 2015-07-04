@@ -9,7 +9,19 @@ using Restaurant.DataAccess.Services;
 
 namespace Restaurant.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LoginService" in both code and config file together.
+    [ServiceContract]
+    public interface ILoginService : IService
+    {
+        [OperationContract]
+        bool Register(User member);
+
+        [OperationContract]
+        bool Login(string username, string password);
+
+        [OperationContract]
+        User GetUser(string username, string password);
+    }
+
     public class LoginService : ILoginService
     {
         private readonly IGenericService service = new GenericService();
@@ -24,7 +36,7 @@ namespace Restaurant.Service
         {
             // De-hash the password here
 
-            return service.Get<UserCredential>(u => u.User.Username == username && u.Password == password) != null;
+            return service.Get<User>(u => u.Username == username && u.Credential.Password == password, u => u.Credential) != null;
         }
 
         public User GetUser(string username, string password)

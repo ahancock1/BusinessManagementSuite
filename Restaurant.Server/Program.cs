@@ -95,7 +95,9 @@ namespace Restaurant.Server
                 {
                     string process = Process.GetCurrentProcess().ProcessName;
                     Process[] processes = Process.GetProcessesByName(process);
-                    if (processes.Length <= 1)
+#if !DEBUG
+                    if (processes.Length <= 1)  
+#endif
                     {
                         // running as console application
                         Start(args);
@@ -114,6 +116,9 @@ namespace Restaurant.Server
             }
         }
 
+
+        // When you run the application in debug mode, Visual Studio automatically starts an instance of the 
+        // WCF Service host for each service. To avoid this, start the application by pressing Ctrl+F5.
         private static void Start(string[] args)
         {
             // Initiate and run the server
@@ -129,12 +134,13 @@ namespace Restaurant.Server
 
             // Initiate and host the web services
             services = new ServiceManager();
-            services.OpenHost<LoginServicet>();
+            services.OpenHost<LoginService, ILoginService>();
+
 
             // The service can be be accessed
             Console.WriteLine("Services Hosted");
 
-            bool result = new LoginServicet().Login("admin", "password");
+            bool result = new LoginService().Login("username", "password");
 
             if (result)
             {
@@ -144,7 +150,6 @@ namespace Restaurant.Server
 
         private static void Stop()
         {
-            // onstop code here
             if (server != null)
             {
                 server.Stop();

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c22c0f02-54f2-46e3-b9f1-d6fd819cd71d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bab34a49-ab4d-4f20-8c31-6de03c01aaf3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
-    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -19,13 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/LoginService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/Restaurant/LoginService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="da49f7a6-d2d9-45bd-90ee-718dec3ba0c7" SourceId="1" SourceUrl="http://localhost:8733/LoginService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="1fd5b4e1-5597-4434-8c35-0ab69ba24336" SourceId="1" SourceUrl="http://localhost:8733/LoginService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="46513f4c-80bf-47ac-95dd-9d756809c762" SourceId="1" SourceUrl="http://localhost:8733/LoginService/mex" />
-    <MetadataFile FileName="Restaurant.Data.xsd" MetadataType="Schema" ID="9efa4904-616c-4407-926c-ad83ed6f130e" SourceId="1" SourceUrl="http://localhost:8733/LoginService/mex" />
+    <MetadataFile FileName="LoginService.disco" MetadataType="Disco" ID="27fe3e0d-58f4-43f1-882b-c4d80a4695e2" SourceId="1" SourceUrl="http://localhost:8733/Restaurant/LoginService?disco" />
+    <MetadataFile FileName="LoginService.xsd" MetadataType="Schema" ID="82632294-1cb1-4a29-ab74-c4d199a37d71" SourceId="1" SourceUrl="http://localhost:8733/Restaurant/LoginService?xsd=xsd1" />
+    <MetadataFile FileName="LoginService1.xsd" MetadataType="Schema" ID="ba551aae-0ca1-4fa5-8021-4f30e7b2b502" SourceId="1" SourceUrl="http://localhost:8733/Restaurant/LoginService?xsd=xsd2" />
+    <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="20d97ea2-2dbd-4177-bad4-2feea8d59818" SourceId="1" SourceUrl="http://localhost:8733/Restaurant/LoginService?wsdl" />
+    <MetadataFile FileName="LoginService2.xsd" MetadataType="Schema" ID="bbe50c77-2b07-41d7-a67c-a00e5d94645e" SourceId="1" SourceUrl="http://localhost:8733/Restaurant/LoginService?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
