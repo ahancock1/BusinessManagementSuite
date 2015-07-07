@@ -6,10 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Restaurant.Web.LoginService;
 
-//
-//using Restaurant.Service;
-//using Restaurant.Data;
-
 
 namespace Restaurant.Web
 {
@@ -19,14 +15,16 @@ namespace Restaurant.Web
         {
             Console.WriteLine("default page loaded");
 
+            // Initialise the wcf service and request a user
             LoginServiceClient client = new LoginServiceClient();
-            bool result = client.Login("admin", "password");
+            User user = client.GetUser("username", "password");
 
-            if (result)
+
+            // Check user
+            if (user != null)
             {
-                Console.WriteLine("login successful");
+                Console.WriteLine("Success");
             }
-
 
         }
     }

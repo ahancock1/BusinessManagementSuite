@@ -227,7 +227,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Service References\LoginService\LoginService.disco" />
     <None Include="Service References\LoginService\configuration91.svcinfo" />
     <None Include="Service References\LoginService\configuration.svcinfo" />
     <None Include="Service References\LoginService\Reference.svcmap">
@@ -242,19 +241,19 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\web.config" />
-    <None Include="Service References\LoginService\LoginService.wsdl" />
-    <None Include="Service References\LoginService\LoginService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\LoginService\LoginService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\LoginService\LoginService2.xsd">
+    <None Include="Service References\LoginService\Restaurant.Data.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Service References\LoginService\Restaurant.Web.LoginService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\LoginService\service.wsdl" />
+    <None Include="Service References\LoginService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

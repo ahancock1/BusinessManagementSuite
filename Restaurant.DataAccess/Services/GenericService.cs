@@ -21,7 +21,7 @@ namespace Restaurant.DataAccess.Services
         IList<T> All<T>() where T : class, IEntity;
 
         [OperationContract]
-        IList<T> All<T>(params Expression<Func<T, object>>[] include)
+        IList<T> All<T>(string where, params string[] include)
             where T : class, IEntity;
 
         [OperationContract]
@@ -29,15 +29,10 @@ namespace Restaurant.DataAccess.Services
             where T : class, IEntity;
 
         [OperationContract]
-        IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)
-            where T : class, IEntity;
+        T Get<T>(string where, params string[] include) where T : class, IEntity;
 
         [OperationContract]
         T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : class, IEntity;
-
-        [OperationContract]
-        T Get<T>(string where, params Expression<Func<T, object>>[] include)
             where T : class, IEntity;
 
         [OperationContract]
@@ -72,12 +67,12 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual IList<T> All<T>(string where, params Expression<Func<T, object>>[] include)
+        public virtual IList<T> All<T>(string where, params string[] include)
             where T : class, IEntity
         {
             using (var context = new RestaurantContext())
             {
-                return Query(context, include).AsNoTracking().Where(where).ToList();
+                return Query<T>(context, include).AsNoTracking().Where(where).ToList();
             }
         }
 
@@ -102,14 +97,14 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        public virtual T Get<T>(string where, params Expression<Func<T, object>>[] include)
+        public virtual T Get<T>(string where, params string[] include)
             where T : class, IEntity
         {
             try
             {
                 using (var context = new RestaurantContext())
                 {
-                    return Query(context, include).AsNoTracking().Where(where).FirstOrDefault();
+                    return Query<T>(context, include).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
             catch (DbEntityValidationException)
@@ -141,20 +136,17 @@ namespace Restaurant.DataAccess.Services
             }
         }
 
-        protected static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : class, IEntity
+        private static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : class, IEntity
         {
-            IQueryable<T> query = context.Set<T>();
-
-            // Apply eager loading
-            foreach (Expression<Func<T, object>> item in include)
-            {
-                query = query.Include(item);
-            }
-
-            return query;
+            return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
         }
 
-        protected static EntityState GetEntityState(DataEntityState entityState)
+        private static IQueryable<T> Query<T>(DbContext context, params string[] include) where T : class, IEntity
+        {
+            return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
+        }
+
+        private static EntityState GetEntityState(DataEntityState entityState)
         {
             switch (entityState)
             {

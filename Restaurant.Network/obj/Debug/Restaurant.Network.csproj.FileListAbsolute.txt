@@ -25,3 +25,10 @@ C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restau
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.dll
 C:\Users\Adam\Development\Visual Studio 2013\Projects\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debug\Restaurant.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debug\Restaurant.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debug\Restaurant.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Debug\Restaurant.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Debug\Restaurant.Network.pdb

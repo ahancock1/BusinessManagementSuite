@@ -4,6 +4,7 @@ using System.Configuration.Install;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
+using Restaurant.Data;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
 using Restaurant.Data.Management.Staff;
@@ -108,7 +109,7 @@ namespace Restaurant.Server
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("General failure: {0} \r\n Press any key to stop...", e.Message);
+                    Console.WriteLine("General failure: {0} \r\n Press any key to close...", e.Message);
                     Console.ReadKey(true);
                 }
 
@@ -140,12 +141,12 @@ namespace Restaurant.Server
             // The service can be be accessed
             Console.WriteLine("Services Hosted");
 
-            bool result = new LoginService().Login("username", "password");
-
-            if (result)
-            {
-                Console.WriteLine("success");
-            }
+//            User result = new LoginService().GetUser("username", "password");
+//
+//            if (result != null)
+//            {
+//                Console.WriteLine("success");
+//            }
         }
 
         private static void Stop()

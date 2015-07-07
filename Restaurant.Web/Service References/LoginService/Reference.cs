@@ -89,6 +89,9 @@ namespace Restaurant.Web.LoginService {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -132,6 +135,19 @@ namespace Restaurant.Web.LoginService {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }
@@ -200,11 +216,20 @@ namespace Restaurant.Web.LoginService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Register", ReplyAction="http://tempuri.org/ILoginService/RegisterResponse")]
         bool Register(Restaurant.Web.LoginService.User member);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Register", ReplyAction="http://tempuri.org/ILoginService/RegisterResponse")]
+        System.Threading.Tasks.Task<bool> RegisterAsync(Restaurant.Web.LoginService.User member);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Login", ReplyAction="http://tempuri.org/ILoginService/LoginResponse")]
         bool Login(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Login", ReplyAction="http://tempuri.org/ILoginService/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string username, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetUser", ReplyAction="http://tempuri.org/ILoginService/GetUserResponse")]
         Restaurant.Web.LoginService.User GetUser(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetUser", ReplyAction="http://tempuri.org/ILoginService/GetUserResponse")]
+        System.Threading.Tasks.Task<Restaurant.Web.LoginService.User> GetUserAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -238,12 +263,24 @@ namespace Restaurant.Web.LoginService {
             return base.Channel.Register(member);
         }
         
+        public System.Threading.Tasks.Task<bool> RegisterAsync(Restaurant.Web.LoginService.User member) {
+            return base.Channel.RegisterAsync(member);
+        }
+        
         public bool Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
+        public System.Threading.Tasks.Task<bool> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
+        }
+        
         public Restaurant.Web.LoginService.User GetUser(string username, string password) {
             return base.Channel.GetUser(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<Restaurant.Web.LoginService.User> GetUserAsync(string username, string password) {
+            return base.Channel.GetUserAsync(username, password);
         }
     }
 }

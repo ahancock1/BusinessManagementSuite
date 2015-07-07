@@ -40,6 +40,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -72,14 +75,17 @@
       <Project>{0574d09a-8ac9-47f1-9e3e-ec7462e137ee}</Project>
       <Name>Restaurant.Network</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Restaurant.Service\Restaurant.Service\Restaurant.Service.csproj">
-      <Project>{7a6dc237-da48-43d1-a3e5-d40d03abebd1}</Project>
+    <ProjectReference Include="..\Restaurant.Service\Restaurant.Service.csproj">
+      <Project>{1228218a-e632-4965-94df-425c1757defc}</Project>
       <Name>Restaurant.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

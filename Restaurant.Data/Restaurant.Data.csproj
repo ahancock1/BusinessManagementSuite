@@ -68,7 +68,7 @@
     <Compile Include="Promotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Management\Floor\Reservation.cs" />
-    <Compile Include="Accounting\Restaurant.cs" />
+    <Compile Include="Accounting\Venue.cs" />
     <Compile Include="Management\Staff\Shift.cs" />
     <Compile Include="Management\Staff\StaffMember.cs" />
     <Compile Include="Management\Floor\Table.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="Management\Ticket.cs" />
     <Compile Include="Management\TicketType.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UserCredentials.cs" />
+    <Compile Include="UserCredential.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

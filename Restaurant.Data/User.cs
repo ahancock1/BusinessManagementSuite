@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
+using Restaurant.Data.Accounting;
 
 namespace Restaurant.Data
 {
@@ -28,9 +28,12 @@ namespace Restaurant.Data
         [DataMember, Required(ErrorMessage = "Email address is required")]
         public string Email { get; set; }
 
+        [DataMember]
+        public byte[] Image { get; set; }
+
         public virtual UserCredential Credential { get; set; }
 
-        public virtual Restaurant Restaurant { get; set; }
+        public virtual Venue Venue { get; set; }
 
         public virtual Account Account { get; set; }
 
