@@ -4,38 +4,27 @@ using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data
 {
-    [DataContract]
-    public class User : Entity
+    public class UserCredential : Entity
     {
+        [Key, ForeignKey("User")]
         public int UserID { get; set; }
 
-        [DataMember, Required(ErrorMessage = "First name is required")]
-        public string FirstName { get; set; }
+        // Hash the fuck out of this
+        [Required(ErrorMessage = "Password is required")]
+        public string Password { get; set; }
 
-        [DataMember, Required(ErrorMessage = "Last name is required")]
-        public string LastName { get; set; }
+        [Required(ErrorMessage = "Password salt is required")]
+        public string PasswordSalt { get; set; }
 
-        [DataMember, Required(ErrorMessage = "Username is required")]
-        public string Username { get; set; }
+//        [Required(ErrorMessage = "Privilege is required")]
+        public Privilege Privilege { get; set; }
 
-        [DataMember, Required(ErrorMessage = "Date hired is required")]
-        public DateTime DateHired { get; set; }
+        public virtual User User { get; set; }
 
-        [DataMember, Required(ErrorMessage = "Phone number is required")]
-        public string PhoneNumber { get; set; }
 
-        [DataMember, Required(ErrorMessage = "Email address is required")]
-        public string Email { get; set; }
-
-        public virtual UserCredential Credential { get; set; }
-
-        public virtual Restaurant Restaurant { get; set; }
-
-        public virtual Account Account { get; set; }
-
-        
-        public User()
+        public UserCredential()
         {
+            // Calculate password salt here
 
         }
     }
