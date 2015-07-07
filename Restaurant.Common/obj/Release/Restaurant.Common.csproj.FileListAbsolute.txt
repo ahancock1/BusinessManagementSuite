@@ -1,4 +1,0 @@
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\bin\Release\Restaurant.Common.dll
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\bin\Release\Restaurant.Common.pdb
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\obj\Release\Restaurant.Common.dll
-C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Common\obj\Release\Restaurant.Common.pdb
