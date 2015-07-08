@@ -7,23 +7,14 @@ using Restaurant.Service;
 
 namespace Restaurant.Server
 {
-    // links
-    //http://www.c-sharpcorner.com/UploadFile/225740/self-hosting-of-wcf-service-with-console-application/
-    //https://msdn.microsoft.com/en-us/library/vstudio/ms731758(v=vs.100).aspx
-
     public class ServiceManager
     {
-        private readonly List<ServiceHost> serviceHosts = new List<ServiceHost>();
-
+        private List<ServiceHost> serviceHosts = new List<ServiceHost>();
+        
 
         public void Close()
         {
-        // Look at this for lols
-// http://www.codeproject.com/Articles/24349/Generic-WCF-Host
-// http://stackoverflow.com/questions/8069854/what-is-the-proper-way-to-host-dozens-of-wcf-services-in-a-single-windows-servic
-            //serviceHosts.ForEach(s => s.Close());
-
-            foreach (ServiceHost serviceHost in serviceHosts)
+            foreach (ServiceHost serviceHost in serviceHosts.ToArray())
             {
                 try
                 {
@@ -39,9 +30,8 @@ namespace Restaurant.Server
                     {
                         serviceHost.Abort();
                     }
+                    serviceHosts.Remove(serviceHost);
                }
-
-                serviceHosts.Remove(serviceHost);
             }
         }
 
@@ -89,14 +79,6 @@ namespace Restaurant.Server
                 {
                     Console.WriteLine("Endpoint: {0}", s.Address);
                 }
-            }
-            catch (TimeoutException e)
-            {
-                Console.WriteLine("Timeout exception: {0}, {1}", name, e.Message);
-            }
-            catch (CommunicationException e)
-            {
-                Console.WriteLine("Communication exception: {0}, {1}", name, e.Message);
             }
             catch (Exception e)
             {
