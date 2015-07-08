@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -77,7 +77,7 @@ namespace Restaurant.Network
 
             // Release thread and close listener
             clientConnectedReset.Set();
-            clientListener.Stop();
+            clientListener.Server.Close();
         }
 
         /// <summary>
@@ -87,9 +87,32 @@ namespace Restaurant.Network
         private void AcceptCallBack(IAsyncResult result)
         {
             // Get the socket that handles the client request
-            TcpClient client = ((TcpListener)result.AsyncState).EndAcceptTcpClient(result);
+            TcpClient client;
+            try
+            {
+                client = ((TcpListener) result.AsyncState).EndAcceptTcpClient(result);
 
-            clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
+                clientListener.BeginAcceptSocket(AcceptCallBack, clientListener);
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Error accepting TCP Connection: {0}", e.Message);
+
+                // unrecoverable
+                clientConnectedReset.Set();
+                return;
+            }
+            catch(ObjectDisposedException)
+            {
+                // The listener was Stop()'d, disposing the underlying socket and
+                // triggering the completion of the callback. We're already exiting,
+                // so just return.
+                Console.WriteLine("Server stopped");
+                return;
+            }
+            
+            // TODO: Introduce ssl
+
 
             // Create a connection
             Connection connection = new Connection(buffer.Length)
