@@ -18,7 +18,8 @@ namespace Restaurant.Server
 
         public void Close()
         {
-
+        // Look at this for lols
+// http://www.codeproject.com/Articles/24349/Generic-WCF-Host
             //serviceHosts.ForEach(s => s.Close());
 
 //            foreach (ServiceHost serviceHost in serviceHosts)
