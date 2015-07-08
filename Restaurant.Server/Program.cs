@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.Diagnostics;
@@ -23,7 +23,7 @@ namespace Restaurant.Server
         [System.ComponentModel.DesignerCategory("Code")]
         private class WindowsService : ServiceBase
         {
-            public static string Name = "Restaurant Service";
+            public static string Name = "Restaurant Server";
 
             public static string Description = "Windows service for hosting TCP server and WCF services";
 
@@ -100,6 +100,8 @@ namespace Restaurant.Server
                     if (processes.Length <= 1)  
 #endif
                     {
+                        Console.Title = "Restaurant Server";
+
                         // running as console application
                         Start(args);
 
