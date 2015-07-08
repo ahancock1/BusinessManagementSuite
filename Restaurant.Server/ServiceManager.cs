@@ -20,28 +20,29 @@ namespace Restaurant.Server
         {
         // Look at this for lols
 // http://www.codeproject.com/Articles/24349/Generic-WCF-Host
+// http://stackoverflow.com/questions/8069854/what-is-the-proper-way-to-host-dozens-of-wcf-services-in-a-single-windows-servic
             //serviceHosts.ForEach(s => s.Close());
 
-//            foreach (ServiceHost serviceHost in serviceHosts)
-//            {
-//                try
-//                {
-//                    serviceHost.Close();
-//                }
-//                catch (Exception e)
-//                {
-//                    Console.WriteLine("Error closing service: {0}", e.Message);
-//                }
-//                finally
-//                {
-//                    if (serviceHost.State == CommunicationState.Faulted)
-//                    {
-//                        serviceHost.Abort();
-//                    }
-//                }
-//
-//                serviceHosts.Remove(serviceHost);
-//            }
+            foreach (ServiceHost serviceHost in serviceHosts)
+            {
+                try
+                {
+                    serviceHost.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error closing service: {0}", e.Message);
+                }
+                finally
+                {
+                    if (serviceHost.State == CommunicationState.Faulted)
+                    {
+                        serviceHost.Abort();
+                    }
+               }
+
+                serviceHosts.Remove(serviceHost);
+            }
         }
 
         public void OpenHost<T1, T2>(string name, int httpPort = 8001, int tcpPort = 9010)
