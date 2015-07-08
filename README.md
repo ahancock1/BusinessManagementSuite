@@ -35,6 +35,11 @@ Common - A library of helpers classes and extensions
 
 ## References
 
+use this for accessing the number of bytes sent in each wcf message call
+
+http://www.codeproject.com/Articles/24349/Generic-WCF-Host
+
+
 Use `ServiceHost` to host the web services in the server, example:
 
 ``` C#
