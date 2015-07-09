@@ -35,6 +35,10 @@ Common - A library of helpers classes and extensions
 
 ## References
 
+Generic WCF Service
+
+http://it.toolbox.com/blogs/paytonbyrd/wcf-design-pattern-generic-service-19027
+
 use this for accessing the number of bytes sent in each wcf message call
 
 http://www.codeproject.com/Articles/24349/Generic-WCF-Host
