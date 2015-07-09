@@ -4,6 +4,7 @@ using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data
 {
+    [DataContract(Name = "UserCredential"), KnownType(typeof(UserCredential))]
     public class UserCredential : Entity
     {
         [Key, ForeignKey("User")]
@@ -16,7 +17,8 @@ namespace Restaurant.Data
         [Required(ErrorMessage = "Password salt is required")]
         public string PasswordSalt { get; set; }
 
-//        [Required(ErrorMessage = "Privilege is required")]
+        //        [Required(ErrorMessage = "Privilege is required")]
+        [DataMember]
         public Privilege Privilege { get; set; }
 
         public virtual User User { get; set; }
