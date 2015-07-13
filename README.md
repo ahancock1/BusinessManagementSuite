@@ -40,6 +40,8 @@ returning a list from a wcf service  http://www.topwcftutorials.net/2013/05/coll
 
 Generic WCF Service
 
+http://weblogs.asp.net/zareian/how-to-write-a-generic-service-in-wcf
+
 http://it.toolbox.com/blogs/paytonbyrd/wcf-design-pattern-generic-service-19027
 
 use this for accessing the number of bytes sent in each wcf message call
