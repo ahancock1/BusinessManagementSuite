@@ -35,6 +35,9 @@ Common - A library of helpers classes and extensions
 
 ## References
 
+returning a list from a wcf service  http://www.topwcftutorials.net/2013/05/collections-from-wcf-service.html
+
+
 Generic WCF Service
 
 http://it.toolbox.com/blogs/paytonbyrd/wcf-design-pattern-generic-service-19027
