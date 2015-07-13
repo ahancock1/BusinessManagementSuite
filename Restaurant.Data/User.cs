@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Restaurant.Data.Accounting;
@@ -39,6 +40,8 @@ namespace Restaurant.Data
 
         [DataMember]
         public virtual Account Account { get; set; }
+
+        public virtual ICollection<VenueReview> Reviews { get; set; }
 
         public User()
         {
