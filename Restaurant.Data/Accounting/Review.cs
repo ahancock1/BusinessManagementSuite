@@ -22,7 +22,7 @@ namespace Restaurant.Data.Accounting
         [DataMember, Required]
         public string Content { get; set; }
 
-        [DataMember, Required, Range(0, 5, ErrorMessage = "Value must be between 0 and 5")]
+        [DataMember, Required, Range(0, 5, ErrorMessage = "Rating must be between 0 and 5")]
         public int Rating { get; set; }
 
         [DataMember]
