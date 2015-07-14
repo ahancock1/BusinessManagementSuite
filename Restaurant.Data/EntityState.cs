@@ -5,7 +5,7 @@ namespace Restaurant.Data
 {
     public enum EntityState : byte
     {
-        Unchanged = 0,
+        Unchanged = 2,
         Added = 1,
         Modified = 0,
         Deleted = -1
