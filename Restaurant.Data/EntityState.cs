@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.Design;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace Restaurant.Data
 {
-    public enum EntityState : byte
+    public enum EntityState
     {
-        Unchanged = 2,
-        Added = 1,
+        Deleted = -1,
         Modified = 0,
-        Deleted = -1
+        Added = 1,
+        Unchanged = 2
     }
 
     public interface IEntity

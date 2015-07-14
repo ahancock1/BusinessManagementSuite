@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting\Account.cs" />
+    <Compile Include="Accounting\Review.cs" />
     <Compile Include="Management\Inventory\OrderItem.cs" />
     <Compile Include="Management\Inventory\Stock.cs" />
     <Compile Include="Management\Menus\DrinkItem.cs" />

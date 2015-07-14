@@ -40,7 +40,7 @@ namespace Restaurant.Data
         [DataMember]
         public virtual Account Account { get; set; }
 
-        public virtual ICollection<VenueReview> Reviews { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
         public User()
         {

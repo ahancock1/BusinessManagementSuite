@@ -107,12 +107,27 @@ namespace Restaurant.Server
 
     class MonitorBehavior : IEndpointBehavior
     {
+        public void Validate(ServiceEndpoint endpoint)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+        {
+            //throw new NotImplementedException();
+        }
+
         public void ApplyDispatchBehavior(
         ServiceEndpoint endpoint,
         EndpointDispatcher endpointDispatcher)
         {
             endpointDispatcher.DispatchRuntime.MessageInspectors
                .Add(new MonitorDispatcher());
+        }
+
+        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+        {
+            //throw new NotImplementedException();
         }
 
         class MonitorDispatcher : IDispatchMessageInspector

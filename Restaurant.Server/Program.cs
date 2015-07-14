@@ -4,6 +4,7 @@ using System.Configuration.Install;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
+using Restaurant.Common;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
 using Restaurant.Data.Management.Staff;
@@ -81,6 +82,8 @@ namespace Restaurant.Server
 
         static void Main(string[] args)
         {
+            Logger.Info("Server started");
+
             if (!Environment.UserInteractive)
             {
                 // running as windows service
@@ -96,7 +99,7 @@ namespace Restaurant.Server
                     string process = Process.GetCurrentProcess().ProcessName;
                     Process[] processes = Process.GetProcessesByName(process);
 #if !DEBUG
-                    if (processes.Length <= 1)  
+                    if (processes.Length <= 1)
 #endif
                     {
                         Console.Title = "Restaurant Server";
@@ -107,9 +110,14 @@ namespace Restaurant.Server
                         Console.WriteLine("Press any key to stop...");
                         Console.ReadKey(true);
                     }
+                    else
+                    {
+                        Logger.Info("Server already running \r\n \t Shutting down...");
+                    }
                 }
                 catch (Exception e)
                 {
+                    Logger.Fatal("General Failure", e);
                     Console.WriteLine("General failure: {0} \r\n Press any key to close...", e.Message);
                     Console.ReadKey(true);
                 }
@@ -142,12 +150,12 @@ namespace Restaurant.Server
             // The service can be be accessed
             Console.WriteLine("Services Hosted");
 
-//            User result = new LoginService().GetUser("username", "password");
-//
-//            if (result != null)
-//            {
-//                Console.WriteLine("success");
-//            }
+            //            User result = new LoginService().GetUser("username", "password");
+            //
+            //            if (result != null)
+            //            {
+            //                Console.WriteLine("success");
+            //            }
         }
 
         private static void Stop()
@@ -160,6 +168,8 @@ namespace Restaurant.Server
             {
                 services.Close();
             }
+
+            Logger.Info("Server stopped");
 
             Environment.Exit(1);
         }

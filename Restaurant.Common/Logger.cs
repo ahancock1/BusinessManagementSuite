@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Reflection;
 using log4net;
 
-// http://www.codeproject.com/Tips/513202/Simplest-Implementation-of-log-net
 namespace Restaurant.Common
 {
     public class Log4NetConfigurationException : Exception
@@ -15,65 +11,66 @@ namespace Restaurant.Common
 
     public static class Logger
     {
-        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static void Error(object msg)
+        public static void Error(string msg)
         {
-            if (log == null)
+            if (Log == null)
             {
                 throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
             }
-            if (log.IsErrorEnabled)
+            if (Log.IsErrorEnabled)
             {
-                log.Error(msg);
+                Log.Error(String.Format("Error: {0}", msg));
             }
         }
 
-        public static void Error(object msg, Exception ex)
+        public static void Error(string msg, Exception e)
         {
-            if (log == null)
+            if (Log == null)
             {
                 throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
             }
-            if (log.IsErrorEnabled)
+            if (Log.IsErrorEnabled)
             {
-                log.Error(msg, ex);
+                Log.Error(String.Format("Error: {0}", msg), e);
             }
         }
 
-        public static void Error(Exception ex)
+        public static void Info(string msg)
         {
-            if (log == null)
+            if (Log == null)
             {
                 throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
             }
-            if (log.IsErrorEnabled)
+            if (Log.IsInfoEnabled)
             {
-                log.Error(ex.Message, ex);
+                Log.Info(String.Format("Info: {0}", msg));
             }
         }
 
-        public static void Info(object msg)
+        public static void Debug(string msg, Exception e)
         {
-            if (log == null)
+            if (Log == null)
             {
                 throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
             }
-            if (log.IsInfoEnabled)
+            if (Log.IsDebugEnabled)
             {
-                log.Info(msg);
+                Log.Debug(String.Format("Debug: {0}", msg), e);
             }
+
         }
 
-        public static void Debug(string msg)
+        public static void Fatal(string msg, Exception e)
         {
-            if (log == null)
+            if (Log == null)
             {
                 throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
             }
-            if (log.IsDebugEnabled)
+            if (Log.IsFatalEnabled)
             {
-                log.Debug(msg);
+                Log.Fatal(String.Format("Fatal: {0}", msg), e);
             }
 
         }

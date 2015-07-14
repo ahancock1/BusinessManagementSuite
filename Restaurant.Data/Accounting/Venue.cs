@@ -41,7 +41,7 @@ namespace Restaurant.Data.Accounting
 
         public virtual Account Account { get; set; }
 
-        public virtual IList<VenueReview> Reviews { get; set; }
+        public virtual IList<Review> Reviews { get; set; }
 
         public Venue()
         {
@@ -49,14 +49,14 @@ namespace Restaurant.Data.Accounting
             Description = String.Empty;
         }
 
-        public float GetUserRating()
-        {
-            if (Reviews != null)
-            {
-                return Reviews.Sum(r => r.Rating) / Reviews.Count;
-            }
-            return 0f;
-        }
+//        public float GetUserRating()
+//        {
+//            if (Reviews != null)
+//            {
+//                return Reviews.Sum(r => r.Rating) / Reviews.Count;
+//            }
+//            return 0f;
+//        }
     }
 
 }
