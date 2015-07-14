@@ -17,14 +17,14 @@ namespace Restaurant.Web
 
             // Initialise the wcf service and request a user
             LoginServiceClient client = new LoginServiceClient();
-            User user = client.GetUser("username", "password");
+//            User user = client.get("username", "password");
 
 
             // Check user
-            if (user != null)
-            {
-                Console.WriteLine("Success");
-            }
+//            if (user != null)
+//            {
+//                Console.WriteLine("Success");
+//            }
 
         }
     }

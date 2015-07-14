@@ -32,7 +32,6 @@ namespace Restaurant.Data
         [DataMember]
         public byte[] Image { get; set; }
 
-        [DataMember]
         public virtual UserCredential Credential { get; set; }
 
         [DataMember]

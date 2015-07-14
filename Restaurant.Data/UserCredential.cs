@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data
@@ -17,7 +18,6 @@ namespace Restaurant.Data
         [Required(ErrorMessage = "Password salt is required")]
         public string PasswordSalt { get; set; }
 
-        //        [Required(ErrorMessage = "Privilege is required")]
         [DataMember]
         public Privilege Privilege { get; set; }
 

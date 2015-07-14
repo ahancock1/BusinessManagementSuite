@@ -4,7 +4,6 @@ using System.Configuration.Install;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
-using Restaurant.Data;
 using Restaurant.Data.Management;
 using Restaurant.Data.Management.Floor;
 using Restaurant.Data.Management.Staff;

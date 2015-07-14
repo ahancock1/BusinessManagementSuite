@@ -1,0 +1,13 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Release\Restaurant.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\Restaurant.DataAccess.dll.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\Restaurant.DataAccess.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\Restaurant.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\EntityFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\Restaurant.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\System.Linq.Dynamic.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\Restaurant.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\EntityFramework.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Release\Restaurant.DataAccess.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.DataAccess\obj\Release\Restaurant.DataAccess.pdb
