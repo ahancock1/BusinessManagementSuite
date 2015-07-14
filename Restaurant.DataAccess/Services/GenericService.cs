@@ -146,31 +146,25 @@ namespace Restaurant.DataAccess.Services
             return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
         }
 
-        private static EntityState GetEntityState(DataEntityState entityState)
+        private EntityState GetEntityState(DataEntityState entityState)
         {
-            switch (entityState)
+            if (entityState == DataEntityState.Unchanged)
             {
-                case DataEntityState.Unchanged:
-                    {
-                        return EntityState.Unchanged;
-                    }
-                case DataEntityState.Added:
-                    {
-                        return EntityState.Added;
-                    }
-                case DataEntityState.Modified:
-                    {
-                        return EntityState.Modified;
-                    }
-                case DataEntityState.Deleted:
-                    {
-                        return EntityState.Deleted;
-                    }
-                default:
-                    {
-                        return EntityState.Detached;
-                    }
+                return EntityState.Unchanged;
             }
+            if (entityState == DataEntityState.Added)
+            {
+                return EntityState.Added;
+            }
+            if (entityState == DataEntityState.Modified)
+            {
+                return EntityState.Modified;
+            }
+            if (entityState == DataEntityState.Deleted)
+            {
+                return EntityState.Deleted;
+            }
+            return EntityState.Detached;
         }
     }
 }
