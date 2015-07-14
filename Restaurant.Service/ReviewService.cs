@@ -36,6 +36,8 @@ namespace Restaurant.Service
 
             foreach (Review review in reviews)
             {
+                if (review.EntityState == EntityState.Unchanged) continue;
+
                 Venue result = service.Get<Venue>(v => v.VenueID == review.Venue.VenueID);
                 result.EntityState = EntityState.Modified;
 
