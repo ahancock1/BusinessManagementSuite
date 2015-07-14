@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant.Data
 {
-    public enum EntityState
+    public enum EntityState : byte
     {
-        Unchanged,
-        Added,
-        Modified,
-        Deleted
+        Unchanged = 2,
+        Added = 1,
+        Modified = 0,
+        Deleted = -1
     }
 
     public interface IEntity
