@@ -14,7 +14,11 @@ namespace Restaurant.Service
     {
         bool Update(Review[] reviews);
 
+        Review[] All(User user);
 
+        Review[] All(Venue venue);
+
+        Review Get(int id);
     }
 
     public class ReviewService : IReviewService
@@ -42,6 +46,36 @@ namespace Restaurant.Service
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Gets all reviews by the specified user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Review[] All(User user)
+        {
+            return service.All<Review>(r => r.User.UserID == user.UserID, r => r.User, r => r.Venue).ToArray();
+        }
+
+        /// <summary>
+        /// Gets all reviews by the specified venue
+        /// </summary>
+        /// <param name="venue"></param>
+        /// <returns></returns>
+        public Review[] All(Venue venue)
+        {
+            return service.All<Review>(r => r.Venue.VenueID == venue.VenueID, r => r.User, r => r.Venue).ToArray();
+        }
+
+        /// <summary>
+        /// Gets a review by a review id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Review Get(int id)
+        {
+            return service.Get<Review>(r => r.ReviewID == id, r => r.User, r => r.Venue);
         }
     }
 }
