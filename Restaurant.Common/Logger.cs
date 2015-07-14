@@ -21,7 +21,7 @@ namespace Restaurant.Common
             }
             if (Log.IsErrorEnabled)
             {
-                Log.Error(String.Format("Error: {0}", msg));
+                Log.Error(String.Format("Error: {0},", msg));
             }
         }
 
@@ -33,7 +33,7 @@ namespace Restaurant.Common
             }
             if (Log.IsErrorEnabled)
             {
-                Log.Error(String.Format("Error: {0}", msg), e);
+                Log.Error(String.Format("Error: {0},", msg), e);
             }
         }
 
@@ -45,7 +45,19 @@ namespace Restaurant.Common
             }
             if (Log.IsInfoEnabled)
             {
-                Log.Info(String.Format("Info: {0}", msg));
+                Log.Info(String.Format("Info: {0},", msg));
+            }
+        }
+
+        public static void Info(string msg, Exception e)
+        {
+            if (Log == null)
+            {
+                throw new Log4NetConfigurationException("Logger.InvalidConfiguration");
+            }
+            if (Log.IsInfoEnabled)
+            {
+                Log.Info(String.Format("Info: {0},", msg), e);
             }
         }
 
@@ -57,7 +69,7 @@ namespace Restaurant.Common
             }
             if (Log.IsDebugEnabled)
             {
-                Log.Debug(String.Format("Debug: {0}", msg), e);
+                Log.Debug(String.Format("Debug: {0},", msg), e);
             }
 
         }
@@ -70,7 +82,7 @@ namespace Restaurant.Common
             }
             if (Log.IsFatalEnabled)
             {
-                Log.Fatal(String.Format("Fatal: {0}", msg), e);
+                Log.Fatal(String.Format("Fatal: {0},", msg), e);
             }
 
         }

@@ -35,6 +35,17 @@ namespace Restaurant.Data.Accounting
         [DataMember]
         public string Url { get; set; }
 
+        public TimeSpan Open { get; set; }
+
+        public TimeSpan Close { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string EmailAddress { get; set; }
+
+        public string Address { get; set; }
+
+
         public virtual ICollection<User> Users { get; set; }
 
         public virtual VenueType RestaurantType { get; set; }
@@ -49,14 +60,14 @@ namespace Restaurant.Data.Accounting
             Description = String.Empty;
         }
 
-//        public float GetUserRating()
-//        {
-//            if (Reviews != null)
-//            {
-//                return Reviews.Sum(r => r.Rating) / Reviews.Count;
-//            }
-//            return 0f;
-//        }
+        //        public float GetUserRating()
+        //        {
+        //            if (Reviews != null)
+        //            {
+        //                return Reviews.Sum(r => r.Rating) / Reviews.Count;
+        //            }
+        //            return 0f;
+        //        }
     }
 
 }
