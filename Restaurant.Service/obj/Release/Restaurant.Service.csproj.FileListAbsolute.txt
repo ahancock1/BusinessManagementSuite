@@ -11,3 +11,7 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Rele
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Restaurant.Service.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Restaurant.Service.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Restaurant.Service.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Restaurant.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\log4net.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Restaurant.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\log4net.xml

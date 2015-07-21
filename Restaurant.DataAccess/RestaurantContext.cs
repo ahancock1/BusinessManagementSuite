@@ -17,12 +17,13 @@ namespace Restaurant.DataAccess
         public DbSet<Member> Members { get; set; }
 
         // TODO: remove
-        public DbSet<StaffMember> StaffMembers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Credential> UserCredentials { get; set; }
 
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<UserCredential> UserCredentials { get; set; }
 
 
         public DbSet<Table> Tables { get; set; }
@@ -35,7 +36,7 @@ namespace Restaurant.DataAccess
 
         public DbSet<Ticket> Tickets { get; set; }
 
-        public DbSet<Shift> Shifts { get; set; } 
+        public DbSet<Shift> Shifts { get; set; }
 
 
         public RestaurantContext()
@@ -66,7 +67,7 @@ namespace Restaurant.DataAccess
                     }
                 }
 
-                throw; 
+                throw;
             }
         }
     }
@@ -75,11 +76,11 @@ namespace Restaurant.DataAccess
     {
         protected override void Seed(RestaurantContext context)
         {
-            List<User> users = new List<User>
+            List<Employee> employees = new List<Employee>
             {
-                new User
+                new Employee
                 {
-                    Credential = new UserCredential
+                    Credential = new Credential
                     {
                         Password = "password",
                         PasswordSalt = "passwordsalt"
@@ -92,7 +93,7 @@ namespace Restaurant.DataAccess
                     PhoneNumber = "01234567890"
                 }
             };
-            users.ForEach(u => context.Users.Add(u));
+            employees.ForEach(e => context.Employees.Add(e));
         }
     }
 }

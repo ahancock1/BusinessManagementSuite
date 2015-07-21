@@ -7,7 +7,7 @@ using Restaurant.Data.Accounting;
 namespace Restaurant.Data
 {
     [DataContract(Name = "User"), KnownType(typeof(User))]
-    public class User : Entity
+    public class Employee : Entity
     {
         public int UserID { get; set; }
 
@@ -32,7 +32,7 @@ namespace Restaurant.Data
         [DataMember]
         public byte[] Image { get; set; }
 
-        public virtual UserCredential Credential { get; set; }
+        public virtual Credential Credential { get; set; }
 
         [DataMember]
         public virtual Venue Venue { get; set; }
@@ -41,11 +41,6 @@ namespace Restaurant.Data
         public virtual Account Account { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
-
-        public User()
-        {
-
-        }
-
+        
     }
 }

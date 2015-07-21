@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data.Management.Floor
 {
-    [Serializable]
+    [DataContract]
     public class Reservation : Entity
     {
+        [Key, DataMember]
         public int ReservationID { get; set; }
         
         [Required]

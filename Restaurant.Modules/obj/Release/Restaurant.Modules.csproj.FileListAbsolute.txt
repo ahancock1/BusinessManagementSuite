@@ -1,0 +1,5 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\bin\Release\Restaurant.Modules.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\bin\Release\Restaurant.Modules.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Release\Restaurant.Modules.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Release\Restaurant.Modules.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Release\Restaurant.Modules.pdb

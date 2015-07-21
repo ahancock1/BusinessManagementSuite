@@ -5,8 +5,8 @@ using Restaurant.Data.Management.Staff;
 
 namespace Restaurant.Data
 {
-    [DataContract(Name = "UserCredential"), KnownType(typeof(UserCredential))]
-    public class UserCredential : Entity
+    [DataContract(Name = "UserCredential"), KnownType(typeof(Credential))]
+    public class Credential : Entity
     {
         [Key, ForeignKey("User")]
         public int UserID { get; set; }
@@ -24,7 +24,7 @@ namespace Restaurant.Data
         public virtual User User { get; set; }
 
 
-        public UserCredential()
+        public Credential()
         {
             // Calculate password salt here
 

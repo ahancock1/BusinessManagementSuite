@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+using Restaurant.Data.Accounting;
 
 namespace Restaurant.Data.Management.Floor
 {
-    [Serializable]
+    [DataContract]
     public class Table : Entity
     {
+        [Key, DataMember]
         public int TableID { get; set; }
 
-        [Required]
+
+        [DataMember]
         public byte Number { get; set; }
 
-        [Required]
+        [DataMember]
         public byte Seats { get; set; }
-        
-        public Section Section { get; set; }
+
+        [DataMember]
+        public virtual Section Section { get; set; }
+
+        [DataMember]
+        public virtual Venue Venue { get; set; }
+
 
         public virtual ICollection<Reservation> Reservations { get; set; }
-        
-
-        public Table()
-        {
-            Section = new Section();
-        }
     }
 }

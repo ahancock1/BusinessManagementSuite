@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting\Account.cs" />
+    <Compile Include="Accounting\Contact.cs" />
     <Compile Include="Accounting\MailCampaign.cs" />
     <Compile Include="Accounting\Review.cs" />
+    <Compile Include="Guest.cs" />
     <Compile Include="Management\Inventory\OrderItem.cs" />
     <Compile Include="Management\Inventory\Stock.cs" />
     <Compile Include="Management\Menus\DrinkItem.cs" />
@@ -78,8 +80,8 @@
     <Compile Include="Management\Inventory\Order.cs" />
     <Compile Include="Management\Ticket.cs" />
     <Compile Include="Management\TicketType.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCredential.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Credential.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
