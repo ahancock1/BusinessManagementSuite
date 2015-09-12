@@ -1,0 +1,4 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\bin\Release\Com.Framework.Modules.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\bin\Release\Com.Framework.Modules.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Release\Com.Framework.Modules.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Release\Com.Framework.Modules.pdb

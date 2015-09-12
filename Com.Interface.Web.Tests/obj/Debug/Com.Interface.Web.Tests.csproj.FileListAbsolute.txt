@@ -1,0 +1,7 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\bin\Debug\Com.Interface.Web.Tests.dll.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\bin\Debug\Com.Interface.Web.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\bin\Debug\Com.Interface.Web.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\obj\Debug\Com.Interface.Web.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\obj\Debug\Com.Interface.Web.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Interface.Web.Tests\obj\Debug\Com.Interface.Web.Tests.pdb

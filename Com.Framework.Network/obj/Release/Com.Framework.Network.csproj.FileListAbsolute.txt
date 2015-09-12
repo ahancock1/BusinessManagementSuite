@@ -1,0 +1,12 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\log4net.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Network.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\log4net.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\bin\Release\log4net.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Release\Com.Framework.Network.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Release\Com.Framework.Network.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Network\obj\Release\Com.Framework.Network.pdb

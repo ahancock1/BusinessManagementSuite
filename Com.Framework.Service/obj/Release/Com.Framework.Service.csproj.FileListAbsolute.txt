@@ -1,0 +1,17 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\log4net.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Service.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Service.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.DataAccess.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\log4net.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\EntityFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\System.Linq.Dynamic.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\Com.Framework.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\log4net.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\bin\Release\EntityFramework.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Com.Framework.Service.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Com.Framework.Service.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Service\obj\Release\Com.Framework.Service.pdb

@@ -1,0 +1,12 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Data.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Data.Tests.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\log4net.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\bin\Release\log4net.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\obj\Release\Com.Framework.Data.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\obj\Release\Com.Framework.Data.Tests.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Data.Tests\obj\Release\Com.Framework.Data.Tests.pdb

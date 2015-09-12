@@ -1,0 +1,7 @@
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\Release\log4net.config
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\Release\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\Release\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\Release\log4net.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\Release\log4net.xml
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\obj\Release\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\obj\Release\Com.Framework.Common.pdb
