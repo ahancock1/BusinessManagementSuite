@@ -120,7 +120,7 @@ Fix this error: The communication object, System.ServiceModel.ServiceHost, canno
 
 ~~The server can be hosted as an .exe or a windows service which will start and stop when the computer is shutdown and restarted.~~
 
-Butcher this in the App.Config to set up the service correctly
+~~Butcher this in the App.Config to set up the service correctly~~ All the hosting is done neatly in code not through a config file. todo: maybe add own simpler config file once serialisation class has been fixed
 
 ``` XML
 <system.serviceModel>
