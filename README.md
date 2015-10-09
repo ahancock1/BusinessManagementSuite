@@ -178,4 +178,15 @@ Licence generation: http://www.codeproject.com/Articles/11012/License-Key-Genera
 
 IIS Hosting: http://www.codeproject.com/Articles/550796/A-Beginners-Tutorial-on-How-to-Host-a-WCF-Service
 
+# Annotation
+```
+[MaxLength(100, "{0} can have a max of {1} characters")]
+public string Address { get; set; }
+```
+Will output the following if it is over the character limit: "Address can have a max of 100 characters"
 
+The placeholders I am aware of are:
+
+{0} = Property Name
+{1} = Max Length
+{2} = Min Length
