@@ -43,6 +43,7 @@ https://msdn.microsoft.com/en-us/library/ms189852.aspx
 
 returning a list from a wcf service  http://www.topwcftutorials.net/2013/05/collections-from-wcf-service.html
 
+pushing notifications to a website http://stackoverflow.com/questions/17986907/push-notification-mechanism-between-a-server-and-a-client-app
 
 Generic WCF Service
 
