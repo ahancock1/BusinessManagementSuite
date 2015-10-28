@@ -194,3 +194,9 @@ The placeholders I am aware of are:
 
 Database schema notes
 http://www.entityframeworktutorial.net/code-first/table-dataannotations-attribute-in-code-first.aspx
+
+
+### Notes
+
+Use WCF for data access and use websockets for push notifications such as updates and new data. This can be loosely based on the Network library.
+
