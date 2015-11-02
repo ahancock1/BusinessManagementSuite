@@ -200,3 +200,4 @@ http://www.entityframeworktutorial.net/code-first/table-dataannotations-attribut
 
 Use WCF for data access and use websockets for push notifications such as updates and new data. This can be loosely based on the Network library. Or use SingalR: http://signalr.net/
 
+https://github.com/timbussmann/Battleships
