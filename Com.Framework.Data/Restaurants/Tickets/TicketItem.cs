@@ -10,7 +10,7 @@ using Com.Framework.Data.Restaurants.Tables;
 namespace Com.Framework.Data.Restaurants.Tickets
 {
     [DataContract]
-    public class TicketItem : Entity, IBillable
+    public class TicketItem : BaseEntity, IBillable
     {
         [DataMember]
         public int TicketItemID { get; set; }

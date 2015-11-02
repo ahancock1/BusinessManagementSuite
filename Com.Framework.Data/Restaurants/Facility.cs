@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Com.Framework.Data.Restaurants
 {
     [DataContract]
-    public class Facility : Entity
+    public class Facility : BaseEntity
     {
         [DataMember]
         public int FacilityID { get; set; }

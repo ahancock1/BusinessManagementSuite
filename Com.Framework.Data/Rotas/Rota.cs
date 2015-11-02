@@ -8,10 +8,18 @@ using System.Threading.Tasks;
 namespace Com.Framework.Data.Rotas
 {
     [DataContract]
-    public class Rota : Entity
+    public class Rota : BaseEntity
     {
+        #region Keys
         [DataMember]
         public int RotaID { get; set; }
+
+        [DataMember]
+        public int PremiseID { get; set; }
+
+        #endregion
+
+        #region Properties
 
         [DataMember]
         public ICollection<Shift> Shifts { get; set; }
@@ -19,15 +27,21 @@ namespace Com.Framework.Data.Rotas
         [DataMember]
         public int Week { get; set; }
 
-        public DateTime Created { get; set; }
-
-        public DateTime Modified { get; set; }
-
+        [DataMember]
         public DateTime Start { get; set; }
 
+        [DataMember]
         public DateTime End { get; set; }
 
+        #endregion
+
+        #region Navigation Properties
+
         protected virtual Premise Premise { get; set; }
+
+        #endregion
+
+
 
         public Rota()
         {

@@ -4,86 +4,65 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Linq.Dynamic;
 using System.Linq.Expressions;
-using System.ServiceModel;
+using System.Threading.Tasks;
 using Com.Framework.Common.Logging;
 using Com.Framework.Data;
+using PagedList;
 using DataEntityState = Com.Framework.Data.EntityState;
 using EntityState = System.Data.Entity.EntityState;
 
 
 namespace Com.Framework.DataAccess.Services
 {
-    [ServiceContract]
-    public interface IGenericService
-    {
-        [OperationContract]
-        IList<T> All<T>() where T : Entity;
-
-        [OperationContract]
-        IList<T> All<T>(string where, params string[] include)
-            where T : Entity;
-
-        [OperationContract]
-        IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : Entity;
-
-        [OperationContract]
-        T Get<T>(string where, params string[] include) where T : Entity;
-
-        [OperationContract]
-        T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : Entity;
-
-        [OperationContract]
-        bool Update<T>(params T[] items) where T : Entity;
-    }
-
     public class GenericService : IGenericService
     {
-        public virtual IList<T> All<T>() where T : Entity
+        private readonly bool trace;
+
+        public GenericService()
+        {
+#if DEBUG
+            trace = true;
+#endif
+        }
+
+        public virtual IEnumerable<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : BaseEntity
         {
             using (var context = new DataContext())
             {
-                return context.Set<T>().ToList();
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+                return Query(context, include).AsNoTracking().Where(where);
             }
         }
 
-        public virtual IList<T> All<T>(params Expression<Func<T, object>>[] include)
-            where T : Entity
+        public virtual IPagedList<T> AllPaginated<T>(int page, int pageSize, Func<T, bool> where, params Expression<Func<T, object>>[] include)
+            where T : BaseEntity
         {
             using (var context = new DataContext())
             {
-                return Query(context, include).AsNoTracking().ToList();
-            }
-        }
-
-        public virtual IList<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : Entity
-        {
-            using (var context = new DataContext())
-            {
-                return Query(context, include).AsNoTracking().Where(where).ToList();
-            }
-        }
-
-        public virtual IList<T> All<T>(string where, params string[] include)
-            where T : Entity
-        {
-            using (var context = new DataContext())
-            {
-                return Query<T>(context, include).AsNoTracking().Where(where).ToList();
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+                return Query(context, include).AsNoTracking().Where(where).ToPagedList(page, pageSize);
             }
         }
 
         public virtual T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : Entity
+            where T : BaseEntity
         {
             try
             {
                 using (var context = new DataContext())
                 {
+                    if (trace)
+                    {
+                        context.Database.Log = Console.WriteLine;
+                    }
                     return Query(context, include).AsNoTracking().Where(where).FirstOrDefault();
                 }
             }
@@ -93,44 +72,29 @@ namespace Com.Framework.DataAccess.Services
             }
             catch (Exception e)
             {
-                Logger.Error(String.Format("Couldn't \"GET\" {0}, {1}", typeof(T).Name, where), e);
+                Logger.Error(String.Format("Couldn't \"GET\" {0}.", typeof(T).Name), e);
                 return default(T);
                 //                return null;
             }
         }
 
-        public virtual T Get<T>(string where, params string[] include)
-            where T : Entity
-        {
-            try
-            {
-                using (var context = new DataContext())
-                {
-                    return Query<T>(context, include).AsNoTracking().Where(where).FirstOrDefault();
-                }
-            }
-            catch (DbEntityValidationException)
-            {
-                return default(T);
-            }
-            catch (Exception e)
-            {
-                Logger.Error(String.Format("Couldn't \"GET\" {0}, {1}", typeof(T).Name, where), e);
-                return default(T);
-            }
-        }
-
-        public virtual bool Update<T>(params T[] items) where T : Entity
+        public virtual bool Update<T>(params T[] items) where T : BaseEntity
         {
             using (var context = new DataContext())
             {
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+
                 DbSet<T> dbSet = context.Set<T>();
+                // Change this to for int i ... if i need to return updated items
                 foreach (T item in items)
                 {
                     Console.WriteLine("{0}: {1}", item.EntityState, item);
                     dbSet.Add(item);
 
-                    foreach (DbEntityEntry<Entity> entry in context.ChangeTracker.Entries<Entity>())
+                    foreach (DbEntityEntry<BaseEntity> entry in context.ChangeTracker.Entries<BaseEntity>())
                     {
                         entry.State = GetEntityState(entry.Entity.EntityState);
                     }
@@ -139,12 +103,32 @@ namespace Com.Framework.DataAccess.Services
             }
         }
 
-        private static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : Entity
+        public async virtual Task<bool> UpdateAsync<T>(params T[] items) where T : BaseEntity
         {
-            return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
+            using (var context = new DataContext())
+            {
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+
+                DbSet<T> dbSet = context.Set<T>();
+                // Change this to for int i ... if i need to return updated items
+                foreach (T item in items)
+                {
+                    Console.WriteLine("{0}: {1}", item.EntityState, item);
+                    dbSet.Add(item);
+
+                    foreach (DbEntityEntry<BaseEntity> entry in context.ChangeTracker.Entries<BaseEntity>())
+                    {
+                        entry.State = GetEntityState(entry.Entity.EntityState);
+                    }
+                }
+                return await context.SaveChangesAsync() == items.Length;
+            }
         }
 
-        private static IQueryable<T> Query<T>(DbContext context, params string[] include) where T : Entity
+        private static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : BaseEntity
         {
             return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
         }

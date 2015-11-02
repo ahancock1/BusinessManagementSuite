@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Com.Framework.Data.Restaurants.Tables
 {
-    public class TableLocation : Entity
+    public class TableLocation : BaseEntity
     {
         [DataMember]
         public float X { get; }

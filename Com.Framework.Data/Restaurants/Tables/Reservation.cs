@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Com.Framework.Data.Restaurants.Tables
 {
     [DataContract]
-    public class Reservation : Entity
+    public class Reservation : BaseEntity
     {
         [DataMember]
         public int ReservationID { get; set; }
+
+        [DataMember]
+        public int PremiseID { get; set; }
 
         [DataMember]
         public int PartySize { get; set; }
@@ -27,6 +27,9 @@ namespace Com.Framework.Data.Restaurants.Tables
 
         [DataMember]
         public Hours Hours { get; set; }
+
+        [DataMember]
+        public DateTime Date { get; set; }
 
         [DataMember]
         public DateTime Created { get; set; }

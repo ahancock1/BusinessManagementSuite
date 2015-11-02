@@ -12,7 +12,7 @@ namespace Com.Framework.Data.Pos
     }
 
     [DataContract]
-    public class Terminal : Entity
+    public class Terminal : BaseEntity
     {
         [DataMember]
         public int TerminalID { get; set; }
@@ -30,7 +30,7 @@ namespace Com.Framework.Data.Pos
     }
 
     [DataContract]
-    public class TerminalHistory : Entity
+    public class TerminalHistory : BaseEntity
     {
         [DataMember]
         public int TerminalHistoryID { get; set; }

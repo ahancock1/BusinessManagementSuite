@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Social Media Player Colours -->
+
+    <SolidColorBrush x:Key="TextBoxBorder" Color="#1F1F1F"/>
+    <SolidColorBrush x:Key="TextBoxBackground" Color="#262626"/>
+
+
+
+
+
+
+    <SolidColorBrush x:Key="BorderDark" Color="#202020"/>
+    <SolidColorBrush x:Key="BorderLight" Color="#9c9c9c"/>
+
+    <SolidColorBrush x:Key="BackgroundDark" Color="#252525"/>
+    <SolidColorBrush x:Key="BackgroundLight" Color="#8E8E8E"/>
+
+    <SolidColorBrush x:Key="Background" Color="#303030"/>
+    <SolidColorBrush x:Key="Selected" Color="#141414"/>
+
+    <SolidColorBrush x:Key="Foreground" Color="#8F8F8F"/>
+
+    <!--<SolidColorBrush x:Key="BackgroundDark" Color="#293541"/>-->
+    <SolidColorBrush x:Key="BackgroundDarkSelected" Color="#34404C"/>
+
+    <!-- DataGrid Colours -->
+    <SolidColorBrush x:Key="HeaderBackground" Color="#93949A"/>
+    <SolidColorBrush x:Key="HeaderForeground" Color="#EAEDF1"/>
+    <SolidColorBrush x:Key="HeaderForegroundDark" Color="#636B72"/>
+
+    <SolidColorBrush x:Key="AlternateRowBackground" Color="#E6E8EB"/>
+    <SolidColorBrush x:Key="RowBackground" Color="#F9F9F9"/>
+
+
+    <!-- Text Colours -->
+    <SolidColorBrush x:Key="TextForegroundLight" Color="#EAEDF1"/>
+    <SolidColorBrush x:Key="TextForegroundDark" Color="#93949A"/>
+
+    <SolidColorBrush x:Key="ForegroundColour" Color="#F2733E"/>
+
+    <SolidColorBrush x:Key="ForegroundColourDark" Color="#DF4B1E"/>
+    <SolidColorBrush x:Key="ForegroundColourLight" Color="#F89C6C"/>
+
+
+
+</ResourceDictionary>

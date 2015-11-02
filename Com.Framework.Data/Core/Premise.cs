@@ -4,15 +4,24 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Com.Framework.Common.Extensions;
 using Com.Framework.Data.Core;
+using Com.Framework.Data.Restaurants.Menus;
+using Newtonsoft.Json;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Premise : Entity
+    public class Premise : BaseEntity
     {
+        #region Keys
         [DataMember]
         public int PremiseID { get; set; }
 
+        [DataMember]
+        public int OrganisationID { get; set; }
+
+        #endregion
+
+        #region Properties
         [DataMember]
         public string Name { get; set; }
 
@@ -29,12 +38,6 @@ namespace Com.Framework.Data
         public string Currency { get; set; }
 
         [DataMember]
-        public DateTime Created { get; set; }
-
-        [DataMember]
-        public DateTime Modified { get; set; }
-
-        [DataMember]
         public string ApiKey { get; set; }
 
         [DataMember]
@@ -49,8 +52,6 @@ namespace Com.Framework.Data
         [DataMember]
         public ICollection<Hours> OpenHours { get; set; }
 
-        public ICollection<Review> Reviews { get; set; }
-
         [DataMember]
         public ICollection<PaymentMethod> PaymentMethods { get; set; }
 
@@ -58,10 +59,10 @@ namespace Com.Framework.Data
         public float Rating { get; set; }
 
         // TODO: This needs to be updated when a new review is added
+        [DataMember]
         public float ReviewRating { get; set; }
 
-        protected virtual Organisation Organisation { get; set; }
-
+        [DataMember]
         public PremiseType PremiseType { get; set; }
 
         [DataMember]
@@ -71,7 +72,36 @@ namespace Com.Framework.Data
         public ICollection<Department> Departments { get; set; }
 
         [DataMember]
-        public ICollection<EmployeeGroup> EnployeeGroups { get; set; }
+        public ICollection<EmployeeGroup> EmployeeGroups { get; set; }
+
+        [DataMember]
+        public ICollection<MenuCategory> MenuCategories { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        [JsonIgnore]
+        protected virtual Organisation Organisation { get; set; }
+
+        [JsonIgnore]
+        protected virtual ICollection<Review> Reviews { get; set; }
+
+        #endregion
+
+
+        public Premise()
+        {
+            Addresses = new List<Address>();
+            PhoneNumbers = new List<PhoneNumber>();
+            EmailAddresses = new List<Email>();
+            OpenHours = new List<Hours>();
+            Employees = new List<Employee>();
+            Departments = new List<Department>();
+            EmployeeGroups = new List<EmployeeGroup>();
+            MenuCategories = new List<MenuCategory>();
+
+        }
 
         public bool IsOpenNow
         {

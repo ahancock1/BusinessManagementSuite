@@ -1,26 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Com.Framework.Data
 {
-    public class Address : Entity
+    [DataContract]
+    public class Address : BaseEntity
     {
+        [DataMember]
         public int AddressID { get; set; }
 
+        [DataMember]
         public AddressType AddressType { get; set; }
 
+        [DataMember]
         public string House { get; set; }
 
+        [DataMember]
         public string Street { get; set; }
 
+        [DataMember]
         public string Town { get; set; }
 
+        [DataMember]
         public string City { get; set; }
 
+        [DataMember]
         public string Region { get; set; }
 
+        [DataMember]
         public string PostalCode { get; set; }
 
+        [DataMember]
         public string Country { get; set; }
+
+        // Navigation Properties
+        protected ICollection<Employee> Employees { get; set; }
+
+        protected ICollection<Premise> Premises { get; set; }
+
+        protected ICollection<Organisation> Organisations { get; set; }
 
 
         public Address()
@@ -30,7 +49,7 @@ namespace Com.Framework.Data
 
         public static bool Validate(Address address)
         {
-            throw new NotImplementedException("Address velidation is not yet implemented");
+            throw new NotImplementedException("Address validation is not yet implemented");
         }
     }
 

@@ -4,10 +4,18 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.PayRoll
 {
     [DataContract]
-    public class SalaryAndWage
+    public class SalaryAndWage : BaseEntity
     {
+        #region Keys
         [DataMember]
         public int SalaryAndWageID { get; set; }
+
+        [DataMember]
+        public int EmployeeID { get; set; }
+
+        #endregion
+
+        #region Properties
 
         [DataMember]
         public decimal HourlyRate { get; set; }
@@ -19,7 +27,19 @@ namespace Com.Framework.Data.PayRoll
         public float HoursPerWeek { get; set; }
 
         [DataMember]
-        public DateTime EffectiveDate { get; set; }
+        public DateTime? EffectiveDate { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+        protected virtual Employee Employee { get; set; }
+
+        #endregion
+
+        public SalaryAndWage()
+        {
+
+        }
 
         public decimal Value
         {

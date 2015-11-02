@@ -41,10 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Core\EmployeeService.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="MailService.cs" />
-    <Compile Include="MenuService.cs" />
+    <Compile Include="Marketing\MailCampaignService.cs" />
+    <Compile Include="NotificationService.cs" />
+    <Compile Include="Restaurants\Menus\MenuService.cs" />
+    <Compile Include="Core\OrganisationService.cs" />
+    <Compile Include="Core\PremiseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rotas\RotaService.cs" />
+    <Compile Include="Rotas\ShiftService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Com.Framework.Common\Com.Framework.Common.csproj">
@@ -59,6 +67,9 @@
       <Project>{592c95e7-49c6-4832-9358-afad0252ce36}</Project>
       <Name>Com.Framework.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

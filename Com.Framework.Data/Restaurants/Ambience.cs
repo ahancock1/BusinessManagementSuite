@@ -4,10 +4,10 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants
 {
     [DataContract]
-    public class Ambience : Entity
+    public class Ambience : BaseEntity
     {
         [DataMember]
-        public int CuisineID { get; set; }
+        public int AmbienceID { get; set; }
 
         [DataMember]
         public string Name { get; set; }

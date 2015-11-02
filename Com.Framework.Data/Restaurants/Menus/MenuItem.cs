@@ -5,7 +5,7 @@ using Com.Framework.Data.Restaurants.Tickets;
 namespace Com.Framework.Data.Restaurants.Menus
 {
     [DataContract]
-    public class MenuItem : Entity, IBillable
+    public class MenuItem : BaseEntity, IBillable
     {
         [DataMember]
         public int MenuItemID { get; set; }

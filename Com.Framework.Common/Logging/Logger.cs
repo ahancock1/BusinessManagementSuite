@@ -11,11 +11,11 @@ namespace Com.Framework.Common.Logging
 
     public static class Logger
     {
-        private const ConsoleColor DebugColour = ConsoleColor.DarkGray;
-        private const ConsoleColor InfoColour = ConsoleColor.White;
-        private const ConsoleColor ErrorColour = ConsoleColor.Yellow;
-        private const ConsoleColor FatalColour = ConsoleColor.Red;
-        private const ConsoleColor DefaultColour = ConsoleColor.White;
+        public const ConsoleColor DebugColour = ConsoleColor.DarkGray;
+        public const ConsoleColor InfoColour = ConsoleColor.White;
+        public const ConsoleColor ErrorColour = ConsoleColor.Yellow;
+        public const ConsoleColor FatalColour = ConsoleColor.Red;
+        public const ConsoleColor DefaultColour = ConsoleColor.White;
 
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -29,11 +29,11 @@ namespace Com.Framework.Common.Logging
             if (!Log.IsErrorEnabled) return;
             if (e != null)
             {
-                Log.Error(String.Format("Error: {0},", msg), e);
+                Log.Error(String.Format("Error: {0}.", msg), e);
             }
             else
             {
-                Log.Error(String.Format("Error: {0},", msg));
+                Log.Error(String.Format("Error: {0}.", msg));
             }
         }
 
@@ -47,11 +47,11 @@ namespace Com.Framework.Common.Logging
             if (!Log.IsInfoEnabled) return;
             if (e != null)
             {
-                Log.Info(String.Format("Info: {0},", msg), e);
+                Log.Info(String.Format("Info: {0}.", msg), e);
             }
             else
             {
-                Log.Info(String.Format("Info: {0},", msg));
+                Log.Info(String.Format("Info: {0}.", msg));
             }
         }
 
@@ -65,11 +65,11 @@ namespace Com.Framework.Common.Logging
             if (!Log.IsDebugEnabled) return;
             if (e != null)
             {
-                Log.Debug(String.Format("Debug: {0},", msg), e);
+                Log.Debug(String.Format("Debug: {0}.", msg), e);
             }
             else
             {
-                Log.Debug(String.Format("Debug: {0},", msg));
+                Log.Debug(String.Format("Debug: {0}.", msg));
             }
         }
 
@@ -84,20 +84,26 @@ namespace Com.Framework.Common.Logging
 
             if (e != null)
             {
-                Log.Fatal(String.Format("Fatal: {0},", msg), e);
+                Log.Fatal(String.Format("Fatal: {0}.", msg), e);
             }
             else
             {
-                Log.Fatal(String.Format("Fatal: {0},", msg));
+                Log.Fatal(String.Format("Fatal: {0}.", msg));
             }
         }
 
-        public static void Print(string msg, ConsoleColor colour, Exception e = null)
+        /// <summary>
+        /// Prints the message and exception to the console window with the given console colour
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="colour"></param>
+        /// <param name="e"></param>
+        public static void Print(string msg, ConsoleColor colour = DefaultColour, Exception e = null)
         {
             Console.ForegroundColor = colour;
             if (e != null)
             {
-                Console.WriteLine("{0}, {1}", msg, e.Message);
+                Console.WriteLine("{0}. {1}{2}", msg, Environment.NewLine, e);
             }
             else
             {

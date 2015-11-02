@@ -4,12 +4,18 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Review : Entity
+    public class Review : BaseEntity
     {
         [DataMember]
         public int ReviewID { get; set; }
 
-        [DataMember, Required, MaxLength(150, ErrorMessage = "Subject must not exceed 150 characters")]
+        [DataMember]
+        public int PremiseID { get; set; }
+
+        [DataMember]
+        public int UserID { get; set; }
+
+        [DataMember, Required, MaxLength(25, ErrorMessage = "{0} can have a max of {1} characters")]
         public string Subject { get; set; }
 
         [DataMember, Required]
@@ -21,6 +27,15 @@ namespace Com.Framework.Data
         [DataMember]
         public User User { get; set; }
 
+
+        // Navigational Properties
         protected virtual Premise Premise { get; set; }
+
+
+        public Review()
+        {
+
+
+        }
     }
 }

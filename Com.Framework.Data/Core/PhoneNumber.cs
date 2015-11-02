@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class PhoneNumber : Entity
+    public class PhoneNumber : BaseEntity
     {
         [DataMember]
         public int PhoneNumberID { get; set; }
@@ -21,6 +18,22 @@ namespace Com.Framework.Data
 
         [DataMember]
         public PhoneType PhoneType { get; set; }
+
+
+        // Navigation Properties
+        protected ICollection<Organisation> Organisations { get; set; }
+
+
+        public PhoneNumber() : this("", "")
+        {
+        }
+
+        public PhoneNumber(string countryCode, string nationalNumber)
+        {
+            CountryCode = countryCode;
+            NationalNumber = nationalNumber;
+            PhoneType = PhoneType.Default;
+        }
 
 
         public bool Validate(PhoneNumber phoneNumber)

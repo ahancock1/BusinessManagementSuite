@@ -3,7 +3,7 @@
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class PremiseType : Entity
+    public class PremiseType : BaseEntity
     {
         [DataMember]
         public int PremiseTypeID { get; set; }

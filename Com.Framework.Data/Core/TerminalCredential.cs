@@ -1,17 +1,18 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class TerminalCredential : Credential
+    public class TerminalCredential : BaseEntity
     {
-        [Key, DataMember]
+        [Key, ForeignKey("Employee"), DataMember]
         public int TerminalCredentialID { get; set; }
 
         [DataMember]
         public string Passcode { get; set; }
 
-        protected virtual Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

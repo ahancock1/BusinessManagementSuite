@@ -18,7 +18,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetRequest<T> : INetPacket where T : Entity
+    public class NetRequest<T> : INetPacket where T : BaseEntity
     {
         public string Where { get; set; }
 
@@ -35,7 +35,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetRequestSingle<T> : INetPacket where T : Entity
+    public class NetRequestSingle<T> : INetPacket where T : BaseEntity
     {
         public string Where { get; set; }
 
@@ -51,7 +51,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetResponse<T> : INetPacket where T : Entity
+    public class NetResponse<T> : INetPacket where T : BaseEntity
     {
         public T[] Items { get; set; }
     }
@@ -62,7 +62,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetResponseSingle<T> : INetPacket where T : Entity
+    public class NetResponseSingle<T> : INetPacket where T : BaseEntity
     {
         public T Item { get; set; }
     }
@@ -73,7 +73,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetUpdate<T> : INetPacket where T : Entity
+    public class NetUpdate<T> : INetPacket where T : BaseEntity
     {
         public T[] Items { get; set; }
     }
@@ -83,7 +83,7 @@ namespace Com.Framework.Network.Packets
     /// </summary>
     /// <typeparam name="T">Type of data concerned</typeparam>
     [Serializable]
-    public class NetResponseCode<T> : INetPacket where T : Entity
+    public class NetResponseCode<T> : INetPacket where T : BaseEntity
     {
         public NetResponseCode Response { get; set; }
     }

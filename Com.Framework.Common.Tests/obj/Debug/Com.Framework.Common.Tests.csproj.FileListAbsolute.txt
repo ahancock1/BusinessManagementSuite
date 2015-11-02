@@ -20,3 +20,14 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common.Tests\
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\log4net.config
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\Com.Framework.Common.Tests.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\Com.Framework.Common.Tests.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\log4net.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\bin\Debug\log4net.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common.Tests\obj\Debug\Com.Framework.Common.Tests.pdb

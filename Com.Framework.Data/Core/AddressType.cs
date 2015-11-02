@@ -2,6 +2,7 @@ using System.Runtime.Serialization;
 
 namespace Com.Framework.Data
 {
+    [DataContract]
     public enum AddressType
     {
         [EnumMember(Value = "DEFAULT")]

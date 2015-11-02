@@ -6,7 +6,7 @@ using Com.Framework.Data.Restaurants.Tables;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class User : Entity
+    public class User : BaseEntity
     {
         [DataMember]
         public int UserID { get; set; }

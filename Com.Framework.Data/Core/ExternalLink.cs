@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class ExternalLink : Entity
+    public class ExternalLink : BaseEntity
     {
         [DataMember]
         public int ExternalLinkID { get; set; }
@@ -17,6 +18,11 @@ namespace Com.Framework.Data
 
         [DataMember]
         public string Description { get; set; }
+
+
+        // Navigation Properties
+        protected ICollection<Organisation> Organisations { get; set; }
+
 
         public ExternalLink()
         {

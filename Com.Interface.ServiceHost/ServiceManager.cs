@@ -44,12 +44,10 @@ namespace Com.Interface.ServiceHost
             where T1 : class
             where T2 : IService
         {
-            Type type = typeof(T1);
-
             Uri httpUrl = new Uri(String.Format("http://localhost:{0}/Restaurant/{1}", httpPort, name));
             Uri tcpUrl = new Uri(String.Format("net.tcp://localhost:{0}/Restaurant/{1}", tcpPort, name));
 
-            System.ServiceModel.ServiceHost serviceHost = new System.ServiceModel.ServiceHost(type, httpUrl);
+            System.ServiceModel.ServiceHost serviceHost = new System.ServiceModel.ServiceHost(typeof(T1), httpUrl);
             try
             {
                 // Check to see if the service host already has a ServiceMetadataBehavior
@@ -134,10 +132,7 @@ namespace Com.Interface.ServiceHost
 
         class MonitorDispatcher : IDispatchMessageInspector
         {
-            public object AfterReceiveRequest(
-                ref Message request,
-                IClientChannel channel,
-                InstanceContext instanceContext)
+            public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(
@@ -148,9 +143,7 @@ namespace Com.Interface.ServiceHost
                 return null;
             }
 
-            public void BeforeSendReply(
-                ref Message reply,
-                object correlationState)
+            public void BeforeSendReply(ref Message reply, object correlationState)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(

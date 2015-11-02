@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Com.Framework.Common.Serialization;
 using System.Runtime.Serialization;
+using Com.Framework.Common.Serialisation;
 
 namespace Com.Framework.Common.Tests.Serialization
 {

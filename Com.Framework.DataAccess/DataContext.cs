@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 using Com.Framework.Data;
-using Com.Framework.Data.Restaurants;
-using Com.Framework.Data.Restaurants.Menus;
+
+using EntityState = System.Data.Entity.EntityState;
 
 
 namespace Com.Framework.DataAccess
 {
     public class DataContext : DbContext
     {
+        public DbSet<Organisation> Organisations { get; set; }
+
         public DbSet<Premise> Premises { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
 
 
         public DataContext()
@@ -28,6 +34,33 @@ namespace Com.Framework.DataAccess
         {
             try
             {
+                var entries = ChangeTracker.Entries().Where(e => e.Entity is IAuditableEntity &&
+                                 (e.State == EntityState.Added || e.State == EntityState.Modified));
+
+                foreach (var entry in entries)
+                {
+                    IAuditableEntity entity = entry.Entity as IAuditableEntity;
+                    if (entity != null)
+                    {
+                        string identity = Thread.CurrentPrincipal.Identity.Name;
+                        DateTime now = DateTime.UtcNow;
+
+                        if (entry.State == EntityState.Added)
+                        {
+                            entity.CreatedBy = identity;
+                            entity.CreatedDate = now;
+                        }
+                        else
+                        {
+                            base.Entry(entity).Property(e => e.CreatedBy).IsModified = false;
+                            base.Entry(entity).Property(e => e.CreatedDate).IsModified = false;
+                        }
+
+                        entity.ModifiedBy = identity;
+                        entity.ModifiedDate = now;
+                    }
+                }
+
                 return base.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
@@ -52,102 +85,51 @@ namespace Com.Framework.DataAccess
     {
         protected override void Seed(DataContext context)
         {
-            List<Premise> premises = new List<Premise>
-            {
-                new Restaurant
-                {
-                    Name = "TestRestaurant",
-                    Description = "The restaurant that is used to test the database table \"Restaurants\"",
-                    Addresses = new List<Address>
-                    {
-                        new Address
-                        {
-                            House = "42",
-                            Street = "The answer",
-                            City = "To everything",
-                            Region = "Meaning of life",
-                            Country = "Galaxy",
-                            PostalCode = "Hitch-hikers"
 
-                        }
-                    },
-                    OpenHours = new List<Hours>
-                    {
-                        new Hours
-                        {
-                            DayOfWeek = (int) DayOfWeek.Monday,
-                            From = new TimeSpan(0, 8, 0, 0),
-                            To = new TimeSpan(0, 18, 0 ,0)
-                        },
-                        new Hours
-                        {
-                            DayOfWeek = (int) DayOfWeek.Tuesday,
-                            From = new TimeSpan(0, 8, 0, 0),
-                            To = new TimeSpan(0, 12, 0, 0)
-                        },
-                        new Hours
-                        {
-                            DayOfWeek = (int) DayOfWeek.Tuesday,
-                            From = new TimeSpan(0, 14, 0, 0),
-                            To = new TimeSpan(0, 18, 0, 0)
-                        }
-                    },
-                    Menus = new List<Menu>
-                    {
-                        new Menu
-                        {
-                            Name = "Normal Menu",
-                            Description = "All our burgers are home made and serverd with french fries and salad",
-                            Active = true,
-                            Created = DateTime.Now,
-                            Hours = new List<Hours>
-                            {
-                                new Hours
-                                {
-                                    DayOfWeek = (int) (DayOfWeek.Monday),
-                                    From = new TimeSpan(0, 12, 0, 0),
-                                    To = new TimeSpan(0, 22, 0, 0)
-                                }
-                            },
-                            MenuCategories = new List<MenuCategory>
-                            {
-                                new MenuCategory
-                                {
-                                    Name = "Starters",
-                                    Description = "The starters",
-                                    MenuItems = new List<MenuItem>
-                                    {
-                                        new MenuItem
-                                        {
-                                            Name = "Greek Salad",
-                                            Description = "Gem lettuce, Olives, Feta Cheese, Tomato, Peppers, Cucumber and Onions drizzled with Olive Oil",
-                                            Active = true,
-                                            Cost = 4.5f
-                                        }
-                                    }
-                                },
-                                new MenuCategory
-                                {
-                                    Name = "Mains",
-                                    Description = "The mains",
-                                    MenuItems = new List<MenuItem>
-                                    {
-                                        new MenuItem
-                                        {
-                                            Name = "Greek Salad",
-                                            Description = "Gem lettuce, Olives, Feta Cheese, Tomato, Peppers, Cucumber and Onions drizzled with Olive Oil",
-                                            Active = true,
-                                            Cost = 7.5f
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+            Premise p = new Premise
+            {
+                Name = "Test Premise",
+                CountryCode = "UK"
+            };
+
+            Organisation o = new Organisation
+            {
+                Name = "Test Organisation",
+                Code = "TO",
+                Premises = new List<Premise>
+                {
+                    p
                 }
             };
-            premises.ForEach(p => context.Premises.Add(p));
-            //            restaurants.WriteToFile(".\\Data\\Restaurants.xml");
+            context.Organisations.Add(o);
+
+            //p = context.Premises.FirstOrDefault(i => i.Name == "Test Premise");
+
+            Employee e = new Employee
+            {
+                Premise = p,
+                Title = "Mr",
+                FirstName = "Adam",
+                LastName = "Hancock",
+                MiddleNames = "Stephen",
+                Username = "ahancock1",
+                Gender = Gender.Male,
+                BirthDate = new DateTime(1990, 1, 10),
+                Email = new Email("a.hancock@hotmail.co.uk"),
+                EmployeeGroup = new EmployeeGroup("Software Developer"),
+                EmployeeNumber = 1.ToString("00000000"),
+                EmploymnentBasis = EmploymentType.FullTime,
+                PhoneNumbers = new List<PhoneNumber>
+                {
+                    new PhoneNumber("44", "771246589")
+                    {
+                        PhoneType = PhoneType.Mobile
+                    }
+                },
+                StartDate = DateTime.Now,
+                HiredDate = DateTime.Now
+            };
+            context.Employees.Add(e);
 
         }
     }

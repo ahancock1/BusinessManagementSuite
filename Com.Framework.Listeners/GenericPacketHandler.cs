@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Linq;
 using Com.Framework.Data;
 using Com.Framework.DataAccess.Services;
 using Com.Framework.Network;
 using Com.Framework.Network.Packets;
 
+/// <summary>
+/// 
+///  Wont be using this anymore, will be using SignalR
+/// 
+/// </summary>
 namespace Com.Framework.Listeners
 {
-    public interface IGenericPacketHandler<T> where T : Entity
+    public interface IGenericPacketHandler<T> where T : BaseEntity
     {
         void RequestPacketReceived(Connection connection, NetRequest<T> packet);
 
@@ -16,7 +20,8 @@ namespace Com.Framework.Listeners
         void UpdatePacketReceived(Connection connection, NetUpdate<T> packet);
     }
 
-    public class GenericPacketHandler<T> : PacketHandler, IGenericPacketHandler<T> where T : Entity
+
+    public class GenericPacketHandler<T> : PacketHandler, IGenericPacketHandler<T> where T : BaseEntity
     {
         private readonly IGenericService service;
 
@@ -43,7 +48,7 @@ namespace Com.Framework.Listeners
                 // No search critera so send all data
                 connection.Send(new NetResponse<T>
                 {
-                    Items = service.All<T>().ToArray()
+                    //Items = service.All<T>().ToArray()
                 });
             }
             else
@@ -51,7 +56,7 @@ namespace Com.Framework.Listeners
                 // Send data by using where criteria
                 connection.Send(new NetResponse<T>
                 {
-                    Items = service.All<T>(packet.Where).ToArray()
+                    //Items = service.All<T>(packet.Where).ToArray()
                 });
             }
         }
@@ -65,7 +70,7 @@ namespace Com.Framework.Listeners
         {
             connection.Send(new NetResponseSingle<T>
             {
-                Item = service.Get<T>(packet.Where)
+                //Item = service.Get<T>(packet.Where)
             });
         }
 

@@ -2,15 +2,38 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Com.Framework.Data.PayRoll;
+using Newtonsoft.Json;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Employee : Entity
+    public class Employee : BaseEntity
     {
+        #region Keys
         [DataMember]
         public int EmployeeID { get; set; }
 
+        [DataMember]
+        public int PremiseID { get; set; }
+
+        //[DataMember]
+        //public int PaymentMethodID { get; set; }
+
+        //[DataMember]
+        //public int DepartmentID { get; set; }
+
+        [DataMember]
+        public int EmployeeGroupID { get; set; }
+
+        [DataMember]
+        public int EmailID { get; set; }
+
+        //[DataMember]
+        //public PaymentMethod PaymentMethod { get; set; }
+
+        #endregion
+
+        #region Properties
         [DataMember]
         public string FirstName { get; set; }
 
@@ -69,9 +92,6 @@ namespace Com.Framework.Data
         public ICollection<SalaryAndWage> SalaryAndWages { get; set; }
 
         [DataMember]
-        public PaymentMethod PaymentMethod { get; set; }
-
-        [DataMember]
         public EmploymentStatus EmploymentStatus
             => TerminationDate == null ? EmploymentStatus.Active : EmploymentStatus.Terminated;
 
@@ -79,6 +99,26 @@ namespace Com.Framework.Data
         public EmployeeGroup EmployeeGroup { get; set; }
 
         [DataMember]
-        public TerminalCredential TerminalCredential { get; set; }
+        public virtual TerminalCredential TerminalCredential { get; set; }
+
+
+        #endregion
+
+        #region Navigation Properties
+
+        [JsonIgnore]
+        public virtual Premise Premise { get; set; }
+
+        #endregion
+
+        public Employee()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} {1} {2}", Title, FirstName, LastName);
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Core
 {
     [DataContract]
-    public class Department : Entity
+    public class Department : BaseEntity
     {
         [DataMember]
         public int DepartmentID { get; set; }

@@ -34,3 +34,5 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\b
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Newtonsoft.Json.xml

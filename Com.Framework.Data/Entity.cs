@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Com.Framework.Data
 {
@@ -16,10 +13,61 @@ namespace Com.Framework.Data
         Unchanged = 2
     }
 
-    [DataContract]
-    public abstract class Entity
+    public interface IEntity<T>
     {
-        [NotMapped, DataMember]
+        T Id { get; set; }
+
+        EntityState EntityState { get; set; }
+    }
+
+    [DataContract]
+    public abstract class BaseEntity
+    {
+        [NotMapped]
         public EntityState EntityState { get; set; }
+
+        protected BaseEntity()
+        {
+            EntityState = EntityState.Added;
+        }
+    }
+
+    [DataContract]
+    public abstract class Entity<T> : BaseEntity, IEntity<T>
+    {
+        [DataMember]
+        public virtual T Id { get; set; }
+    }
+
+    public interface IAuditableEntity
+    {
+        DateTime CreatedDate { get; set; }
+        string CreatedBy { get; set; }
+
+        DateTime ModifiedDate { get; set; }
+
+        string ModifiedBy { get; set; }
+    }
+
+    [DataContract]
+    public abstract class AuditableEntity<T> : Entity<T>, IAuditableEntity
+    {
+        [DataMember]
+        [ScaffoldColumn(false)]
+        public DateTime CreatedDate { get; set; }
+
+        [DataMember]
+        [MaxLength(256)]
+        [ScaffoldColumn(false)]
+        public string CreatedBy { get; set; }
+
+        [DataMember]
+        [ScaffoldColumn(false)]
+        public DateTime ModifiedDate { get; set; }
+
+        [DataMember]
+        [MaxLength(256)]
+        [ScaffoldColumn(false)]
+        public string ModifiedBy { get; set; }
     }
 }

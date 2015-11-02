@@ -1,6 +1,6 @@
 namespace Com.Framework.Data
 {
-    public class UserType : Entity
+    public class UserType : BaseEntity
     {
         public int UserTypeID { get; set; }
 

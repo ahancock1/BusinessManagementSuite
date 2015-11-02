@@ -1,12 +1,15 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Restaurant.Web.Startup))]
-namespace Restaurant.Web
+[assembly: OwinStartupAttribute(typeof(Com.Interface.Web.Startup))]
+namespace Com.Interface.Web
 {
-    public partial class Startup {
-        public void Configuration(IAppBuilder app) {
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
             ConfigureAuth(app);
+            app.MapSignalR();
         }
     }
 }

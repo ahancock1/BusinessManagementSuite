@@ -28,3 +28,16 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.DataAccess.Te
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.DataAccess.Tests\obj\Debug\Com.Framework.DataAccess.Tests.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.DataAccess.Tests\obj\Debug\Com.Framework.DataAccess.Tests.pdb
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.DataAccess.Tests\bin\Debug\log4net.config
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.DataAccess.Tests.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.DataAccess.Tests.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\log4net.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\log4net.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\obj\Debug\Com.Framework.DataAccess.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\obj\Debug\Com.Framework.DataAccess.Tests.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\obj\Debug\Com.Framework.DataAccess.Tests.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess.Tests\bin\Debug\log4net.config

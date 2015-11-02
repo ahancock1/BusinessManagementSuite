@@ -5,10 +5,18 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Rotas
 {
     [DataContract]
-    public class Shift : Entity
+    public class Shift : BaseEntity
     {
+        #region Keys
         [DataMember]
         public int ShiftID { get; set; }
+
+        [DataMember]
+        public int EmployeeID { get; set; }
+
+        #endregion
+
+        #region Property
 
         [DataMember]
         public ICollection<Hours> Hours { get; set; }
@@ -16,7 +24,13 @@ namespace Com.Framework.Data.Rotas
         [DataMember]
         public Employee Employee { get; set; }
 
+        #endregion
+
+        #region Navigation Properties
+
         protected virtual Rota Rota { get; set; }
+
+        #endregion
 
 
         public Shift()
