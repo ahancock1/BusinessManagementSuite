@@ -112,7 +112,7 @@ namespace Com.Framework.DataAccess
                 FirstName = "Adam",
                 LastName = "Hancock",
                 MiddleNames = "Stephen",
-                Username = "ahancock1",
+                UserName = "ahancock1",
                 Gender = Gender.Male,
                 BirthDate = new DateTime(1990, 1, 10),
                 Email = new Email("a.hancock@hotmail.co.uk"),

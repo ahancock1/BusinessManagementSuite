@@ -19,6 +19,8 @@ namespace Com.Framework.Data
         [DataMember]
         public PhoneType PhoneType { get; set; }
 
+        [DataMember]
+        public bool Confirmed { get; set; }
 
         // Navigation Properties
         protected ICollection<Organisation> Organisations { get; set; }
@@ -40,5 +42,6 @@ namespace Com.Framework.Data
         {
             throw new NotImplementedException("Phone number validation is not yet implemented.");
         }
+
     }
 }

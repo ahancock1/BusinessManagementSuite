@@ -10,28 +10,25 @@ namespace Com.Interface.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IEmployeeHub employeeHub;
 
-        public HomeController(IEmployeeHub employeeHub)
-        {
-            this.employeeHub = employeeHub;
-        }
-
+        // Home Page
         public ActionResult Index()
         {
             return View();
         }
 
+        // About Page
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Title = "Business Management Suite";
 
             return View();
         }
 
+        // Contact Page
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Title = "Contact us";
 
             return View();
         }

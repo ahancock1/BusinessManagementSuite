@@ -47,7 +47,16 @@ namespace Com.Framework.Data
         public string Title { get; set; }
 
         [DataMember]
-        public string Username { get; set; }
+        public string UserName { get; set; }
+
+        [DataMember]
+        public int AccessFailedCount { get; set; }
+
+        [DataMember]
+        public bool LockoutEnabled { get; set; }
+
+        [DataMember]
+        public DateTime LockoutEndDate { get; set; }
 
         [DataMember]
         public Gender Gender { get; set; }

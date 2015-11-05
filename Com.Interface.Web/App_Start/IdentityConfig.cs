@@ -11,15 +11,43 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Com.Interface.Web.Models;
+using SendGrid;
+using System.Net;
+using System.Configuration;
+using System.Net.Mail;
+using Com.Framework.Common.Logging;
 
 namespace Com.Interface.Web
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var msg = new SendGridMessage();
+            msg.AddTo(message.Destination);
+            msg.From = new MailAddress("a.hancock@hotmail.co.uk", "Adam Hancock");
+            msg.Subject = message.Subject;
+            msg.Text = message.Body;
+            msg.Html = message.Body;
+
+            var credentials = new NetworkCredential(
+                        ConfigurationManager.AppSettings["MailUserName"],
+                        ConfigurationManager.AppSettings["MailPassword"]);
+
+            // Create a Web transport for sending mail.
+            var transport = new SendGrid.Web(credentials);
+
+            // Send the email
+            if (transport != null)
+            {
+                await transport.DeliverAsync(msg);
+            }
+            else
+            {
+                Logger.Error("Failed to create Web transport.");
+                await Task.FromResult(0);
+            }
         }
     }
 
@@ -38,16 +66,17 @@ namespace Com.Interface.Web
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
+                RequireUniqueEmail = false // TODO: true
             };
 
             // Configure validation logic for passwords
@@ -81,7 +110,7 @@ namespace Com.Interface.Web
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;

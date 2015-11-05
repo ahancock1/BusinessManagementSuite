@@ -6,10 +6,23 @@ namespace Com.Framework.Hubs.Rotas
 {
     public interface IRotaHub
     {
+        Rota GetRota(int rotaID);
+
+        Rota GetRotaByPremiseByWeek(int premiseID, int week);
+
+        IEnumerable<Rota> GetRotasByPremise(int premiseID);
+
+        IEnumerable<Rota> GetRotasByPremiseBetweenDates(int premiseID, DateTime start, DateTime end);
+
+        bool UpdateRotas(string name, params Rota[] rotas);
+    }
+
+    public interface IRotaContract
+    {
         void UpdateRotas(params Rota[] rota);
     }
 
-    public class RotaHub : ServiceHub<IRotaHub>
+    public class RotaHub : ServiceHub<IRotaContract>, IRotaHub
     {
         public Rota GetRota(int rotaID)
         {

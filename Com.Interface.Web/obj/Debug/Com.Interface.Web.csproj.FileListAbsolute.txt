@@ -86,3 +86,12 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\C
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\PagedList.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.config
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\RestSharp.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SendGrid.SmtpApi.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SendGridMail.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SignalR.Client.TypedHubProxy.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Twilio.Api.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SignalR.Client.TypedHubProxy.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SignalR.Client.TypedHubProxy.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Twilio.Api.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Twilio.Api.xml

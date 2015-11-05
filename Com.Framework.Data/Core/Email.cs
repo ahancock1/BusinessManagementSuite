@@ -16,6 +16,9 @@ namespace Com.Framework.Data
         [DataMember]
         public string Address { get; set; }
 
+        [DataMember]
+        public bool Confirmed { get; set; }
+
         // Navigational Properties
         protected ICollection<Premise> Premises { get; set; }
 

@@ -1,22 +1,35 @@
-﻿using Com.Framework.Data.Rotas;
+﻿using System.Collections.Generic;
+using Com.Framework.Data.Rotas;
 
 namespace Com.Framework.Hubs.Rotas
 {
+    /// <summary>
+    /// TODO: requires work
+    /// </summary>
     public interface IShiftHub
+    {
+        Shift GetShift(int shiftID);
+
+        IEnumerable<Shift> GetShiftsByEmployee(int employeeID);
+
+        bool UpdateShifts(string name, params Shift[] shifts);
+    }
+
+    public interface IShiftContract
     {
         void UpdateShifts(params Shift[] shifts);
     }
 
-    public class ShiftHub : ServiceHub<IShiftHub>
+    public class ShiftHub : ServiceHub<IShiftContract>, IShiftHub
     {
         public Shift GetShift(int shiftID)
         {
             return Service.Get<Shift>(s => s.ShiftID == shiftID);
         }
 
-        public Shift GetShiftByEmployee(int employeeID)
+        public IEnumerable<Shift> GetShiftsByEmployee(int employeeID)
         {
-            return Service.Get<Shift>(s => s.EmployeeID == employeeID);
+            return Service.All<Shift>(s => s.EmployeeID == employeeID);
         }
 
         public bool UpdateShifts(string name, params Shift[] shifts)

@@ -4,10 +4,17 @@ namespace Com.Framework.Hubs
 {
     public interface IOrganisationHub
     {
+        Organisation GetOrganisation(int organisationID);
+
+        bool UpdateOrganisation(Organisation organisation);
+    }
+
+    public interface IOrganisationContract
+    {
         void UpdateOrganisation(Organisation organisation);
     }
 
-    public class OrganisationHub : ServiceHub
+    public class OrganisationHub : ServiceHub<IOrganisationContract>, IOrganisationHub
     {
         public Organisation GetOrganisation(int organisationID)
         {

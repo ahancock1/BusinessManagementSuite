@@ -7,10 +7,21 @@ namespace Com.Framework.Hubs.Restaurants.Tables
 {
     public interface IReservationHub
     {
+        Reservation GetReservation(int premiseID, int reservationID);
+
+        IEnumerable<Reservation> GetReservationsByPremiseBetweenTimes(int premiseID, TimeSpan start, TimeSpan end);
+
+        IEnumerable<Reservation> GetReservationByPremiseByDate(int premiseID, DateTime date);
+
+        bool UpdateReservations(string name, params Reservation[] reservations);
+    }
+
+    public interface IReservationContract
+    {
         void UpdateReservations(params Reservation[] reservations);
     }
 
-    public class ReservationHub : ServiceHub<IReservationHub>
+    public class ReservationHub : ServiceHub<IReservationContract>, IReservationHub
     {
         public Reservation GetReservation(int premiseID, int reservationID)
         {

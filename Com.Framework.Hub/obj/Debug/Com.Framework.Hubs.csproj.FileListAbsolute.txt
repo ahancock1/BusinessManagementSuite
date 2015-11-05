@@ -33,3 +33,5 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\D
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.Owin.Cors.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\System.Web.Cors.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.Owin.Cors.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.SignalR.Client.xml

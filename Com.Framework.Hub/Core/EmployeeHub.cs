@@ -5,10 +5,19 @@ namespace Com.Framework.Hubs.Core
 {
     public interface IEmployeeHub
     {
+        Employee GetEmployee(int employeeID);
+
+        IEnumerable<Employee> GetEmployeesByPremise(int premiseID);
+
+        bool UpdateEmployees(string name, params Employee[] employees);
+    }
+
+    public interface IEmployeeContract
+    {
         void UpdateEmployees(params Employee[] employees);
     }
 
-    public class EmployeeHub : ServiceHub<IEmployeeHub>
+    public class EmployeeHub : ServiceHub<IEmployeeContract>, IEmployeeHub
     {
         public Employee GetEmployee(int employeeID)
         {

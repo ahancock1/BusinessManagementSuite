@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SignalR.Client.TypedHubProxy</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.AspNet.SignalR.Client.HubProxy`2">
+            <summary>
+            Typed HubProxy for SignalR.
+            </summary>
+            <typeparam name="TServerHubInterface">The interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">The interface of the client events.</typeparam>
+        </member>
+        <member name="T:Microsoft.AspNet.SignalR.Client.IHubProxy`2">
+            <summary>
+            Typed Hub Proxy.
+            </summary>
+            <typeparam name="TServerHubInterface">Interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">Interface which contains the client events.</typeparam>
+        </member>
+        <member name="T:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1">
+            <summary>
+                ITypedHubProxy.
+            </summary>
+            <typeparam name="TServerHubInterface">Interface of the server hub.</typeparam>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.Call(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+                Calls a method on the server hub.
+                <para>This call will be executed synchronously.</para>
+            </summary>
+            <param name="call">The method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.Call``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+                Calls a method on the server hub.
+                <para>This call will be executed synchronously and will wait till the server has sent a response.</para>
+            </summary>
+            <param name="call">The method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.CallAsync(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+                Calls a method on the server hub.
+                <para>This call will be executed asynchronously.</para>
+            </summary>
+            <param name="call">The method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.CallAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Threading.Tasks.Task}})">
+            <summary>
+                Calls an asynchronous method on the server hub.
+                <para>This call will be executed asynchronously.</para>
+            </summary>
+            <param name="call">The asynchronous method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.CallAsync``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+                Calls a method on the server hub.
+                <para>This call will be executed asynchronously. A task will be returned which contains the response.</para>
+            </summary>
+            <param name="call">The method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxyOneWay`1.CallAsync``1(System.Linq.Expressions.Expression{System.Func{`0,System.Threading.Tasks.Task{``0}}})">
+            <summary>
+                Calls an asynchronous method on the server hub.
+                <para>This call will be executed asynchronously. A task will be returned which contains the response.</para>
+            </summary>
+            <param name="call">The asynchronous method to call. Use like: <code>hub => hub.MyMethod("param1", "param2")</code></param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn(System.Linq.Expressions.Expression{System.Func{`1,System.Action}},System.Action)">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="action">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``1(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0}}},System.Action{``0})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``1(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0}}},System.Func{``0,System.Boolean},System.Action{``0})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``2(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1}}},System.Action{``0,``1})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``2(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1}}},System.Func{``0,``1,System.Boolean},System.Action{``0,``1})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``3(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2}}},System.Action{``0,``1,``2})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``3(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2}}},System.Func{``0,``1,``2,System.Boolean},System.Action{``0,``1,``2})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``4(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3}}},System.Action{``0,``1,``2,``3})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``4(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3}}},System.Func{``0,``1,``2,``3,System.Boolean},System.Action{``0,``1,``2,``3})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``5(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4}}},System.Action{``0,``1,``2,``3,``4})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``5(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4}}},System.Func{``0,``1,``2,``3,``4,System.Boolean},System.Action{``0,``1,``2,``3,``4})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``6(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4,``5}}},System.Action{``0,``1,``2,``3,``4,``5})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``6(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4,``5}}},System.Func{``0,``1,``2,``3,``4,``5,System.Boolean},System.Action{``0,``1,``2,``3,``4,``5})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``7(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4,``5,``6}}},System.Action{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOn``7(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0,``1,``2,``3,``4,``5,``6}}},System.Func{``0,``1,``2,``3,``4,``5,``6,System.Boolean},System.Action{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+            <param name="wherePredicate">The callback will only be called when this predicate is true.</param>
+            <param name="callback">The method that you handle the event.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IHubProxy`2.SubscribeOnAll(System.Object)">
+            <summary>
+                Subscribes on all events (methods) which the server can trigger (invoke).
+            </summary>
+            <param name="instance">The instance which implements the client interface (TClientInterface).</param>
+        </member>
+        <member name="T:Microsoft.AspNet.SignalR.Client.IObservableHubProxy`2">
+            <summary>
+                Observable HubProxy.
+            </summary>
+            <typeparam name="TServerHubInterface">Interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">Interface which contains the client events.</typeparam>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.IObservableHubProxy`2.Observe``1(System.Linq.Expressions.Expression{System.Func{`1,System.Action{``0}}})">
+            <summary>
+                Subscribes to a hub event.
+                <para>When the server hub send an event of the given type, the handler will be invoked.</para>
+            </summary>
+            <param name="eventToBind">The event method exposed by the server hub interface.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxy`2.#ctor(Microsoft.AspNet.SignalR.Client.IHubProxy)">
+            <summary>
+            Ctor of HubProxy.
+            </summary>
+            <param name="hubProxy">IHubProxy.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxy`2.#ctor(Microsoft.AspNet.SignalR.Client.HubConnection,System.String)">
+            <summary>
+            Ctor of HubProxy.
+            </summary>
+            <param name="hubConnection">HubConnection.</param>
+            <param name="hubName">Name of the hub.</param>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxy`2.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxy`2.Convert``1(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+                Deserialization of incoming data object.
+            </summary>
+            <param name="obj"></param>
+            <param name="serializer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNet.SignalR.Client.HubProxyExtensions">
+            <summary>
+            Provides several extension methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxyExtensions.CreateHubProxy``2(Microsoft.AspNet.SignalR.Client.HubConnection,System.String)">
+            <summary>
+                Creates a strongly typed hub proxy with the specified hub name.
+            </summary>
+            <param name="connection">The <see cref="T:Microsoft.AspNet.SignalR.Client.HubConnection" />HubConnection.</param>
+            <param name="hubName">The name of the hub.</param>
+            <typeparam name="TServerHubInterface">The interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">The interface of the client events.</typeparam>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxyExtensions.CreateObservableHubProxy``2(Microsoft.AspNet.SignalR.Client.HubConnection,System.String)">
+            <summary>
+                Creates a observable strongly typed hub proxy with the specified hub name.
+            </summary>
+            <param name="connection">The <see cref="T:Microsoft.AspNet.SignalR.Client.HubConnection" />HubConnection.</param>
+            <param name="hubName">The name of the hub.</param>
+            <typeparam name="TServerHubInterface">The interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">The interface of the client events.</typeparam>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxyExtensions.AsHubProxy``2(Microsoft.AspNet.SignalR.Client.IHubProxy)">
+            <summary>
+                Creates a strongly typed hub proxy.
+            </summary>
+            <param name="hubProxy">IHubProxy.</param>
+            <typeparam name="TServerHubInterface">The interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">The interface of the client events.</typeparam>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.Client.HubProxyExtensions.AsObservableHubProxy``2(Microsoft.AspNet.SignalR.Client.IHubProxy)">
+            <summary>
+                Creates a observable strongly typed hub proxy.
+            </summary>
+            <param name="hubProxy">IHubProxy.</param>
+            <typeparam name="TServerHubInterface">The interface of the server hub.</typeparam>
+            <typeparam name="TClientInterface">The interface of the client events.</typeparam>
+        </member>
+    </members>
+</doc>
