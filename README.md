@@ -201,3 +201,22 @@ http://www.entityframeworktutorial.net/code-first/table-dataannotations-attribut
 Use WCF for data access and use websockets for push notifications such as updates and new data. This can be loosely based on the Network library. Or use SingalR: http://signalr.net/
 
 https://github.com/timbussmann/Battleships
+
+
+## ASP.NET MVC
+ 
+ models = Com.Framework.Data
+ 
+ controller = Com.Framework.Services / Hub
+ 
+ strongly typed server client
+ 
+ https://github.com/AndreasBieber/SignalR.Client.TypedHubProxy
+ 
+### Sample code
+
+https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8
+
+singlr as windows service
+
+https://code.msdn.microsoft.com/windowsapps/SignalR-self-hosted-in-6ff7e6c3
