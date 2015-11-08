@@ -38,9 +38,9 @@ namespace Com.Framework.Service
                 m => m.Hours, m => m.MenuCategories);
         }
 
-        public IEnumerable<MenuCategory> GetMenuCategoriesByPremise(int premiseID)
+        public IEnumerable<MenuCategory> GetMenuCategoriesByPremise(int id)
         {
-            return Service.Get<Premise>(p => p.PremiseID == premiseID, m => m.MenuCategories).MenuCategories;
+            return Service.Get<Premise>(p => p.Id == id, m => m.MenuCategories).MenuCategories;
         }
 
         public bool UpdateMenus(Menu[] menus)

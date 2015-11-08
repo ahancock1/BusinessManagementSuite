@@ -5,11 +5,11 @@ using Newtonsoft.Json;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Organisation : BaseEntity
+    public class Organisation : AuditableEntity<long>
     {
         #region Keys
-        [DataMember]
-        public int OrganisationID { get; set; }
+        //[DataMember]
+        //public int OrganisationID { get; set; }
 
         [DataMember]
         public int ImageID { get; set; }
@@ -75,11 +75,11 @@ namespace Com.Framework.Data
 
         public Organisation()
         {
-            Premises = new List<Premise>();
-            PhoneNumbers = new List<PhoneNumber>();
-            Addresses = new List<Address>();
             OpenHours = new List<Hours>();
+            Addresses = new List<Address>();
+            PhoneNumbers = new List<PhoneNumber>();
             ExternalLinks = new List<ExternalLink>();
+            Premises = new List<Premise>();
 
             Image = Image.DefaultImage();
             ImageID = Image.ImageID;

@@ -79,6 +79,14 @@ namespace Com.Framework.DataAccess
                 throw;
             }
         }
+
+        public System.Data.Entity.DbSet<Com.Framework.Data.Image> Images { get; set; }
+
+        public System.Data.Entity.DbSet<Com.Framework.Data.Email> Emails { get; set; }
+
+        public System.Data.Entity.DbSet<Com.Framework.Data.EmployeeGroup> EmployeeGroups { get; set; }
+
+        public System.Data.Entity.DbSet<Com.Framework.Data.TerminalCredential> TerminalCredentials { get; set; }
     }
 
     public class DataContextInitialiser : DropCreateDatabaseAlways<DataContext>
@@ -86,51 +94,47 @@ namespace Com.Framework.DataAccess
         protected override void Seed(DataContext context)
         {
 
-            Premise p = new Premise
-            {
-                Name = "Test Premise",
-                CountryCode = "UK"
-            };
+            //Premise p = new Premise
+            //{
+            //    Name = "Test Premise",
+            //    CountryCode = "UK"
+            //};
 
             Organisation o = new Organisation
             {
                 Name = "Test Organisation",
-                Code = "TO",
-                Premises = new List<Premise>
-                {
-                    p
-                }
+                Code = "TO"
+
             };
             context.Organisations.Add(o);
 
             //p = context.Premises.FirstOrDefault(i => i.Name == "Test Premise");
 
-            Employee e = new Employee
-            {
-                Premise = p,
-                Title = "Mr",
-                FirstName = "Adam",
-                LastName = "Hancock",
-                MiddleNames = "Stephen",
-                UserName = "ahancock1",
-                Gender = Gender.Male,
-                BirthDate = new DateTime(1990, 1, 10),
-                Email = new Email("a.hancock@hotmail.co.uk"),
-                EmployeeGroup = new EmployeeGroup("Software Developer"),
-                EmployeeNumber = 1.ToString("00000000"),
-                EmploymnentBasis = EmploymentType.FullTime,
-                PhoneNumbers = new List<PhoneNumber>
-                {
-                    new PhoneNumber("44", "771246589")
-                    {
-                        PhoneType = PhoneType.Mobile
-                    }
-                },
-                StartDate = DateTime.Now,
-                HiredDate = DateTime.Now
-            };
-            context.Employees.Add(e);
-
+            //Employee e = new Employee
+            //{
+            //    Premise = p,
+            //    Title = "Mr",
+            //    FirstName = "Adam",
+            //    LastName = "Hancock",
+            //    MiddleNames = "Stephen",
+            //    UserName = "ahancock1",
+            //    Gender = Gender.Male,
+            //    BirthDate = new DateTime(1990, 1, 10),
+            //    Email = new Email("a.hancock@hotmail.co.uk"),
+            //    EmployeeGroup = new EmployeeGroup("Software Developer"),
+            //    EmployeeNumber = 1.ToString("00000000"),
+            //    EmploymnentBasis = EmploymentType.FullTime,
+            //    PhoneNumbers = new List<PhoneNumber>
+            //    {
+            //        new PhoneNumber("44", "771246589")
+            //        {
+            //            PhoneType = PhoneType.Mobile
+            //        }
+            //    },
+            //    StartDate = DateTime.Now,
+            //    HiredDate = DateTime.Now
+            //};
+            //context.Organisations.Add(o);
         }
     }
 }

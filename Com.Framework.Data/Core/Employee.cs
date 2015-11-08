@@ -7,11 +7,9 @@ using Newtonsoft.Json;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Employee : BaseEntity
+    public class Employee : AuditableEntity<long>
     {
         #region Keys
-        [DataMember]
-        public int EmployeeID { get; set; }
 
         [DataMember]
         public int PremiseID { get; set; }
@@ -107,8 +105,8 @@ namespace Com.Framework.Data
         [DataMember]
         public EmployeeGroup EmployeeGroup { get; set; }
 
-        [DataMember]
-        public virtual TerminalCredential TerminalCredential { get; set; }
+        //[DataMember]
+        //public virtual TerminalCredential TerminalCredential { get; set; }
 
 
         #endregion

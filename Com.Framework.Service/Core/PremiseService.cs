@@ -20,9 +20,9 @@ namespace Com.Framework.Service
 
     public class PremiseService : BaseService, IPremiseService
     {
-        public Premise GetPremise(int premiseID)
+        public Premise GetPremise(int id)
         {
-            return Service.Get<Premise>(p => p.PremiseID == premiseID,
+            return Service.Get<Premise>(p => p.Id == id,
                 p => p.Addresses, p => p.PhoneNumbers, p => p.OpenHours, p => p.PaymentMethods,
                 p => p.MenuCategories, p => p.EmployeeGroups, p => p.EmailAddresses, p => p.Departments);
         }

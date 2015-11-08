@@ -19,9 +19,9 @@ namespace Com.Framework.Hubs.Core
 
     public class PremiseHub : ServiceHub<IPremiseContract>, IPremiseHub
     {
-        public Premise GetPremise(int premiseID)
+        public Premise GetPremise(int id)
         {
-            return Service.Get<Premise>(p => p.PremiseID == premiseID);
+            return Service.Get<Premise>(p => p.Id == id);
         }
 
         public IEnumerable<Premise> GetPremisesByOrganisation(int organisationID)

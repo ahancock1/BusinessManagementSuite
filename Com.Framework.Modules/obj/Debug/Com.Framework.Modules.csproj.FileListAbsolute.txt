@@ -3,3 +3,8 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\bin\Debu
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Debug\Com.Framework.Modules.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Debug\Com.Framework.Modules.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Restaurant.Modules\obj\Debug\Com.Framework.Modules.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\bin\Debug\Com.Framework.Modules.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\bin\Debug\Com.Framework.Modules.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.pdb

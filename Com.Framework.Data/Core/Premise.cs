@@ -10,11 +10,9 @@ using Newtonsoft.Json;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Premise : BaseEntity
+    public class Premise : AuditableEntity<long>
     {
         #region Keys
-        [DataMember]
-        public int PremiseID { get; set; }
 
         [DataMember]
         public int OrganisationID { get; set; }

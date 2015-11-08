@@ -19,9 +19,9 @@ namespace Com.Framework.Hubs.Core
 
     public class EmployeeHub : ServiceHub<IEmployeeContract>, IEmployeeHub
     {
-        public Employee GetEmployee(int employeeID)
+        public Employee GetEmployee(int id)
         {
-            return Service.Get<Employee>(e => e.EmployeeID == employeeID,
+            return Service.Get<Employee>(e => e.Id == id,
                 e => e.PhoneNumbers, e => e.WorkLocations, e => e.EmployeeGroup);
         }
 

@@ -7,7 +7,7 @@ namespace Com.Framework.Data
     [DataContract]
     public class TerminalCredential : BaseEntity
     {
-        [Key, ForeignKey("Employee"), DataMember]
+        //[Key, ForeignKey("Employee"), DataMember]
         public int TerminalCredentialID { get; set; }
 
         [DataMember]

@@ -26,9 +26,9 @@ namespace Com.Framework.Service
 
     public class EmployeeService : BaseService, IEmployeeService
     {
-        public Employee GetEmployee(int employeeID)
+        public Employee GetEmployee(int id)
         {
-            return Service.Get<Employee>(e => e.EmployeeID == employeeID,
+            return Service.Get<Employee>(e => e.Id == id,
                 e => e.PhoneNumbers, e => e.WorkLocations, e => e.EmployeeGroup);
         }
 

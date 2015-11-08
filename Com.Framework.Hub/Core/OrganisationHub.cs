@@ -16,9 +16,9 @@ namespace Com.Framework.Hubs
 
     public class OrganisationHub : ServiceHub<IOrganisationContract>, IOrganisationHub
     {
-        public Organisation GetOrganisation(int organisationID)
+        public Organisation GetOrganisation(int id)
         {
-            return Service.Get<Organisation>(o => o.OrganisationID == organisationID,
+            return Service.Get<Organisation>(o => o.Id == id,
                 o => o.OpenHours, o => o.Addresses, o => o.PhoneNumbers, o => o.ExternalLinks,
                 o => o.Image);
         }

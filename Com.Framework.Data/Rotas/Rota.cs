@@ -59,7 +59,7 @@ namespace Com.Framework.Data.Rotas
         /// <returns></returns>
         public decimal Expenditure(Employee employee)
         {
-            return Expenditure(s => s.Employee.EmployeeID == employee.EmployeeID);
+            return Expenditure(s => s.Employee.Id == employee.Id);
         }
 
         public decimal Expenditure(DayOfWeek dayOfWeek)

@@ -1,0 +1,122 @@
+﻿@model Com.Framework.Data.Organisation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organisation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image.ImageID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image.ImageID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaysTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaysTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganisationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganisationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApiKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApiKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganisationStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganisationStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganisationCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganisationCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialYearEndDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialYearEndDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialYearEndMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialYearEndMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -5,6 +5,14 @@ using Com.Framework.Data.Restaurants.Tables;
 
 namespace Com.Framework.Data
 {
+    public enum Title
+    {
+        Mr,
+        Mrs,
+        Miss,
+        Other
+    }
+
     [DataContract]
     public class User : BaseEntity
     {
@@ -24,7 +32,7 @@ namespace Com.Framework.Data
         public Email Email { get; set; }
 
         [DataMember]
-        public Gender Gender { get; set; }
+        public Title Title { get; set; }
 
         [DataMember]
         public Image Image { get; set; }

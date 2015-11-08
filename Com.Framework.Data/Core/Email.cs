@@ -24,6 +24,7 @@ namespace Com.Framework.Data
 
         protected ICollection<Organisation> Organisations { get; set; }
 
+        public Email() : this("") { }
 
         public Email(string address)
         {
