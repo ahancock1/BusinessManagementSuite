@@ -5,7 +5,7 @@ namespace Com.Framework.Hubs.Core
 {
     public interface IEmployeeHub
     {
-        Employee GetEmployee(int employeeID);
+        Employee GetEmployee(int id);
 
         IEnumerable<Employee> GetEmployeesByPremise(int premiseID);
 

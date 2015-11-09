@@ -11,11 +11,8 @@ using Com.Framework.Data.Restaurants.Tables;
 namespace Com.Framework.Data.Restaurants.Tickets
 {
     [DataContract]
-    public class Ticket : BaseEntity, IBillable, IEnumerable<TicketItem>
+    public class Ticket : Entity<long>, IBillable, IEnumerable<TicketItem>
     {
-        [DataMember]
-        public int TicketID { get; set; }
-
         [DataMember]
         public DateTime Created { get; set; }
 

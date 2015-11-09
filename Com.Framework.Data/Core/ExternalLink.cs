@@ -5,11 +5,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class ExternalLink : BaseEntity
+    public class ExternalLink : Entity<long>
     {
-        [DataMember]
-        public int ExternalLinkID { get; set; }
-
         [DataMember]
         public string Url { get; set; }
 
@@ -21,7 +18,7 @@ namespace Com.Framework.Data
 
 
         // Navigation Properties
-        protected ICollection<Organisation> Organisations { get; set; }
+        protected ICollection<Premise> Premises { get; set; }
 
 
         public ExternalLink()

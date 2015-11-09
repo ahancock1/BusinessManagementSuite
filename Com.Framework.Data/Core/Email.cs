@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Email : BaseEntity
+    public class Email : Entity<long>
     {
-        [DataMember]
-        public int EmailID { get; set; }
-
         [DataMember]
         public string Address { get; set; }
 
@@ -22,7 +19,7 @@ namespace Com.Framework.Data
         // Navigational Properties
         protected ICollection<Premise> Premises { get; set; }
 
-        protected ICollection<Organisation> Organisations { get; set; }
+        //protected ICollection<Organisation> Organisations { get; set; }
 
         public Email() : this("") { }
 

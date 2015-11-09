@@ -4,11 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Review : BaseEntity
+    public class Review : Entity<long>
     {
-        [DataMember]
-        public int ReviewID { get; set; }
-
         [DataMember]
         public int PremiseID { get; set; }
 

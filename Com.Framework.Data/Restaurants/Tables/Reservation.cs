@@ -5,11 +5,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants.Tables
 {
     [DataContract]
-    public class Reservation : BaseEntity
+    public class Reservation : AuditableEntity<long>
     {
-        [DataMember]
-        public int ReservationID { get; set; }
-
         [DataMember]
         public int PremiseID { get; set; }
 
@@ -30,12 +27,6 @@ namespace Com.Framework.Data.Restaurants.Tables
 
         [DataMember]
         public DateTime Date { get; set; }
-
-        [DataMember]
-        public DateTime Created { get; set; }
-
-        [DataMember]
-        public DateTime Modified { get; set; }
 
         [DataMember]
         public Premise Premise { get; set; }

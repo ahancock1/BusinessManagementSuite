@@ -4,15 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class EmployeeGroup : BaseEntity
+    public class EmployeeGroup : Entity<long>
     {
-        #region Keys
-
-        [DataMember]
-        public int EmployeeGroupID { get; set; }
-
-        #endregion
-
         #region Properties
         [DataMember]
         public string Name { get; set; }

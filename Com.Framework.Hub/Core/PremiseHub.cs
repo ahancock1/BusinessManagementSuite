@@ -5,9 +5,9 @@ namespace Com.Framework.Hubs.Core
 {
     public interface IPremiseHub
     {
-        Premise GetPremise(int premiseID);
+        Premise GetPremise(int id);
 
-        IEnumerable<Premise> GetPremisesByOrganisation(int organisationID);
+        //IEnumerable<Premise> GetPremisesByOrganisation(int organisationID);
 
         bool UpdatePremises(string name, params Premise[] premises);
     }
@@ -24,10 +24,10 @@ namespace Com.Framework.Hubs.Core
             return Service.Get<Premise>(p => p.Id == id);
         }
 
-        public IEnumerable<Premise> GetPremisesByOrganisation(int organisationID)
-        {
-            return Service.All<Premise>(p => p.OrganisationID == organisationID);
-        }
+        //public IEnumerable<Premise> GetPremisesByOrganisation(int organisationID)
+        //{
+        //    return Service.All<Premise>(p => p.OrganisationID == organisationID);
+        //}
 
         public bool UpdatePremises(string name, params Premise[] premises)
         {

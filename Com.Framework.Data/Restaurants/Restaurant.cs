@@ -10,9 +10,6 @@ namespace Com.Framework.Data.Restaurants
     [DataContract, Table("Restaurants")]
     public class Restaurant : Premise
     {
-        [Key, DataMember]
-        public int RestaurantID { get; set; }
-
         [DataMember]
         protected virtual ICollection<Table> Tables { get; set; }
 

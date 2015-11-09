@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 namespace Com.Framework.Data.Rotas
 {
     [DataContract]
-    public class Rota : BaseEntity
+    public class Rota : Entity<long>
     {
         #region Keys
-        [DataMember]
-        public int RotaID { get; set; }
-
         [DataMember]
         public int PremiseID { get; set; }
 

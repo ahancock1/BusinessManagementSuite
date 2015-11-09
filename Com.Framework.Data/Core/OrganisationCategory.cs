@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract, Flags]
-    public enum OrganisationCategory
+    public enum PremiseCategory
     {
         [EnumMember(Value = "RESTAURANT")]
         Restaurant,

@@ -4,12 +4,9 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.PayRoll
 {
     [DataContract]
-    public class SalaryAndWage : BaseEntity
+    public class SalaryAndWage : Entity<long>
     {
         #region Keys
-        [DataMember]
-        public int SalaryAndWageID { get; set; }
-
         [DataMember]
         public int EmployeeID { get; set; }
 

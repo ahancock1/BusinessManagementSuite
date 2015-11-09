@@ -8,7 +8,7 @@ namespace Com.Framework.Hubs.Rotas
     /// </summary>
     public interface IShiftHub
     {
-        Shift GetShift(int shiftID);
+        Shift GetShift(int id);
 
         IEnumerable<Shift> GetShiftsByEmployee(int employeeID);
 
@@ -22,9 +22,9 @@ namespace Com.Framework.Hubs.Rotas
 
     public class ShiftHub : ServiceHub<IShiftContract>, IShiftHub
     {
-        public Shift GetShift(int shiftID)
+        public Shift GetShift(int id)
         {
-            return Service.Get<Shift>(s => s.ShiftID == shiftID);
+            return Service.Get<Shift>(s => s.Id == id);
         }
 
         public IEnumerable<Shift> GetShiftsByEmployee(int employeeID)

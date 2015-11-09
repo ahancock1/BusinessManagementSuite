@@ -2,37 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Com.Framework.Data.Restaurants.Tables;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Com.Framework.Data
 {
-    public enum Title
-    {
-        Mr,
-        Mrs,
-        Miss,
-        Other
-    }
-
     [DataContract]
-    public class User : BaseEntity
+    public class User : Entity<long>
     {
-        [DataMember]
-        public int UserID { get; set; }
-
-        [DataMember]
+        [DataMember, Required(ErrorMessage = "{0} is required.")]
         public string Username { get; set; }
 
-        [DataMember]
+        [DataMember, Required(ErrorMessage = "{0} is required.")]
         public string FirstName { get; set; }
 
-        [DataMember]
+        [DataMember, Required(ErrorMessage = "{0} is required.")]
         public string LastName { get; set; }
 
         [DataMember]
+        [EmailAddress, Required(ErrorMessage = "{0} is required.")]
         public Email Email { get; set; }
-
-        [DataMember]
-        public Title Title { get; set; }
 
         [DataMember]
         public Image Image { get; set; }
@@ -43,18 +32,18 @@ namespace Com.Framework.Data
         [DataMember]
         public virtual Credential Credential { get; set; }
 
-        [DataMember]
-        public UserGroup UserGroup { get; set; }
+        [NotMapped]
+        public string Password { get; set; }
 
-        [DataMember]
-        public UserType UserType { get; set; }
+        public string Confirm
 
         protected virtual ICollection<Review> Reviews { get; set; }
 
         protected virtual ICollection<Reservation> Reservations { get; set; }
 
+        protected virtual Premise Premise { get; set; }
 
 
-        public string FullName => String.Format("{0}, {1}", LastName, FirstName);
+        public string FullName => String.Format("{0} {1}", FirstName, LastName);
     }
 }

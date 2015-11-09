@@ -4,11 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Image : BaseEntity
+    public class Image : Entity<long>
     {
-        [DataMember]
-        public int ImageID { get; set; }
-
         [DataMember]
         public ImageType ImageType { get; set; }
 
@@ -16,7 +13,7 @@ namespace Com.Framework.Data
         public byte[] Data { get; set; }
 
         // Navigation Properties
-        protected ICollection<Organisation> Organisations { get; set; }
+        protected ICollection<Premise> Premises { get; set; }
 
 
         public Image()
@@ -24,14 +21,5 @@ namespace Com.Framework.Data
             ImageType = ImageType.Default;
         }
 
-
-        public static Image DefaultImage()
-        {
-            // TODO read an image and store it
-            return new Image
-            {
-                ImageID = 1
-            };
-        }
     }
 }

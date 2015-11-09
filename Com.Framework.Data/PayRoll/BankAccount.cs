@@ -10,8 +10,6 @@ namespace Com.Framework.Data.PayRoll
     [DataContract]
     public class BankAccount
     {
-        [DataMember]
-        public int BankAccountID { get; set; }
 
 
     }

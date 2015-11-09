@@ -5,11 +5,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class Address : BaseEntity
+    public class Address : Entity<long>
     {
-        [DataMember]
-        public int AddressID { get; set; }
-
         [DataMember]
         public AddressType AddressType { get; set; }
 
@@ -39,7 +36,7 @@ namespace Com.Framework.Data
 
         protected ICollection<Premise> Premises { get; set; }
 
-        protected ICollection<Organisation> Organisations { get; set; }
+        //protected ICollection<Organisation> Organisations { get; set; }
 
 
         public Address()

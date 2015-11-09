@@ -7,7 +7,7 @@ namespace Com.Framework.Hubs.Restaurants.Tables
 {
     public interface IReservationHub
     {
-        Reservation GetReservation(int premiseID, int reservationID);
+        Reservation GetReservation(int premiseID, int id);
 
         IEnumerable<Reservation> GetReservationsByPremiseBetweenTimes(int premiseID, TimeSpan start, TimeSpan end);
 
@@ -23,9 +23,9 @@ namespace Com.Framework.Hubs.Restaurants.Tables
 
     public class ReservationHub : ServiceHub<IReservationContract>, IReservationHub
     {
-        public Reservation GetReservation(int premiseID, int reservationID)
+        public Reservation GetReservation(int premiseID, int id)
         {
-            return Service.Get<Reservation>(r => r.PremiseID == premiseID && r.ReservationID == reservationID);
+            return Service.Get<Reservation>(r => r.PremiseID == premiseID && r.Id == id);
         }
 
         public IEnumerable<Reservation> GetReservationsByPremiseBetweenTimes(int premiseID, TimeSpan start, TimeSpan end)

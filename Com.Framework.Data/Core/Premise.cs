@@ -14,9 +14,11 @@ namespace Com.Framework.Data
     {
         #region Keys
 
-        [DataMember]
-        public int OrganisationID { get; set; }
+        //[DataMember]
+        //public int OrganisationID { get; set; }
 
+        [DataMember]
+        public int ImageID { get; set; }
         #endregion
 
         #region Properties
@@ -54,6 +56,9 @@ namespace Com.Framework.Data
         public ICollection<PaymentMethod> PaymentMethods { get; set; }
 
         [DataMember]
+        public ICollection<ExternalLink> ExternalLinks { get; set; }
+
+        [DataMember]
         public float Rating { get; set; }
 
         // TODO: This needs to be updated when a new review is added
@@ -79,8 +84,8 @@ namespace Com.Framework.Data
 
         #region Navigation Properties
 
-        [JsonIgnore]
-        protected virtual Organisation Organisation { get; set; }
+        //[JsonIgnore]
+        //protected virtual Organisation Organisation { get; set; }
 
         [JsonIgnore]
         protected virtual ICollection<Review> Reviews { get; set; }

@@ -1,6 +1,6 @@
 namespace Com.Framework.Data
 {
-    public class UserGroup : BaseEntity
+    public class UserGroup : Entity<long>
     {
         public int UserGroupID { get; set; }
 

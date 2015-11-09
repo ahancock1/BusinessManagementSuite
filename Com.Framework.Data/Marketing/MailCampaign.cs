@@ -4,13 +4,10 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Marketing
 {
     [DataContract]
-    public class MailCampaign : BaseEntity
+    public class MailCampaign : Entity<long>
     {
         #region Keys
-
-        [DataMember]
-        public int MailCampaignID { get; set; }
-
+        
         [DataMember]
         public int PremiseID { get; set; }
 

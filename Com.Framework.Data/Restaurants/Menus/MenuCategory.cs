@@ -7,10 +7,8 @@ namespace Com.Framework.Data.Restaurants.Menus
     ///     Starters, Mains, Deserts
     /// </summary>
     [DataContract]
-    public class MenuCategory : BaseEntity
+    public class MenuCategory : Entity<long>
     {
-        [DataMember]
-        public int MenuCategoryID { get; set; }
 
         [DataMember]
         public string Name { get; set; }

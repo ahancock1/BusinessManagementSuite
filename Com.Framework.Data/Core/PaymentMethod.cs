@@ -27,32 +27,17 @@ namespace Com.Framework.Data
     }
 
     [DataContract]
-    public class PaymentMethod : BaseEntity
+    public class PaymentMethod : Entity<long>
     {
-        #region Keys
-
-        [DataMember]
-        public int PaymentMethodID { get; set; }
 
         [DataMember]
         public int EmployeeID { get; set; }
 
         [DataMember]
         public PaymentMethodType PaymentMethodType { get; set; }
-
-        #endregion
-
-        #region Properties
-
-
-
-        #endregion
-
-
-        #region Navigation Properties
-
+        
+        
         protected virtual Employee Employee { get; set; }
-
-        #endregion
+        
     }
 }

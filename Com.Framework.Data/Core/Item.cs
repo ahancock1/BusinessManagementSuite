@@ -8,9 +8,6 @@ namespace Com.Framework.Data.Core
     public class Item : AuditableEntity<long>
     {
         [DataMember]
-        public int ItemID { get; set; }
-
-        [DataMember]
         public string Name { get; set; }
 
         [DataMember]
@@ -24,11 +21,8 @@ namespace Com.Framework.Data.Core
     }
 
     [DataContract]
-    public class ItemType
+    public class ItemType : Entity<long>
     {
-        [DataMember]
-        public int ItemTypeID { get; set; }
-
         [DataMember]
         public string Name { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -14,7 +15,7 @@ namespace Com.Framework.DataAccess
 {
     public class DataContext : DbContext
     {
-        public DbSet<Organisation> Organisations { get; set; }
+        //public DbSet<Organisation> Organisations { get; set; }
 
         public DbSet<Premise> Premises { get; set; }
 
@@ -100,13 +101,35 @@ namespace Com.Framework.DataAccess
             //    CountryCode = "UK"
             //};
 
-            Organisation o = new Organisation
-            {
-                Name = "Test Organisation",
-                Code = "TO"
+            //Organisation o = new Organisation
+            //{
+            //    Name = "Test Organisation",
+            //    Code = "TO"
 
+            //};
+            //context.Organisations.Add(o);
+
+            // Seed with test premise
+            Premise p = new Premise
+            {
+                Name = "Test Premise",
+                Description = "This is the test premise"
             };
-            context.Organisations.Add(o);
+            context.Premises.Add(p);
+
+            // Seed with default profile image
+            MemoryStream ms = new MemoryStream();
+            System.Drawing.Image.FromFile("..\\Content\\Default.jpg").Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            Image i = new Image
+            {
+                ImageType = ImageType.Default,
+                Data = ms.ToArray()
+            };
+            context.Images.Add(i);
+
+
+
 
             //p = context.Premises.FirstOrDefault(i => i.Name == "Test Premise");
 

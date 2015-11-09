@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 namespace Com.Framework.Data.Restaurants
 {
     [DataContract]
-    public class Facility : BaseEntity
+    public class Facility : Entity<long>
     {
-        [DataMember]
-        public int FacilityID { get; set; }
-
         [DataMember]
         public string Name { get; set; }
 

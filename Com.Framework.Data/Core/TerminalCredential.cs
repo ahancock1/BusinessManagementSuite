@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class TerminalCredential : BaseEntity
+    public class TerminalCredential : Entity<long>
     {
         //[Key, ForeignKey("Employee"), DataMember]
         public int TerminalCredentialID { get; set; }

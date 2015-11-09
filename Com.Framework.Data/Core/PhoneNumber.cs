@@ -5,11 +5,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class PhoneNumber : BaseEntity
+    public class PhoneNumber : Entity<long>
     {
-        [DataMember]
-        public int PhoneNumberID { get; set; }
-
         [DataMember]
         public string CountryCode { get; set; }
 
@@ -23,7 +20,7 @@ namespace Com.Framework.Data
         public bool Confirmed { get; set; }
 
         // Navigation Properties
-        protected ICollection<Organisation> Organisations { get; set; }
+        protected ICollection<Premise> Premises { get; set; }
 
 
         public PhoneNumber() : this("", "")

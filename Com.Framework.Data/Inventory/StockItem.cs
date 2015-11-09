@@ -7,6 +7,6 @@ namespace Com.Framework.Data.Inventory
     [DataContract, Table("StockItems")]
     public class StockItem : Item
     {
-        public int StockItemID { get; set; }
+
     }
 }

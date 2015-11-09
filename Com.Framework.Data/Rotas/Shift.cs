@@ -5,11 +5,9 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Rotas
 {
     [DataContract]
-    public class Shift : BaseEntity
+    public class Shift : Entity<long>
     {
         #region Keys
-        [DataMember]
-        public int ShiftID { get; set; }
 
         [DataMember]
         public int EmployeeID { get; set; }

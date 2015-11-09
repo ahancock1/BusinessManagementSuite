@@ -4,11 +4,9 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants.Menus
 {
     [DataContract]
-    public class Menu : BaseEntity
+    public class Menu : Entity<long>
     {
         #region Keys
-        [DataMember]
-        public int MenuID { get; set; }
 
         [DataMember]
         public int PremiseID { get; set; }

@@ -6,7 +6,7 @@ namespace Com.Framework.Hubs.Core
 {
     public interface IReviewHub
     {
-        Review GetReview(int reviewID);
+        Review GetReview(int id);
 
         IEnumerable<Review> GetReviewsByPremise(int premiseID, int start = 0, int count = 0);
 
@@ -20,9 +20,9 @@ namespace Com.Framework.Hubs.Core
 
     public class ReviewHub : ServiceHub<IReviewContract>, IReviewHub
     {
-        public Review GetReview(int reviewID)
+        public Review GetReview(int id)
         {
-            return Service.Get<Review>(r => r.ReviewID == reviewID);
+            return Service.Get<Review>(r => r.Id == id);
         }
 
         public IEnumerable<Review> GetReviewsByPremise(int premiseID, int start = 0, int count = 0)

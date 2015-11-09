@@ -6,13 +6,13 @@ namespace Com.Framework.Hubs.Restaurants
 {
     public interface IMenuHub
     {
-        Menu GetMenu(int menuID);
+        Menu GetMenu(int id);
 
         IEnumerable<Menu> GetMenusByPremise(int premiseID);
 
         bool UpdateMenus(string name, params Menu[] menus);
 
-        MenuItem GetMenuItem(int menuItemID);
+        MenuItem GetMenuItem(int id);
 
         IEnumerable<MenuItem> GetMenuItemsByPremise(int premiseID);
 
@@ -30,9 +30,9 @@ namespace Com.Framework.Hubs.Restaurants
 
     public class MenuHub : ServiceHub<IMenuContract>, IMenuHub
     {
-        public Menu GetMenu(int menuID)
+        public Menu GetMenu(int id)
         {
-            return Service.Get<Menu>(m => m.MenuID == menuID);
+            return Service.Get<Menu>(m => m.Id == id);
         }
 
         public IEnumerable<Menu> GetMenusByPremise(int premiseID)
@@ -49,9 +49,9 @@ namespace Com.Framework.Hubs.Restaurants
             return Service.Update(menus);
         }
 
-        public MenuItem GetMenuItem(int menuItemID)
+        public MenuItem GetMenuItem(int id)
         {
-            return Service.Get<MenuItem>(m => m.MenuItemID == menuItemID,
+            return Service.Get<MenuItem>(m => m.Id == id,
                 m => m.Image, m => m.MenuItemDetails);
         }
 

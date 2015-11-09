@@ -6,8 +6,8 @@ using System.ServiceProcess;
 using Com.Framework.Common.Logging;
 using Com.Framework.Hubs;
 using Com.Framework.Network;
-using Com.Framework.Service;
-using Com.Framework.Service.Rotas;
+//using Com.Framework.Service;
+//using Com.Framework.Service.Rotas;
 
 using Microsoft.Owin.Hosting;
 
@@ -76,9 +76,9 @@ namespace Com.Interface.ServiceHost
         }
         #endregion
 
-        private static Server server;
+        //private static Server server;
 
-        private static ServiceManager services;
+        //private static ServiceManager services;
 
 
         static void Main(string[] args)
@@ -155,23 +155,23 @@ namespace Com.Interface.ServiceHost
             //new Thread(server.Start) { Name = "Server" }.Start();
 
             // Initiate and host the web services
-            services = new ServiceManager();
+            //services = new ServiceManager();
 
-            services.OpenHost<EmployeeService, IEmployeeService>();
-            services.OpenHost<OrganisationService, IOrganisationService>();
-            services.OpenHost<PremiseService, IPremiseService>();
-            services.OpenHost<MenuService, IMenuService>();
-            services.OpenHost<RotaService, IRotaService>();
-            services.OpenHost<ShiftService, IShiftService>();
+            //services.OpenHost<EmployeeService, IEmployeeService>();
+            //services.OpenHost<OrganisationService, IOrganisationService>();
+            //services.OpenHost<PremiseService, IPremiseService>();
+            //services.OpenHost<MenuService, IMenuService>();
+            //services.OpenHost<RotaService, IRotaService>();
+            //services.OpenHost<ShiftService, IShiftService>();
 
 
 
             // The service can be be accessed
-            Logger.Info(String.Format("{0} Services Hosted", services.HostedCount));
+            //Logger.Info(String.Format("{0} Services Hosted", services.HostedCount));
 
-            var result = new EmployeeService().GetEmployee(1);//.Get<Restaurant>(u => u.Name == "TestRestaurant", u => u.OpenHours);
+            //var result = new EmployeeService().GetEmployee(1);//.Get<Restaurant>(u => u.Name == "TestRestaurant", u => u.OpenHours);
 
-            Console.WriteLine(result.ToString());
+            //Console.WriteLine(result.ToString());
 
             //            User result = new LoginService().GetUser("username", "password");
             //
@@ -185,8 +185,8 @@ namespace Com.Interface.ServiceHost
 
         private static void Stop()
         {
-            server?.Stop();
-            services?.Close();
+            //server?.Stop();
+            //services?.Close();
 
             Environment.Exit(1);
         }

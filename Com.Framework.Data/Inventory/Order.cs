@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Com.Framework.Data.Inventory
 {
-    public class Order : BaseEntity
+    public class Order : Entity<long>
     {
         public List<OrderItem> Items { get; set; }
 

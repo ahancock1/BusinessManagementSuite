@@ -4,10 +4,8 @@ using Com.Framework.Data.Restaurants.Tables;
 namespace Com.Framework.Data.Restaurants.Tables
 {
     [DataContract]
-    public class Table
+    public class Table : Entity<long>
     {
-        [DataMember]
-        public int TableID { get; set; }
 
         [DataMember]
         public int TableNumber { get; set; }

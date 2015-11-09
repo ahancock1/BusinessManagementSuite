@@ -8,8 +8,6 @@ namespace Com.Framework.Data.Establishments.Payroll
 {
     public class ExpenseClaim
     {
-        public int ExpenseClaimID { get; set; }
-
         public float Total { get; set; }
 
         public DateTime Created { get; set; }

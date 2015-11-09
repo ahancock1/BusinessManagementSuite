@@ -4,11 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants.Tickets
 {
     [DataContract]
-    public class TicketType : BaseEntity
+    public class TicketType : Entity<long>
     {
-        [DataMember]
-        public int TicketTypeID { get; set; }
-
         [DataMember]
         public string Name { get; set; }
 

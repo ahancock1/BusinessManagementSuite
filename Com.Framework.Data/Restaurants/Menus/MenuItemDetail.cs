@@ -4,11 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants.Menus
 {
     [DataContract]
-    public class MenuItemDetail
+    public class MenuItemDetail : Entity<long>
     {
-        [DataMember]
-        public int MenuItemDetailID { get; set; }
-
         [DataMember]
         public string Name { get; set; }
 

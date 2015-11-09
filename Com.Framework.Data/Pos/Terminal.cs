@@ -12,10 +12,8 @@ namespace Com.Framework.Data.Pos
     }
 
     [DataContract]
-    public class Terminal : BaseEntity
+    public class Terminal : Entity<long>
     {
-        [DataMember]
-        public int TerminalID { get; set; }
 
         [DataMember]
         public string Name { get; set; }
@@ -30,10 +28,8 @@ namespace Com.Framework.Data.Pos
     }
 
     [DataContract]
-    public class TerminalHistory : BaseEntity
+    public class TerminalHistory : Entity<long>
     {
-        [DataMember]
-        public int TerminalHistoryID { get; set; }
 
         [DataMember]
         public virtual Terminal Terminal { get; set; }
@@ -54,7 +50,6 @@ namespace Com.Framework.Data.Pos
 
     public class CashFloat
     {
-        public int CurrencyID { get; set; }
 
         public Currency Currency { get; set; }
 

@@ -6,7 +6,7 @@ namespace Com.Framework.Hubs.Rotas
 {
     public interface IRotaHub
     {
-        Rota GetRota(int rotaID);
+        Rota GetRota(int id);
 
         Rota GetRotaByPremiseByWeek(int premiseID, int week);
 
@@ -24,9 +24,9 @@ namespace Com.Framework.Hubs.Rotas
 
     public class RotaHub : ServiceHub<IRotaContract>, IRotaHub
     {
-        public Rota GetRota(int rotaID)
+        public Rota GetRota(int id)
         {
-            return Service.Get<Rota>(r => r.RotaID == rotaID, r => r.Shifts);
+            return Service.Get<Rota>(r => r.Id == id, r => r.Shifts);
         }
 
         public Rota GetRotaByPremiseByWeek(int premiseID, int week)

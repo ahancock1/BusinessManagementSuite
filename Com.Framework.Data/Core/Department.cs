@@ -7,9 +7,6 @@ namespace Com.Framework.Data.Core
     public class Department : AuditableEntity<long>
     {
         [DataMember]
-        public int DepartmentID { get; set; }
-
-        [DataMember]
         public string Name { get; set; }
 
         [DataMember]

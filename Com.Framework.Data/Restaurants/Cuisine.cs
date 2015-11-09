@@ -4,11 +4,8 @@ using System.Runtime.Serialization;
 namespace Com.Framework.Data.Restaurants
 {
     [DataContract]
-    public class Cuisine : BaseEntity
+    public class Cuisine : Entity<long>
     {
-        [DataMember]
-        public int CuisineID { get; set; }
-
         [DataMember]
         public string Name { get; set; }
 
