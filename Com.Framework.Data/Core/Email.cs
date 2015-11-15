@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Com.Framework.Data
 {
     [DataContract]
     public class Email : Entity<long>
     {
-        [DataMember]
+        [DataMember, Required(ErrorMessage = "{0} is required.")]
         public string Address { get; set; }
 
         [DataMember]
@@ -19,7 +20,8 @@ namespace Com.Framework.Data
         // Navigational Properties
         protected ICollection<Premise> Premises { get; set; }
 
-        //protected ICollection<Organisation> Organisations { get; set; }
+        protected ICollection<User> Users { get; set; }
+
 
         public Email() : this("") { }
 
@@ -28,10 +30,10 @@ namespace Com.Framework.Data
             Address = address;
         }
 
-        public static bool Validate(Email email)
-        {
-            throw new NotImplementedException("Email validation is not yet implemented");
-        }
+        //public static bool Validate(Email email)
+        //{
+        //    throw new NotImplementedException("Email validation is not yet implemented");
+        //}
 
     }
 }

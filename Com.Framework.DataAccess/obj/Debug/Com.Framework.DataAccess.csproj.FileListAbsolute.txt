@@ -56,5 +56,7 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAcces
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\bin\Debug\log4net.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\obj\Debug\Com.Framework.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\obj\Debug\Com.Framework.DataAccess.Properties.Resources.resources
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\obj\Debug\Com.Framework.DataAccess.csproj.GenerateResource.Cache
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\obj\Debug\Com.Framework.DataAccess.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.DataAccess\obj\Debug\Com.Framework.DataAccess.pdb

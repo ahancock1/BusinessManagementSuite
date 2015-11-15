@@ -15,9 +15,15 @@ namespace Com.Framework.Data
         public virtual User User { get; set; }
 
 
-        public Credential()
-        {
+        //public Credential()
+        //{
 
+        //}
+
+        public Credential(string username, string password)
+        {
+            PasswordSalt = Hash(username, "thisneedstobereplacedwithsomethinglesspredicatable");
+            PasswordHash = Hash(password, PasswordSalt);
         }
 
         public static byte[] Hash(string value, string salt)

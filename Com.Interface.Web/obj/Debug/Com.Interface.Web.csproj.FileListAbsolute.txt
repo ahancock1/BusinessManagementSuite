@@ -1,55 +1,79 @@
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.config
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\csc.exe
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\vbc.exe
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\VBCSCompiler.exe
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Interface.Web.dll.config
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Interface.Web.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Interface.Web.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Antlr3.Runtime.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Common.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Data.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.DataAccess.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Newtonsoft.Json.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Helpers.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Mvc.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Optimization.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Razor.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.Razor.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\WebGrease.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\EntityFramework.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\PagedList.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Common.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.DataAccess.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Data.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Newtonsoft.Json.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Helpers.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Mvc.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Optimization.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.Razor.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Web.WebPages.Razor.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Antlr3.Runtime.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\EntityFramework.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\PagedList.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\EntityFramework.SqlServer.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\EntityFramework.SqlServer.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\csc.exe
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\System.Collections.Immutable.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\vbc.exe
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\VBCSCompiler.exe
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\roslyn\VBCSCompiler.exe.config
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Com.Interface.Web.dll.config
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Com.Interface.Web.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Com.Interface.Web.pdb
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Antlr3.Runtime.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\EntityFramework.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\EntityFramework.SqlServer.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Google.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Web.Infrastructure.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Newtonsoft.Json.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Owin.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\RestSharp.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\SendGrid.SmtpApi.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\SendGridMail.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Helpers.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Mvc.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Optimization.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Razor.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.Deployment.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.Razor.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Twilio.Api.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\WebGrease.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Antlr3.Runtime.pdb
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Newtonsoft.Json.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Helpers.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Mvc.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Optimization.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.Razor.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.Deployment.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\System.Web.WebPages.Razor.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Twilio.Api.pdb
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Twilio.Api.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\EntityFramework.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\EntityFramework.SqlServer.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Google.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\obj\Debug\Com.Interface.Web.csprojResolveAssemblyReference.cache
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\obj\Debug\Com.Interface.Web.dll
+c:\users\adam\documents\visual studio 2015\Projects\Com.Interface.Web\Com.Interface.Web\obj\Debug\Com.Interface.Web.pdb

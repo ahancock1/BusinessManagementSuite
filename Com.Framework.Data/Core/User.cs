@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Com.Framework.Data.Restaurants.Tables;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Com.Framework.Data
 {
     [DataContract]
-    public class User : Entity<long>
+    public class User : AuditableEntity<long>
     {
         [DataMember, Required(ErrorMessage = "{0} is required.")]
         public string Username { get; set; }
@@ -17,10 +16,10 @@ namespace Com.Framework.Data
         public string FirstName { get; set; }
 
         [DataMember, Required(ErrorMessage = "{0} is required.")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [DataMember]
-        [EmailAddress, Required(ErrorMessage = "{0} is required.")]
         public Email Email { get; set; }
 
         [DataMember]
@@ -31,11 +30,6 @@ namespace Com.Framework.Data
 
         [DataMember]
         public virtual Credential Credential { get; set; }
-
-        [NotMapped]
-        public string Password { get; set; }
-
-        public string Confirm
 
         protected virtual ICollection<Review> Reviews { get; set; }
 

@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using Com.Framework.Data;
+using Com.Framework.DataAccess.Mapping;
 
 using EntityState = System.Data.Entity.EntityState;
 
@@ -21,6 +22,8 @@ namespace Com.Framework.DataAccess
 
         public DbSet<Employee> Employees { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
 
         public DataContext()
             : base("DataContext")
@@ -29,6 +32,15 @@ namespace Com.Framework.DataAccess
 
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Create a model using attribute tags
+            base.OnModelCreating(modelBuilder);
+
+            // Add fluent API mappings
+            modelBuilder.Configurations.Add(new UserMapping());
         }
 
         public override int SaveChanges()
@@ -118,13 +130,13 @@ namespace Com.Framework.DataAccess
             context.Premises.Add(p);
 
             // Seed with default profile image
-            MemoryStream ms = new MemoryStream();
-            System.Drawing.Image.FromFile("..\\Content\\Default.jpg").Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //MemoryStream ms = new MemoryStream();
+            //System.Drawing.Image.FromFile(Properties.Resources.PremiseDefault_02).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             Image i = new Image
             {
                 ImageType = ImageType.Default,
-                Data = ms.ToArray()
+                Data = (byte[])new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.PremiseDefault_02, typeof(byte[]))
             };
             context.Images.Add(i);
 
