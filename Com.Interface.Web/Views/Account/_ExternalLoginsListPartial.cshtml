@@ -1,8 +1,6 @@
 ﻿@model Com.Interface.Web.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Use another service to log in.</h4>
-<hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0)
@@ -19,31 +17,34 @@
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
         {
             @Html.AntiForgeryToken()
-            <div id="socialLoginList">
-                <p>
-                    @foreach (AuthenticationDescription p in loginProviders)
-                    {
-                        switch (p.Caption)
-                        {
-                            case "Google":
-                                <button type="submit" class="btn azm-social azm-btn azm-google-plus" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
-                                    <i class="fa fa-google-plus"></i>Sign in with Google+
-                                </button>
-                                break;
+            foreach (AuthenticationDescription p in loginProviders)
+            {
+                switch (p.Caption)
+                {
+                    case "Google":
+                        <div class="actions">
+                            <button type="submit" class="btn submit azm-social azm-btn azm-google-plus" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
+                                <i class="fa fa-google-plus"></i>Sign in with Google+
+                            </button>
+                        </div>
+                        break;
 
-                            case "Facebook":
-                                <button type="submit" class="btn azm-social azm-btn azm-facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
-                                    <i class="fa fa-facebook"></i>Log in with Facebook
-                                </button>
-                                break;
+                    case "Facebook":
+                        <div class="actions">
+                            <button type="submit" class="submit azm-social azm-btn azm-facebook " id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
+                                <i class="fa fa-facebook"></i>Log in with Facebook
+                            </button>
+                        </div>
+                        break;
 
-                            default:
-                                <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                                break;
-                        }
-                    }
-                </p>
-            </div>
+                    default:
+                        <div class="actions">
+                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+
+                        </div>
+                        break;
+                }
+            }
         }
     }
 }

@@ -1,9 +1,14 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "Page not found";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div id="account">
+    <div class="container">
 
+        <h1>@ViewBag.Title</h1>
+        <hr />
+        <h3>The page you are looking for can't be found or may never have existed</h3>
+    </div>
+    </div>
