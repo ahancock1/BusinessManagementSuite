@@ -156,3 +156,13 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\M
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.DataAccess.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\PagedList.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.DataAccess.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\PagedList.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.xml
