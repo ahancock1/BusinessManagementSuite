@@ -7,17 +7,17 @@
 <div id="account">
     <div class="container">
         <h1>@ViewBag.Title</h1>
-        <hr/>
+        <hr />
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
             {
             <input name="__RequestVerificationToken" type="hidden" value="XeNhsjSgS72W33AFwLpyfUhCV4YD2CVHLire7Vfbr6wuHsq4yBj66B8LoElCU1kchv4TuJewbUmSGh3TlEh7r9pAIxw1" />
-            
-                <div class="standard-control">
-                    <div class="control">
-                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", PlaceHolder = "Username" })
-                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
-                    </div>
+
+            <div class="standard-control">
+                <div class="control">
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", PlaceHolder = "Username" })
+                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
                 </div>
+            </div>
                 <div class="standard-control">
                     <div class="control">
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", PlaceHolder = "First name" })
@@ -44,8 +44,8 @@
                 </div>
                 <div class="standard-control">
                     <div class="control">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", PlaceHolder = "Confirm password" })
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control", PlaceHolder = "Confirm password"})
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new {@class = "text-danger"})
                     </div>
                 </div>
                 <div class="actions">
@@ -53,7 +53,7 @@
                 </div>
         }
         <p class="termsAndConditionsText">By creating an account, I agree to <a href="/privacy-policy#terms_and_conditions_of_use_and_sale" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy-policy#privacy_policy" target="_blank">Privacy Policy</a></p>
-        <br/>
+        <br />
         <p class="signin">Already have an account? <a href="/account/login?ReturnUrl=%2F">Sign in</a></p>
     </div>
 </div>

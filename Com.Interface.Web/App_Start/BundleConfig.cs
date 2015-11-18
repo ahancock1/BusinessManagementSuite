@@ -35,7 +35,7 @@ namespace Com.Interface.Web
                 .Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.css",
                       "~/Content/bootstrap-social.css",
-                      //"~/Content/style.css",
+                      "~/Content/style.css",
                       "~/Content/site.css"
                       ));
         }

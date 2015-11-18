@@ -8,7 +8,7 @@
 <div id="account">
     <div class="container">
         <h1>@ViewBag.Title</h1>
-        <hr/>
+        <hr />
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
         {
             @Html.AntiForgeryToken()
@@ -37,12 +37,12 @@
             <div class="actions">
                 <input type="submit" value="Log in" class="submit" />
             </div>
-                <p class="signup">Don't have an account? <a href="/account/register?ReturnUrl=%2F">Sign up</a></p>
+            <p class="signup">Don't have an account? <a href="/account/register?ReturnUrl=%2F">Sign up</a></p>
         }
-        <hr/>
-            <section>
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
+        <hr />
+        <section>
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
     </div>
 </div>
 
