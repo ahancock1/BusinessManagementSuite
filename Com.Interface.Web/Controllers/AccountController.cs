@@ -5,10 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Com.Framework.Models;
+using Com.Framework.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Com.Interface.Web.Models;
+using Com.Interface.Web.Services;
 
 namespace Com.Interface.Web.Controllers
 {
@@ -18,9 +21,15 @@ namespace Com.Interface.Web.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+
+        public IMembershipService Service { get; private set; }
+
         public AccountController()
         {
+            Service = ServiceFactory.Create<IMembershipService>();
         }
+
+        #region code to remove
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -52,6 +61,8 @@ namespace Com.Interface.Web.Controllers
             }
         }
 
+        #endregion
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -73,10 +84,18 @@ namespace Com.Interface.Web.Controllers
                 return View(model);
             }
 
+            var result = await Service.SignInAsync(new SignInRequest
+            {
+                Username = model.Username,
+                Password = model.Password,
+                RememberMe = model.RememberMe,
+                ShouldLockout = false
+            });
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false); // TODO: error may occur here
-            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
+            //            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
 
             switch (result)
             {
@@ -153,11 +172,23 @@ namespace Com.Interface.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new AspNetUser
+                {
+                    UserName = model.Username,
+                    Email = model.Email
+                };
+                var result = await Service.CreateAsync(new CreateRequest
+                {
+                    User = user,
+                    Password = model.Password
+                });
+
+
+                //                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    SignInAsync(user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -435,6 +466,12 @@ namespace Com.Interface.Web.Controllers
             {
                 return HttpContext.GetOwinContext().Authentication;
             }
+        }
+
+        private void SignInAsync(ClaimsIdentity identity, bool isPersistent)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
         private void AddErrors(IdentityResult result)

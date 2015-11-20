@@ -100,7 +100,12 @@ namespace Com.Framework.Data
 
         [DataMember]
         public EmploymentStatus EmploymentStatus
-            => TerminationDate == null ? EmploymentStatus.Active : EmploymentStatus.Terminated;
+        {
+            get
+            {
+                return TerminationDate == null ? EmploymentStatus.Active : EmploymentStatus.Terminated;
+            }
+        }
 
         [DataMember]
         public EmployeeGroup EmployeeGroup { get; set; }

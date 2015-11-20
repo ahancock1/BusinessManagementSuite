@@ -16,12 +16,15 @@ namespace Com.Framework.Data
     public interface IEntity<T>
     {
         T Id { get; set; }
+    }
 
+    public interface IBaseEntity
+    {
         EntityState EntityState { get; set; }
     }
 
     [DataContract]
-    public abstract class BaseEntity
+    public abstract class BaseEntity : IBaseEntity
     {
         [NotMapped]
         public EntityState EntityState { get; set; }

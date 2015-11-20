@@ -9,10 +9,10 @@ namespace Com.Framework.Service
     public interface IPremiseService : IService
     {
         [OperationContract]
-        Premise GetPremise(int premiseID);
+        Premise GetPremise(int id);
 
         [OperationContract]
-        IEnumerable<Premise> GetPremisesByOrganisation(int organisationID);
+        IEnumerable<Premise> GetPremisesByOrganisation(int id);
 
         [OperationContract]
         bool Update(params Premise[] items);
@@ -27,9 +27,9 @@ namespace Com.Framework.Service
                 p => p.MenuCategories, p => p.EmployeeGroups, p => p.EmailAddresses, p => p.Departments);
         }
 
-        public IEnumerable<Premise> GetPremisesByOrganisation(int organisationID)
+        public IEnumerable<Premise> GetPremisesByOrganisation(int id)
         {
-            return Service.All<Premise>(p => p.OrganisationID == organisationID,
+            return Service.All<Premise>(p => p.Id == id,
                 p => p.Addresses, p => p.PhoneNumbers, p => p.OpenHours, p => p.PaymentMethods,
                 p => p.MenuCategories, p => p.EmployeeGroups, p => p.EmailAddresses, p => p.Departments);
         }

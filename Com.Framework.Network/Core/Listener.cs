@@ -24,7 +24,13 @@ namespace Com.Framework.Network
             Server = server;
         }
 
-        public bool Host => Server != null;
+        public bool Host
+        {
+            get
+            {
+                return Server != null;
+            }
+        }
 
         public abstract void Connected(Connection connection);
 

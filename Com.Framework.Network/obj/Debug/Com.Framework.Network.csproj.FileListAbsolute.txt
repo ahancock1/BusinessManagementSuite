@@ -36,3 +36,17 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\b
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.csprojResolveAssemblyReference.cache
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\obj\Debug\Com.Framework.Network.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\log4net.config
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Network.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Network.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Common.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Data.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\log4net.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Newtonsoft.Json.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Common.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Com.Framework.Data.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\log4net.xml
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Network\bin\Debug\Newtonsoft.Json.xml

@@ -153,5 +153,7 @@ namespace Com.Framework.DataAccess.Services
             }
             return EntityState.Detached;
         }
+
+        public DbContext Context { get { return new DataContext(); } }
     }
 }

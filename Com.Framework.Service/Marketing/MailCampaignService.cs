@@ -9,9 +9,9 @@ namespace Com.Framework.Service.Marketing
 {
     public interface IMailCampaignService
     {
-        MailCampaign GetMailCampaign(int mailCampaignID);
+        MailCampaign GetMailCampaign(int id);
 
-        IEnumerable<MailCampaign> GetMailCampaignsByPremise(int premiseID);
+        IEnumerable<MailCampaign> GetMailCampaignsByPremise(int premiseId);
 
         bool Update(params MailCampaign[] update);
     }
@@ -19,14 +19,14 @@ namespace Com.Framework.Service.Marketing
 
     public class MailCampaignService : BaseService
     {
-        public MailCampaign GetMailCampaign(int mailCampaignID)
+        public MailCampaign GetMailCampaign(int id)
         {
-            return Service.Get<MailCampaign>(m => m.MailCampaignID == mailCampaignID);
+            return Service.Get<MailCampaign>(m => m.Id == id);
         }
 
-        public IEnumerable<MailCampaign> GetMailCampaignByPremise(int premiseID)
+        public IEnumerable<MailCampaign> GetMailCampaignByPremise(int premiseId)
         {
-            return Service.All<MailCampaign>(m => m.PremiseID == premiseID);
+            return Service.All<MailCampaign>(m => m.PremiseID == premiseId);
         }
 
         public bool Update(params MailCampaign[] items)

@@ -7,3 +7,7 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\b
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\bin\Debug\Com.Framework.Modules.pdb
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Modules\bin\Debug\Com.Framework.Modules.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Modules\bin\Debug\Com.Framework.Modules.pdb
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.dll
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Modules\obj\Debug\Com.Framework.Modules.pdb

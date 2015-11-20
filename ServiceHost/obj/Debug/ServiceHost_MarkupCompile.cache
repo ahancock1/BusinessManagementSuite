@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\ServiceHost\obj\Debug\
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\ServiceHost\obj\Debug\
 ServiceHost
 none
 false
 DEBUG;TRACE
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\ServiceHost\App.xaml
+C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\ServiceHost\App.xaml
 8-1935297431
 
 7892211595
 15767094614
 Controls\ConsoleControl.xaml;Controls\Graph.xaml;MainWindow.xaml;Styles\GroupBoxStyles.xaml;Styles\Resources.xaml;Styles\TabControlStyles.xaml;Styles\TextBlockStyles.xaml;Styles\TextBoxStyles.xaml;
 
-False
+True
 

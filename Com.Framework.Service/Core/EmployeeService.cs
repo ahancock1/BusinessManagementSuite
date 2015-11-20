@@ -9,16 +9,16 @@ namespace Com.Framework.Service
     public interface IEmployeeService : IService
     {
         [OperationContract]
-        Employee GetEmployee(int employeeID);
+        Employee GetEmployee(int id);
 
         [OperationContract]
-        IEnumerable<Employee> GetEmployeesByPremise(int premiseID);
+        IEnumerable<Employee> GetEmployeesByPremise(int id);
 
         [OperationContract]
-        SalaryAndWage GetEmployeeSalaryAndWage(int employeeID);
+        SalaryAndWage GetEmployeeSalaryAndWage(int id);
 
         [OperationContract]
-        PaymentMethod GetEmployeePaymentMethod(int employeeID);
+        PaymentMethod GetEmployeePaymentMethod(int id);
 
         [OperationContract]
         bool UpdateEmployees(params Employee[] employee);
@@ -32,20 +32,20 @@ namespace Com.Framework.Service
                 e => e.PhoneNumbers, e => e.WorkLocations, e => e.EmployeeGroup);
         }
 
-        public IEnumerable<Employee> GetEmployeesByPremise(int premiseID)
+        public IEnumerable<Employee> GetEmployeesByPremise(int id)
         {
-            return Service.All<Employee>(e => e.PremiseID == premiseID,
+            return Service.All<Employee>(e => e.PremiseID == id,
                 e => e.PhoneNumbers, e => e.WorkLocations, e => e.EmployeeGroup);
         }
 
-        public SalaryAndWage GetEmployeeSalaryAndWage(int employeeID)
+        public SalaryAndWage GetEmployeeSalaryAndWage(int id)
         {
-            return Service.Get<SalaryAndWage>(s => s.EmployeeID == employeeID);
+            return Service.Get<SalaryAndWage>(s => s.EmployeeID == id);
         }
 
-        public PaymentMethod GetEmployeePaymentMethod(int employeeID)
+        public PaymentMethod GetEmployeePaymentMethod(int id)
         {
-            return Service.Get<PaymentMethod>(p => p.EmployeeID == employeeID);
+            return Service.Get<PaymentMethod>(p => p.EmployeeID == id);
         }
 
         public bool UpdateEmployees(params Employee[] employee)

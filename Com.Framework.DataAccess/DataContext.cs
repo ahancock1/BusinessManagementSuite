@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -14,17 +13,25 @@ using EntityState = System.Data.Entity.EntityState;
 
 namespace Com.Framework.DataAccess
 {
-    public class DataContext : DbContext
+    public partial class DataContext
     {
-        //public DbSet<Organisation> Organisations { get; set; }
-
         public DbSet<Premise> Premises { get; set; }
 
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Image> Images { get; set; }
 
+        public DbSet<Email> Emails { get; set; }
+
+        public DbSet<EmployeeGroup> EmployeeGroups { get; set; }
+
+        public DbSet<TerminalCredential> TerminalCredentials { get; set; }
+    }
+
+    public partial class DataContext : DbContext
+    {
         public DataContext()
             : base("DataContext")
         {
@@ -93,83 +100,40 @@ namespace Com.Framework.DataAccess
             }
         }
 
-        public System.Data.Entity.DbSet<Com.Framework.Data.Image> Images { get; set; }
-
-        public System.Data.Entity.DbSet<Com.Framework.Data.Email> Emails { get; set; }
-
-        public System.Data.Entity.DbSet<Com.Framework.Data.EmployeeGroup> EmployeeGroups { get; set; }
-
-        public System.Data.Entity.DbSet<Com.Framework.Data.TerminalCredential> TerminalCredentials { get; set; }
     }
 
     public class DataContextInitialiser : DropCreateDatabaseAlways<DataContext>
     {
         protected override void Seed(DataContext context)
         {
+            GetPremises().ForEach(p => context.Premises.Add(p));
 
-            //Premise p = new Premise
-            //{
-            //    Name = "Test Premise",
-            //    CountryCode = "UK"
-            //};
+            GetImages().ForEach(i => context.Images.Add(i));
 
-            //Organisation o = new Organisation
-            //{
-            //    Name = "Test Organisation",
-            //    Code = "TO"
+        }
 
-            //};
-            //context.Organisations.Add(o);
-
-            // Seed with test premise
-            Premise p = new Premise
+        private List<Premise> GetPremises()
+        {
+            return new List<Premise>
             {
-                Name = "Test Premise",
-                Description = "This is the test premise"
+                new Premise
+                {
+                    Name = "Test Premise",
+                    Description = "This is the test premise"
+                }
             };
-            context.Premises.Add(p);
+        }
 
-            // Seed with default profile image
-            //MemoryStream ms = new MemoryStream();
-            //System.Drawing.Image.FromFile(Properties.Resources.PremiseDefault_02).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            Image i = new Image
+        private List<Image> GetImages()
+        {
+            return new List<Image>
             {
-                ImageType = ImageType.Default,
-                Data = (byte[])new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.PremiseDefault_02, typeof(byte[]))
+                new Image
+                {
+                    ImageType = ImageType.Default,
+                    Data = (byte[])new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.PremiseDefault_02, typeof(byte[]))
+                }
             };
-            context.Images.Add(i);
-
-
-
-
-            //p = context.Premises.FirstOrDefault(i => i.Name == "Test Premise");
-
-            //Employee e = new Employee
-            //{
-            //    Premise = p,
-            //    Title = "Mr",
-            //    FirstName = "Adam",
-            //    LastName = "Hancock",
-            //    MiddleNames = "Stephen",
-            //    UserName = "ahancock1",
-            //    Gender = Gender.Male,
-            //    BirthDate = new DateTime(1990, 1, 10),
-            //    Email = new Email("a.hancock@hotmail.co.uk"),
-            //    EmployeeGroup = new EmployeeGroup("Software Developer"),
-            //    EmployeeNumber = 1.ToString("00000000"),
-            //    EmploymnentBasis = EmploymentType.FullTime,
-            //    PhoneNumbers = new List<PhoneNumber>
-            //    {
-            //        new PhoneNumber("44", "771246589")
-            //        {
-            //            PhoneType = PhoneType.Mobile
-            //        }
-            //    },
-            //    StartDate = DateTime.Now,
-            //    HiredDate = DateTime.Now
-            //};
-            //context.Organisations.Add(o);
         }
     }
 }

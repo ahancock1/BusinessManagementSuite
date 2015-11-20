@@ -9,13 +9,13 @@ namespace Com.Framework.Service
     public interface IMenuService : IService
     {
         [OperationContract]
-        Menu GetMenu(int menuID);
+        Menu GetMenu(int id);
 
         [OperationContract]
-        IEnumerable<Menu> GetMenusByPremise(int premiseID);
+        IEnumerable<Menu> GetMenusByPremise(int id);
 
         [OperationContract]
-        IEnumerable<MenuCategory> GetMenuCategoriesByPremise(int premiseID);
+        IEnumerable<MenuCategory> GetMenuCategoriesByPremise(int id);
 
         [OperationContract]
         bool UpdateMenus(Menu[] menus);
@@ -26,15 +26,15 @@ namespace Com.Framework.Service
 
     public class MenuService : BaseService, IMenuService
     {
-        public Menu GetMenu(int menuID)
+        public Menu GetMenu(int id)
         {
-            return Service.Get<Menu>(m => m.MenuID == menuID,
+            return Service.Get<Menu>(m => m.Id == id,
                 m => m.Hours, m => m.MenuCategories);
         }
 
-        public IEnumerable<Menu> GetMenusByPremise(int premiseID)
+        public IEnumerable<Menu> GetMenusByPremise(int id)
         {
-            return Service.All<Menu>(m => m.PremiseID == premiseID,
+            return Service.All<Menu>(m => m.PremiseID == id,
                 m => m.Hours, m => m.MenuCategories);
         }
 

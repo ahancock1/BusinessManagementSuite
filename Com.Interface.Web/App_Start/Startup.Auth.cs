@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Configuration;
+using Com.Framework.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

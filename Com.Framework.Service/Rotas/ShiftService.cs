@@ -8,10 +8,10 @@ namespace Com.Framework.Service.Rotas
     public interface IShiftService : IService
     {
         [OperationContract]
-        Shift GetShift(int shiftID);
+        Shift GetShift(int id);
 
         [OperationContract]
-        IEnumerable<Shift> GetShiftsByEmployee(int employeeID);
+        IEnumerable<Shift> GetShiftsByEmployee(int employeeId);
 
         [OperationContract]
         bool Update(params Shift[] items);
@@ -19,14 +19,14 @@ namespace Com.Framework.Service.Rotas
 
     public class ShiftService : BaseService, IShiftService
     {
-        public Shift GetShift(int shiftID)
+        public Shift GetShift(int id)
         {
-            return Service.Get<Shift>(s => s.ShiftID == shiftID);
+            return Service.Get<Shift>(s => s.Id == id);
         }
 
-        public IEnumerable<Shift> GetShiftsByEmployee(int employeeID)
+        public IEnumerable<Shift> GetShiftsByEmployee(int employeeId)
         {
-            return Service.All<Shift>(s => s.EmployeeID == employeeID, s => s.EmployeeID);
+            return Service.All<Shift>(s => s.EmployeeID == employeeId, s => s.EmployeeID);
         }
 
         public bool Update(params Shift[] items)

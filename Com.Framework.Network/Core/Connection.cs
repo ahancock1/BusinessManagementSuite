@@ -230,12 +230,24 @@ namespace Com.Framework.Network
         /// <summary>
         /// Returns the IP adress and port of the remote end of the connection.
         /// </summary>
-        public IPEndPoint IpEndPoint => ((IPEndPoint)Client.Client.RemoteEndPoint);
+        public IPEndPoint IpEndPoint
+        {
+            get
+            {
+                return ((IPEndPoint)Client.Client.RemoteEndPoint);
+            }
+        }
 
         /// <summary>
         /// Returns the IP Address of the remote end of the connection.
         /// </summary>
-        public IPAddress IpAddress => IpEndPoint.Address;
+        public IPAddress IpAddress
+        {
+            get
+            {
+                return IpEndPoint.Address;
+            }
+        }
 
         /// <summary>
         /// Attach a listener to the connection.
