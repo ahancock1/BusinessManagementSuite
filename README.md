@@ -222,3 +222,7 @@ singlr as windows service
 https://code.msdn.microsoft.com/windowsapps/SignalR-self-hosted-in-6ff7e6c3
 
 http://stackoverflow.com/questions/27059017/creating-inheritance-users-from-base-asp-net-identity-user
+
+https://github.com/chsakell/mvcarchitecture
+
+https://visualstudiogallery.msdn.microsoft.com/0a1bde90-3dd7-4fff-a3b3-1072da13921d
