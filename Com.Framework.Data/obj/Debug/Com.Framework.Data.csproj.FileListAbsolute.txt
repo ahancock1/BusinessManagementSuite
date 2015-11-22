@@ -12,3 +12,17 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Dat
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\log4net.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\log4net.config
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Com.Framework.Data.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\log4net.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\bin\Debug\log4net.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.Properties.Resources.resources
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.csproj.GenerateResource.Cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Data\obj\Debug\Com.Framework.Data.pdb

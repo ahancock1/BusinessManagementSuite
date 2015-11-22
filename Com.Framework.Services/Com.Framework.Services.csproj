@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,13 +103,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUserService.cs" />
+    <Compile Include="Extensions\ClaimExtensions.cs" />
+    <Compile Include="Extensions\LoginExtensions.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
+    <Compile Include="Messages\AuthenticationType.cs" />
     <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="Messages\BaseRequest.cs" />
     <Compile Include="Messages\BaseResponse.cs" />
     <Compile Include="Messages\BaseView.cs" />
+    <Compile Include="Messages\Membership\AddLoginRequest.cs" />
+    <Compile Include="Messages\Membership\AddLoginResponse.cs" />
+    <Compile Include="Messages\Membership\ChangePasswordRequest.cs" />
+    <Compile Include="Messages\Membership\ChangePasswordResponse.cs" />
+    <Compile Include="Messages\Membership\CreateIdentityRequest.cs" />
+    <Compile Include="Messages\Membership\CreateIdentityResponse.cs" />
+    <Compile Include="Messages\Membership\FindByIdRequest.cs" />
+    <Compile Include="Messages\Membership\FindByIdResponse.cs" />
+    <Compile Include="Messages\Membership\GetLoginsRequest.cs" />
+    <Compile Include="Messages\Membership\GetLoginsResponse.cs" />
+    <Compile Include="Messages\Membership\LoginExternalRequest.cs" />
+    <Compile Include="Messages\Membership\LoginExternalResponse.cs" />
+    <Compile Include="Messages\Membership\RegisterRequest.cs" />
+    <Compile Include="Messages\Membership\RegisterResponse.cs" />
+    <Compile Include="Messages\Membership\LoginRequest.cs" />
+    <Compile Include="Messages\Membership\LoginResponse.cs" />
+    <Compile Include="Messages\Membership\RemoveLoginRequest.cs" />
+    <Compile Include="Messages\Membership\RemoveLoginResponse.cs" />
+    <Compile Include="Messages\Membership\SignInResponse.cs" />
+    <Compile Include="Views\ClaimIdentityView.cs" />
+    <Compile Include="Views\ClaimView.cs" />
+    <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Views\RoleView.cs" />
+    <Compile Include="Views\UserView.cs" />
     <Compile Include="WebRole.cs" />
     <Content Include="App_Code\App.cs" />
-    <Compile Include="BaseService.cs" />
+    <Compile Include="Messages\BaseService.cs" />
     <Compile Include="Core\EmployeeService.cs" />
     <Compile Include="Core\OrganisationService.cs" />
     <Compile Include="Core\PremiseService.cs" />

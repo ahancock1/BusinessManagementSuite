@@ -9,19 +9,14 @@ namespace Com.Framework.Services.Views
     [DataContract]
     public class ClaimIdentityView
     {
-        public ClaimIdentityView()
-        {
-            this.ClaimViewList = new List<ClaimView>();
-        }
-
         [DataMember]
         public Guid UserId { get; set; }
 
-        [DataMember]
-        public AuthenticationTypeEnum AuthenticationType { get; set; }
+        //[DataMember]
+        //public AuthenticationTypeEnum AuthenticationType { get; set; }
 
         [DataMember]
-        public IList<ClaimView> ClaimViewList { get; set; }
+        public IList<ClaimView> ClaimViews { get; set; }
 
         [DataMember]
         public string Name { get; set; }
@@ -31,5 +26,10 @@ namespace Com.Framework.Services.Views
 
         [DataMember]
         public string RoleClaimType { get; set; }
+
+        public ClaimIdentityView()
+        {
+            ClaimViews = new List<ClaimView>();
+        }
     }
 }

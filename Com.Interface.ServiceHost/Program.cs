@@ -1,11 +1,12 @@
 using System;
+using System.Configuration;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.Diagnostics;
 using System.ServiceProcess;
 using Com.Framework.Common.Logging;
 using Com.Framework.Hubs;
-using Com.Framework.Network;
+using Com.Framework.Services;
 //using Com.Framework.Service;
 //using Com.Framework.Service.Rotas;
 
@@ -76,9 +77,8 @@ namespace Com.Interface.ServiceHost
         }
         #endregion
 
-        //private static Server server;
 
-        //private static ServiceManager services;
+        private static ServiceManager services;
 
 
         static void Main(string[] args)
@@ -105,16 +105,12 @@ namespace Com.Interface.ServiceHost
 
                         // running as console application
                         // SignalR Init
-                        using (WebApp.Start<Startup>("http://localhost:8080"))
+                        using (WebApp.Start<Startup>(ConfigurationManager.AppSettings["SignalRServices"]))
                         {
-                            Logger.Info("SignalR hosted at http://localhost:8080");
+                            Logger.Info("SignalR hosted at " + ConfigurationManager.AppSettings["SignalRServices"]);
 
                             // WCF
-                            //Start(args);
-
-
-
-
+                            Start(args);
 
                             Logger.Info("Press any key to stop...");
                             Console.ReadKey(true);
@@ -143,21 +139,10 @@ namespace Com.Interface.ServiceHost
         // WCF Service host for each service. To avoid this, start the application by pressing Ctrl+F5.
         private static void Start(string[] args)
         {
-            // Initiate and run the server
-            //server = new Server(7777);
-
-            // New listeners
-            //            server.AddListener(new GenericPacketHandler<StaffMember>());
-            //            server.AddListener(new GenericPacketHandler<Member>());
-            //            server.AddListener(new GenericPacketHandler<Reservation>());
-            //            server.AddListener(new GenericPacketHandler<Shift>());
-
-            //new Thread(server.Start) { Name = "Server" }.Start();
-
             // Initiate and host the web services
-            //services = new ServiceManager();
+            services = new ServiceManager();
 
-            //services.OpenHost<EmployeeService, IEmployeeService>();
+            services.OpenHost<MembershipService, IMembershipService>();
             //services.OpenHost<OrganisationService, IOrganisationService>();
             //services.OpenHost<PremiseService, IPremiseService>();
             //services.OpenHost<MenuService, IMenuService>();
@@ -167,7 +152,7 @@ namespace Com.Interface.ServiceHost
 
 
             // The service can be be accessed
-            //Logger.Info(String.Format("{0} Services Hosted", services.HostedCount));
+            Logger.Info(String.Format("{0} Services Hosted", services.HostedCount));
 
             //var result = new EmployeeService().GetEmployee(1);//.Get<Restaurant>(u => u.Name == "TestRestaurant", u => u.OpenHours);
 
@@ -186,7 +171,7 @@ namespace Com.Interface.ServiceHost
         private static void Stop()
         {
             //server?.Stop();
-            //services?.Close();
+            services?.Close();
 
             Environment.Exit(1);
         }

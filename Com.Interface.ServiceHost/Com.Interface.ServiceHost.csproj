@@ -82,6 +82,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -125,13 +126,9 @@
       <Project>{ed88ff90-2859-49e3-bc13-e905f3390225}</Project>
       <Name>Com.Framework.Hubs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Com.Framework.Network\Com.Framework.Network.csproj">
-      <Project>{0574d09a-8ac9-47f1-9e3e-ec7462e137ee}</Project>
-      <Name>Com.Framework.Network</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Com.Framework.Service\Com.Framework.Service.csproj">
-      <Project>{1228218a-e632-4965-94df-425c1757defc}</Project>
-      <Name>Com.Framework.Service</Name>
+    <ProjectReference Include="..\Com.Framework.Services\Com.Framework.Services.csproj">
+      <Project>{079419b1-1431-478d-9dfc-b70f50fa954f}</Project>
+      <Name>Com.Framework.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

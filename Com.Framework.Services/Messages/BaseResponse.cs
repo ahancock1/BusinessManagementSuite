@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Com.Framework.Services.Messages
@@ -6,24 +7,29 @@ namespace Com.Framework.Services.Messages
     [DataContract]
     public abstract class BaseResponse
     {
-        public BaseResponse()
-        {
-            this.Errors = new List<string>();
-        }
-
         [DataMember]
         public bool Success { get; set; }
 
         [DataMember]
         public IList<string> Errors { get; set; }
 
-        public void AddErrors(IEnumerable<string> ErrorList)
+        protected BaseResponse()
         {
-            if (this.Errors != null)
+            Errors = new List<string>();
+        }
+
+        public void AddErrors(IEnumerable<string> errors)
+        {
+            if (Errors != null)
             {
-                foreach (string error in ErrorList)
-                    this.Errors.Add(error);
+                foreach (string error in errors)
+                    Errors.Add(error);
             }
+        }
+
+        public void AddErrors(params string[] errors)
+        {
+            AddErrors(errors.ToList());
         }
     }
 }

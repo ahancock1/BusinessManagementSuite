@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+﻿using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+using Com.Framework.Services.Messages;
+using Com.Framework.Services.Messages.Membership;
 
 namespace Com.Framework.Services
 {
@@ -16,10 +10,9 @@ namespace Com.Framework.Services
     public interface IMembershipService : IService
     {
         [OperationContract]
-        Task<SignInStatus> SignInAsync(SignInRequest request);
+        Task<LoginResponse> SignInAsync(LoginRequest request);
 
         [OperationContract]
-        Task<IdentityResult> CreateAsync(CreateRequest request);
-
+        Task<CreateResponse> CreateAsync(CreateRequest request);
     }
 }

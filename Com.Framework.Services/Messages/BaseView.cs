@@ -7,7 +7,7 @@ namespace Com.Framework.Services.Messages
     public abstract class BaseView
     {
         //[NonSerialized]
-        public DateTime created { get; private set; };
+        public DateTime created { get; private set; }
 
         public BaseView()
         {

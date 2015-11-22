@@ -33,12 +33,12 @@ namespace Com.Framework.Services.Views
         public string Country { get; set; }
 
         [DataMember]
-        public IList<CODECorp.WcfIdentity.DataContract.Views.Claim.ClaimView> Claims { get; set; }
+        public IList<ClaimView> Claims { get; set; }
 
         [DataMember]
-        public IList<CODECorp.WcfIdentity.DataContract.Views.Role.RoleView> Roles { get; set; }
+        public IList<RoleView> Roles { get; set; }
 
         [DataMember]
-        public IList<CODECorp.WcfIdentity.DataContract.Views.Login.LoginView> Logins { get; set; }
+        public IList<LoginView> Logins { get; set; }
     }
 }

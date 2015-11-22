@@ -30,8 +30,6 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHo
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Data.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.DataAccess.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Hubs.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Network.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Service.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
@@ -52,8 +50,6 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHo
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.DataAccess.pdb
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Data.pdb
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Hubs.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Network.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Service.pdb
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
@@ -120,3 +116,17 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.Ser
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\log4net.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\EntityFramework.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\PagedList.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Services.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Models.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Services.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Com.Framework.Models.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.ServiceHost\bin\Debug\Microsoft.Owin.Security.Cookies.xml
