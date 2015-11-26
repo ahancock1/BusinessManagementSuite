@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
 namespace Com.Framework.Services.Messages
@@ -7,11 +7,11 @@ namespace Com.Framework.Services.Messages
     public abstract class BaseView
     {
         //[NonSerialized]
-        public DateTime created { get; private set; }
+        public DateTime Created { get; private set; }
 
         public BaseView()
         {
-            created = DateTime.UtcNow;
+            Created = DateTime.UtcNow;
         }
     }
 }
