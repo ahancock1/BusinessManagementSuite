@@ -15,7 +15,7 @@ namespace Com.Interface.Web.Extensions
         /// </summary>
         /// <param name="view">Claim Identity View</param>
         /// <returns>Instance of System.Security.Claims.ClaimsIdentity</returns>
-        public static ClaimsIdentity ConvertToClaimsIdentity(this ClaimIdentityView view)
+        public static ClaimsIdentity ToClaimsIdentity(this ClaimIdentityView view)
         {
             string authenticationType = view.AuthenticationType.ToString();
             ClaimsIdentity identity = new ClaimsIdentity(authenticationType, UserNameClaimType, RoleClaimType);
@@ -31,12 +31,14 @@ namespace Com.Interface.Web.Extensions
         /// </summary>
         /// <param name="LoginViewList">IEnumerable of Login View</param>
         /// <returns>Instance of IList<Microsoft.AspNet.Identity.LoginView></returns>
-        public static IList<UserLoginInfo> ConvertToUserLoginInfoList(this IEnumerable<LoginView> LoginViewList)
+        public static IList<UserLoginInfo> ToUserLoginInfoList(this IEnumerable<LoginView> LoginViewList)
         {
             List<UserLoginInfo> result = new List<UserLoginInfo>();
 
             foreach (LoginView item in LoginViewList)
-                result.Add(item.ConvertToUserLoginInfo());
+            {
+                result.Add(item.ToUserLoginInfo());
+            }
 
             return result;
         }
@@ -46,7 +48,7 @@ namespace Com.Interface.Web.Extensions
         /// </summary>
         /// <param name="LoginView">Login View</param>
         /// <returns>Instance of Microsoft.AspNet.Identity.LoginView</returns>
-        public static UserLoginInfo ConvertToUserLoginInfo(this LoginView LoginView)
+        public static UserLoginInfo ToUserLoginInfo(this LoginView LoginView)
         {
             return new UserLoginInfo(LoginView.LoginProvider, LoginView.ProviderKey);
         }
