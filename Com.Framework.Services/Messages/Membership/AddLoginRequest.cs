@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web;
 namespace Com.Framework.Services.Messages.Membership
 {
     [DataContract]
-    public class AddLoginRequest
+    public class AddLoginRequest : BaseRequest
     {
         [Required]
         [DataMember]
