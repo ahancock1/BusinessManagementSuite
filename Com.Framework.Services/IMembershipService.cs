@@ -9,8 +9,12 @@ namespace Com.Framework.Services
     [ServiceContract]
     public interface IMembershipService : IService
     {
+
         [OperationContract]
         Task<AddLoginResponse> AddLoginAsync(AddLoginRequest request);
+
+        [OperationContract]
+        Task<AddPasswordResponse> AddPasswordAsync(AddPasswordRequest request);
 
         [OperationContract]
         Task<CreateResponse> CreateAsync(CreateRequest request);
@@ -25,18 +29,22 @@ namespace Com.Framework.Services
         Task<LoginResponse> LoginAsync(LoginRequest request);
 
         [OperationContract]
-        Task<RemoveLoginResponse> RemoveLoginAsync(RemoveLoginRequest request);
-
-        [OperationContract]
-        Task<FindByIdResponse> FindByIdAsync(FindByIdRequest request);
-
-        [OperationContract]
         Task<LoginExternalResponse> LoginExternalAsync(LoginExternalRequest request);
 
         [OperationContract]
-        Task<GetLoginsResponse> GetLoginsAsync(GetLoginsRequest request);
+        Task<RemoveLoginResponse> RemoveLoginAsync(RemoveLoginRequest request);
 
-        [OperationContract]
-        Task<SignInResponse> SignInAsync(SignInRequest request);
+        [OperationContract(Name = "FindById")]
+        FindByIdResponse FindById(FindByIdRequest request);
+
+        [OperationContract(Name = "FindByIdAsync")]
+        Task<FindByIdResponse> FindByIdAsync(FindByIdRequest request);
+
+
+        [OperationContract(Name = "GetLogins")]
+        GetLoginsResponse GetLogins(GetLoginsRequest request);
+
+        [OperationContract(Name = "GetLoginsAsync")]
+        Task<GetLoginsResponse> GetLoginsAsync(GetLoginsRequest request);
     }
 }
