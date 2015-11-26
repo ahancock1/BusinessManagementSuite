@@ -1,18 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.Security.Claims;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using System.Threading.Tasks;
 using Com.Framework.Models;
 using Com.Framework.Services.Extensions;
 using Com.Framework.Services.Messages;
 using Com.Framework.Services.Messages.Membership;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace Com.Framework.Services
 {
@@ -337,39 +331,60 @@ namespace Com.Framework.Services
             return response;
         }
 
-
-        // TODO remove this method below
         /// <summary>
-        /// Create a user without or without a password and return a ClaimsIdentity representing the user created.
+        /// Get all external associated Logins for User Async
         /// </summary>
-        /// <param name="request">Instance of CreateRequest</param>
-        /// <returns>Instance of CreateResponse</returns>
-        public async Task<LoginResponse> SignInAsync(LoginRequest request)
+        /// <param name="request">Instance of GetLoginsRequest</param>
+        /// <returns>Instance of GetLoginsResponse</returns>
+        public async Task<GetLoginsResponse> GetLoginsAsync(GetLoginsRequest request)
         {
-            LoginResponse response = new LoginResponse();
+            GetLoginsResponse response = new GetLoginsResponse();
 
             try
             {
-                AspNetUser user = await UserManager.FindAsync(request.UserName, request.Password);
+                IList<UserLoginInfo> result = await UserManager.GetLoginsAsync(request.UserId.ToString());
+                response.LinkedAccounts = result.ToViewList();
+                response.Success = true;
+            }
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.Errors.Add(e.Message);
+            }
 
-                IdentityResult validation = await UserManager.PasswordValidator.ValidateAsync(request.Password);
+            return response;
+        }
 
-                if (validation.Succeeded)
+
+        /// <summary>
+        /// Add a password to a given user if they dont have one
+        /// </summary>
+        /// <param name="request">Instance of GetLoginsRequest</param>
+        /// <returns>Instance of GetLoginsResponse</returns>
+        public async Task<AddPasswordResponse> AddPasswordAsync(AddPasswordRequest request)
+        {
+            AddPasswordResponse response = new AddPasswordResponse();
+
+            try
+            {
+                IdentityResult result = await UserManager.AddPasswordAsync(request.UserId.ToString(), request.NewPassword);
+
+                if (!result.Succeeded)
                 {
-                    ClaimsIdentity identity =
-                        await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                    response.ClaimIdentity = identity.ToView();
-                    response.Success = true;
+                    foreach (string item in response.Errors)
+                        response.Errors.Add(item);
+
+                    response.Success = false;
                 }
                 else
                 {
-                    response.AddErrors(validation.Errors);
+                    response.Success = true;
                 }
             }
             catch (Exception e)
             {
                 response.Success = false;
-                response.AddErrors(e.Message);
+                response.Errors.Add(e.Message);
             }
 
             return response;
