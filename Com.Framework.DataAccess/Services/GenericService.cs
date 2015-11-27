@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -27,7 +27,7 @@ namespace Com.Framework.DataAccess.Services
         }
 
         public virtual IEnumerable<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : BaseEntity
+            where T : class, IBaseEntity
         {
             using (var context = new DataContext())
             {
@@ -40,7 +40,7 @@ namespace Com.Framework.DataAccess.Services
         }
 
         public virtual IPagedList<T> AllPaginated<T>(int page, int pageSize, Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : BaseEntity
+            where T : class, IBaseEntity
         {
             using (var context = new DataContext())
             {
@@ -53,7 +53,7 @@ namespace Com.Framework.DataAccess.Services
         }
 
         public virtual T Get<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
-            where T : BaseEntity
+            where T : class, IBaseEntity
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Com.Framework.DataAccess.Services
             }
         }
 
-        public virtual bool Update<T>(params T[] items) where T : BaseEntity
+        public virtual bool Update<T>(params T[] items) where T : class, IBaseEntity
         {
             using (var context = new DataContext())
             {
@@ -94,7 +94,7 @@ namespace Com.Framework.DataAccess.Services
                     Console.WriteLine("{0}: {1}", item.EntityState, item);
                     dbSet.Add(item);
 
-                    foreach (DbEntityEntry<BaseEntity> entry in context.ChangeTracker.Entries<BaseEntity>())
+                    foreach (DbEntityEntry<T> entry in context.ChangeTracker.Entries<T>())
                     {
                         entry.State = GetEntityState(entry.Entity.EntityState);
                     }
@@ -103,7 +103,7 @@ namespace Com.Framework.DataAccess.Services
             }
         }
 
-        public async virtual Task<bool> UpdateAsync<T>(params T[] items) where T : BaseEntity
+        public async virtual Task<bool> UpdateAsync<T>(params T[] items) where T : class, IBaseEntity
         {
             using (var context = new DataContext())
             {
@@ -119,7 +119,7 @@ namespace Com.Framework.DataAccess.Services
                     Console.WriteLine("{0}: {1}", item.EntityState, item);
                     dbSet.Add(item);
 
-                    foreach (DbEntityEntry<BaseEntity> entry in context.ChangeTracker.Entries<BaseEntity>())
+                    foreach (DbEntityEntry<T> entry in context.ChangeTracker.Entries<T>())
                     {
                         entry.State = GetEntityState(entry.Entity.EntityState);
                     }
@@ -128,7 +128,7 @@ namespace Com.Framework.DataAccess.Services
             }
         }
 
-        private static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : BaseEntity
+        private static IQueryable<T> Query<T>(DbContext context, params Expression<Func<T, object>>[] include) where T : class, IBaseEntity
         {
             return include.Aggregate((IQueryable<T>)context.Set<T>(), (current, item) => current.Include(item));
         }
