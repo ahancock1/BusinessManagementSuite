@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
@@ -13,38 +13,42 @@ namespace Com.Framework.Data
         Unchanged = 2
     }
 
-    public interface IEntity<T>
-    {
-        T Id { get; set; }
-    }
-
     public interface IBaseEntity
     {
         EntityState EntityState { get; set; }
     }
 
-    [DataContract]
-    public abstract class BaseEntity : IBaseEntity
+    public interface IEntity<T> : IBaseEntity
     {
-        [NotMapped]
-        public EntityState EntityState { get; set; }
-
-        protected BaseEntity()
-        {
-            EntityState = EntityState.Added;
-        }
+        T Id { get; set; }
     }
 
+    //    [DataContract]
+    //    public abstract class BaseEntity : IBaseEntity
+    //    {
+    //        [NotMapped]
+    //        public EntityState EntityState { get; set; }
+    //
+    //        protected BaseEntity()
+    //        {
+    //            EntityState = EntityState.Added;
+    //        }
+    //    }
+
     [DataContract]
-    public abstract class Entity<T> : BaseEntity, IEntity<T>
+    public abstract class Entity<T> : IEntity<T>
     {
         [DataMember]
         public virtual T Id { get; set; }
+
+        [NotMapped]
+        public EntityState EntityState { get; set; }
     }
 
     public interface IAuditableEntity
     {
         DateTime CreatedDate { get; set; }
+
         string CreatedBy { get; set; }
 
         DateTime ModifiedDate { get; set; }
