@@ -230,3 +230,8 @@ http://stackoverflow.com/questions/27059017/creating-inheritance-users-from-base
 https://github.com/chsakell/mvcarchitecture
 
 https://visualstudiogallery.msdn.microsoft.com/0a1bde90-3dd7-4fff-a3b3-1072da13921d
+
+
+UserStore class 
+
+https://github.com/kriasoft/AspNet.Identity/blob/master/src/KriaSoft.AspNet.Identity.EntityFramework/UserStore.cs
