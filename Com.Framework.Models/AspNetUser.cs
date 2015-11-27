@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 using Com.Framework.Data;
@@ -7,8 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Com.Framework.Models
 {
-    // This class can't be used with the generic service because of ASP.NET stupid identity shit
-    public partial class AspNetUser : IdentityUser
+    public partial class AspNetUser : IdentityUser, IBaseEntity
     {
         public virtual string PasswordHash { get; set; }
 
@@ -26,9 +25,10 @@ namespace Com.Framework.Models
 
         public virtual IList<AspNetUserLogin> AspNetUserLogins { get; set; }
 
-        //        public virtual IList<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual IList<AspNetUserClaim> AspNetUserClaims { get; set; }
         //
         //        public virtual IList<AspNetRole> AspNetRoles { get; set; }
 
+        public EntityState EntityState { get; set; }
     }
 }
