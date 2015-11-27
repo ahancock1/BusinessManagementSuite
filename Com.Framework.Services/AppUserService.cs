@@ -110,8 +110,7 @@ namespace Com.Framework.Services
 
         protected virtual void Dispose(bool disposing)
         {
-
-
+            // No need to dispose of anything
         }
 
         public Task CreateAsync(AspNetUser user)
@@ -155,27 +154,40 @@ namespace Com.Framework.Services
 
         public Task<AspNetUser> FindByIdAsync(string userId)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(Service.Get<AspNetUser>(u => u.Id == userId, u => u.Logins, u => u.Roles, u => u.Claims));
         }
 
         public Task<AspNetUser> FindByNameAsync(string userName)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(Service.Get<AspNetUser>(u => u.UserName == userName, u => u.Logins, u => u.Roles, u => u.Claims));
         }
 
         public Task SetPasswordHashAsync(AspNetUser user, string passwordHash)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            user.PasswordHash = passwordHash;
+            user.EntityState = EntityState.Modified;
+
+            return Task.FromResult(0);
         }
 
         public Task<string> GetPasswordHashAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            return Task.FromResult(user.PasswordHash);
         }
 
         public Task<bool> HasPasswordAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.PasswordHash != null);
         }
 
         public Task RemoveClaimAsync(AspNetUser user, Claim claim)
@@ -246,8 +258,9 @@ namespace Com.Framework.Services
                 LoginProvider = login.LoginProvider,
                 EntityState = EntityState.Added
             };
+            user.Logins.Add(userLogin);
 
-            Service.UpdateAsync(userLogin);
+            //            Service.UpdateAsync(userLogin);
 
             return Task.FromResult(0);
         }
@@ -307,7 +320,7 @@ namespace Com.Framework.Services
 
             AspNetUserLogin userLogin =
                 Service.Get<AspNetUserLogin>(
-                    u => u.LoginProvider == login.LoginProvider && u.ProviderKey == login.ProviderKey);
+                    u => u.LoginProvider == login.LoginProvider && u.ProviderKey == login.ProviderKey, u => u.Logins, u => u.Roles, u => u.Claims));
 
             return Task.FromResult(userLogin != null ? userLogin.AspNetUser : null);
         }
