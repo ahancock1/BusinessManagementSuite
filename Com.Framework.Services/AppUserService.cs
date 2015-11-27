@@ -1,19 +1,34 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Com.Framework.Data;
+using Com.Framework.DataAccess;
+using Com.Framework.DataAccess.Services;
 using Com.Framework.Models;
 using Microsoft.AspNet.Identity;
+using EntityState = Com.Framework.Data.EntityState;
 
 namespace Com.Framework.Services
 {
     public class AppUserService : IUserStore<AspNetUser>, IUserPasswordStore<AspNetUser>, IUserClaimStore<AspNetUser>,
         IUserRoleStore<AspNetUser>, IUserSecurityStampStore<AspNetUser>, IUserLoginStore<AspNetUser>
     {
+        //        public DataContext Context { get; set; }
+        //
+        //        public AppUserService(DataContext context)
+        //        {
+        //            if (context == null)
+        //            {
+        //                throw new ArgumentNullException("context");
+        //            }
+        //
+        //            Context = context;
+        //        }
 
 
         //        public async Task<bool> AddLoginAsync(AspNetUser user, UserLoginInfo login)
@@ -74,6 +89,20 @@ namespace Com.Framework.Services
         //
         //            return Task.FromResult<IList<UserLoginInfo>>(userLoginInfos);
         //        }
+
+        public IGenericService Service { get; set; }
+
+        public AppUserService()
+            : this(new GenericService())
+        {
+
+        }
+
+        public AppUserService(IGenericService service)
+        {
+            Service = service;
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -87,17 +116,41 @@ namespace Com.Framework.Services
 
         public Task CreateAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            user.EntityState = EntityState.Added;
+            Service.UpdateAsync(user);
+
+            return Task.FromResult(0);
         }
 
         public Task UpdateAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            user.EntityState = EntityState.Modified;
+            Service.UpdateAsync(user);
+
+            return Task.FromResult(0);
         }
 
         public Task DeleteAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            user.EntityState = EntityState.Deleted;
+            Service.UpdateAsync(user);
+
+            return Task.FromResult(0);
         }
 
         public Task<AspNetUser> FindByIdAsync(string userId)
@@ -125,11 +178,6 @@ namespace Com.Framework.Services
             throw new NotImplementedException();
         }
 
-        public Task GetClaimsAsync(AspNetUser user)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task RemoveClaimAsync(AspNetUser user, Claim claim)
         {
             throw new NotImplementedException();
@@ -137,6 +185,15 @@ namespace Com.Framework.Services
 
         public Task AddClaimAsync(AspNetUser user, Claim claim)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+            if (claim == null)
+            {
+                throw new ArgumentNullException("claim");
+            }
+
             throw new NotImplementedException();
         }
 
@@ -170,29 +227,105 @@ namespace Com.Framework.Services
             throw new NotImplementedException();
         }
 
+
         public Task AddLoginAsync(AspNetUser user, UserLoginInfo login)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+            if (login == null)
+            {
+                throw new ArgumentNullException("login");
+            }
+
+            AspNetUserLogin userLogin = new AspNetUserLogin
+            {
+                AspNetUser = user,
+                ProviderKey = login.ProviderKey,
+                LoginProvider = login.LoginProvider,
+                EntityState = EntityState.Added
+            };
+
+            Service.UpdateAsync(userLogin);
+
+            return Task.FromResult(0);
         }
 
         public Task RemoveLoginAsync(AspNetUser user, UserLoginInfo login)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+            if (login == null)
+            {
+                throw new ArgumentNullException("login");
+            }
+
+            AspNetUserLogin userLogin = Service.Get<AspNetUserLogin>(u =>
+            {
+                if (u.LoginProvider != login.LoginProvider || u.AspNetUser == user)
+                {
+                    return false;
+                }
+                return u.ProviderKey == login.ProviderKey;
+            });
+
+            if (userLogin != null)
+            {
+                userLogin.EntityState = EntityState.Deleted;
+                Service.UpdateAsync(userLogin);
+            }
+
+            return Task.FromResult(0);
         }
 
         public Task<IList<UserLoginInfo>> GetLoginsAsync(AspNetUser user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            // This has changed from origional code
+            IList<UserLoginInfo> userLogins = new List<UserLoginInfo>();
+            foreach (AspNetUserLogin login in Service.All<AspNetUser>(u => u.Id == user.Id, u => u.AspNetUserLogins).Select(u => u.AspNetUserLogins))
+            {
+                userLogins.Add(new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+            }
+
+            return Task.FromResult<IList<UserLoginInfo>>(userLogins);
         }
 
         public Task<AspNetUser> FindAsync(UserLoginInfo login)
         {
-            throw new NotImplementedException();
+            if (login == null)
+            {
+                throw new ArgumentNullException("login");
+            }
+
+            AspNetUserLogin userLogin =
+                Service.Get<AspNetUserLogin>(
+                    u => u.LoginProvider == login.LoginProvider && u.ProviderKey == login.ProviderKey);
+
+            return Task.FromResult(userLogin != null ? userLogin.AspNetUser : null);
         }
 
-        Task<IList<Claim>> IUserClaimStore<AspNetUser, string>.GetClaimsAsync(AspNetUser user)
+        public Task<IList<Claim>> GetClaimsAsync(AspNetUser user)
         {
-            return GetClaimsAsync(user) as Task<IList<Claim>>;
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            IList<Claim> claims = new List<Claim>();
+            foreach (AspNetUserClaim claim in user.AspNetUserClaims)
+            {
+                claims.Add(new Claim(claim.ClaimType, claim.ClaimValue));
+            }
+
+            return Task.FromResult<IList<Claim>>(claims);
         }
     }
 }
