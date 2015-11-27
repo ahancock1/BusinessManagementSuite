@@ -39,6 +39,10 @@ Mirroring a database for rolling updates
 
 https://msdn.microsoft.com/en-us/library/ms189852.aspx
 
+step-by-step
+
+https://msdn.microsoft.com/en-us/library/ms190941.aspx
+
 ## References
 
 returning a list from a wcf service  http://www.topwcftutorials.net/2013/05/collections-from-wcf-service.html
