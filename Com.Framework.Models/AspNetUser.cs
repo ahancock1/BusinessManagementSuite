@@ -7,12 +7,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Com.Framework.Models
 {
-    public partial class AspNetUser : IdentityUser, IBaseEntity
+    public class AspNetUser : IdentityUser, IBaseEntity
     {
-        public virtual string PasswordHash { get; set; }
-
-        public virtual string SecurityStamp { get; set; }
-
         [StringLength(128)]
         [Required()]
         public virtual string Discriminator { get; set; }
@@ -23,11 +19,11 @@ namespace Com.Framework.Models
         [StringLength(500)]
         public virtual string FirstName { get; set; }
 
-        public virtual IList<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual IList<AspNetUserLogin> AspNetLogins { get; set; }
 
-        public virtual IList<AspNetUserClaim> AspNetUserClaims { get; set; }
-        //
-        //        public virtual IList<AspNetRole> AspNetRoles { get; set; }
+        public virtual IList<AspNetUserClaim> AspNetClaims { get; set; }
+
+        public virtual IList<AspNetUserRole> AspNetRoles { get; set; }
 
         public EntityState EntityState { get; set; }
     }

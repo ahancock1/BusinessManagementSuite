@@ -6,14 +6,6 @@ C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\bin\De
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\obj\Debug\Com.Framework.Common.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\obj\Debug\Com.Framework.Common.dll
 C:\Users\Adam\Development\GitHub\RestaurantFramework\Com.Framework.Common\obj\Debug\Com.Framework.Common.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.config
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.xml
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.pdb
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.config
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.pdb
@@ -22,3 +14,11 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Com
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.csprojResolveAssemblyReference.cache
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.config
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\Com.Framework.Common.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\bin\Debug\log4net.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Common\obj\Debug\Com.Framework.Common.pdb

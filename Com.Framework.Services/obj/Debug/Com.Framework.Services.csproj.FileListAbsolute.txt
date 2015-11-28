@@ -19,9 +19,6 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Ser
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\Newtonsoft.Json.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.dll
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.pdb
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\log4net.config
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\Com.Framework.Services.dll.config
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\Com.Framework.Services.dll
@@ -59,3 +56,6 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\Newtonsoft.Json.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\log4net.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\bin\PagedList.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Services\obj\Debug\Com.Framework.Services.pdb

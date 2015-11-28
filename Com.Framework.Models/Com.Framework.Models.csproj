@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="AccountViewModels.cs" />
     <Compile Include="AspNetUser.cs" />
+    <Compile Include="AspNetUserClaim.cs" />
     <Compile Include="AspNetUserLogin.cs" />
+    <Compile Include="AspNetUserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

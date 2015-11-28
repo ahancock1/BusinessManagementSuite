@@ -26,6 +26,35 @@ namespace Com.Framework.DataAccess.Services
 #endif
         }
 
+        public virtual bool Any<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include) where T : class, IBaseEntity
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual IEnumerable<T> All<T>() where T : class, IBaseEntity
+        {
+            using (var context = new DataContext())
+            {
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+                return context.Set<T>();
+            }
+        }
+
+        public virtual IEnumerable<T> All<T>(params Expression<Func<T, object>>[] include) where T : class, IBaseEntity
+        {
+            using (var context = new DataContext())
+            {
+                if (trace)
+                {
+                    context.Database.Log = Console.WriteLine;
+                }
+                return Query(context, include).AsNoTracking().ToList();
+            }
+        }
+
         public virtual IEnumerable<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
             where T : class, IBaseEntity
         {

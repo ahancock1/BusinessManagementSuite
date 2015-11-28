@@ -10,6 +10,7 @@ namespace Com.Framework.Services.Messages.Membership
     [DataContract]
     public class CreateRequest : BaseRequest
     {
+
         [Required]
         [DataMember]
         public string FirstName { get; set; }

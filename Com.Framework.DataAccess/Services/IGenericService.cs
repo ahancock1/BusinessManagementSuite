@@ -8,12 +8,25 @@ using PagedList;
 
 namespace Com.Framework.DataAccess.Services
 {
+    // TODO: Make this interface Async
     [ServiceContract]
     public interface IGenericService
     {
         [OperationContract]
-        IEnumerable<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+        bool Any<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
             where T : class, IBaseEntity;
+
+        [OperationContract]
+        IEnumerable<T> All<T>()
+            where T : class, IBaseEntity;
+
+        [OperationContract]
+        IEnumerable<T> All<T>(params Expression<Func<T, object>>[] include)
+        where T : class, IBaseEntity;
+
+        [OperationContract]
+        IEnumerable<T> All<T>(Func<T, bool> where, params Expression<Func<T, object>>[] include)
+        where T : class, IBaseEntity;
 
         [OperationContract]
         IPagedList<T> AllPaginated<T>(int page, int pagesize, Func<T, bool> where, params Expression<Func<T, object>>[] include)

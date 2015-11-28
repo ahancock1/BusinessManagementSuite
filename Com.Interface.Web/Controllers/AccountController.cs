@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -7,11 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Com.Framework.Models;
 using Com.Framework.Services;
+using Com.Framework.Services.Messages;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Com.Interface.Web.Models;
 using Com.Interface.Web.Services;
+using Com.Interface.Web.Extensions;
+using Com.Framework.Services.Messages.Membership;
 
 namespace Com.Interface.Web.Controllers
 {
@@ -79,37 +83,54 @@ namespace Com.Interface.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+                LoginResponse response = await Service.LoginAsync(new LoginRequest
+                {
+                    UserName = model.Username,
+                    Password = model.Password
+                });
+
+                if (response.Success)
+                {
+                    ClaimsIdentity identity = response.ClaimIdentity.ToClaimsIdentity();
+                    SignInAsync(identity, model.RememberMe);
+                    return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                }
             }
 
-            var result = await Service.SignInAsync(new SignInRequest
-            {
-                Username = model.Username,
-                Password = model.Password,
-                RememberMe = model.RememberMe,
-                ShouldLockout = false
-            });
+            return View(model);
 
-            // This doesn't count login failures towards account lockout
+            //var result = await Service.SignInAsync(new SignInRequest
+            //{
+            //    Username = model.Username,
+            //    Password = model.Password,
+            //    RememberMe = model.RememberMe,
+            //    ShouldLockout = false
+            //});
+
+            //This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false); // TODO: error may occur here
-            //            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
+            //var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
 
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            //switch (result)
+            //{
+            //    case SignInStatus.Success:
+            //        return RedirectToLocal(returnUrl);
+            //    case SignInStatus.LockedOut:
+            //        return View("Lockout");
+            //    case SignInStatus.RequiresVerification:
+            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+            //    case SignInStatus.Failure:
+            //    default:
+            //        ModelState.AddModelError("", "Invalid login attempt.");
+            //        return View(model);
+            //}
         }
 
         //
@@ -172,37 +193,58 @@ namespace Com.Interface.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new AspNetUser
+                CreateResponse response = await Service.CreateAsync(new CreateRequest
                 {
                     UserName = model.Username,
-                    Email = model.Email
-                };
-                var result = await Service.CreateAsync(new CreateRequest
-                {
-                    User = user,
-                    Password = model.Password
+                    Password = model.Password,
+                    AuthenticationType = AuthenticationType.ApplicationCookie
                 });
 
-
-                //                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (response.Success)
                 {
-                    //SignInAsync(user, isPersistent: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    ClaimsIdentity identity = response.ClaimIdentity.ToClaimsIdentity();
+                    SignInAsync(identity, false);
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+                else
+                {
+                    AddErrors(response.Errors);
+                }
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
+
+            //    var user = new AspNetUser
+            //    {
+            //        UserName = model.Username,
+            //        Email = model.Email
+            //    };
+            //    var result = await Service.CreateAsync(new CreateRequest
+            //    {
+            //        User = user,
+            //        Password = model.Password
+            //    });
+
+
+            //    //                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            //    //                var result = await UserManager.CreateAsync(user, model.Password);
+            //    if (result.Succeeded)
+            //    {
+            //        //SignInAsync(user, isPersistent: false);
+
+            //        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+            //        // Send an email with this link
+            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //    AddErrors(result);
+            //}
+
+            //// If we got this far, something failed, redisplay form
+            //return View(model);
         }
 
         //
@@ -292,7 +334,7 @@ namespace Com.Interface.Web.Controllers
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
-            AddErrors(result);
+            AddErrors(result.Errors);
             return View();
         }
 
@@ -411,7 +453,7 @@ namespace Com.Interface.Web.Controllers
                         return RedirectToLocal(returnUrl);
                     }
                 }
-                AddErrors(result);
+                AddErrors(result.Errors);
             }
 
             ViewBag.ReturnUrl = returnUrl;
@@ -474,9 +516,9 @@ namespace Com.Interface.Web.Controllers
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
-        private void AddErrors(IdentityResult result)
+        private void AddErrors(IEnumerable<string> errors)
         {
-            foreach (var error in result.Errors)
+            foreach (var error in errors)
             {
                 ModelState.AddModelError("", error);
             }
