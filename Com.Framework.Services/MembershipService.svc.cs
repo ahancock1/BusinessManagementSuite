@@ -63,9 +63,10 @@ namespace Com.Framework.Services
             {
                 AspNetUser user = new AspNetUser
                 {
+                    UserName = request.UserName,
                     FirstName = request.FirstName,
                     LastName = request.LastName,
-                    UserName = request.UserName,
+                    Email = request.Email,
                     Discriminator = "ApplicationUser"
                 };
 

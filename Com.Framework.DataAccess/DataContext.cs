@@ -7,7 +7,8 @@ using System.Linq;
 using System.Threading;
 using Com.Framework.Data;
 using Com.Framework.DataAccess.Mapping;
-
+using Com.Framework.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using EntityState = System.Data.Entity.EntityState;
 
 
@@ -19,7 +20,7 @@ namespace Com.Framework.DataAccess
 
         public DbSet<Employee> Employees { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
 
         public DbSet<Image> Images { get; set; }
 
@@ -28,9 +29,19 @@ namespace Com.Framework.DataAccess
         public DbSet<EmployeeGroup> EmployeeGroups { get; set; }
 
         public DbSet<TerminalCredential> TerminalCredentials { get; set; }
+
+        //Identity
+        public DbSet<AspNetUser> Users { get; set; }
+
+        public DbSet<AspNetUserClaim> UserClaims { get; set; }
+
+        public DbSet<AspNetUserLogin> UserLogins { get; set; }
+
+        public DbSet<AspNetUserRole> UserRoles { get; set; }
+
     }
 
-    public partial class DataContext : DbContext
+    public partial class DataContext : IdentityDbContext
     {
         public DataContext()
             : base("DataContext")
@@ -48,6 +59,10 @@ namespace Com.Framework.DataAccess
 
             // Add fluent API mappings
             modelBuilder.Configurations.Add(new UserMapping());
+
+            //modelBuilder.Entity<AspNetUserLogin>().HasKey<string>(l => l.Id);
+            //modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            //modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
 
         public override int SaveChanges()
@@ -102,7 +117,7 @@ namespace Com.Framework.DataAccess
 
     }
 
-    public class DataContextInitialiser : DropCreateDatabaseAlways<DataContext>
+    public class DataContextInitialiser : DropCreateDatabaseIfModelChanges<DataContext>
     {
         protected override void Seed(DataContext context)
         {

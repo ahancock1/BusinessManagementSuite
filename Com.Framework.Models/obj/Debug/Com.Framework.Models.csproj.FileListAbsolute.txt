@@ -21,7 +21,6 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Mod
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Models\obj\Debug\Com.Framework.Models.csprojResolveAssemblyReference.cache
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Models\obj\Debug\Com.Framework.Models.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Models\obj\Debug\Com.Framework.Models.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Models\bin\Debug\log4net.config
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Models\bin\Debug\Com.Framework.Models.dll.config
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Models\bin\Debug\Com.Framework.Models.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Models\bin\Debug\Com.Framework.Models.pdb

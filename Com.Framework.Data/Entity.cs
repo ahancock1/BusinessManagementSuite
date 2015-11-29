@@ -39,6 +39,7 @@ namespace Com.Framework.Data
     public abstract class Entity<T> : IEntity<T>
     {
         [DataMember]
+        [Key]
         public virtual T Id { get; set; }
 
         [NotMapped]

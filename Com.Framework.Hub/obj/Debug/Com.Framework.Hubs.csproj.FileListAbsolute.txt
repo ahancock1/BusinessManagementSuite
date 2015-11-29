@@ -72,3 +72,9 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Hub
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\log4net.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\EntityFramework.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\PagedList.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Com.Framework.Models.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Com.Framework.Models.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Framework.Hub\bin\Debug\Microsoft.AspNet.Identity.Core.xml

@@ -19,12 +19,20 @@ namespace Com.Framework.Models
         [StringLength(500)]
         public virtual string FirstName { get; set; }
 
-        public virtual IList<AspNetUserLogin> AspNetLogins { get; set; }
+        public IList<AspNetUserLogin> AspNetLogins { get; set; }
 
-        public virtual IList<AspNetUserClaim> AspNetClaims { get; set; }
+        public IList<AspNetUserClaim> AspNetClaims { get; set; }
 
-        public virtual IList<AspNetUserRole> AspNetRoles { get; set; }
+        public IList<AspNetUserRole> AspNetRoles { get; set; }
 
         public EntityState EntityState { get; set; }
+
+
+        public AspNetUser()
+        {
+            AspNetLogins = new List<AspNetUserLogin>();
+            AspNetClaims = new List<AspNetUserClaim>();
+            AspNetRoles = new List<AspNetUserRole>();
+        }
     }
 }

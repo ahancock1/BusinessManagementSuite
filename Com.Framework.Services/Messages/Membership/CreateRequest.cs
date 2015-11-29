@@ -10,6 +10,9 @@ namespace Com.Framework.Services.Messages.Membership
     [DataContract]
     public class CreateRequest : BaseRequest
     {
+        [Required]
+        [DataMember]
+        public string UserName { get; set; }
 
         [Required]
         [DataMember]
@@ -21,7 +24,8 @@ namespace Com.Framework.Services.Messages.Membership
 
         [Required]
         [DataMember]
-        public string UserName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         [DataMember]

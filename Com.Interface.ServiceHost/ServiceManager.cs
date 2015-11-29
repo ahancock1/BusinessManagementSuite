@@ -80,7 +80,8 @@ namespace Com.Interface.ServiceHost
                     );
 
                 // Add application endpoint                    
-                serviceHost.AddServiceEndpoint(typeof(T2), new WSHttpBinding(), httpUrl);
+                serviceHost.AddServiceEndpoint(typeof(T2), new BasicHttpBinding(), httpUrl);
+                //serviceHost.AddServiceEndpoint(typeof(T2), new WSHttpBinding(), httpUrl);
                 //serviceHost.AddServiceEndpoint(typeof(T2), new NetTcpBinding(), tcpUrl);
 
                 // Add monitoring

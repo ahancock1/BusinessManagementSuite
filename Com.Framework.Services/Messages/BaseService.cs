@@ -24,7 +24,7 @@ namespace Com.Framework.Services
         /// </summary>
         protected void CreateUserManager()
         {
-            UserManager<AspNetUser> manager = new UserManager<AspNetUser>(new UserStore<AspNetUser>(new DataContext()));
+            UserManager<AspNetUser> manager = new UserManager<AspNetUser>(new AppUserService());
 
             manager.UserValidator = new UserValidator<AspNetUser>(manager)
             {

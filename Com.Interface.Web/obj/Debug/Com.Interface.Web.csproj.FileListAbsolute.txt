@@ -187,3 +187,4 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\S
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Net.Http.Formatting.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\RestSharp.xml
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Net.Http.Formatting.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.config

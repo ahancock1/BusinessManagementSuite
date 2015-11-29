@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using Com.Framework.Data;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Com.Framework.Models
 {
-    public class AspNetUserClaim : Entity<long>
+    public class AspNetUserClaim : IdentityUserClaim, IBaseEntity
     {
         public string ClaimType { get; set; }
 
@@ -14,5 +15,7 @@ namespace Com.Framework.Models
         public string UserId { get; set; }
 
         public virtual AspNetUser User { get; set; }
+
+        public EntityState EntityState { get; set; }
     }
 }

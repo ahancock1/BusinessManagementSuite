@@ -39,7 +39,7 @@ namespace Com.Framework.DataAccess.Services
                 {
                     context.Database.Log = Console.WriteLine;
                 }
-                return context.Set<T>();
+                return context.Set<T>().ToList();
             }
         }
 

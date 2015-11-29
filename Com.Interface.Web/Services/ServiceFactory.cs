@@ -18,7 +18,7 @@ namespace Com.Interface.Web.Services
         private static readonly string BaseServiceAddress;
         private static readonly Int32 BindingType;
 
-        private const string ServicePathString = "{0}.svc";
+        private const string ServicePathString = "{0}";//.svc";
 
         static ServiceFactory()
         {
@@ -48,8 +48,8 @@ namespace Com.Interface.Web.Services
         /// <returns>Active binding instance</returns>
         public static T Create<T>() where T : IService
         {
-            ServiceBindingManager manager = new ServiceBindingManager(new Uri(BaseServiceAddress), (ServiceBindingManager.BindingTypeEnum)BindingType);
-            string servicePath = string.Format(ServicePathString, GetInterfaceName(typeof(T)));
+            ServiceBindingManager manager = new ServiceBindingManager(new Uri(BaseServiceAddress), (ServiceBindingManager.BindingType)BindingType);
+            string servicePath = String.Format(ServicePathString, GetInterfaceName(typeof(T)));
             return manager.Create<T>(servicePath);
         }
 
@@ -59,16 +59,16 @@ namespace Com.Interface.Web.Services
     public class ServiceBindingManager
     {
         private readonly Uri baseAddress;
-        private readonly BindingTypeEnum bindingType;
+        private readonly BindingType bindingType;
 
-        public enum BindingTypeEnum
+        public enum BindingType
         {
             BasicHttp = 0,
             NetTcp
         }
 
         public ServiceBindingManager() { }
-        public ServiceBindingManager(Uri baseAddress, BindingTypeEnum bindingType)
+        public ServiceBindingManager(Uri baseAddress, BindingType bindingType)
         {
             this.baseAddress = baseAddress;
             this.bindingType = bindingType;
@@ -89,13 +89,13 @@ namespace Com.Interface.Web.Services
             }
         }
 
-        private static Binding BuildBinding(BindingTypeEnum bindingType)
+        private static Binding BuildBinding(BindingType bindingType)
         {
             switch (bindingType)
             {
-                case BindingTypeEnum.BasicHttp:
+                case BindingType.BasicHttp:
                     return new BasicHttpBinding();
-                case BindingTypeEnum.NetTcp:
+                case BindingType.NetTcp:
                     return new NetTcpBinding(SecurityMode.None)
                     {
                         MaxReceivedMessageSize = int.MaxValue
