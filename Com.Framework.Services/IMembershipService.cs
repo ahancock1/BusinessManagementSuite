@@ -34,15 +34,15 @@ namespace Com.Framework.Services
         [OperationContract]
         Task<RemoveLoginResponse> RemoveLoginAsync(RemoveLoginRequest request);
 
-        [OperationContract(Name = "FindById")]
-        FindByIdResponse FindById(FindByIdRequest request);
+        //[OperationContract(Name = "FindById")]
+        //FindByIdResponse FindById(FindByIdRequest request);
 
         [OperationContract(Name = "FindByIdAsync")]
         Task<FindByIdResponse> FindByIdAsync(FindByIdRequest request);
 
 
-        [OperationContract(Name = "GetLogins")]
-        GetLoginsResponse GetLogins(GetLoginsRequest request);
+        //[OperationContract(Name = "GetLogins")]
+        //GetLoginsResponse GetLogins(GetLoginsRequest request);
 
         [OperationContract(Name = "GetLoginsAsync")]
         Task<GetLoginsResponse> GetLoginsAsync(GetLoginsRequest request);

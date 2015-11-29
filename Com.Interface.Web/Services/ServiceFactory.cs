@@ -70,8 +70,8 @@ namespace Com.Interface.Web.Services
         public ServiceBindingManager() { }
         public ServiceBindingManager(Uri baseAddress, BindingTypeEnum bindingType)
         {
-            baseAddress = baseAddress;
-            bindingType = bindingType;
+            this.baseAddress = baseAddress;
+            this.bindingType = bindingType;
         }
 
         public T Create<T>(string servicePath) where T : IService

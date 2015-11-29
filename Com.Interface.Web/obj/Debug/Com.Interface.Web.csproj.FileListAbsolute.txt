@@ -90,7 +90,6 @@ C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.Web
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.xml
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.dll
 C:\Users\adam.hancock\Documents\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.pdb
-C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\log4net.config
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\csc.exe
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -184,3 +183,7 @@ C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\l
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.csprojResolveAssemblyReference.cache
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.dll
 C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\obj\Debug\Com.Interface.Web.pdb
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\SendGrid.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\RestSharp.xml
+C:\Users\Adam\Development\GitHub\BusinessManagementSuite\Com.Interface.Web\bin\System.Net.Http.Formatting.xml
