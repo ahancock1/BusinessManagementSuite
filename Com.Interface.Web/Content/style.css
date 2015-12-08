@@ -1,15 +1,97 @@
-﻿body {
+body {
     margin: 0;
     padding: 0;
     font-size: 100%;
     font-family: Arial;
     font-weight: 300;
-    color: #333333;
     background-color: #eee;
 }
 
+
+/* NAVBAR */
+
+.navbar-default {
+  background-color: #333333;
+  border-color: #333333;
+    font-size: 16px;
+}
+.navbar-default .navbar-brand {
+  color: #eeeeee;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #eeeeee;
+    font-size: 14px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #eeeeee;
+    font-size: 14px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #333333;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #eeeeee;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #333333;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #333333;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #333333;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #333333;
+}
+.navbar-default .navbar-toggle {
+  border-color: #333333;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #333333;
+  box-shadow: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #eeeeee;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #eeeeee;
+}
+.navbar-default .navbar-link {
+  color: #eeeeee;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #eeeeee;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #333333;
+  }
+}
+
+/* END NAVBAR */
+
 a {
-    color: #333333;
+    color: #666;
 }
 
     a img {
@@ -26,6 +108,7 @@ a {
 
 h1, h2, h3 {
     font-weight: normal;
+    color: #333;
 }
 
 .hide {
@@ -62,6 +145,7 @@ h1, h2, h3 {
     cursor: pointer;
     color: #fff !important;
     opacity: 0.8;
+    transition: all .3s;
 }
 
 .actions .submit:hover {
@@ -917,50 +1001,55 @@ body.showModal {
     }
 }
 
-
-
     
 /* VALIDATION CONTROL */
 
-.standard-control {
-
-    margin-bottom: 0;
-    padding-top: 10px;
-    
-}
-
-.standard-control .control input {
-
-    border: 2px solid #d4d4d4;
-    height: 42px;
-    box-shadow: none;
-
-}
-
-    .standard-control .control input, .standard-control .control select, .standard-control .control textarea, .actions .submit {
-        margin: 0 0 10px;
-        box-sizing: border-box;
-        padding: 0 10px;
-        color: #333;
-        transition: all .3s;
-    }
-
-.standard-control .control.medium input, .standard-control .control.medium select {
+.standard-control.medium input, .standard-control.medium select {
     width: 210px;
 }
 
-.standard-control .control.small input, .standard-control .control.small select {
+.standard-control.small input, .standard-control.small select {
     width: 140px;
 }
-   
-.standard-control .control input:hover,
-.standard-control .control input:focus,
-.standard-control .control input.input-validation-error:focus, 
-.standard-control .control select:focus {
-    border-color: #563D7C;
+ 
+.standard-control input,
+.standard-control select,
+.standard-control textarea,
+.actions .submit {
+    margin: 0 0 10px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #333;
 }
 
-.standard-control .control input.input-validation-error, .standard-control .control input:focus.input-validation-error {
+.standard-control input:hover,
+.standard-control input:focus,
+.standard-control select:focus {
+    border-color: #563D7C;
+    box-shadow: none;
+}
+
+.standard-control {
+    margin-bottom: 0;
+    padding-top: 10px;
+}
+
+.standard-control input {
+    border: 2px solid #d4d4d4;
+    height: 42px;
+    box-shadow: none;
+}
+
+.standard-control input.valid
+{
+    padding-right: 36px;
+    background-image: url("//dy3erx8o0a6nh.cloudfront.net/images/input-valid.18x14.png");
+    background-repeat: no-repeat;
+    background-size: 18px 14px;
+    background-position: 96% center;
+}
+
+.standard-control input.input-validation-error, .standard-control input:focus.input-validation-error {
     border-color: #fd6b66;
     padding-right: 36px;
     background-image: url("//dy3erx8o0a6nh.cloudfront.net/images/input-error.18x15.png");
@@ -970,22 +1059,14 @@ body.showModal {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:2) {
-    .standard-control .control input.input-validation-error {
+    .validation-control input.input-validation-error {
         background-image: url("//dy3erx8o0a6nh.cloudfront.net/images/input-error.32x30.png");
         background-size: 18px 15px;
     }
 }
 
-.standard-control .control input.valid, .standard-control .control select.valid {
-    padding-right: 36px;
-    background-image: url("//dy3erx8o0a6nh.cloudfront.net/images/input-valid.18x14.png");
-    background-repeat: no-repeat;
-    background-size: 18px 14px;
-    background-position: 96% center;
-}
-
 @media screen and (-webkit-min-device-pixel-ratio:2) {
-    .standard-control .control input.input-validation-error, .standard-control .control select.input-validation-error {
+    .validation-control input.input-validation-error, .validation-control select.input-validation-error {
         background-image: url("//dy3erx8o0a6nh.cloudfront.net/images/input-valid.32x28.png");
         background-size: 18px 14px;
     }
@@ -1255,7 +1336,6 @@ form .field-validation-error {
     font-size: 2.4em;
     font-weight: 300;
     text-align: center;
-    color: #333;
 }
 
 @media screen and (max-width:640px) {
@@ -1424,8 +1504,8 @@ input:-moz-placeholder {
     }
 
 #delivery .container p, #collection .container p {
-    font-size: 14px;
-    font-size: 1.4em;
+    font-size: 18px;
+    font-size: 1.8em;
 }
 
 .signup a, .signin a, .accountSwitch {
